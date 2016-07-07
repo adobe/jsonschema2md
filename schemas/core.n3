@@ -45,19 +45,19 @@ xmp:Dimensions a rdfs:Class ;
     rdfs:label "Dimensions"@en ;
     rdfs:comment "A structure containing dimensions for a drawn object." .
 
-stDIm:h a rdf:Property ;
+stDim:h a rdf:Property ;
     rdfs:label "Height"@en ;
     rdfs:comment "Height magnitude" ;
     rdfs:Domain xmp:Dimensions ;
     rdfs:range xsd:float .
 
-stDIm:w a rdf:Property ;
+stDim:w a rdf:Property ;
     rdfs:label "Width"@en ;
     rdfs:comment "Width magnitude" ;
     rdfs:Domain xmp:Dimensions ;
     rdfs:range xsd:float .
 
-stDIm:unit a rdf:Property ;
+stDim:unit a rdf:Property ;
     rdfs:label "Units"@en ;
     rdfs:comment "Units. For example: inch, mm, pixel, pica, point" ;
     rdfs:Domain xmp:Dimensions ;
