@@ -4,7 +4,7 @@ Semantic data model for the [unified Adobe Cloud API](https://wiki.corp.adobe.co
 
 ## Schema files
 
-The machine readable schema source files ([RDF/S](https://www.w3.org/TR/rdf-schema/) in [Notation3 (N3) Syntax](https://www.w3.org/TeamSubmission/n3/)) are located in the {{schemas}} root directory.
+The machine readable schema source files ([RDF/S](https://www.w3.org/TR/rdf-schema/) in [Notation3 (N3) Syntax](https://www.w3.org/TeamSubmission/n3/)) are located in the `schemas` root directory.
 
 ## Links
 
