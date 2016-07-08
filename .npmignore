@@ -1,0 +1,23 @@
+# ide files
+.project
+.settings
+.idea/
+*.iml
+
+# node specific files
+node_modules/
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+pids
+logs
+results
+npm-debug.log
+
+# mac files
+.DS_Store

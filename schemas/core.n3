@@ -9,6 +9,10 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<> a owl:Ontology ;
+    dc:title "Adobe Cloud Core Asset Data Model" ;
+    rdfs:comment "An RDFS Schema for the Adobe Cloud Core Asset Data Model" .
+
 # schema vocabulary extensions
 
 info:AssetProperty a rdfs:Class ;
@@ -33,13 +37,19 @@ info:exampleValue a rdf:Property ;
     rdfs:Domain info:AssetProperty ;
     rdfs:range xsd:string .
 
+info:note a rdf:Property ;
+    rdfs:label "Note"@en ;
+    rdfs:comment "Note" ;
+    rdfs:Domain info:AssetProperty ;
+    rdfs:range xsd:string .
+
 info:repositoryImmutable a rdf:Property ;
     # corresponds to 'Immutability' column 
     rdfs:comment "resource property cannot be modified after resource creation" ;
     rdfs:Domain info:AssetProperty ;
     rdfs:range xsd:boolean .
 
-# data types
+# derived data types
 
 xmp:Dimensions a rdfs:Class ;
     rdfs:label "Dimensions"@en ;
@@ -66,9 +76,6 @@ stDim:unit a rdf:Property ;
 xmp:GUID a rdfs:Datatype ;
     owl:onDatatype xsd:string ;
     rdfs:comment """A string representing a “globally unique identifier”""" .
-
-
-# TODO use rdfs:DataType and xsd:* instead?)
 
 ### Asset
 
