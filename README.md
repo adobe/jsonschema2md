@@ -20,8 +20,10 @@ The machine readable schema source files ([RDF/S](https://www.w3.org/TR/rdf-sche
 
 * [schema.org](http://schema.org)
 * [Dublin Core](http://dublincore.org/)
-* [FOAF](http://xmlns.com/foaf/spec/)
+* [OWL](http://www.w3.org/TR/2009/REC-owl2-overview-20091027/)
+* [SKOS Core](http://www.w3.org/TR/2009/REC-skos-reference-20090818/)
 
 ### Tools
 
+* [TextMate N3/Turtle Bundle](https://github.com/peta/turtle.tmbundle)
 * [Online RDF Converter](http://www.easyrdf.org/converter)

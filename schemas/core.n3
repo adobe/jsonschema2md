@@ -1,86 +1,152 @@
+#*************************************************************************
+ #
+ # ADOBE CONFIDENTIAL
+ # ___________________
+ #
+ #  Copyright 2016 Adobe Systems Incorporated
+ #  All Rights Reserved.
+ #
+ # NOTICE:  All information contained herein is, and remains
+ # the property of Adobe Systems Incorporated and its suppliers,
+ # if any.  The intellectual and technical concepts contained
+ # herein are proprietary to Adobe Systems Incorporated and its
+ # suppliers and are protected by trade secret or copyright law.
+ # Dissemination of this information or reproduction of this material
+ # is strictly forbidden unless prior written permission is obtained
+ # from Adobe Systems Incorporated.
+ #*************************************************************************/
+
 @prefix core: <http://ns.adobe.com/adobecloud/core/1.0/> . # TODO TBD define namespace URI
-@prefix info: <http://ns.adobe.com/adobecloud/info/1.0/> . # TODO TBD define namespace URI
+@prefix meta: <http://ns.adobe.com/adobecloud/meta/1.0/> . # TODO TBD define namespace URI
 @prefix xmp: <http://ns.adobe.com/xap/1.0/> .
 @prefix xmpMM: <http://ns.adobe.com/xap/1.0/mm/> .
 @prefix xmpRights: <http://ns.adobe.com/xap/1.0/rights/> .
 @prefix stDim: <http://ns.adobe.com/xap/1.0/sType/Dimensions#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+# TODO schema definition vocabulary: use/leverage owl:imports, rdfs:seeAlso , rdfs:isDefinedBy, skos:definition, etc ?
+
 <> a owl:Ontology ;
-    dc:title "Adobe Cloud Core Asset Data Model" ;
-    rdfs:comment "An RDFS Schema for the Adobe Cloud Core Asset Data Model" .
+  dc:title "Adobe Cloud Core Asset Data Model" ;
+  rdfs:comment "An RDF/S Schema for the Adobe Cloud Core Asset Data Model" .
 
-# schema vocabulary extensions
+# RDF-compatible XSD types used in this schema, defined for documentation purposes (see https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes)
 
-info:AssetProperty a rdfs:Class ;
-    rdfs:comment "Asset specific property" ;
-    rdfs:subClassOf rdf:Property .
+xsd:string a rdfs:Datatype ;
+  rdfs:label "String" ;
+  rdfs:comment "Character strings (but not all Unicode character strings)" ;
+  rdfs:subClassOf rdfs:Literal .
 
-info:access a rdf:Property ;
-    # corresponds to RelaxNG XMP Schema 
-    rdfs:comment "read, write, readwrite" ;
-    rdfs:Domain info:AssetProperty ;
-    rdfs:range xsd:string .
+xsd:boolean a rdfs:Datatype ;
+  rdfs:label "Boolean" ;
+  rdfs:comment "true, false" ;
+  rdfs:subClassOf rdfs:Literal ;
+  owl:withRestrictions (
+    [
+      xsd:pattern "(true|false)"
+    ]
+  ) .
 
-info:jsonName a rdf:Property ;
-    rdfs:label "JSON Name"@en ;
-    rdfs:comment "Name of the property in JSON serialization" ;
-    rdfs:Domain info:AssetProperty ;
-    rdfs:range xsd:string .
+xsd:decimal a rdfs:Datatype ;
+  rdfs:label "Decimal" ;
+	rdfs:comment "Arbitrary-precision decimal numbers" ;
+  rdfs:subClassOf rdfs:Literal ;
+	owl:withRestrictions (
+		[
+			xsd:pattern "[+-]?[0-9]*\\.?[0-9]*"
+		]
+	) .
 
-info:exampleValue a rdf:Property ;
-    rdfs:label "Example Value"@en ;
-    rdfs:comment "Example Value" ;
-    rdfs:Domain info:AssetProperty ;
-    rdfs:range xsd:string .
+xsd:integer a rdfs:Datatype ;
+  rdfs:label "Integer" ;
+	rdfs:comment "Arbitrary-size integer numbers" ;
+  owl:onDatatype xsd:decimal ;
+  rdfs:subClassOf rdfs:Literal ;
+  owl:withRestrictions (
+    [
+      xsd:pattern "[-+]?[0-9]+"
+    ] [
+      xsd:fractionDigits 0
+    ]
+  ) .
 
-info:note a rdf:Property ;
-    rdfs:label "Note"@en ;
-    rdfs:comment "Note" ;
-    rdfs:Domain info:AssetProperty ;
-    rdfs:range xsd:string .
+xsd:double a rdfs:Datatype ;
+  rdfs:label "Double" ;
+  rdfs:comment "64-bit floating point numbers incl. ±Inf, ±0, NaN" ;
+  rdfs:subClassOf rdfs:Literal ;
+  owl:withRestrictions (
+    [
+      xsd:pattern "[+-]?[0-9]*\\.?[0-9]*([eE][-+]?[0-9]+)"
+    ]
+  ) .
 
-info:repositoryImmutable a rdf:Property ;
-    # corresponds to 'Immutability' column 
-    rdfs:comment "resource property cannot be modified after resource creation" ;
-    rdfs:Domain info:AssetProperty ;
-    rdfs:range xsd:boolean .
+xsd:float a rdfs:Datatype ;
+  rdfs:label "Float" ;
+  rdfs:comment "32-bit floating point numbers incl. ±Inf, ±0, NaN" ;
+  rdfs:subClassOf rdfs:Literal ;
+  owl:onDatatype xsd:double .
+
+xsd:date a rdfs:Datatype ;
+  rdfs:label "Date" ;
+  rdfs:comment "Dates (yyyy-mm-dd) with or without timezone" ;
+  rdfs:subClassOf rdfs:Literal ;
+	owl:withRestrictions (
+		[
+			xsd:pattern "-?[0-9][0-9][0-9][0-9]([0-9]*)?-(0[1-9]|1[0-1])-([0-3][1-9])([+-][0-1][0-9]:[0-6][0-9])?"
+		]
+	) .
+
+xsd:time a rdfs:Datatype ;
+  rdfs:label "Time" ;
+  rdfs:comment "Times (hh:mm:ss.sss…) with or without timezone" ;
+  rdfs:subClassOf rdfs:Literal ;
+	owl:withRestrictions (
+		[
+			xsd:pattern "[1-2][0-9]:[0-5][0-9]:[0-5][0-9].[0-9][0-9][0-9]"
+		]
+	) .
+
+xsd:dateTime a rdfs:Datatype ;
+  rdfs:label "DateTime" ;
+  rdfs:subClassOf rdfs:Literal ;
+  rdfs:comment "Date and time with or without timezone" .
 
 # derived data types
 
 xmp:Dimensions a rdfs:Class ;
-    rdfs:label "Dimensions"@en ;
-    rdfs:comment "A structure containing dimensions for a drawn object." .
+  rdfs:label "Dimensions"@en ;
+  rdfs:comment "A structure containing dimensions for a drawn object." .
 
 stDim:h a rdf:Property ;
-    rdfs:label "Height"@en ;
-    rdfs:comment "Height magnitude" ;
-    rdfs:Domain xmp:Dimensions ;
-    rdfs:range xsd:float .
+  rdfs:label "Height"@en ;
+  rdfs:comment "Height magnitude" ;
+  rdfs:domain xmp:Dimensions ;
+  rdfs:range xsd:float .
 
 stDim:w a rdf:Property ;
-    rdfs:label "Width"@en ;
-    rdfs:comment "Width magnitude" ;
-    rdfs:Domain xmp:Dimensions ;
-    rdfs:range xsd:float .
+  rdfs:label "Width"@en ;
+  rdfs:comment "Width magnitude" ;
+  rdfs:domain xmp:Dimensions ;
+  rdfs:range xsd:float .
 
 stDim:unit a rdf:Property ;
-    rdfs:label "Units"@en ;
-    rdfs:comment "Units. For example: inch, mm, pixel, pica, point" ;
-    rdfs:Domain xmp:Dimensions ;
-    rdfs:range xsd:string .
+  rdfs:label "Units"@en ;
+  rdfs:comment "Units. For example: inch, mm, pixel, pica, point" ;
+  rdfs:domain xmp:Dimensions ;
+  rdfs:range xsd:string .
 
 xmp:Text a rdfs:Datatype ;
-    owl:onDatatype xsd:string ;
-    rdfs:comment """A possibly empty Unicode string""" .
+  owl:onDatatype xsd:string ;
+  rdfs:comment """A possibly empty Unicode string""" .
 
 xmp:AgentName a rdfs:Datatype ;
-    owl:onDatatype xmp:Text ;
-    rdfs:comment """The name of an XMP processor, a Text value.
+  owl:onDatatype xmp:Text ;
+  rdfs:comment """The name of an XMP processor, a Text value.
 It is recommended that the value use this format convention:
 Organization Software_name Version (token;token;...)
 - Organization: The name of the company or organization providing the software, no SPACEs.
@@ -89,146 +155,212 @@ Organization Software_name Version (token;token;...)
 - tokens: Can be used to identify an operating system, plug-in, or more detailed version information.""" .
 
 xmp:GUID a rdfs:Datatype ;
-    owl:onDatatype xsd:string ;
-    rdfs:comment """A string representing a “globally unique identifier”""" .
+  owl:onDatatype xsd:string ;
+  rdfs:comment """A string representing a “globally unique identifier”""" .
+
+# abstract base classes for schema classes and properties
+
+meta:BaseClass a rdfs:Class ;
+  rdfs:label "BaseClass"@en ;
+  rdfs:comment "Base class of all Data Model Classes" ;
+  rdfs:subClassOf rdfs:Resource .
+
+meta:BaseProperty a rdfs:Class ;
+  rdfs:label "BaseProperty"@en ;
+  rdfs:comment "Base class of all Data Model Properties" ;
+  rdfs:domain meta:BaseClass ;
+  rdfs:range rdfs:Datatype ;
+  rdfs:subClassOf rdf:Property .
+
+# schema defintion vocabulary extensions
+
+meta:access a rdf:Property ;
+  rdfs:label "Access"@en ;
+  rdfs:comment "read, write, readwrite" ;
+  rdfs:domain meta:BaseProperty ;
+  skos:note "corresponds to RelaxNG XMP Schema" ;
+  rdfs:range xsd:string .
+
+meta:jsonName a rdf:Property ;
+  rdfs:label "JSON Name"@en ;
+  rdfs:comment "Name of the property in JSON serialization" ;
+  rdfs:domain meta:BaseProperty ;
+  rdfs:range xsd:string .
+
+meta:repositoryImmutable a rdf:Property ;
+  rdfs:label "repositoryImmutable"@en ;
+  # corresponds to 'Immutability' column
+  rdfs:comment "resource property cannot be modified after resource creation" ;
+  rdfs:domain meta:BaseProperty ;
+  rdfs:range xsd:boolean .
 
 ### Asset
 
 core:Asset a rdfs:Class ;
-    rdfs:label "Asset"@en ;
-    rdfs:comment "OneAdobe Cloud Asset Core Class" ;
-    rdfs:subClassOf rdfs:Resource .
+  rdfs:label "Asset"@en ;
+  rdfs:comment "OneAdobe Cloud Asset Core Class" ;
+  rdfs:subClassOf meta:BaseClass .
 
 #### Property section: Asset Identity
 
-xmpMM:DocumentID a info:AssetProperty ;
-    # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
-    rdfs:isDefinedBy <http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/xmp/pdfs/XMP%20SDK%20Release%20cc-2014-12/XMPSpecificationPart1.pdf> ;
-    rdfs:label "Document ID"@en ;
-    rdfs:comment "The common identifier for all versions and renditions of a resource." ;
-    rdfs:range xmp:GUID ;
-    info:jsonName "document_id" ;
-    info:access "read" ;
-    # TODO TBD 'mandatory'?
-    rdfs:domain core:Asset .
+xmpMM:DocumentID a meta:BaseProperty ;
+  # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
+  rdfs:isDefinedBy <http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/xmp/pdfs/XMP%20SDK%20Release%20cc-2014-12/XMPSpecificationPart1.pdf> ;
+  rdfs:label "Document ID"@en ;
+  rdfs:comment "The common identifier for all versions and renditions of a resource." ;
+  rdfs:range xmp:GUID ;
+  meta:jsonName "document_id" ;
+  meta:access "read" ;
+  skos:note "" ;  # TODO
+  skos:example "" ;  # TODO
+  # TODO TBD 'mandatory'?
+  rdfs:domain core:Asset .
 
-core:assetName a info:AssetProperty ;
-    rdfs:label "Asset name"@en ;
-    rdfs:comment "Name of the asset in the repository" ;
-    rdfs:range xsd:string ;
-    info:jsonName "asset_name" ;
-    info:access "readwrite" ;
-    rdfs:domain core:Asset .
+core:assetName a meta:BaseProperty ;
+  rdfs:label "Asset name"@en ;
+  rdfs:comment "Name of the asset in the repository" ;
+  rdfs:range xsd:string ;
+  meta:jsonName "asset_name" ;
+  meta:access "readwrite" ;
+  skos:note "" ;  # TODO
+  skos:example "" ;  # TODO
+  rdfs:domain core:Asset .
 
 #### Property section: Asset Creation
 
-xmp:CreateDate a info:AssetProperty ;
-    # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
-    rdfs:isDefinedBy <http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/xmp/pdfs/XMP%20SDK%20Release%20cc-2014-12/XMPSpecificationPart1.pdf> ;
-    rdfs:label "Date Created"@en ;
-    #rdfs:comment "Date and Time media was originally created." ;
-    rdfs:comment "The date and time the resource was created. For a digital file, this need not match a file-system creation time. For a freshly created resource, it should be close to that time, modulo the time taken to write the file. Later file transfer, copying, and so on, can make the file-system time arbitrarily different." ;
-    rdfs:range xsd:dateTime ;
-    info:jsonName "create_date" ;
-    info:access "readwrite" ;
-    # TODO TBD 'mandatory'?
-    rdfs:domain core:Asset .
+xmp:CreateDate a meta:BaseProperty ;
+  # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
+  rdfs:isDefinedBy <http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/xmp/pdfs/XMP%20SDK%20Release%20cc-2014-12/XMPSpecificationPart1.pdf> ;
+  rdfs:label "Date Created"@en ;
+  #rdfs:comment "Date and Time media was originally created." ;
+  rdfs:comment "The date and time the resource was created. For a digital file, this need not match a file-system creation time. For a freshly created resource, it should be close to that time, modulo the time taken to write the file. Later file transfer, copying, and so on, can make the file-system time arbitrarily different." ;
+  rdfs:range xsd:dateTime ;
+  meta:jsonName "create_date" ;
+  meta:access "readwrite" ;
+  skos:note """YYYY
+YYYY-MM
+YYYY-MM-DD
+YYYY-MM-DDThh:mmTZD
+YYYY-MM-DDThh:mm:ssTZD
+YYYY-MM-DDThh:mm:ss.sTZD""" ;
+  skos:example "1600" ;
+  # TODO TBD 'mandatory'?
+  rdfs:domain core:Asset .
 
-core:firstUploadDate a info:AssetProperty ;
-    rdfs:label "Date Initally Uploaded"@en ;    #rdfs:comment "Date and Time media was originally created." ;
-    rdfs:comment "The date and time when the file was first uploaded to the cloud. It will be the server time." ;
-    info:repositoryImmutable "true" ;
-    rdfs:range xsd:dateTime ;
-    info:jsonName "first_upload_date" ;
-    # TODO TBD 'mandatory'?
-    rdfs:domain core:Asset .
+core:firstUploadDate a meta:BaseProperty ;
+  rdfs:label "Date Initally Uploaded"@en ;    #rdfs:comment "Date and Time media was originally created." ;
+  rdfs:comment "The date and time when the file was first uploaded to the cloud. It will be the server time." ;
+  meta:repositoryImmutable "true" ;
+  rdfs:range xsd:dateTime ;
+  meta:jsonName "first_upload_date" ;
+  skos:note "YYYY-MM-DDThh:mm:ss.sTZD" ;
+  skos:example "2016-07-12T12:13:05.123+01:00" ;
+  # TODO TBD 'mandatory'?
+  rdfs:domain core:Asset .
 
-core:firstUploadedBy a info:AssetProperty ;
-    rdfs:label "First uploaded by"@en ;
-    rdfs:comment "ID of the user who first uploaded the asset" ;
-    info:repositoryImmutable "true" ;
-    rdfs:range xsd:string ;
-    info:jsonName "first_uploaded_by" ;
-    # TODO TBD 'mandatory'?
-    rdfs:domain core:Asset .
+core:firstUploadedBy a meta:BaseProperty ;
+  rdfs:label "First uploaded by"@en ;
+  rdfs:comment "ID of the user who first uploaded the asset" ;
+  meta:repositoryImmutable "true" ;
+  rdfs:range xsd:string ;
+  meta:jsonName "first_uploaded_by" ;
+  skos:note "" ;  # TODO
+  skos:example "" ;  # TODO
+  # TODO TBD 'mandatory'?
+  rdfs:domain core:Asset .
 
-xmp:CreatorTool a info:AssetProperty ;
-    rdfs:label "Creator tool"@en ;
-    rdfs:comment "Name of the application which authored the asset." ;
-    rdfs:range xmp:AgentName ;
-    info:jsonName "creator_tool" ;
-    info:access "read" ;
-    rdfs:domain core:Asset .
+xmp:CreatorTool a meta:BaseProperty ;
+  rdfs:label "Creator tool"@en ;
+  rdfs:comment "Name of the application which authored the asset." ;
+  rdfs:range xmp:AgentName ;
+  meta:jsonName "creator_tool" ;
+  meta:access "read" ;
+  skos:note "" ;  # TODO
+  skos:example "" ;  # TODO
+  rdfs:domain core:Asset .
 
 #### Property section: Asset Modification
 
-core:lastModifiedDate a info:AssetProperty ;
-    rdfs:label "Date Last Uploaded"@en ;
-    rdfs:comment "The date and time when asset content or asset metadata was last modified in the repository. Adding of renditions won't change this date." ;
-    rdfs:range xsd:dateTime ;
-    info:jsonName "last_modified_date" ;
-    info:access "read" ;
-    # TODO TBD 'mandatory'?
-    rdfs:domain core:Asset .
+core:lastModifiedDate a meta:BaseProperty ;
+  rdfs:label "Date Last Uploaded"@en ;
+  rdfs:comment "The date and time when asset content or asset metadata was last modified in the repository. Adding of renditions won't change this date." ;
+  rdfs:range xsd:dateTime ;
+  meta:jsonName "last_modified_date" ;
+  meta:access "read" ;
+  skos:note "" ;  # TODO
+  skos:example "" ;  # TODO
+  # TODO TBD 'mandatory'?
+  rdfs:domain core:Asset .
 
-core:lastModifiedBy a info:AssetProperty ;
-    rdfs:label "Last uploaded by"@en ;
-    rdfs:comment "ID of the user who last uploaded the asset." ;
-    info:repositoryImmutable "true" ;
-    rdfs:range xsd:string ;
-    info:jsonName "last_modified_by" ;
-    info:access "read" ;
-    # TODO TBD 'mandatory'?
-    rdfs:domain core:Asset .    
+core:lastModifiedBy a meta:BaseProperty ;
+  rdfs:label "Last uploaded by"@en ;
+  rdfs:comment "ID of the user who last uploaded the asset." ;
+  meta:repositoryImmutable "true" ;
+  rdfs:range xsd:string ;
+  meta:jsonName "last_modified_by" ;
+  meta:access "read" ;
+  skos:note "" ;  # TODO
+  skos:example "" ;  # TODO
+  # TODO TBD 'mandatory'?
+  rdfs:domain core:Asset .    
 
-core:versionID a info:AssetProperty ;
-    rdfs:label "Version ID"@en ;
-    rdfs:comment "The version ID of the asset. It will be generated both on explicit and implicit save or upload." ;
-    rdfs:range xsd:string ;
-    info:jsonName "version_id" ;
-    info:access "read" ;
-    # TODO TBD 'mandatory'?
-    rdfs:domain core:Asset . 
+core:versionID a meta:BaseProperty ;
+  rdfs:label "Version ID"@en ;
+  rdfs:comment "The version ID of the asset. It will be generated both on explicit and implicit save or upload." ;
+  rdfs:range xsd:string ;
+  meta:jsonName "version_id" ;
+  meta:access "read" ;
+  skos:note "" ;  # TODO
+  skos:example "" ;  # TODO
+  # TODO TBD 'mandatory'?
+  rdfs:domain core:Asset . 
 
-core:versionLabel a info:AssetProperty ;
-    rdfs:label "Version label"@en ;
-    rdfs:comment "A label given to a version of the asset. It is optional." ;
-    rdfs:range xsd:string ;
-    info:jsonName "version_label" ;
-    info:access "read" ;
-    rdfs:domain core:Asset . 
+core:versionLabel a meta:BaseProperty ;
+  rdfs:label "Version label"@en ;
+  rdfs:comment "A label given to a version of the asset. It is optional." ;
+  rdfs:range xsd:string ;
+  meta:jsonName "version_label" ;
+  meta:access "read" ;
+  skos:note "" ;  # TODO
+  skos:example "" ;  # TODO
+  rdfs:domain core:Asset . 
 
 #### Property section: Asset Legal Information
 
-xmpRights:WebStatement a info:AssetProperty ;
-    # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
-    rdfs:label "Web statement"@en ;
-    rdfs:comment """A Web URL for a statement of the ownership and usage rights for this resource.
-NOTE This is a normal (non-URI) simple value because of historical usage""" ;
-    rdfs:range xmp:Text ;
-    info:jsonName "license_type" ;
-    info:access "readwrite" ;
-    info:example "http://creativecommons.org/licenses/by/4.0/" ;
-    rdfs:domain core:Asset .
+xmpRights:WebStatement a meta:BaseProperty ;
+  # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
+  rdfs:label "Web statement"@en ;
+  rdfs:comment "A Web URL for a statement of the ownership and usage rights for this resource." ;
+  rdfs:range xmp:Text ;
+  meta:jsonName "license_type" ;
+  meta:access "readwrite" ;
+  meta:example "http://creativecommons.org/licenses/by/4.0/" ;
+  skos:note "This is a normal (non-URI) simple value because of historical usage" ;
+  skos:example "" ;  # TODO
+  rdfs:domain core:Asset .
 
-dc:rights a info:AssetProperty ;
-    rdfs:label "Rights"@en ;
-    rdfs:comment """Information about rights held in and over the resource.
- Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.""" ;
-    # TODO: in the XMP spec this property is defined to be of type "language alternative" - needs to be fixed below
-    rdfs:range xmp:Text ;
-    info:jsonName "copyright_notice" ;
-    info:access "readwrite" ;
-    rdfs:domain core:Asset .
+dc:rights a meta:BaseProperty ;
+  rdfs:label "Rights"@en ;
+  rdfs:comment """Information about rights held in and over the resource.
+Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.""" ;
+  # TODO: in the XMP spec this property is defined to be of type "language alternative" - needs to be fixed below
+  rdfs:range xmp:Text ;
+  meta:jsonName "copyright_notice" ;
+  meta:access "readwrite" ;
+  skos:note "" ;  # TODO
+  skos:example "" ;  # TODO
+  rdfs:domain core:Asset .
 
-xmpRights:Marked  a info:AssetProperty ;
-    # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
-    rdfs:label "Marked"@en ;
-    rdfs:comment """When true, indicates that this is a rights-managed resource. When false, indicates that this is a public-domain resource. Omit if the state is unknown.""" ;
-    rdfs:range xsd:boolean ;
-    info:jsonName "rights_managed_asset" ;
-    info:access "readwrite" ;
-    rdfs:domain core:Asset .
+xmpRights:Marked a meta:BaseProperty ;
+# XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
+  rdfs:label "Marked"@en ;
+  rdfs:comment """When true, indicates that this is a rights-managed resource. When false, indicates that this is a public-domain resource. Omit if the state is unknown.""" ;
+  rdfs:range xsd:boolean ;
+  meta:jsonName "rights_managed_asset" ;
+  meta:access "readwrite" ;
+  skos:note "" ;  # TODO
+  skos:example "" ;  # TODO
+  rdfs:domain core:Asset .
 
 #### Property section: Asset Description
 
@@ -237,15 +369,14 @@ xmpRights:Marked  a info:AssetProperty ;
 ### Image
 
 core:Image a rdfs:Class ;
-    rdfs:label "Image" ;
-    rdfs:comment "OneAdobe Cloud Image Class, JPEG, PNG, etc." ;
-    rdfs:subClassOf core:Asset .
+  rdfs:label "Image" ;
+  rdfs:comment "OneAdobe Cloud Image Class, JPEG, PNG, etc." ;
+  rdfs:subClassOf core:Asset .
 
-core:dimensions a info:AssetProperty ;
-    rdfs:label "Dimensions"@en ;
-    rdfs:comment "" ;
-    rdfs:range xmp:Dimensions ;
-    info:jsonName "dimensions" ;
-    # TODO TBD 'mandatory'?
-    rdfs:domain core:Image .
-
+core:dimensions a meta:BaseProperty ;
+  rdfs:label "Dimensions"@en ;
+  rdfs:comment "" ;
+  rdfs:range xmp:Dimensions ;
+  meta:jsonName "dimensions" ;
+  # TODO TBD 'mandatory'?
+  rdfs:domain core:Image .

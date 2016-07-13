@@ -1,19 +1,21 @@
 {
   "name": "onecloud-datamodel-schema",
-  "description": "",
+  "description": "Semantic data model and tooling for unified Adobe Cloud API.",
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js"
   },
   "dependencies": {
-    "winston": "^2.2.0",
-    "async": "^1.4.2",
+    "n3": "^0.5.0",
     "lodash": "^4.5.0",
+
+    "async": "^1.4.2",
+    "winston": "^2.2.0",
+
     "rdflib": "^0.7.1",
     "rdf-ext": "^0.3.0",
     "jsonld": "^0.4.11",
-    "n3": "^0.3.0",
     "rdfstore": "^0.9.13"
   },
   "engines": {
