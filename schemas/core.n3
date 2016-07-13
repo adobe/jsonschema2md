@@ -155,6 +155,25 @@ xmp:CreatorTool a info:AssetProperty ;
     info:access "read" ;
     rdfs:domain core:Asset .
 
+core:lastModifiedDate a info:AssetProperty ;
+    rdfs:label "Date Last Uploaded"@en ;
+    rdfs:comment "The date and time when asset content or asset metadata was last modified in the repository. Adding of renditions won't change this date." ;
+    rdfs:range xsd:dateTime ;
+    info:jsonName "last_modified_date" ;
+    info:access "read" ;
+    # TODO TBD 'mandatory'?
+    rdfs:domain core:Asset .
+
+core:lastModifiedBy a info:AssetProperty ;
+    rdfs:label "Last uploaded by"@en ;
+    rdfs:comment "ID of the user who last uploaded the asset." ;
+    info:repositoryImmutable "true" ;
+    rdfs:range xsd:string ;
+    info:jsonName "last_modified_by" ;
+    info:access "read" ;
+    # TODO TBD 'mandatory'?
+    rdfs:domain core:Asset .    
+
 ### Image
 
 core:Image a rdfs:Class ;
