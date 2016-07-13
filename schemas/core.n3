@@ -28,6 +28,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace/> .
 
 # TODO schema definition vocabulary: use/leverage owl:imports, rdfs:seeAlso , rdfs:isDefinedBy, skos:definition, etc ?
 
@@ -133,6 +134,10 @@ xsd:dateTimeStamp a rdfs:Datatype ;
 
 # derived data types
 
+xml:lang a rdfs:Datatype ;
+  owl:onDatatype xsd:string ;
+  rdfs:comment """Language string as defined in IETF RFC 3066""" .
+
 xmp:Dimensions a rdfs:Class ;
   rdfs:label "Dimensions"@en ;
   rdfs:comment "A structure containing dimensions for a drawn object." .
@@ -176,6 +181,29 @@ xmp:ProperName a rdfs:Datatype ;
 xmp:GUID a rdfs:Datatype ;
   owl:onDatatype xsd:string ;
   rdfs:comment """A string representing a “globally unique identifier”""" .
+
+## structure for defining Language Alternatives as per XMP spec
+
+xmp:LanguageAlternativeText a rdf:Property ;
+  rdfs:range xsd:string ;
+  rdfs:domain xmp:LanguageAlternativeClass .
+
+xmp:LanguageAlternativeLang a rdf:Property ;
+  rdfs:range xml:lang ;
+  rdfs:domain xmp:LanguageAlternativeClass .
+
+xmp:LanguageAlternativeClass a rdfs:Class ;
+  rdfs:subClassOf rdfs:Resource .
+
+xmp:LanguageAlternativeItem rdfs:subPropertyOf rdf:li;
+  rdfs:range xmp:LanguageAlternativeClass ;
+  rdfs:domain xmp:LanguageAlternative .
+
+xmp:LanguageAlternative rdfs:subClassOf [ 
+    a owl:Restriction ; 
+    owl:onProperty xmp:LanguageAlternativeItem ;
+    owl:allValuesFrom xmp:LanguageAlternativeClass ;
+  ].
 
 # abstract base classes for schema classes and properties
 
@@ -371,8 +399,7 @@ dc:rights a meta:BaseProperty ;
   rdfs:label "Rights"@en ;
   rdfs:comment """Information about rights held in and over the resource.
 Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.""" ;
-  # TODO: in the XMP spec this property is defined to be of type "language alternative" - needs to be fixed below
-  rdfs:range xmp:Text ;
+  rdfs:range xmp:LanguageAlternative ;
   meta:jsonName "copyright_notice" ;
   meta:access "readwrite" ;
   skos:note "" ;  # TODO
