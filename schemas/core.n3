@@ -2,6 +2,7 @@
 @prefix info: <http://ns.adobe.com/adobecloud/info/1.0/> . # TODO TBD define namespace URI
 @prefix xmp: <http://ns.adobe.com/xap/1.0/> .
 @prefix xmpMM: <http://ns.adobe.com/xap/1.0/mm/> .
+@prefix xmpRights: <http://ns.adobe.com/xap/1.0/rights/> .
 @prefix stDim: <http://ns.adobe.com/xap/1.0/sType/Dimensions#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -198,6 +199,18 @@ core:versionLabel a info:AssetProperty ;
     rdfs:domain core:Asset . 
 
 #### Property section: Asset Legal Information
+
+xmpRights:WebStatement a info:AssetProperty ;
+    # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
+    rdfs:label "Web statement"@en ;
+    rdfs:comment """A Web URL for a statement of the ownership and usage rights for this resource.
+NOTE This is a normal (non-URI) simple value because of historical usage""" ;
+    rdfs:range xmp:Text ;
+    info:jsonName "license_type" ;
+    info:access "readwrite" ;
+    info:example "http://creativecommons.org/licenses/by/4.0/" ;
+    rdfs:domain core:Asset .
+
 
 #### Property section: Asset Description
 
