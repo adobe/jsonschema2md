@@ -334,9 +334,8 @@ xmpRights:WebStatement a meta:BaseProperty ;
   rdfs:range xmp:Text ;
   meta:jsonName "license_type" ;
   meta:access "readwrite" ;
-  meta:example "http://creativecommons.org/licenses/by/4.0/" ;
   skos:note "This is a normal (non-URI) simple value because of historical usage" ;
-  skos:example "" ;  # TODO
+  skos:example "http://creativecommons.org/licenses/by/4.0/" ;
   rdfs:domain core:Asset .
 
 dc:rights a meta:BaseProperty ;
