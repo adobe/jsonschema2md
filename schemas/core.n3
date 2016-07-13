@@ -211,6 +211,15 @@ NOTE This is a normal (non-URI) simple value because of historical usage""" ;
     info:example "http://creativecommons.org/licenses/by/4.0/" ;
     rdfs:domain core:Asset .
 
+dc:rights a info:AssetProperty ;
+    rdfs:label "Rights"@en ;
+    rdfs:comment """Information about rights held in and over the resource.
+ Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.""" ;
+    # TODO: in the XMP spec this property is defined to be of type "language alternative" - needs to be fixed below
+    rdfs:range xmp:Text ;
+    info:jsonName "copyright_notice" ;
+    info:access "readwrite" ;
+    rdfs:domain core:Asset .    
 
 #### Property section: Asset Description
 
