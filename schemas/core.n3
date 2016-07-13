@@ -219,7 +219,16 @@ dc:rights a info:AssetProperty ;
     rdfs:range xmp:Text ;
     info:jsonName "copyright_notice" ;
     info:access "readwrite" ;
-    rdfs:domain core:Asset .    
+    rdfs:domain core:Asset .
+
+xmpRights:Marked  a info:AssetProperty ;
+    # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
+    rdfs:label "Marked"@en ;
+    rdfs:comment """When true, indicates that this is a rights-managed resource. When false, indicates that this is a public-domain resource. Omit if the state is unknown.""" ;
+    rdfs:range xsd:boolean ;
+    info:jsonName "rights_managed_asset" ;
+    info:access "readwrite" ;
+    rdfs:domain core:Asset .
 
 #### Property section: Asset Description
 
