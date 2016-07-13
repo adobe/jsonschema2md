@@ -73,6 +73,20 @@ stDim:unit a rdf:Property ;
     rdfs:Domain xmp:Dimensions ;
     rdfs:range xsd:string .
 
+xmp:Text a rdfs:Datatype ;
+    owl:onDatatype xsd:string ;
+    rdfs:comment """A possibly empty Unicode string""" .
+
+xmp:AgentName a rdfs:Datatype ;
+    owl:onDatatype xmp:Text ;
+    rdfs:comment """The name of an XMP processor, a Text value.
+It is recommended that the value use this format convention:
+Organization Software_name Version (token;token;...)
+- Organization: The name of the company or organization providing the software, no SPACEs.
+- Software_name: The full name of the software, SPACEs allowed.
+- version: The version of the software, no SPACEs.
+- tokens: Can be used to identify an operating system, plug-in, or more detailed version information.""" .
+
 xmp:GUID a rdfs:Datatype ;
     owl:onDatatype xsd:string ;
     rdfs:comment """A string representing a “globally unique identifier”""" .
@@ -131,6 +145,14 @@ core:firstUploadedBy a info:AssetProperty ;
     rdfs:range xsd:string ;
     info:jsonName "first_uploaded_by" ;
     # TODO TBD 'mandatory'?
+    rdfs:domain core:Asset .
+
+xmp:CreatorTool a info:AssetProperty ;
+    rdfs:label "Creator tool"@en ;
+    rdfs:comment "Name of the application which authored the asset." ;
+    rdfs:range xmp:AgentName ;
+    info:jsonName "creator_tool" ;
+    info:access "read" ;
     rdfs:domain core:Asset .
 
 ### Image
