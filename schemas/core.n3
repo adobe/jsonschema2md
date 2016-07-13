@@ -98,6 +98,8 @@ core:Asset a rdfs:Class ;
     rdfs:comment "OneAdobe Cloud Asset Core Class" ;
     rdfs:subClassOf rdfs:Resource .
 
+#### Property section: Asset Identity
+
 xmpMM:DocumentID a info:AssetProperty ;
     # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
     rdfs:isDefinedBy <http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/xmp/pdfs/XMP%20SDK%20Release%20cc-2014-12/XMPSpecificationPart1.pdf> ;
@@ -116,6 +118,8 @@ core:assetName a info:AssetProperty ;
     info:jsonName "asset_name" ;
     info:access "readwrite" ;
     rdfs:domain core:Asset .
+
+#### Property section: Asset Creation
 
 xmp:CreateDate a info:AssetProperty ;
     # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
@@ -155,6 +159,8 @@ xmp:CreatorTool a info:AssetProperty ;
     info:access "read" ;
     rdfs:domain core:Asset .
 
+#### Property section: Asset Modification
+
 core:lastModifiedDate a info:AssetProperty ;
     rdfs:label "Date Last Uploaded"@en ;
     rdfs:comment "The date and time when asset content or asset metadata was last modified in the repository. Adding of renditions won't change this date." ;
@@ -190,6 +196,12 @@ core:versionLabel a info:AssetProperty ;
     info:jsonName "version_label" ;
     info:access "read" ;
     rdfs:domain core:Asset . 
+
+#### Property section: Asset Legal Information
+
+#### Property section: Asset Description
+
+
 
 ### Image
 
