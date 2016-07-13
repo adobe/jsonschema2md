@@ -95,6 +95,14 @@ xmpMM:DocumentID a info:AssetProperty ;
     # TODO TBD 'mandatory'?
     rdfs:domain core:Asset .
 
+core:assetName a info:AssetProperty ;
+    rdfs:label "Asset name"@en ;
+    rdfs:comment "Name of the asset in the repository" ;
+    rdfs:range xsd:string ;
+    info:jsonName "asset_name" ;
+    info:access "readwrite" ;
+    rdfs:domain core:Asset .
+
 xmp:CreateDate a info:AssetProperty ;
     # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
     rdfs:isDefinedBy <http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/xmp/pdfs/XMP%20SDK%20Release%20cc-2014-12/XMPSpecificationPart1.pdf> ;
