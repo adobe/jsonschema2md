@@ -169,6 +169,10 @@ Organization Software_name Version (token;token;...)
 - version: The version of the software, no SPACEs.
 - tokens: Can be used to identify an operating system, plug-in, or more detailed version information.""" .
 
+xmp:ProperName a rdfs:Datatype ;
+  owl:onDatatype xsd:string ;
+  rdfs:comment """A simple text value denoting the name of a person or organization.”""" .
+
 xmp:GUID a rdfs:Datatype ;
   owl:onDatatype xsd:string ;
   rdfs:comment """A string representing a “globally unique identifier”""" .
@@ -208,6 +212,16 @@ meta:repositoryImmutable a rdf:Property ;
   rdfs:comment "resource property cannot be modified after resource creation" ;
   rdfs:domain meta:BaseProperty ;
   rdfs:range xsd:boolean .
+
+core:properNameItem rdfs:subPropertyOf rdf:li;
+  rdfs:range xmp:ProperName ;
+  rdfs:domain core:listOfProperNames .
+
+core:listOfProperNames rdfs:subClassOf [ 
+    a owl:Restriction ; 
+    owl:onProperty core:properNameItem ;
+    owl:allValuesFrom xmp:ProperName ;
+  ].
 
 ### Asset
 
@@ -375,6 +389,15 @@ xmpRights:Marked a meta:BaseProperty ;
   skos:note "" ;  # TODO
   skos:example "" ;  # TODO
   rdfs:domain core:Asset .
+
+xmpRights:Owner a meta:BaseProperty ;
+  # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
+  rdfs:label "Owner"@en ;
+  rdfs:comment """A list of legal owners of the resource.""" ;
+  rdfs:range core:listOfProperNames ;
+  meta:jsonName "legal_owner" ;
+  meta:access "readwrite" ;
+  rdfs:domain core:Asset . 
 
 #### Property section: Asset Description
 
