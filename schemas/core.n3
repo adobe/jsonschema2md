@@ -174,6 +174,23 @@ core:lastModifiedBy a info:AssetProperty ;
     # TODO TBD 'mandatory'?
     rdfs:domain core:Asset .    
 
+core:versionID a info:AssetProperty ;
+    rdfs:label "Version ID"@en ;
+    rdfs:comment "The version ID of the asset. It will be generated both on explicit and implicit save or upload." ;
+    rdfs:range xsd:string ;
+    info:jsonName "version_id" ;
+    info:access "read" ;
+    # TODO TBD 'mandatory'?
+    rdfs:domain core:Asset . 
+
+core:versionLabel a info:AssetProperty ;
+    rdfs:label "Version label"@en ;
+    rdfs:comment "A label given to a version of the asset. It is optional." ;
+    rdfs:range xsd:string ;
+    info:jsonName "version_label" ;
+    info:access "read" ;
+    rdfs:domain core:Asset . 
+
 ### Image
 
 core:Image a rdfs:Class ;
