@@ -40,12 +40,14 @@
 xsd:string a rdfs:Datatype ;
   rdfs:label "String" ;
   rdfs:comment "Character strings (but not all Unicode character strings)" ;
+  rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
   rdfs:subClassOf rdfs:Literal .
 
 xsd:boolean a rdfs:Datatype ;
   rdfs:label "Boolean" ;
   rdfs:comment "true, false" ;
   rdfs:subClassOf rdfs:Literal ;
+  rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
   owl:withRestrictions (
     [
       xsd:pattern "(true|false)"
@@ -56,6 +58,7 @@ xsd:decimal a rdfs:Datatype ;
   rdfs:label "Decimal" ;
 	rdfs:comment "Arbitrary-precision decimal numbers" ;
   rdfs:subClassOf rdfs:Literal ;
+  rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
 	owl:withRestrictions (
 		[
 			xsd:pattern "[+-]?[0-9]*\\.?[0-9]*"
@@ -67,6 +70,7 @@ xsd:integer a rdfs:Datatype ;
 	rdfs:comment "Arbitrary-size integer numbers" ;
   owl:onDatatype xsd:decimal ;
   rdfs:subClassOf rdfs:Literal ;
+  rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
   owl:withRestrictions (
     [
       xsd:pattern "[-+]?[0-9]+"
@@ -79,6 +83,7 @@ xsd:double a rdfs:Datatype ;
   rdfs:label "Double" ;
   rdfs:comment "64-bit floating point numbers incl. ±Inf, ±0, NaN" ;
   rdfs:subClassOf rdfs:Literal ;
+  rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
   owl:withRestrictions (
     [
       xsd:pattern "[+-]?[0-9]*\\.?[0-9]*([eE][-+]?[0-9]+)"
@@ -89,12 +94,14 @@ xsd:float a rdfs:Datatype ;
   rdfs:label "Float" ;
   rdfs:comment "32-bit floating point numbers incl. ±Inf, ±0, NaN" ;
   rdfs:subClassOf rdfs:Literal ;
+  rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
   owl:onDatatype xsd:double .
 
 xsd:date a rdfs:Datatype ;
   rdfs:label "Date" ;
   rdfs:comment "Dates (yyyy-mm-dd) with or without timezone" ;
   rdfs:subClassOf rdfs:Literal ;
+  rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
 	owl:withRestrictions (
 		[
 			xsd:pattern "-?[0-9][0-9][0-9][0-9]([0-9]*)?-(0[1-9]|1[0-1])-([0-3][1-9])([+-][0-1][0-9]:[0-6][0-9])?"
@@ -105,6 +112,7 @@ xsd:time a rdfs:Datatype ;
   rdfs:label "Time" ;
   rdfs:comment "Times (hh:mm:ss.sss…) with or without timezone" ;
   rdfs:subClassOf rdfs:Literal ;
+  rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
 	owl:withRestrictions (
 		[
 			xsd:pattern "[1-2][0-9]:[0-5][0-9]:[0-5][0-9].[0-9][0-9][0-9]"
@@ -114,7 +122,14 @@ xsd:time a rdfs:Datatype ;
 xsd:dateTime a rdfs:Datatype ;
   rdfs:label "DateTime" ;
   rdfs:subClassOf rdfs:Literal ;
+  rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
   rdfs:comment "Date and time with or without timezone" .
+
+xsd:dateTimeStamp a rdfs:Datatype ;
+  rdfs:label "DateTimeStamp" ;
+  rdfs:subClassOf rdfs:Literal ;
+  rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
+  rdfs:comment "Date and time with required timezone" .
 
 # derived data types
 
