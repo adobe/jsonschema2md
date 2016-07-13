@@ -124,6 +124,15 @@ core:firstUploadDate a info:AssetProperty ;
     # TODO TBD 'mandatory'?
     rdfs:domain core:Asset .
 
+core:firstUploadedBy a info:AssetProperty ;
+    rdfs:label "First uploaded by"@en ;
+    rdfs:comment "ID of the user who first uploaded the asset" ;
+    info:repositoryImmutable "true" ;
+    rdfs:range xsd:string ;
+    info:jsonName "first_uploaded_by" ;
+    # TODO TBD 'mandatory'?
+    rdfs:domain core:Asset .
+
 ### Image
 
 core:Image a rdfs:Class ;
