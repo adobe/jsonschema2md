@@ -1,0 +1,35 @@
+<%
+/*************************************************************************
+ *
+ * ADOBE CONFIDENTIAL
+ * ___________________
+ *
+ *  Copyright 2016 Adobe Systems Incorporated
+ *  All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains
+ * the property of Adobe Systems Incorporated and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Adobe Systems Incorporated and its
+ * suppliers and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Adobe Systems Incorporated.
+ **************************************************************************/
+%>
+<li>
+  <div><b><%- clazz[consts.RDFS_LABEL] %></b></div>
+  <br>
+  <div><i>Description:</i> <%- clazz[consts.RDFS_COMMENT] %></div>
+  <% if (clazz[consts.SKOS_NOTE]) { %>
+    <br>
+    <div>Note: <%- clazz[consts.SKOS_NOTE] %></div>
+  <% } %>
+  <br>
+  <div><i>Properties:</i></div>
+  <% _.forEach(clazz.properties, function (prop) { %>
+    <br>
+    <div><b><%- prop[consts.RDFS_LABEL] %></b> : <%- prop[consts.RDFS_COMMENT] %> : <b><%- model.dataTypes[prop[consts.RDFS_RANGE]][consts.RDFS_LABEL] %></b></div>
+  <% }); %>
+</li>
+

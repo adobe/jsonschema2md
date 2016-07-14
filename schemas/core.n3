@@ -40,13 +40,11 @@
 xsd:string a rdfs:Datatype ;
   rdfs:label "String" ;
   rdfs:comment "Character strings (but not all Unicode character strings)" ;
-  rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
-  rdfs:subClassOf rdfs:Literal .
+  rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> .
 
 xsd:boolean a rdfs:Datatype ;
   rdfs:label "Boolean" ;
   rdfs:comment "true, false" ;
-  rdfs:subClassOf rdfs:Literal ;
   rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
   owl:withRestrictions (
     [
@@ -57,7 +55,6 @@ xsd:boolean a rdfs:Datatype ;
 xsd:decimal a rdfs:Datatype ;
   rdfs:label "Decimal" ;
 	rdfs:comment "Arbitrary-precision decimal numbers" ;
-  rdfs:subClassOf rdfs:Literal ;
   rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
 	owl:withRestrictions (
 		[
@@ -69,7 +66,6 @@ xsd:integer a rdfs:Datatype ;
   rdfs:label "Integer" ;
 	rdfs:comment "Arbitrary-size integer numbers" ;
   owl:onDatatype xsd:decimal ;
-  rdfs:subClassOf rdfs:Literal ;
   rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
   owl:withRestrictions (
     [
@@ -82,7 +78,6 @@ xsd:integer a rdfs:Datatype ;
 xsd:double a rdfs:Datatype ;
   rdfs:label "Double" ;
   rdfs:comment "64-bit floating point numbers incl. ±Inf, ±0, NaN" ;
-  rdfs:subClassOf rdfs:Literal ;
   rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
   owl:withRestrictions (
     [
@@ -93,14 +88,12 @@ xsd:double a rdfs:Datatype ;
 xsd:float a rdfs:Datatype ;
   rdfs:label "Float" ;
   rdfs:comment "32-bit floating point numbers incl. ±Inf, ±0, NaN" ;
-  rdfs:subClassOf rdfs:Literal ;
   rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
   owl:onDatatype xsd:double .
 
 xsd:date a rdfs:Datatype ;
   rdfs:label "Date" ;
   rdfs:comment "Dates (yyyy-mm-dd) with or without timezone" ;
-  rdfs:subClassOf rdfs:Literal ;
   rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
 	owl:withRestrictions (
 		[
@@ -111,7 +104,6 @@ xsd:date a rdfs:Datatype ;
 xsd:time a rdfs:Datatype ;
   rdfs:label "Time" ;
   rdfs:comment "Times (hh:mm:ss.sss…) with or without timezone" ;
-  rdfs:subClassOf rdfs:Literal ;
   rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
 	owl:withRestrictions (
 		[
@@ -121,13 +113,11 @@ xsd:time a rdfs:Datatype ;
 
 xsd:dateTime a rdfs:Datatype ;
   rdfs:label "DateTime" ;
-  rdfs:subClassOf rdfs:Literal ;
   rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
   rdfs:comment "Date and time with or without timezone" .
 
 xsd:dateTimeStamp a rdfs:Datatype ;
   rdfs:label "DateTimeStamp" ;
-  rdfs:subClassOf rdfs:Literal ;
   rdfs:seeAlso <https://www.w3.org/TR/rdf11-concepts/#xsd-datatypes> ;
   rdfs:comment "Date and time with required timezone" .
 
@@ -156,10 +146,12 @@ stDim:unit a rdf:Property ;
   rdfs:range xsd:string .
 
 xmp:Text a rdfs:Datatype ;
+  rdfs:label "Text"@en ;
   owl:onDatatype xsd:string ;
   rdfs:comment """A possibly empty Unicode string""" .
 
 xmp:AgentName a rdfs:Datatype ;
+  rdfs:label "AgentName"@en ;
   owl:onDatatype xmp:Text ;
   rdfs:comment """The name of an XMP processor, a Text value.
 It is recommended that the value use this format convention:
@@ -170,24 +162,38 @@ Organization Software_name Version (token;token;...)
 - tokens: Can be used to identify an operating system, plug-in, or more detailed version information.""" .
 
 xmp:ProperName a rdfs:Datatype ;
+  rdfs:label "ProperName"@en ;
   owl:onDatatype xsd:string ;
   rdfs:comment """A simple text value denoting the name of a person or organization.”""" .
 
 xmp:GUID a rdfs:Datatype ;
+  rdfs:label "GUID"@en ;
   owl:onDatatype xsd:string ;
   rdfs:comment """A string representing a “globally unique identifier”""" .
 
+core:properNameItem a rdf:Property ;
+  rdfs:subPropertyOf rdf:li;
+  rdfs:range xmp:ProperName ;
+  rdfs:domain core:ListOfProperNames .
+
+core:ListOfProperNames a rdfs:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty core:properNameItem ;
+    owl:allValuesFrom xmp:ProperName ;
+  ].
+
 # abstract base classes for schema classes and properties
 
-meta:BaseClass a rdfs:Class ;
+core:BaseClass a rdfs:Class ;
   rdfs:label "BaseClass"@en ;
   rdfs:comment "Base class of all Data Model Classes" ;
   rdfs:subClassOf rdfs:Resource .
 
-meta:BaseProperty a rdfs:Class ;
+core:BaseProperty a rdfs:Class ;
   rdfs:label "BaseProperty"@en ;
   rdfs:comment "Base class of all Data Model Properties" ;
-  rdfs:domain meta:BaseClass ;
+  rdfs:domain core:BaseClass ;
   rdfs:range rdfs:Datatype ;
   rdfs:subClassOf rdf:Property .
 
@@ -196,43 +202,33 @@ meta:BaseProperty a rdfs:Class ;
 meta:access a rdf:Property ;
   rdfs:label "Access"@en ;
   rdfs:comment "read, write, readwrite" ;
-  rdfs:domain meta:BaseProperty ;
+  rdfs:domain core:BaseProperty ;
   skos:note "corresponds to RelaxNG XMP Schema" ;
   rdfs:range xsd:string .
 
 meta:jsonName a rdf:Property ;
   rdfs:label "JSON Name"@en ;
   rdfs:comment "Name of the property in JSON serialization" ;
-  rdfs:domain meta:BaseProperty ;
+  rdfs:domain core:BaseProperty ;
   rdfs:range xsd:string .
 
 meta:repositoryImmutable a rdf:Property ;
   rdfs:label "repositoryImmutable"@en ;
   # corresponds to 'Immutability' column
   rdfs:comment "resource property cannot be modified after resource creation" ;
-  rdfs:domain meta:BaseProperty ;
+  rdfs:domain core:BaseProperty ;
   rdfs:range xsd:boolean .
-
-core:properNameItem rdfs:subPropertyOf rdf:li;
-  rdfs:range xmp:ProperName ;
-  rdfs:domain core:listOfProperNames .
-
-core:listOfProperNames rdfs:subClassOf [ 
-    a owl:Restriction ; 
-    owl:onProperty core:properNameItem ;
-    owl:allValuesFrom xmp:ProperName ;
-  ].
 
 ### Asset
 
 core:Asset a rdfs:Class ;
   rdfs:label "Asset"@en ;
   rdfs:comment "OneAdobe Cloud Asset Core Class" ;
-  rdfs:subClassOf meta:BaseClass .
+  rdfs:subClassOf core:BaseClass .
 
 #### Property section: Asset Identity
 
-xmpMM:DocumentID a meta:BaseProperty ;
+xmpMM:DocumentID a core:BaseProperty ;
   # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
   rdfs:isDefinedBy <http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/xmp/pdfs/XMP%20SDK%20Release%20cc-2014-12/XMPSpecificationPart1.pdf> ;
   rdfs:label "Document ID"@en ;
@@ -241,11 +237,11 @@ xmpMM:DocumentID a meta:BaseProperty ;
   meta:jsonName "document_id" ;
   meta:access "read" ;
   skos:note "" ;  # TODO
-  skos:example "" ;  # TODO
+  skos:example "uuid:d4546407-8e2c-4194-be3b-98ef79696e2c" ;
   # TODO TBD 'mandatory'?
   rdfs:domain core:Asset .
 
-core:assetName a meta:BaseProperty ;
+core:assetName a core:BaseProperty ;
   rdfs:label "Asset name"@en ;
   rdfs:comment "Name of the asset in the repository" ;
   rdfs:range xsd:string ;
@@ -257,7 +253,7 @@ core:assetName a meta:BaseProperty ;
 
 #### Property section: Asset Creation
 
-xmp:CreateDate a meta:BaseProperty ;
+xmp:CreateDate a core:BaseProperty ;
   # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
   rdfs:isDefinedBy <http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/xmp/pdfs/XMP%20SDK%20Release%20cc-2014-12/XMPSpecificationPart1.pdf> ;
   rdfs:label "Date Created"@en ;
@@ -276,7 +272,7 @@ YYYY-MM-DDThh:mm:ss.sTZD""" ;
   # TODO TBD 'mandatory'?
   rdfs:domain core:Asset .
 
-core:firstUploadDate a meta:BaseProperty ;
+core:firstUploadDate a core:BaseProperty ;
   rdfs:label "Date Initally Uploaded"@en ;    #rdfs:comment "Date and Time media was originally created." ;
   rdfs:comment "The date and time when the file was first uploaded to the cloud. It will be the server time." ;
   meta:repositoryImmutable "true" ;
@@ -287,7 +283,7 @@ core:firstUploadDate a meta:BaseProperty ;
   # TODO TBD 'mandatory'?
   rdfs:domain core:Asset .
 
-core:firstUploadedBy a meta:BaseProperty ;
+core:firstUploadedBy a core:BaseProperty ;
   rdfs:label "First uploaded by"@en ;
   rdfs:comment "ID of the user who first uploaded the asset" ;
   meta:repositoryImmutable "true" ;
@@ -298,7 +294,7 @@ core:firstUploadedBy a meta:BaseProperty ;
   # TODO TBD 'mandatory'?
   rdfs:domain core:Asset .
 
-xmp:CreatorTool a meta:BaseProperty ;
+xmp:CreatorTool a core:BaseProperty ;
   rdfs:label "Creator tool"@en ;
   rdfs:comment "Name of the application which authored the asset." ;
   rdfs:range xmp:AgentName ;
@@ -310,7 +306,7 @@ xmp:CreatorTool a meta:BaseProperty ;
 
 #### Property section: Asset Modification
 
-core:lastModifiedDate a meta:BaseProperty ;
+core:lastModifiedDate a core:BaseProperty ;
   rdfs:label "Date Last Uploaded"@en ;
   rdfs:comment "The date and time when asset content or asset metadata was last modified in the repository. Adding of renditions won't change this date." ;
   rdfs:range xsd:dateTime ;
@@ -321,7 +317,7 @@ core:lastModifiedDate a meta:BaseProperty ;
   # TODO TBD 'mandatory'?
   rdfs:domain core:Asset .
 
-core:lastModifiedBy a meta:BaseProperty ;
+core:lastModifiedBy a core:BaseProperty ;
   rdfs:label "Last uploaded by"@en ;
   rdfs:comment "ID of the user who last uploaded the asset." ;
   meta:repositoryImmutable "true" ;
@@ -333,7 +329,7 @@ core:lastModifiedBy a meta:BaseProperty ;
   # TODO TBD 'mandatory'?
   rdfs:domain core:Asset .    
 
-core:versionID a meta:BaseProperty ;
+core:versionID a core:BaseProperty ;
   rdfs:label "Version ID"@en ;
   rdfs:comment "The version ID of the asset. It will be generated both on explicit and implicit save or upload." ;
   rdfs:range xsd:string ;
@@ -344,7 +340,7 @@ core:versionID a meta:BaseProperty ;
   # TODO TBD 'mandatory'?
   rdfs:domain core:Asset . 
 
-core:versionLabel a meta:BaseProperty ;
+core:versionLabel a core:BaseProperty ;
   rdfs:label "Version label"@en ;
   rdfs:comment "A label given to a version of the asset. It is optional." ;
   rdfs:range xsd:string ;
@@ -356,7 +352,7 @@ core:versionLabel a meta:BaseProperty ;
 
 #### Property section: Asset Legal Information
 
-xmpRights:WebStatement a meta:BaseProperty ;
+xmpRights:WebStatement a core:BaseProperty ;
   # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
   rdfs:label "Web statement"@en ;
   rdfs:comment "A Web URL for a statement of the ownership and usage rights for this resource." ;
@@ -367,7 +363,7 @@ xmpRights:WebStatement a meta:BaseProperty ;
   skos:example "http://creativecommons.org/licenses/by/4.0/" ;
   rdfs:domain core:Asset .
 
-dc:rights a meta:BaseProperty ;
+dc:rights a core:BaseProperty ;
   rdfs:label "Rights"@en ;
   rdfs:comment """Information about rights held in and over the resource.
 Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.""" ;
@@ -379,7 +375,7 @@ Typically, rights information includes a statement about various property rights
   skos:example "" ;  # TODO
   rdfs:domain core:Asset .
 
-xmpRights:Marked a meta:BaseProperty ;
+xmpRights:Marked a core:BaseProperty ;
 # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
   rdfs:label "Marked"@en ;
   rdfs:comment """When true, indicates that this is a rights-managed resource. When false, indicates that this is a public-domain resource. Omit if the state is unknown.""" ;
@@ -390,11 +386,11 @@ xmpRights:Marked a meta:BaseProperty ;
   skos:example "" ;  # TODO
   rdfs:domain core:Asset .
 
-xmpRights:Owner a meta:BaseProperty ;
+xmpRights:Owner a core:BaseProperty ;
   # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
   rdfs:label "Owner"@en ;
   rdfs:comment """A list of legal owners of the resource.""" ;
-  rdfs:range core:listOfProperNames ;
+  rdfs:range core:ListOfProperNames ;
   meta:jsonName "legal_owner" ;
   meta:access "readwrite" ;
   rdfs:domain core:Asset . 
@@ -410,7 +406,7 @@ core:Image a rdfs:Class ;
   rdfs:comment "OneAdobe Cloud Image Class, JPEG, PNG, etc." ;
   rdfs:subClassOf core:Asset .
 
-core:dimensions a meta:BaseProperty ;
+core:dimensions a core:BaseProperty ;
   rdfs:label "Dimensions"@en ;
   rdfs:comment "" ;
   rdfs:range xmp:Dimensions ;
