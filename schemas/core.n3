@@ -189,22 +189,27 @@ core:ListOfProperNames a rdfs:Class ;
     owl:allValuesFrom xmp:ProperName ;
   ].	
 
-core:MachineGeneratedLabel a rdfs:property ;
+core:machineGeneratedLabel a rdfs:property ;
   rdfs:range xsd:string ;
   rdfs:domain core:MachineLabelStructure ;
   rdfs:comment """A string representing a machine generated label""" .
   
-core:ConfidenceLevel a rdfs:property ;
+core:confidenceLevel a rdfs:property ;
   rdfs:range xsd:float ;
   rdfs:domain core:MachineLabelStructure ;
-  rdfs:comment """A float value representing a confidence level""" .  
+  rdfs:comment """A float value betweeen 0 and 1 representing a confidence level""" ;
+  owl:withRestrictions (
+		[
+			xsd:pattern "0(\.[0-9]+)?|1(\.0+)?"
+		]
+	) .	
   
 core:MachineLabelStructure a rdfs:class  ;
   rdfs:label "MachineLabelStructure"@en ;
   rdfs:comment """A class representing structure for machine generated label""" ;
   rdfs:subClassOf rdfs:Resource .
 
-core:MachineLabelItem a rdf:Property ;
+core:machineLabelItem a rdf:Property ;
   rdfs:subPropertyOf rdf:li;
   rdfs:range xmp:MachineLabelStructure ;
   rdfs:domain core:ListOfMachineGeneratedLabel .  
@@ -213,7 +218,7 @@ core:ListOfMachineGeneratedLabel a rdfs:Class ;
   rdfs:label "ListOfMachineGeneratedLabel"@en ;
   rdfs:subClassOf [
     a owl:Restriction ;
-    owl:onProperty core:MachineLabelItem ;
+    owl:onProperty core:machineLabelItem ;
     owl:allValuesFrom xmp:MachineLabelStructure ;
   ].  
  
@@ -288,7 +293,7 @@ core:Asset a rdfs:Class ;
   rdfs:subClassOf core:BaseClass .
 
 #### Property section: Asset Identity
-core:AssetID a core:BaseProperty ;
+core:assetID a core:BaseProperty ;
   rdfs:label "Asset ID"@en ;
   rdfs:comment "A unique identifier given to every addressable asset in a given repository." ;
   rdfs:range xsd:string ;
@@ -355,8 +360,8 @@ core:firstUploadDate a core:BaseProperty ;
   # TODO TBD 'mandatory'?
   rdfs:domain core:Asset .
   
-core:CreatedBy a core:BaseProperty ;
-  rdfs:label "CreatedBy"@en ;    #rdfs:comment "Date and Time media was originally created." ;
+core:createdBy a core:BaseProperty ;
+  rdfs:label "CreatedBy"@en ;  
   rdfs:comment "An ordered array of creators. " ;
   rdfs:range core:ListOfProperNames ;
   meta:jsonName "created_by" ;
@@ -375,6 +380,7 @@ core:firstUploadedBy a core:BaseProperty ;
   rdfs:domain core:Asset .
 
 xmp:CreatorTool a core:BaseProperty ;
+  # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
   rdfs:label "Creator tool"@en ;
   rdfs:comment "Name of the application which authored the asset." ;
   rdfs:range xmp:AgentName ;
@@ -486,25 +492,25 @@ xmpRights:UsageTerms a core:BaseProperty ;
 
 #### Property section: Asset Description
 
-dc:Title a core:BaseProperty ;
+dc:title a core:BaseProperty ;
   rdfs:label "Title"@en ;
-  rdfs:comment """A name given to the resource.""" ;
+  rdfs:comment """A name given to the resource.  Typically, a Title will be a name by which the resource is formally known.""" ;
   rdfs:range xmp:LanguageAlternative ;
   meta:jsonName "title" ;
   meta:access "readwrite" ;
   rdfs:domain core:Asset . 
   
-dc:Description a core:BaseProperty ;
+dc:description a core:BaseProperty ;
   rdfs:label "Description"@en ;
-  rdfs:comment """Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.""" ;
+  rdfs:comment """An account of the content of the resource. Description may include but is not limited to: an abstract, table of contents, reference to a graphical representation of content or a free-text account of the content.""" ;
   rdfs:range xmp:LanguageAlternative ;
   meta:jsonName "description" ;
   meta:access "readwrite" ;
   rdfs:domain core:Asset . 
 
-dc:Format a core:BaseProperty ;
+dc:format a core:BaseProperty ;
   rdfs:label "Format"@en ;
-  rdfs:comment """Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME].""" ;
+  rdfs:comment """The physical or digital manifestation of the resource. Typically, Format may include the media-type or dimensions of the resource. Examples of dimensions include size and duration. Format may be used to determine the software, hardware or other equipment needed to display or operate the resource. Recommended best practice is to select a value from a controlled vocabulary (for example, the list of Internet Media Types [http://www.iana.org/ assignments/media-types/] defining computer media formats).""" ;
   rdfs:range xmp:Text ;
   meta:jsonName "media_type" ;
   # TODO TBD 'mandatory'?
@@ -512,7 +518,7 @@ dc:Format a core:BaseProperty ;
   meta:access "read" ;
   rdfs:domain core:Asset .  
   
-core:UserSpecifiedLabel a core:BaseProperty ;
+core:userSpecifiedLabel a core:BaseProperty ;
   rdfs:label "UserSpecifiedLabel"@en ;
   rdfs:comment """User defined labels for the asset.""" ;
   rdfs:range xmp:LanguageAlternative ;
@@ -520,16 +526,16 @@ core:UserSpecifiedLabel a core:BaseProperty ;
   meta:access "readwrite" ;
   rdfs:domain core:Asset .    
   
-core:MachineGeneratedLabel a core:BaseProperty ;
+core:machineGeneratedLabel a core:BaseProperty ;
   rdfs:label "MachineGeneratedLabel"@en ;
   rdfs:comment """Machine generated descriptive phrases or keywords that specify the content of the resource.""" ;
-  rdfs:range xmp:ListOfMachineGeneratedLabel ;
+  rdfs:range core:ListOfMachineGeneratedLabel ;
   meta:jsonName "machine_generated_label" ;
   skos:example "[ {"machine_generated_label":"label1","confidence_level":"0.6"} ,{"machine_generated_label":"label2","confidence_level":"0.3"},...]" ;
   meta:access "read" ;
   rdfs:domain core:Asset .      
   
-core:BinarySize a core:BaseProperty ;
+core:binarySize a core:BaseProperty ;
   rdfs:label "BinarySize"@en ;
   rdfs:comment """Size of the asset in bytes.""" ;
   rdfs:range xsd:integer ;
@@ -538,7 +544,7 @@ core:BinarySize a core:BaseProperty ;
   meta:access "read" ;
   rdfs:domain core:Asset .     
   
-core:Path a core:BaseProperty ;
+core:path a core:BaseProperty ;
   rdfs:label "Path"@en ;
   rdfs:comment """Shows the hierarchy of the asset. """ ;
   rdfs:range xsd:string ;
@@ -547,7 +553,7 @@ core:Path a core:BaseProperty ;
   meta:access "read" ;
   rdfs:domain core:Asset .  
   
-core:MD5Hash a core:BaseProperty ;
+core:md5Hash a core:BaseProperty ;
   rdfs:label "MD5Hash"@en ;
   rdfs:comment """MD5 hash of the asset. """ ;
   rdfs:range xsd:string ;
@@ -556,7 +562,7 @@ core:MD5Hash a core:BaseProperty ;
   meta:access "read" ;
   rdfs:domain core:Asset .   
   
-core:ETAG a core:BaseProperty ;
+core:etag a core:BaseProperty ;
   rdfs:label "ETAG"@en ;
   rdfs:comment """An  ETag is an HTTP response header returned by an HTTP/1.1 compliant web server used to determine change in content of a resource at a given URL. """ ;
   rdfs:range xsd:string ;
