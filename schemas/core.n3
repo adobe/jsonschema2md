@@ -301,7 +301,7 @@ core:assetID a core:BaseProperty ;
   meta:jsonName "asset_id" ;
   meta:access "read" ;
   skos:note "" ;  # TODO
-  skos:example "\"asset_id\":\"urn:aaid:sc:US:6dc33479-13ca-4b19-b25d-c805eff8a69e\"" ;
+  skos:example """“asset_id”:“urn:aaid:sc:US:6dc33479-13ca-4b19-b25d-c805eff8a69e”""" ;
   # TODO TBD 'mandatory'?
   rdfs:domain core:Asset .
 
@@ -514,7 +514,7 @@ dc:format a core:BaseProperty ;
   rdfs:range xmp:Text ;
   meta:jsonName "media_type" ;
   # TODO TBD 'mandatory'?
-  skos:example "\"media_type\":\"application/vnd.adobe.photoshop\"" ;
+  skos:example """“media_type”:“application/vnd.adobe.photoshop”""" ;
   meta:access "read" ;
   rdfs:domain core:Asset .  
   
@@ -531,7 +531,7 @@ core:machineGeneratedLabel a core:BaseProperty ;
   rdfs:comment """Machine generated descriptive phrases or keywords that specify the content of the resource.""" ;
   rdfs:range core:ListOfMachineGeneratedLabel ;
   meta:jsonName "machine_generated_label" ;
-  skos:example "[ {\"machine_generated_label\":\"label1\",\"confidence_level\":\"0.6\"} ,{\"machine_generated_label\":\"label2\",\"confidence_level\":\"0.3\"},...]" ;
+  skos:example """[ {“machine_generated_label”:“label1”,“confidence_level”:“0.6”} ,{“machine_generated_label”:“label2”,“confidence_level”:“0.3”},...]""" ;
   meta:access "read" ;
   rdfs:domain core:Asset .    
   
