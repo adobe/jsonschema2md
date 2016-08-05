@@ -166,15 +166,17 @@ Organization Software_name Version (token;token;...)
 - version: The version of the software, no SPACEs.
 - tokens: Can be used to identify an operating system, plug-in, or more detailed version information.""" .
 
+xmp:GUID a rdfs:Datatype ;
+  rdfs:label "GUID"@en ;
+  owl:onDatatype xsd:string ;
+  rdfs:comment """A string representing a “globally unique identifier”""" .
+
 xmp:ProperName a rdfs:Datatype ;
   rdfs:label "ProperName"@en ;
   owl:onDatatype xsd:string ;
   rdfs:comment """A simple text value denoting the name of a person or organization.”""" .
 
-xmp:GUID a rdfs:Datatype ;
-  rdfs:label "GUID"@en ;
-  owl:onDatatype xsd:string ;
-  rdfs:comment """A string representing a “globally unique identifier”""" .
+## structures
 
 core:properNameItem a rdf:Property ;
   rdfs:subPropertyOf rdf:li;
@@ -189,12 +191,12 @@ core:ListOfProperNames a rdfs:Class ;
     owl:allValuesFrom xmp:ProperName ;
   ].	
 
-core:machineLabelString a rdfs:property ;
+core:machineLabelString a rdf:Property ;
   rdfs:range xsd:string ;
   rdfs:domain core:MachineLabelStructure ;
   rdfs:comment """A string representing a machine generated label""" .
   
-core:confidenceLevel a rdfs:property ;
+core:confidenceLevel a rdf:Property ;
   rdfs:range xsd:float ;
   rdfs:domain core:MachineLabelStructure ;
   rdfs:comment """A float value betweeen 0 and 1 representing a confidence level""" ;
@@ -204,22 +206,22 @@ core:confidenceLevel a rdfs:property ;
 		]
 	) .	
   
-core:MachineLabelStructure a rdfs:class  ;
+core:MachineLabelStructure a rdfs:Class ;
   rdfs:label "MachineLabelStructure"@en ;
   rdfs:comment """A class representing structure for machine generated label""" ;
   rdfs:subClassOf rdfs:Resource .
 
 core:machineLabelItem a rdf:Property ;
-  rdfs:subPropertyOf rdf:li;
-  rdfs:range xmp:MachineLabelStructure ;
-  rdfs:domain core:ListOfMachineGeneratedLabel .  
+  rdfs:subPropertyOf rdf:li ;
+  rdfs:range core:MachineLabelStructure ;
+  rdfs:domain core:ListOfMachineGeneratedLabels .  
 
-core:ListOfMachineGeneratedLabel a rdfs:Class ;
-  rdfs:label "ListOfMachineGeneratedLabel"@en ;
+core:ListOfMachineGeneratedLabels a rdfs:Class ;
+  rdfs:label "ListOfMachineGeneratedLabels"@en ;
   rdfs:subClassOf [
     a owl:Restriction ;
     owl:onProperty core:machineLabelItem ;
-    owl:allValuesFrom xmp:MachineLabelStructure ;
+    owl:allValuesFrom core:MachineLabelStructure ;
   ].  
  
 
@@ -285,7 +287,7 @@ meta:repositoryImmutable a rdf:Property ;
   rdfs:domain core:BaseProperty ;
   rdfs:range xsd:boolean .
 
-### Asset
+### Asset class
 
 core:Asset a rdfs:Class ;
   rdfs:label "Asset"@en ;
@@ -293,6 +295,7 @@ core:Asset a rdfs:Class ;
   rdfs:subClassOf core:BaseClass .
 
 #### Property section: Asset Identity
+
 core:assetID a core:BaseProperty ;
   rdfs:label "Asset ID"@en ;
   rdfs:comment "A unique identifier given to every addressable asset in a given repository." ;
@@ -330,6 +333,7 @@ core:assetName a core:BaseProperty ;
   rdfs:domain core:Asset .
 
 #### Property section: Asset Creation
+
 xmp:CreateDate a core:BaseProperty ;
   # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
   rdfs:isDefinedBy <http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/xmp/pdfs/XMP%20SDK%20Release%20cc-2014-12/XMPSpecificationPart1.pdf> ;
@@ -462,7 +466,7 @@ Typically, rights information includes a statement about various property rights
   rdfs:domain core:Asset .
 
 xmpRights:Marked a core:BaseProperty ;
-# XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
+  # XMP uses inconistent naming conventions/cases: by convention property names should be camel case and start with lower case
   rdfs:label "Marked"@en ;
   rdfs:comment """When true, indicates that this is a rights-managed resource. When false, indicates that this is a public-domain resource. Omit if the state is unknown.""" ;
   rdfs:range xsd:boolean ;
@@ -518,19 +522,19 @@ dc:format a core:BaseProperty ;
   meta:access "read" ;
   rdfs:domain core:Asset .  
   
-core:userSpecifiedLabel a core:BaseProperty ;
-  rdfs:label "UserSpecifiedLabel"@en ;
+core:userSpecifiedLabels a core:BaseProperty ;
+  rdfs:label "UserSpecifiedLabels"@en ;
   rdfs:comment """User defined labels for the asset.""" ;
   rdfs:range xmp:LanguageAlternative ;
-  meta:jsonName "user_specified_label" ;
+  meta:jsonName "user_specified_labels" ;
   meta:access "readwrite" ;
   rdfs:domain core:Asset .    
   
-core:machineGeneratedLabel a core:BaseProperty ;
-  rdfs:label "Machine Generated Label"@en ;
+core:machineGeneratedLabels a core:BaseProperty ;
+  rdfs:label "Machine Generated Labels"@en ;
   rdfs:comment """Machine generated descriptive phrases or keywords that specify the content of the resource.""" ;
-  rdfs:range core:ListOfMachineGeneratedLabel ;
-  meta:jsonName "machine_generated_label" ;
+  rdfs:range core:ListOfMachineGeneratedLabels ;
+  meta:jsonName "machine_generated_labels" ;
   skos:example """[ {“machine_generated_label”:“label1”,“confidence_level”:“0.6”} ,{“machine_generated_label”:“label2”,“confidence_level”:“0.3”},...]""" ;
   meta:access "read" ;
   rdfs:domain core:Asset .    
@@ -571,12 +575,14 @@ core:etag a core:BaseProperty ;
   rdfs:domain core:Asset .  
 
 
-### Image
+### Image class
 
 core:Image a rdfs:Class ;
   rdfs:label "Image" ;
   rdfs:comment "OneAdobe Cloud Image Class, JPEG, PNG, etc." ;
   rdfs:subClassOf core:Asset .
+
+#### Image properties 
 
 core:dimensions a core:BaseProperty ;
   rdfs:label "Dimensions"@en ;
