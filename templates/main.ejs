@@ -17,15 +17,171 @@
  * from Adobe Systems Incorporated.
  **************************************************************************/
 -%>
+<html>
+<head>
+    
+<title><%- model.meta[consts.DC_TITLE] %></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<link rel="icon" href="https://wwwimages2.adobe.com/include/img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://wwwimages2.adobe.com/include/img/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="../public/css/adobe.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../public//css/aceui-reimagine.min.css"/>
+<link rel="stylesheet" href="../public/css/thirdparty-new.css" type="text/css" />
+<link rel="stylesheet" href="../public/css/customized.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="../public/css/icons.min.css"/>
+<link rel="stylesheet" href="../public/css/clientlib-all.css" type="text/css" />
+</head>
+
+<body class="Lobby globalnav__external__no-touch" data-personalization-json="/content/udp/en/products/contentapi/docs/getting-started.loggedin.json" data-seed-personalization="" data-seed-themes="" data-seed-modal="" data-seed-details="" data-seed-messages="" data-seed-deeplink=""><div data-country="US" data-language="en" data-locale="en_US" id="globalnav__header" class="globalnav__js__header globalnav__feature-flag--dc">
+<div id="containerTTMbox" class="containerTTMbox"></div>
+
+<header class="grid-container-fluid" data-profile-api="https://cc-collab.adobe.io/profile">
+	<section class="grid-row">
+		<nav class="grid-cols-14 grid-offset-1">
+			
+				<!--#set var="Gnav:Locale" value="" -->
+				<!--#set var="Gnav:Scripts" value="false" -->
+				<!--#include virtual="/ubi/globalnav/_all/gnav_assets.ssi" -->
+			
+			<div class="site-header-global-nav LayoutBreakAfter">
+				<div class="site-header-global-menu LayoutBreakAfter"></div>
+			</div>
+		</nav>
+	</section>
+</header>
+
+
+<nav class="anchornav" data-seed-anchornav="">
+    <div class="productheader">
+        
+        <i class="adobe-product-icon adobe-icon-target icon-spacing"></i>
+        
+        <nav class="breadcrumbs"><a href="https://author-adobeio-stage.adobemsbasic.com/content/udp/en" style="text-decoration: none;">Adobe&nbsp;<span class="label-io">I/O</span></a></nav>
+        <h1>
+            Content API
+        </h1>
+        
+    </div>
+    <input id="bookmark-display" name="bookmarks" type="checkbox">
+    <label for="bookmark-display"></label>
+	<nav>        
+        <a href="https://author-adobeio-stage.adobemsbasic.com/content/udp/en/products/contentapi.html" target="_self">Overview</a>    
+        <span class="anchornav-active">Documentation</span>
+        <span class="vertical-break">|</span>        
+        <a href="https://author-adobeio-stage.adobemsbasic.com/content/udp/en.html" target="_self">Home</a>
+        <a href="https://author-adobeio-stage.adobemsbasic.com/content/udp/en/products.html" target="_self">Products</a>
+        <a class="anchornav-button " href="https://author-adobeio-stage.adobemsbasic.com/console">Console</a>
+    </nav>
+</nav>
+<main>
+<div class="grid-container border-bot udp-sidebar-template">
+    <div class="grid-row">
+        <div class="grid-cols-5">
+            <sidenav><nav class="side-bar hide-on-mobile">
+    <div class="side-bar-toggle">
+        <button>
+            > Tap to toggle the page navigation
+            <i class="fa fa-bars" aria-hidden="true"></i>
+            <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
+    </div>
+    
+    
+    <!--calling recursive template for rendering side navigation-->
+     <ul id="side-bar-menu">
+        <li class="active  side-bar-sub-menu">
+            <i class="icon-toggle-up-down active"></i>
+            
+
+            <a href="https://author-adobeio-stage.adobemsbasic.com/content/udp/en/products/contentapi/docs/getting-started.html">Getting Started</a>
+            
+
+            <ul class="active">
+        <li class="  side-bar-sub-menu">
+            <i class="icon-toggle-up-down "></i>
+ 
+            <a>Use Cases</a>
+    
+            <ul>
+    </ul>
+        </li>
+    </ul>
+        </li>
+    </ul>
+</nav></sidenav>
+        </div> 
+        <div class="grid-cols-10 grid-offset-1 udp-target-temp-style udp-target">
+		<div class="cq-dev-text">
 <h1><%- model.meta[consts.DC_TITLE] %></h1>
 <div><%- model.meta[consts.RDFS_COMMENT] %></div>
-<h2>Classes</h2>
+<h2><u>Classes</u></h2>
 <ul>
   <% _.forEach(model.classes, function (clazz) { %>
     <%- include('class', { clazz: clazz, model: model, consts: consts }); %>
     <br>
   <% }); %>
 </ul>
+</div></div> </div></div>
+</main>
+<footer>
+    <div class="grid-container">
+        <div class="grid-row">
+            <div class="grid-cols-16">
+                <div class="grid-row adobe-footer-logo">
+                    <div class="grid-cols-9 footer-left">
+                        <div class="footer-nav-container">
+                            <div class="footer-nav">
+                                <h4><span>Adobe</span> Core Asset Data Model</h4>
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li><a href="/products">Products</a></li>
+                                    <li><a href="/console">Console</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-nav">
+                                <h4>Legal</h4>
+                                <ul>
+                                    <li><a href="https://www.adobe.com/privacy.html" target="_blank">Privacy Policy</a></li>
+                                    <li><a href="http://www.adobe.com/legal/terms.html" target="_blank">Terms of Use</a></li>
+                                    <li><a href="https://www.adobe.com/privacy/cookies.html" target="_blank">Cookies</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-nav">
+                                <h4>Contact</h4>
+                                <ul>
+                                    <li><a href="/contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-cols-6 footer-right">
+                        <div class="social-nav">
+                            <h4>Social</h4>
+                            <ul>
+                                <li class="social-icon-facebook">
+                                    <a href="https://www.facebook.com/adobeio" target="_blank "></a>
+                                    </a>
+                                </li>
+                                <li class="social-icon-twitter">
+                                    <a href="https://twitter.com/adobeio" target="_blank"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="grid-cols-16 footer-copy-right">
+                        <p>Copyright &copy; 2016 Adobe Systems Incorporated. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
+</body>
+</html>
 
 
