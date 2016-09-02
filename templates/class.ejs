@@ -38,7 +38,7 @@
    <% _.forEach(clazz.properties, function (prop) { %>
     <tr>
 	   <td align = "center"><b><%- prop[consts.RDFS_LABEL] %></b></td>  
-	   <td><%- model.dataTypes[prop[consts.RDFS_RANGE]][consts.RDFS_LABEL] %> </td> 
+	   <td><%- model.datatypes[prop[consts.RDFS_RANGE]][consts.RDFS_LABEL] %> </td>
 	   <td><%- prop[consts.RDFS_COMMENT] %></td>
 	   <td><%- prop[consts.SKOS_EXAMPLE] %></td>
 	</tr>   

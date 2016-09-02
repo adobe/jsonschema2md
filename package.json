@@ -1,6 +1,6 @@
 {
-  "name": "onecloud-datamodel-schema",
-  "description": "Semantic data model and tooling for unified Adobe Cloud API.",
+  "name": "adobecloudplatform-machinery",
+  "description": "Semantic data model tooling for unified Adobe Cloud API.",
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
@@ -9,8 +9,10 @@
   "dependencies": {
     "node-rdf": "https://github.com/stefan-guggisberg/node-rdf/archive/master.tar.gz",
     "jsonld": "^0.4.11",
+    "optimist": "^0.6.1",
     "winston": "^2.2.0",
     "lodash": "^4.5.0",
+    "async": "^2.0.1",
     "ejs": "^2.4.2"
   },
   "engines": {
@@ -18,10 +20,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.corp.adobe.com/sguggisb/onecloud-datamodel-schema.git"
+    "url": "https://git.corp.adobe.com/AdobeCloudPlatform/machinery.git"
   },
   "bugs": {
-    "url": "https://git.corp.adobe.com/sguggisb/onecloud-datamodel-schema/issues"
+    "url": "https://git.corp.adobe.com/AdobeCloudPlatform/machinery/issues"
   }
 }
 

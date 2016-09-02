@@ -1,10 +1,37 @@
-# onecloud-datamodel-schema
+# AdobeCloudPlatform Data Model Machinery
 
 Semantic data model for the [unified Adobe Cloud API](https://wiki.corp.adobe.com/display/ctooperations/Content+and+Data+Workstream). Includes tooling to generate HTML documentation.
 
 ## Schema files
 
-The machine readable schema source files ([RDF/S](https://www.w3.org/TR/rdf-schema/) in [Notation3 (N3) Syntax](https://www.w3.org/TeamSubmission/n3/)) are located in the `schemas` root directory.
+The machine readable schema source files ([RDF/S](https://www.w3.org/TR/rdf-schema/) in [Notation3 (N3) Syntax](https://www.w3.org/TeamSubmission/n3/)) are located in the [AdobeCloudPlatform/models](https://git.corp.adobe.com/AdobeCloudPlatform/models) git repository.
+
+## Installing and running
+
+```bash
+# clone models project
+git clone git@git.corp.adobe.com:AdobeCloudPlatform/models.git
+
+# clone machinery project
+git clone git@git.corp.adobe.com:AdobeCloudPlatform/machinery.git
+
+# install dependencies
+cd machinery && npm install
+
+# show usage information
+node index.js
+# Generate Html Documentation and JSON-LD from an RDF/S Schema file in Turtle/N3 Syntax.
+#
+# Usage: node index.js
+#
+# Options:
+#   -f, --file  path to <schema>.n3 file                   [required]
+#   -o, --out   path to output directory (default: ./out)
+
+# run task
+node index.js -f ../models/asset.n3 
+# generated output is written to ./out
+```
 
 ## Links
 
@@ -27,3 +54,4 @@ The machine readable schema source files ([RDF/S](https://www.w3.org/TR/rdf-sche
 
 * [TextMate N3/Turtle Bundle](https://github.com/peta/turtle.tmbundle)
 * [Online RDF Converter](http://www.easyrdf.org/converter)
+* [JSON-LD Playground](http://json-ld.org/playground/)
