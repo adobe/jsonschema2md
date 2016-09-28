@@ -4,7 +4,7 @@ Semantic data model for the [unified Adobe Cloud API](https://wiki.corp.adobe.co
 
 ## Schema files
 
-The machine readable schema source files ([RDF/S](https://www.w3.org/TR/rdf-schema/) in [Notation3 (N3) Syntax](https://www.w3.org/TeamSubmission/n3/)) are located in the [AdobeCloudPlatform/models](https://git.corp.adobe.com/AdobeCloudPlatform/models) git repository.
+The machine readable schema source files ([RDF/S](https://www.w3.org/TR/rdf-schema/) in [Turtle Syntax](https://www.w3.org/TR/turtle/))) are located in the [AdobeCloudPlatform/models](https://git.corp.adobe.com/AdobeCloudPlatform/models) git repository.
 
 ## Installing and running
 
@@ -20,16 +20,16 @@ cd machinery && npm install
 
 # show usage information
 node index.js
-# Generate Html Documentation and JSON-LD from an RDF/S Schema file in Turtle/N3 Syntax.
+# Generate Html Documentation and JSON-LD from an RDF/S Schema file in Turtle Syntax.
 #
 # Usage: node index.js
 #
 # Options:
-#   -f, --file  path to <schema>.n3 file                   [required]
+#   -f, --file  path to <schema>.ttl file                   [required]
 #   -o, --out   path to output directory (default: ./out)
 
 # run task
-node index.js -f ../models/asset.n3 
+node index.js -f ../models/asset.ttl 
 # generated output is written to ./out
 ```
 
@@ -49,7 +49,7 @@ node index.js -f ../models/asset.n3
 
 * [RDF](https://www.w3.org/RDF/)
 * [RDF Schema (RDF/S) 1.1](https://www.w3.org/TR/rdf-schema/)
-* [Notation3 (N3) Syntax](https://www.w3.org/TeamSubmission/n3/)
+* [RDF 1.1 Turtle](https://www.w3.org/TR/turtle/)
 * [JSON-LD 1.0](https://www.w3.org/TR/json-ld/)
 * [XMP SPECIFICATION PART 1 DATA MODEL, SERIALIZATION, AND CORE PROPERTIES](http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/xmp/pdfs/XMP%20SDK%20Release%20cc-2014-12/XMPSpecificationPart1.pdf)
 
