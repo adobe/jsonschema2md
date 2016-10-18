@@ -6,6 +6,10 @@ Semantic data model for the [unified Adobe Cloud API](https://wiki.corp.adobe.co
 
 The machine readable schema source files ([RDF/S](https://www.w3.org/TR/rdf-schema/) in [Turtle Syntax](https://www.w3.org/TR/turtle/))) are located in the [AdobeCloudPlatform/models](https://git.corp.adobe.com/AdobeCloudPlatform/models) git repository.
 
+## Requirements
+
+- npm version 3.10.8 or up
+
 ## Installing and running
 
 ```bash
