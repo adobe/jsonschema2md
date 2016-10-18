@@ -28,32 +28,26 @@
   <br>
   <div style = "font-size:large"><b>Properties:</b></div>
   <div class=" table " data-dist-id="table_246994025">
-   <table width="100%" cellspacing="0" cellpadding="1" border="1">
-   <thead><tr><th>Name&nbsp;</th>
-   <th>Json Name&nbsp;</th>
-   <th>Type</th>
-   <th>Description</th>
-   </tr></thead>	
-   <tbody>
-   <% _.forEach(clazz.properties, function (prop) { %>
-    <tr>
-	   <td align = "center"><b>
-	   <% var cond = prop["@id"].lastIndexOf('#') %>
-	   <% if(cond !== -1) { %>
-			<%- uriToPrefixesMap[prop["@id"].substring(0,prop["@id"].lastIndexOf('#')+1)] %>:
-			<%- prop["@id"].substring(prop["@id"].lastIndexOf('#')+1) %>
-	   <% } else { %>
-		    <%- uriToPrefixesMap[prop["@id"].substring(0,prop["@id"].lastIndexOf('/')+1)] %>:
-			<%- prop["@id"].substring(prop["@id"].lastIndexOf('/')+1) %>
-	   <% } %></b>
-	   </td>  
-	   <td><%- prop[consts.META_JSONNAME] %></td>
-	   <td><%- model.datatypes[prop[consts.RDFS_RANGE]][consts.RDFS_LABEL] %> </td>
-	   <td><%- prop[consts.RDFS_COMMENT] %></td>
-	</tr>   
-   <% }); %>
-   </tbody>
-  </table>
+    <table width="100%" cellspacing="0" cellpadding="1" border="1">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>JSON Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% _.forEach(clazz.properties, function (prop) { %>
+        <tr>
+          <td align = "center"><b><%- prefixes.shrink(prop["@id"]) %></b></td>
+          <td><%- prop[consts.META_JSONNAME] %></td>
+          <td><%- model.datatypes[prop[consts.RDFS_RANGE]][consts.RDFS_LABEL] %></td>
+          <td><%- prop[consts.RDFS_COMMENT] %></td>
+        </tr>
+      <% }); %>
+      </tbody>
+    </table>
   </div>
 </li>
 

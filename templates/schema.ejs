@@ -121,7 +121,7 @@
 <h2><u>Classes</u></h2>
 <ul>
   <% _.forEach(model.classes, function (clazz) { %>
-    <%- include('class', { clazz: clazz, model: model, consts: consts, uriToPrefixesMap:uriToPrefixesMap }); %>
+    <%- include('class', { clazz: clazz, model: model, consts: consts, _: _, prefixes: prefixes }); %>
     <br>
   <% }); %>
 </ul>
