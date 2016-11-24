@@ -19,7 +19,7 @@
 %>
 <%
 function escape(s) {
-  return s.replace(/\r\n/g, '<br>');
+  return s.replace(/\r\n/g, '<br>').replace(/\n/g, '<br>');
 }
 %>
 # <%- clazz[consts.RDFS_LABEL] %>
