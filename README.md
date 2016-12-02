@@ -40,11 +40,10 @@ node index.js -f ../models/asset.ttl
 ## TODOs
 
 * RDF/S Schema validation:
-  -- property naming convention
-  -- vocabulary spellchecking (RDF, RDFS, DC, OWL, SKOS, ...) 
-  -- use of RDF/S vocabulary
-  -- ...
-* RDF/S to JSON Schema (and vice versa) conversion?
+  * property naming convention
+  * vocabulary spellchecking (RDF, RDFS, DC, OWL, SKOS, ...) 
+  * use of RDF/S vocabulary
+  * ...
 * ...
 
 ## Links
