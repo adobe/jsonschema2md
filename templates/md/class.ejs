@@ -16,23 +16,19 @@
  * is strictly forbidden unless prior written permission is obtained
  * from Adobe Systems Incorporated.
  **************************************************************************/
-%>
+%>---
+layout: default		
+---
 <%
 function escape(s) {
   return s.replace(/\r\n/g, '<br>').replace(/\n/g, '<br>');
 }
 %>
-----
--layout: default		
-----
 # <%- clazz[consts.RDFS_LABEL] %>
 
 <%- clazz[consts.RDFS_COMMENT] %>
-
 <% if (clazz[consts.SKOS_NOTE]) { %>
-Note: <%- clazz[consts.SKOS_NOTE] %>
-
-<% } %>
+Note: <%- clazz[consts.SKOS_NOTE] %><% } %>
 |Name|JSON Name|Type|Description|Note|Example Value|
 |--- |--- |--- |--- |--- |--- |<% _.forEach(clazz.properties, function (prop) { %>
 | <%- prefixes.shrink(prop["@id"]) %> | <%- prop[consts.META_JSONNAME] %> | <%- model.datatypes[prop[consts.RDFS_RANGE]][consts.RDFS_LABEL] %> | <%- escape(prop[consts.RDFS_COMMENT]) %> | <%- escape(prop[consts.SKOS_NOTE]) %> | <%- escape(prop[consts.SKOS_EXAMPLE]) %> | <% }); %>
