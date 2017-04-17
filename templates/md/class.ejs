@@ -29,6 +29,6 @@ function escape(s) {
 <%- clazz[consts.RDFS_COMMENT] %>
 <% if (clazz[consts.SKOS_NOTE]) { %>
 Note: <%- clazz[consts.SKOS_NOTE] %><% } %>
-|Name|JSON Name|Type|Description|Note|Example Value|
-|--- |--- |--- |--- |--- |--- |<% _.forEach(clazz.properties, function (prop) { %>
-| <%- prefixes.shrink(prop["@id"]) %> | <%- prop[consts.META_JSONNAME] %> | <%- model.datatypes[prop[consts.RDFS_RANGE]][consts.RDFS_LABEL] %> | <%- escape(prop[consts.RDFS_COMMENT]) %> | <%- escape(prop[consts.SKOS_NOTE]) %> | <%- escape(prop[consts.SKOS_EXAMPLE]) %> | <% }); %>
+|Name|JSON Name|Type|Description|Immutable|Mandatory|UserEditable|Note|Example Value|
+|--- |--- |--- |--- |--- |--- |--- |--- |--- |<% _.forEach(clazz.properties, function (prop) { %>
+| <%- prefixes.shrink(prop["@id"]) %> | <%- prop[consts.META_JSONNAME] %> | <%- model.datatypes[prop[consts.RDFS_RANGE]][consts.RDFS_LABEL] %> | <%- escape(prop[consts.RDFS_COMMENT]) %> | <%- escape(prop[consts.PROP_IMMUTABLE]) %> | <%- escape(prop[consts.PROP_MANDATORY]) %> | <%- escape(prop[consts.PROP_USEREDITABLE]) %> | <%- escape(prop[consts.SKOS_NOTE]) %> | <%- escape(prop[consts.SKOS_EXAMPLE]) %> | <% }); %>
