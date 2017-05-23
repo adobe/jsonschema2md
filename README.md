@@ -37,6 +37,18 @@ node index.js -f ../models/asset.ttl
 # generated output is written to ./out
 ```
 
+### Previewing Locally
+
+If you want to preview the generated output locally, use the [model-spec](https://git.corp.adobe.com/AdobeCloudPlatform/model-spec) project.
+
+```bash
+# clone model-spec
+$ git clone -b gh-pages git@git.corp.adobe.com:AdobeCloudPlatform/model-spec.git
+
+# generate output for model-spec
+$ node index.js -f ../models/asset.ttl -o ../model-spec/property-tables
+```
+
 ## TODOs
 
 * RDF/S Schema validation:
