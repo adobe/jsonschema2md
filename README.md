@@ -14,16 +14,17 @@ The machine readable schema source files ([RDF/S](https://www.w3.org/TR/rdf-sche
 
 ```bash
 # clone models project
-git clone git@git.corp.adobe.com:AdobeCloudPlatform/models.git
+$ git clone git@git.corp.adobe.com:AdobeCloudPlatform/models.git
 
 # clone machinery project
-git clone git@git.corp.adobe.com:AdobeCloudPlatform/machinery.git
+$ git clone git@git.corp.adobe.com:AdobeCloudPlatform/machinery.git
 
 # install dependencies
-cd machinery && npm install
+$ cd machinery && npm install
 
 # show usage information
-node index.js
+$ node index.js
+
 # Generate Html Documentation and JSON-LD from an RDF/S Schema file in Turtle Syntax.
 #
 # Usage: node index.js
