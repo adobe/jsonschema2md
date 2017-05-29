@@ -14,16 +14,17 @@ The machine readable schema source files ([RDF/S](https://www.w3.org/TR/rdf-sche
 
 ```bash
 # clone models project
-git clone git@git.corp.adobe.com:AdobeCloudPlatform/models.git
+$ git clone git@git.corp.adobe.com:AdobeCloudPlatform/models.git
 
 # clone machinery project
-git clone git@git.corp.adobe.com:AdobeCloudPlatform/machinery.git
+$ git clone git@git.corp.adobe.com:AdobeCloudPlatform/machinery.git
 
 # install dependencies
-cd machinery && npm install
+$ cd machinery && npm install
 
 # show usage information
-node index.js
+$ node index.js
+
 # Generate Html Documentation and JSON-LD from an RDF/S Schema file in Turtle Syntax.
 #
 # Usage: node index.js
@@ -35,6 +36,18 @@ node index.js
 # run task
 node index.js -f ../models/asset.ttl 
 # generated output is written to ./out
+```
+
+### Previewing Locally
+
+If you want to preview the generated output locally, use the [model-spec](https://git.corp.adobe.com/AdobeCloudPlatform/model-spec) project.
+
+```bash
+# clone model-spec
+$ git clone -b gh-pages git@git.corp.adobe.com:AdobeCloudPlatform/model-spec.git
+
+# generate output for model-spec
+$ node index.js -f ../models/asset.ttl -o ../model-spec/property-tables
 ```
 
 ## TODOs
