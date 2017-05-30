@@ -27,6 +27,12 @@ In your pull request, outline,
 * If (and what) it breaks
 * Start the pull request with the JIRA issue ID, e.g. ACP-123
 
+
+Each commit message:
+
+* Should contain the issue tag like `[ACP-123]`
+* Can contain the tag `[trivial]` for trivial changes that don't relate to an issue
+
 ## Coding Styleguides
 
 There are no coding style guides yet.
