@@ -23,3 +23,5 @@ npm-debug.log
 
 # mac files
 .DS_Store
+
+.tool-versions
