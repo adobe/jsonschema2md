@@ -21,7 +21,10 @@ layout: default
 ---
 <%
 function escape(s) {
-  return s.replace(/\r\n/g, '<br>').replace(/\n/g, '<br>');
+    if (s) {
+      return s.replace(/\r\n/g, '<br>').replace(/\n/g, '<br>');
+    }
+    return "";
 }
 %>
 # <%- clazz[consts.RDFS_LABEL] %>
@@ -31,4 +34,5 @@ function escape(s) {
 Note: <%- clazz[consts.SKOS_NOTE] %><% } %>
 |Name|JSON Name|Type|Description|Immutable|Mandatory|UserEditable|Note|Example Value|
 |--- |--- |--- |--- |--- |--- |--- |--- |--- |<% _.forEach(clazz.properties, function (prop) { %>
-| <%- prefixes.shrink(prop["@id"]) %> | <%- prop[consts.META_JSONNAME] %> | <%- model.datatypes[prop[consts.RDFS_RANGE]][consts.RDFS_LABEL] %> | <%- escape(prop[consts.RDFS_COMMENT]) %> | <%- escape(prop[consts.PROP_IMMUTABLE]) %> | <%- escape(prop[consts.PROP_MANDATORY]) %> | <%- escape(prop[consts.PROP_USEREDITABLE]) %> | <%- escape(prop[consts.SKOS_NOTE]) %> | <%- escape(prop[consts.SKOS_EXAMPLE]) %> | <% }); %>
+| <%- prefixes.shrink(prop["@id"]) %> | <%- prop[consts.META_JSONNAME] %> | <%- model.datatypes[prop[consts.RDFS_RANGE]][consts.RDFS_LABEL] %> | <%- escape(prop[consts.RDFS_COMMENT]) %> | <%- escape(prop[consts.PROP_IMMUTABLE]) %> | <%- escape(prop[consts.PROP_MANDATORY]) %> | <%- escape(prop[consts.PROP_USEREDITABLE]) %> | <%- escape(prop[consts.SKOS_NOTE]) %> | <%- escape(prop[consts.SKOS_EXAMPLE]) %> |
+<% }); %>
