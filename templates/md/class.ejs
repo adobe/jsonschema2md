@@ -26,13 +26,27 @@ function escape(s) {
     }
     return "";
 }
-%>
-# <%- clazz[consts.RDFS_LABEL] %>
 
-<%- clazz[consts.RDFS_COMMENT] %>
-<% if (clazz[consts.SKOS_NOTE]) { %>
-Note: <%- clazz[consts.SKOS_NOTE] %><% } %>
-|Name|JSON Name|Type|Description|Immutable|Mandatory|UserEditable|Note|Example Value|
-|--- |--- |--- |--- |--- |--- |--- |--- |--- |<% _.forEach(clazz.properties, function (prop) { %>
-| <%- prefixes.shrink(prop["@id"]) %> | <%- prop[consts.META_JSONNAME] %> | <%- model.datatypes[prop[consts.RDFS_RANGE]][consts.RDFS_LABEL] %> | <%- escape(prop[consts.RDFS_COMMENT]) %> | <%- escape(prop[consts.PROP_IMMUTABLE]) %> | <%- escape(prop[consts.PROP_MANDATORY]) %> | <%- escape(prop[consts.PROP_USEREDITABLE]) %> | <%- escape(prop[consts.SKOS_NOTE]) %> | <%- escape(prop[consts.SKOS_EXAMPLE]) %> |
-<% }); %>
+function isMandatory(key,requiredProperties) {
+	if( _.indexOf(requiredProperties,key,0) != -1 )
+		return true;
+	else
+		return false;
+}
+
+function getType(valueObject) {
+    if( valueObject["format"] )
+      return valueObject["format"];
+    else
+      return valueObject["type"];
+}
+%>
+# <%- schema["title"] %>
+
+<%- schema["description"] %>
+<% if (schema["note"]) { %>
+Note: <%- schema["note"] %> <% } %>
+
+|JSON Name|Type|Description|Immutable|Mandatory|UserEditable|Note|Example Value|
+|--- |--- |--- |--- |--- |--- |--- |--- |<% _.forOwn(schema.properties, function (value,prop) { %>
+| <%- prop %> | <%- getType(value) %> | <%- escape(value["description"]) %> | <%- value["immutable"] %> | <%- isMandatory(prop,schema["required"]) %> | <%- !(value["readOnly"]) %> | <%- value["note"] %> | <%- value["examples"] %> |<% }); %>
