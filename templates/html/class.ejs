@@ -18,13 +18,21 @@
  **************************************************************************/
 %>
 <li>
-  <div style = "font-size:x-large"><b><%- clazz[consts.RDFS_LABEL] %></b></div>
+  <div style = "font-size:x-large"><b><%- schema["title"] %></b></div>
   <br>
-  <div> <span style = "font-size:large">Description: </span> <%- clazz[consts.RDFS_COMMENT] %></div>
-  <% if (clazz[consts.SKOS_NOTE]) { %>
+  <div> <span style = "font-size:large">Description: </span> <%- schema["description"] %></div>
+  <% if (schema["note"]) { %>
     <br>
-    <div>Note: <%- clazz[consts.SKOS_NOTE] %></div>
+    <div>Note: <%- schema["note"] %></div>
   <% } %>
+  <%
+  function getType(valueObject) {
+    if( valueObject["format"] )
+      return valueObject["format"];
+    else
+      return valueObject["type"];
+  }
+  %>
   <br>
   <div style = "font-size:large"><b>Properties:</b></div>
   <div class=" table " data-dist-id="table_246994025">
@@ -38,12 +46,12 @@
         </tr>
       </thead>
       <tbody>
-      <% _.forEach(clazz.properties, function (prop) { %>
+      <% _.forOwn(schema.properties, function (value,prop) { %>
         <tr>
-          <td align = "center"><b><%- prefixes.shrink(prop["@id"]) %></b></td>
-          <td><%- prop[consts.META_JSONNAME] %></td>
-          <td><%- model.datatypes[prop[consts.RDFS_RANGE]][consts.RDFS_LABEL] %></td>
-          <td><%- prop[consts.RDFS_COMMENT] %></td>
+          <td align = "center"><b><%- prop %></b></td>
+          <td><%- prop %></td>
+          <td><%- getType(value) %></td>
+          <td><%- value["description"] %></td>
         </tr>
       <% }); %>
       </tbody>

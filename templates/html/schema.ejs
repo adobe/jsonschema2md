@@ -20,7 +20,7 @@
 <html>
 <head>
     
-<title><%- model.meta[consts.DC_TITLE] %></title>
+<title><%# model.meta[consts.DC_TITLE] %></title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -40,18 +40,18 @@
 <div id="containerTTMbox" class="containerTTMbox"></div>
 
 <header class="grid-container-fluid" data-profile-api="https://cc-collab.adobe.io/profile">
-	<section class="grid-row">
-		<nav class="grid-cols-14 grid-offset-1">
-			
-				<!--#set var="Gnav:Locale" value="" -->
-				<!--#set var="Gnav:Scripts" value="false" -->
-				<!--#include virtual="/ubi/globalnav/_all/gnav_assets.ssi" -->
-			
-			<div class="site-header-global-nav LayoutBreakAfter">
-				<div class="site-header-global-menu LayoutBreakAfter"></div>
-			</div>
-		</nav>
-	</section>
+    <section class="grid-row">
+        <nav class="grid-cols-14 grid-offset-1">
+            
+                <!--#set var="Gnav:Locale" value="" -->
+                <!--#set var="Gnav:Scripts" value="false" -->
+                <!--#include virtual="/ubi/globalnav/_all/gnav_assets.ssi" -->
+            
+            <div class="site-header-global-nav LayoutBreakAfter">
+                <div class="site-header-global-menu LayoutBreakAfter"></div>
+            </div>
+        </nav>
+    </section>
 </header>
 
 
@@ -68,7 +68,7 @@
     </div>
     <input id="bookmark-display" name="bookmarks" type="checkbox">
     <label for="bookmark-display"></label>
-	<nav>        
+    <nav>        
         <a href="https://author-adobeio-stage.adobemsbasic.com/content/udp/en/products/contentapi.html" target="_self">Overview</a>    
         <span class="anchornav-active">Documentation</span>
         <span class="vertical-break">|</span>        
@@ -115,15 +115,15 @@
 </nav></sidenav>
         </div> 
         <div class="grid-cols-10 grid-offset-1 udp-target-temp-style udp-target">
-		<div class="cq-dev-text">
-<h1><%- model.meta[consts.DC_TITLE] %></h1>
-<div><%- model.meta[consts.RDFS_COMMENT] %></div>
+        <div class="cq-dev-text">
+<!-- <h1><%# model.meta[consts.DC_TITLE] %></h1> 
+<div><%# model.meta[consts.RDFS_COMMENT] %></div> -->
 <h2><u>Classes</u></h2>
 <ul>
-  <% _.forEach(model.classes, function (clazz) { %>
-    <%- include('class', { clazz: clazz, model: model, consts: consts, _: _, prefixes: prefixes }); %>
+ <%# _.forEach(model.classes, function (clazz) {  %>
+    <%- include('class', { schema: schema,  _: _}); %>
     <br>
-  <% }); %>
+ <%# }); %>
 </ul>
 </div></div> </div></div>
 </main>

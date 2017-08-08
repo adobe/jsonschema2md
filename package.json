@@ -15,7 +15,8 @@
     "async": "^2.0.1",
     "mkdirp": "^0.5.1",
     "ejs": "^2.4.2",
-    "ajv": "^5.0.1-beta"
+    "ajv": "^5.0.1-beta",
+    "json-schema-ref-parser":"3.1.2"
   },
   "engines": {
     "node": ">= 0.10.0"
