@@ -25,7 +25,7 @@ $ cd machinery && npm install
 # show usage information
 $ node index.js
 
-# Generate Html Documentation and JSON-LD from an RDF/S Schema file in Turtle Syntax.
+# Generate Markdown from JSON Schema
 #
 # Usage: node index.js
 #
