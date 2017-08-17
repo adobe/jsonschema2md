@@ -30,12 +30,13 @@ $ node index.js
 # Usage: node index.js
 #
 # Options:
-#   -f, --file  path to <schema>.ttl file                   [required]
+#   -d, --input   path to directory containing all JSON Schemas or a single JSON Schema file. This will be considered as the baseURL  [required]
+#   -f, --isFile  pass if input is a single file path
 #   -o, --out   path to output directory (default: ./out)
 
 # run task
-node index.js -f ../models/asset.ttl 
-# generated output is written to ./out
+ node index.js -d ../models/JSON\ Schemas/draft-04/
+# generated output for whole folder is written to ./out
 ```
 
 ### Previewing Locally
@@ -47,14 +48,15 @@ If you want to preview the generated output locally, use the [model-spec](https:
 $ git clone -b gh-pages git@git.corp.adobe.com:AdobeCloudPlatform/model-spec.git
 
 # generate output for model-spec
-$ node index.js -f ../models/asset.ttl -o ../model-spec/property-tables
+$ node index.js -d ../models/JSON\ Schemas/draft-04/ -o ../model-spec/property-tables
 ```
+
 
 ## TODOs
 
 * RDF/S Schema validation:
   * property naming convention
-  * vocabulary spellchecking (RDF, RDFS, DC, OWL, SKOS, ...) 
+  * vocabulary spellchecking (RDF, RDFS, DC, OWL, SKOS, ...)
   * use of RDF/S vocabulary
   * ...
 * ...
