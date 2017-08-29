@@ -2,12 +2,7 @@
 layout: default
 ---
 <%
-function escape(s) {
-    if (s) {
-      return s.replace(/\r\n\* /g, '<li>').replace(/\n\* /g, '<li>').replace(/\r\n/g, '<br>').replace(/\n/g, '<br>');
-    }
-    return "";
-}
+
 function isRequired(key,requiredProperties) {
 	if( _.indexOf(requiredProperties,key,0) != -1 )
 		return "_Required_";
@@ -24,7 +19,7 @@ var type=valueObject.type;
       var curObj=valueObject["anyOf"];
       _.each(curObj,function(obj,index){
         if(index != (curObj.length - 1) )
-            str = str + getType(obj) + "&#124;" ;
+            str = str + getType(obj) + "|" ;
         else
             str = str + getType(obj) ;
       });
@@ -59,14 +54,14 @@ var type=valueObject.type;
 function NestedProperties(valueObj){
   if(valueObj["properties"] && Object.keys(valueObj["properties"]).length > 0){
 
-    var string="\n### &ensp;&ensp;**Properties**\n";
+    var string="\n#### **Properties**\n";
     _.forOwn(valueObj["properties"], function (value,prop) {
       if(value["description"])
         description=value["description"];
       else
         description="";
-  string=string + "*  ###  **"+prop+":** &ensp;"+getType(value)
-  +"\n&ensp;&ensp;&ensp;&ensp;"+description+"\n";
+  string=string + "*  **"+linkProperty(prop)+"** "+getType(value)
+  +"  \n"+description+"\n\n";
 
   });
   return string;
@@ -76,28 +71,38 @@ function NestedProperties(valueObj){
 function displayEnum(valueObj){
   if(valueObj["enum"]){
     enumArray = valueObj["enum"];
-  var str="<br/>*x &isin; {";
+  var str="\n\n *x ∈  {";
   _.each(enumArray,function(item,index){
     if(index != (enumArray.length - 1) )
       str=str+item+",";
     else
-      str=str+item+"}*<br/><br/>";
+      str=str+item+"}*\n ";
 
   });
   return str;
   }
   return "";
 }
+
+function linkProperty(str){
+  if(validUrl.isUri(str)){
+    arr=str.split("/");
+    text=arr[arr.length - 1 ];
+    return createLink(text,str);
+  }
+  else
+    return str;
+}
 %>
 # <%- schema["title"] %>
 
 <%- schema["description"] %>
-### Properties
+## Properties
 
 <% _.forOwn(schema.properties, function (value,prop) { %>
 
-##  **<%- prop %>**:
+###  <%- linkProperty(prop) %>
 <%- getType(value) %> <%- isRequired(prop,schema["required"]) %>
 
-<%- escape(value["description"]) %><%- displayEnum(value) %><%- NestedProperties(value)  %>
+<%- value["description"] %><%- displayEnum(value) %><%- NestedProperties(value)  %>
 <% }); %>
