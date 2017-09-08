@@ -93,6 +93,16 @@ function linkProperty(str){
   else
     return str;
 }
+
+function displayDefinitions(obj){
+	var str="## Definitions\n\n";
+	_.forOwn(obj, function (value,prop) {
+		str=str+"### "+prop+":\n\n"+getType(value)+"\n\n";
+	});
+
+return str;
+
+}
 %>
 # <%- schema["title"] %>
 
@@ -106,3 +116,8 @@ function linkProperty(str){
 
 <%- value["description"] %><%- displayEnum(value) %><%- NestedProperties(value)  %>
 <% }); %>
+
+<% if(schema["definitions"]) { %>
+
+<%- displayDefinitions(schema["definitions"]) %>
+<% } %>
