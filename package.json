@@ -17,6 +17,7 @@
     "mkdirp": "^0.5.1",
     "node-rdf": "https://github.com/stefan-guggisberg/node-rdf/archive/master.tar.gz",
     "optimist": "^0.6.1",
+    "readdirp": "^2.1.0",
     "valid-url": "1.0.9",
     "winston": "^2.2.0"
   },
