@@ -14,28 +14,54 @@ function createLink(str,link){
 }
 function getType(valueObject) {
 var type=valueObject.type;
-  if(type == "anyOf")
-    { var str="";
-      var curObj=valueObject["anyOf"];
-      _.each(curObj,function(obj,index){
-        if(index != (curObj.length - 1) )
-            str = str + getType(obj) + "|" ;
-        else
-            str = str + getType(obj) ;
-      });
-      return str;
-    }
-  if(type == "array"){
-    var items=valueObject["items"];
-    var str="";
-    if(items.properties)
-      return "Array of Object Containing following Properties" + NestedProperties(items);
-    if(valueObject["items"]){
-      var str=getType(valueObject["items"])
-        return str+"[]";
-    }
+switch(type){
+case "anyOf":{ var str="";
+								var curObj=valueObject["anyOf"];
+								_.each(curObj,function(obj,index){
+									if(index != (curObj.length - 1) )
+										str = str + getType(obj) + "|" ;
+									else
+										str = str + getType(obj) ;
+									});
+								return str;
+								}
+								break;
+case "array":{
+					var items=valueObject["items"];
+					var str="";
+					if(items.properties)
+						return "Array of Object Containing following Properties" + NestedProperties(items);
+					if(valueObject["items"]){
+						var str=getType(valueObject["items"])
+							return str+"[]";
+					}
 
-  }
+				}
+				break;
+case "oneOf":{ 	var str="This property can be one of following values  \n";
+								var curObj=valueObject["oneOf"];
+								_.each(curObj,function(obj,index){
+									if(index != (curObj.length - 1) )
+										str = str + getType(obj) + "|" ;
+									else
+										str = str + getType(obj) ;
+									});
+								return str;
+					}
+
+case "allOf":{ 	var str="This property can be one of following values  \n";
+													var curObj=valueObject["allOf"];
+													_.each(curObj,function(obj,index){
+														if(index != (curObj.length - 1) )
+															str = str + getType(obj) + "|" ;
+														else
+															str = str + getType(obj) ;
+														});
+													return str;
+						}
+
+}
+
   if(valueObject["$linkPath"]){
     return createLink("`" + valueObject["type"] + "`",valueObject["$linkPath"]);
   }
@@ -66,6 +92,7 @@ function NestedProperties(valueObj){
   });
   return string;
   }
+	return "";
 }
 
 function displayEnum(valueObj){
@@ -97,7 +124,7 @@ function linkProperty(str){
 function displayDefinitions(obj){
 	var str="## Definitions\n\n";
 	_.forOwn(obj, function (value,prop) {
-		str=str+"### "+prop+":\n\n"+getType(value)+"\n\n";
+		str=str+"### "+prop+":\n\n"+getType(value)+"\n\n"+displayEnum(value)+NestedProperties(value);
 	});
 
 return str;
@@ -109,6 +136,7 @@ return str;
 <%- schema["description"] %>
 ## Properties
 
+<%- getType(schema) %>
 <% _.forOwn(schema.properties, function (value,prop) { %>
 
 ###  <%- linkProperty(prop) %>
