@@ -1,52 +1,151 @@
-<%
-/*************************************************************************
- *
- * ADOBE CONFIDENTIAL
- * ___________________
- *
- *  Copyright 2016 Adobe Systems Incorporated
- *  All Rights Reserved.
- *
- * NOTICE:  All information contained herein is, and remains
- * the property of Adobe Systems Incorporated and its suppliers,
- * if any.  The intellectual and technical concepts contained
- * herein are proprietary to Adobe Systems Incorporated and its
- * suppliers and are protected by trade secret or copyright law.
- * Dissemination of this information or reproduction of this material
- * is strictly forbidden unless prior written permission is obtained
- * from Adobe Systems Incorporated.
- **************************************************************************/
-%>---
-layout: default		
+---
+layout: default
 ---
 <%
-function escape(s) {
-    if (s) {
-      return s.replace(/\r\n/g, '<br>').replace(/\n/g, '<br>');
-    }
-    return "";
-}
 
-function isMandatory(key,requiredProperties) {
+function isRequired(key,requiredProperties) {
 	if( _.indexOf(requiredProperties,key,0) != -1 )
-		return true;
+		return "_Required_";
 	else
-		return false;
+		return "";
+}
+function createLink(str,link){
+  return "[" + str + "](" + link+ ")";
+}
+function getType(valueObject) {
+var type=valueObject.type;
+switch(type){
+case "anyOf":{ var str="";
+								var curObj=valueObject["anyOf"];
+								_.each(curObj,function(obj,index){
+									if(index != (curObj.length - 1) )
+										str = str + getType(obj) + "|" ;
+									else
+										str = str + getType(obj) ;
+									});
+								return str;
+								}
+								break;
+case "array":{
+					var items=valueObject["items"];
+					var str="";
+					if(items.properties)
+						return "Array of Object Containing following Properties" + NestedProperties(items);
+					if(valueObject["items"]){
+						var str=getType(valueObject["items"])
+							return str+"[]";
+					}
+
+				}
+				break;
+case "oneOf":{ 	var str="This property can be one of following values  \n";
+								var curObj=valueObject["oneOf"];
+								_.each(curObj,function(obj,index){
+									if(index != (curObj.length - 1) )
+										str = str + getType(obj) + "|" ;
+									else
+										str = str + getType(obj) ;
+									});
+								return str;
+					}
+
+case "allOf":{ 	var str="This property can be all of following values  \n";
+													var curObj=valueObject["allOf"];
+													_.each(curObj,function(obj,index){
+														if(index != (curObj.length - 1) )
+															str = str + getType(obj) + "|" ;
+														else
+															str = str + getType(obj) ;
+														});
+													return str;
+						}
+
 }
 
-function getType(valueObject) {
-    if( valueObject["format"] )
-      return valueObject["format"];
+  if(valueObject["$linkPath"]){
+    return createLink("`" + valueObject["type"] + "`",valueObject["$linkPath"]);
+  }
+  else{
+    if( valueObject["format"])
+      return "`"+valueObject["format"]+"`";
+    else{
+      if(valueObject["type"])
+        return "`"+valueObject["type"]+"`";
+    }
+
+  }
+      return "";
+
+}
+function NestedProperties(valueObj){
+  if(valueObj["properties"] && Object.keys(valueObj["properties"]).length > 0){
+
+    var string="\n#### **Properties**\n";
+    _.forOwn(valueObj["properties"], function (value,prop) {
+      if(value["description"])
+        description=value["description"];
+      else
+        description="";
+  string=string + "*  **"+linkProperty(prop)+"** "+getType(value)
+  +"  \n"+description+"\n\n";
+
+  });
+  return string;
+  }
+	return "";
+}
+
+function displayEnum(valueObj){
+  if(valueObj["enum"]){
+    enumArray = valueObj["enum"];
+  var str="\n\n *x ∈  {";
+  _.each(enumArray,function(item,index){
+    if(index != (enumArray.length - 1) )
+      str=str+item+",";
     else
-      return valueObject["type"];
+      str=str+item+"}*\n ";
+
+  });
+  return str;
+  }
+  return "";
+}
+
+function linkProperty(str){
+  if(validUrl.isUri(str)){
+    arr=str.split("/");
+    text=arr[arr.length - 1 ];
+    return createLink(text,str);
+  }
+  else
+    return str;
+}
+
+function displayDefinitions(obj){
+	var str="## Definitions\n\n";
+	_.forOwn(obj, function (value,prop) {
+		str=str+"### "+prop+":\n\n"+getType(value)+"\n\n"+displayEnum(value)+NestedProperties(value);
+	});
+
+return str;
+
 }
 %>
 # <%- schema["title"] %>
 
 <%- schema["description"] %>
-<% if (schema["note"]) { %>
-Note: <%- schema["note"] %> <% } %>
+## Properties
 
-|JSON Name|Type|Description|Immutable|Mandatory|UserEditable|Note|Example Value|
-|--- |--- |--- |--- |--- |--- |--- |--- |<% _.forOwn(schema.properties, function (value,prop) { %>
-| <%- prop %> | <%- getType(value) %> | <%- escape(value["description"]) %> | <%- value["immutable"] %> | <%- isMandatory(prop,schema["required"]) %> | <%- !(value["readOnly"]) %> | <%- value["note"] %> | <%- value["examples"] %> |<% }); %>
+<%- getType(schema) %>
+<% _.forOwn(schema.properties, function (value,prop) { %>
+
+###  <%- linkProperty(prop) %>
+<%- getType(value) %> <%- isRequired(prop,schema["required"]) %>
+
+<%- value["description"] %><%- displayEnum(value) %><%- NestedProperties(value)  %>
+<% }); %>
+
+<% if(schema["definitions"]) { %>
+
+<%- displayDefinitions(schema["definitions"]) %>
+<% } %>
