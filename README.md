@@ -74,3 +74,7 @@ If you run `npm install` before running `npm run prepare`, `npm` will install th
   * property naming convention
   * vocabulary spellchecking 
 * …
+
+## Contributing
+
+Please see [Contributing.md](Contributing.md) for details. Pull requests are welcome.
