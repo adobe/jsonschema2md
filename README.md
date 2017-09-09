@@ -1,10 +1,8 @@
-# AdobeCloudPlatform Data Model Machinery
+# JSON Schema Markdown Tools
 
-Semantic data model for the [unified Adobe Cloud API](https://wiki.corp.adobe.com/display/ctooperations/Content+and+Data+Workstream). Includes tooling to generate HTML documentation.
+Documenting and validating complex JSON Schemas can be hard. This tool maks it easier by providing a number of scripts that can turn JSON Schema files into readable Markdown documenation that is ready to be read on GitHub, or processed using Jekyll or other static site generators.
 
-## Schema files
-
-The machine readable schema source files ([RDF/S](https://www.w3.org/TR/rdf-schema/) in [Turtle Syntax](https://www.w3.org/TR/turtle/))) are located in the [AdobeCloudPlatform/models](https://git.corp.adobe.com/AdobeCloudPlatform/models) git repository.
+These tools have been introduced by Adobe to document Adobe's Experience Data Models (XDM), but can be used for other JSON Schema documents, too.
 
 ## Requirements
 
@@ -35,51 +33,44 @@ $ node index.js
 #   -o, --out   path to output directory (default: ./out)
 
 # run task
- node index.js -d ../models/JSON\ Schemas/draft-04/
+ node index.js -d ../models/schemas/draft-04/
 # generated output for whole folder is written to ./out
 ```
 
-### Previewing Locally
+### Installing the `jsonschema2md` Command Line Tools
 
-If you want to preview the generated output locally, use the [model-spec](https://git.corp.adobe.com/AdobeCloudPlatform/model-spec) project.
+The JSON Schema Markdown tools also includes a convenient `jsonschema2md` command line tool that can be installed using:
 
 ```bash
-# clone model-spec
-$ git clone -b gh-pages git@git.corp.adobe.com:AdobeCloudPlatform/model-spec.git
+$ npm link
+```
 
-# generate output for model-spec
-$ node index.js -d ../models/JSON\ Schemas/draft-04/ -o ../model-spec/property-tables
+The command line arguments are identical between the `jsonschema2md` binary and the `index.js` node script
+
+## Using JSON Schema Markdown Tools from `npm`
+
+You can conveniently use the JSON Schema Markdown Tools from `npm`. This makes it possible to set up a conversion toolchain for your JSON Schema project that is driven entirely by `npm`. To do so, first define the dependency by adding this to your `"devDependencies"` section of `package.json`
+
+```json
+  "devDependencies": {
+    "adobecloudplatform-machinery": "git+ssh://git@git.corp.adobe.com:AdobeCloudPlatform/machinery.git"
+  }
 ```
 
 
+Then add the following to the `"scripts"` section of your `package.json` and adapt accordingly:
+
+```json
+"scripts": {
+  "prepare": "mkdir -p docs/reference && jsonschema2md -o docs/reference -d schemas/draft-04
+}
+```
+
+If you run `npm install` before running `npm run prepare`, `npm` will install the `jsonschema2md` in a `node_modules/.bin` path, even if you did not install the JSON Schema Markdown beforehand.
+
 ## TODOs
 
-* RDF/S Schema validation:
+* JSON Schema validation:
   * property naming convention
-  * vocabulary spellchecking (RDF, RDFS, DC, OWL, SKOS, ...)
-  * use of RDF/S vocabulary
-  * ...
-* ...
-
-## Links
-
-### Specifications
-
-* [RDF](https://www.w3.org/RDF/)
-* [RDF Schema (RDF/S) 1.1](https://www.w3.org/TR/rdf-schema/)
-* [RDF 1.1 Turtle](https://www.w3.org/TR/turtle/)
-* [JSON-LD 1.0](https://www.w3.org/TR/json-ld/)
-* [XMP SPECIFICATION PART 1 DATA MODEL, SERIALIZATION, AND CORE PROPERTIES](http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/xmp/pdfs/XMP%20SDK%20Release%20cc-2014-12/XMPSpecificationPart1.pdf)
-
-### Vocabularies / Ontologies
-
-* [schema.org](http://schema.org)
-* [Dublin Core](http://dublincore.org/)
-* [OWL](http://www.w3.org/TR/2009/REC-owl2-overview-20091027/)
-* [SKOS Core](http://www.w3.org/TR/2009/REC-skos-reference-20090818/)
-
-### Tools
-
-* [TextMate N3/Turtle Bundle](https://github.com/peta/turtle.tmbundle)
-* [Online RDF Converter](http://www.easyrdf.org/converter)
-* [JSON-LD Playground](http://json-ld.org/playground/)
+  * vocabulary spellchecking 
+* …
