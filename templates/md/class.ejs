@@ -1,6 +1,3 @@
----
-layout: default
----
 <%
 
 function isRequired(key,requiredProperties) {
@@ -130,7 +127,9 @@ function displayDefinitions(obj){
 return str;
 
 }
-%>
+%>---<% _.forOwn(schema.metaElements, function (value,key) { %>
+<%- key %> : <%- value %><% }); %>
+---
 # <%- schema["title"] %>
 
 <%- schema["description"] %>
