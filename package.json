@@ -1,8 +1,11 @@
 {
   "name": "adobecloudplatform-machinery",
-  "description": "Semantic data model tooling for unified Adobe Cloud API.",
+  "description": "Validate and document complex JSON Schemas the easy way.",
   "version": "0.1.0",
   "main": "index.js",
+  "bin": {
+    "jsonschema2md": "./index.js"
+  },
   "scripts": {
     "start": "node ./index.js"
   },
