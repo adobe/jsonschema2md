@@ -1,6 +1,7 @@
 <%
 
 function isRequired(key,requiredProperties) {
+	
 	if( _.indexOf(requiredProperties,key,0) != -1 )
 		return "_Required_";
 	else
@@ -11,8 +12,10 @@ function createLink(str,link){
 }
 function getType(valueObject) {
 var type=valueObject.type;
+
 switch(type){
 case "anyOf":{ var str="";
+
 								var curObj=valueObject["anyOf"];
 								_.each(curObj,function(obj,index){
 									if(index != (curObj.length - 1) )
@@ -127,9 +130,23 @@ function displayDefinitions(obj){
 return str;
 
 }
-%>---<% _.forOwn(schema.metaElements, function (value,key) { %>
+
+function displayExamples(obj){
+	var str="";
+	if(obj.examples){
+		str="### Examples\n\n";
+		_.each(obj.examples, function (item) {
+			var temp=JSON.stringify(item,null, 4);
+			str=str+"```json\n"+temp+"\n```\n\n";
+		});
+	}
+
+	return str;
+}%>
+<% if(Object.keys(schema.metaElements).length > 0){ %>
+---<% _.forOwn(schema.metaElements, function (value,key) { %>
 <%- key %> : <%- value %><% }); %>
----
+---<% } %>
 # <%- schema["title"] %>
 
 <%- schema["description"] %>
@@ -148,3 +165,4 @@ return str;
 
 <%- displayDefinitions(schema["definitions"]) %>
 <% } %>
+<%- displayExamples(schema) %>
