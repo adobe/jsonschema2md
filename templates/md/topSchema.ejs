@@ -19,19 +19,24 @@
       return str;
   },
   checkRefrence:  function(refObject){
+
     if(refObject.$linkVal && refObject.$linkPath){
-      return "* "+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath)+"";
+      return "  \n* "+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath)+"";
     }
+  },
+  escapeText: function(text){
+    return text.replace(/\n\n/g,"   \n").replace(/\n- /g,"\n  - ");
+
   },
   getDescriptionForKeyword: function(keyword,value){
     switch(keyword){
-      case "oneOf": return "    \nThis should contain exactly one of following values\n" ;
-      case "allOf": return "    \nThis should contain all of the following\n" ;
-      case "anyOf": return "    \nThis should contain any one of the following values\n" ;
+      case "oneOf": return "    \n**Only one of the following conditions must be met**" ;
+      case "allOf": return "    \n**All following conditions must be met**" ;
+      case "anyOf": return "    \n**Any one of the following conditions must be met**" ;
       case "items": {
         if(typeof value === "object" && value.type)
-          return "    \n**Array of **" + value.type;
-        else   return "    \n**Array of **";
+          return "    \n **Array of **" + value.type;
+        else   return "    \n **Array of **";
     }
       case "contains": return "Atleast one of the element of array should be following \n" ;
       case "patternProperties": return "Pattern Specific Properties \n";
@@ -64,7 +69,7 @@
   displayType: function(value){
     var typeVal=value["type"];
 
-    var str1="    \n**Schema Type:** ", str2="";
+    var str1="    \n**Type:** ", str2="";
     if(value["format"])
     str2=str2 + '`'+value["format"]+ '`  ';
     else if(typeVal){
@@ -88,22 +93,22 @@
     Object.keys(object).map((keyword) => {
       var value=object[keyword];
       switch(keyword){
-        case "description": break; //str = str+"\n\n"+value;
-        case "multipleOf": str = str+"\n\n"+"This Value Should be Multiple of "+value; break;
-        case "maximum": str = str+"\n\n"+"Maximum Value: "+value; break;
-        case "exclusiveMaximum": str = str+"\n\n"+"Maximum Value(Strictly less than) : "+value; break;
-        case "minimum": str = str+"\n\n"+"Minimum Value: "+value; break;
-        case "exclusiveMinimum": str = str+"\n\n"+"Minimum Value(Strictly less than) :"+value; break;
-        case "maxLength": str = str+"\n\n"+"Maximum Length "+value; break;
-        case "minLength": str = str+"\n\n"+"Minimum Length "+value; break;
-        case "pattern": str = str+"\n\n"+"**Pattern** for the value: " +value; break;
-        case "maxItems": str = str+"\n\n"+"Maximum Items "+value ;break;
-        case "minItems":  str = str+"\n\n"+"Minimum Items "+value ;break;
-        case "maxProperties": str = str+"\n\n"+"Max Properties:";break;//Should these be there?
-        case "minProperties": str = str+"\n\n"+"Min Properties:";break;
+        case "description": break;
+        case "multipleOf": str = str+"    \n"+"This Value Should be Multiple of "+value; break;
+        case "maximum": str = str+"    \n"+"**Maximum Value:** "+value; break;
+        case "exclusiveMaximum": str = str+"    \n"+"**Maximum Value(Strictly less than):** "+value; break;
+        case "minimum": str = str+"    \n"+"**Minimum Value:** "+value; break;
+        case "exclusiveMinimum": str = str+"    \n"+"**Minimum Value(Strictly less than):** "+value; break;
+        case "maxLength": str = str+"    \n"+"**Maximum Length:** "+value; break;
+        case "minLength": str = str+"    \n"+"**Minimum Length:** "+value; break;
+        case "pattern": str = str+"    \n"+"**Pattern for the value:** " +value; break;
+        case "maxItems": str = str+"    \n"+"**Maximum Items:** "+value ;break;
+        case "minItems":  str = str+"    \n"+"**Minimum Items:** "+value ;break;
+        case "maxProperties": str = str+"    \n"+"**Max Properties:** ";break;//Should these be there?
+        case "minProperties": str = str+"    \n"+"**Min Properties:** ";break;
         //case "uniqueItems": str = str+"\n\n"+"This contains Unique Items";break;
-        case "examples": str = str+"\n\n"+"Examples: " + HelperFunctions.displayExamples(value);break;
-        case "enum": str = str+"\n\n"+"This value can be one of the following **Enum values**\n"+ HelperFunctions.displayEnum(value);break;
+        case "examples": str = str+"    \n"+"**Examples: **" + HelperFunctions.displayExamples(value);break;
+        case "enum": str = str+"    \n"+"This value can be one of the following **Enum values**\n"+ HelperFunctions.displayEnum(value);break;
 
       }
     })
@@ -114,7 +119,7 @@
 
 function displayIfExists(object,key){
   if(object[key])
-    return "\n\n" + object[key];
+    return "    \n" + HelperFunctions.escapeText(object[key]);
 }
 
 function displayStringIfExists(object,key,str){
@@ -126,8 +131,25 @@ function displayStringIfExists(object,key,str){
 %>
 <%- displayStringIfExists(schema,"title","# "+schema["title"]) %>
 <%- HelperFunctions.displayType(schema) %>
-<%- displayIfExists(schema,"description") %>
-<%- HelperFunctions.getSimpleKeywords(schema) %>
+<%- displayIfExists(schema,"description") %><% Object.keys(schema).map((keyword) => {
+  var value=schema[keyword];
+  switch(keyword){
+    case "oneOf":
+    case "allOf":
+    case "anyOf":
+    case "items":{
+%><%- HelperFunctions.getDescriptionForKeyword(keyword,value) %><%if(_.isArray(value)){
+          value.map((item,index)=>{%><%- include('innerSchema', {nschema: item, HelperFunctions:HelperFunctions}) %>
+<%      });
+    }
+    else if(typeof value === "object"){
+%><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions}) %>
+<%  }
+} break;
+  default: return;
+}
+})
+%><%- HelperFunctions.getSimpleKeywords(schema) %>
 <%  if(schema.properties){ %>
 
 ## Properties
@@ -140,24 +162,3 @@ function displayStringIfExists(object,key,str){
 ## Definitions
 <%    Object.keys(schema.definitions).map((def) => { var value= schema.definitions[def]; %>
 ###  <%- def %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions}) %><% });} %>
-<% Object.keys(schema).map((keyword) => {
-  var value=schema[keyword];
-  switch(keyword){
-    case "oneOf":
-    case "allOf":
-    case "anyOf":
-    case "items":{%>
-<%- HelperFunctions.getDescriptionForKeyword(keyword,value) %>
-      <%if(_.isArray(value)){
-          value.map((item,index)=>{%>
-<%- include('innerSchema', {nschema: item, HelperFunctions:HelperFunctions}) %>
-<%      });
-    }
-    else if(typeof value === "object"){%>
-<%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions}) %>
-<%  }
-} break;
-  default: return;
-}
-})
-%>
