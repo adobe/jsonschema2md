@@ -1,0 +1,33 @@
+<%
+function displayIfExists(object,key){
+  if(object[key])
+    return "\n" + object[key];
+}
+
+function displayStringIfExists(object,key,str){
+  if(object[key])
+    return "\n\n" + str;
+}
+%><%- nschema["title"] %><%- HelperFunctions.displayType(nschema) %>    <%- displayIfExists(nschema,"description") %><%- HelperFunctions.getSimpleKeywords(nschema) %><%- displayStringIfExists(nschema,"properties","\n#### **Properties**\n") %><% if(nschema.properties){
+  Object.keys(nschema.properties).map((prop) => { var value= nschema.properties[prop];%>
+*  **<%- HelperFunctions.linkProperty(prop) %>**    <%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions}) %><% }); } %><% Object.keys(nschema).map((keyword) => {
+  var value=nschema[keyword];
+  switch(keyword){
+    case "oneOf":
+    case "allOf":
+    case "anyOf":
+    case "items":{%><%- HelperFunctions.getDescriptionForKeyword(keyword,value) %>
+      <%if(_.isArray(value)){
+          value.map((item,index)=>{%>
+<%- include('innerSchema', {nschema: item, HelperFunctions:HelperFunctions}) %>
+<%      });
+    }
+    else if(typeof value === "object"){%>
+<%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions}) %>
+<%  }
+} break;
+  default: return;
+}
+})
+%>
+<%- HelperFunctions.checkRefrence(nschema) %>
