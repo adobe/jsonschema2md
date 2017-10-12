@@ -31,6 +31,8 @@ $ node index.js
 #   -d, --input   path to directory containing all JSON Schemas or a single JSON Schema file. This will be considered as the baseURL  [required]
 #   -f, --isFile  pass if input is a single file path
 #   -o, --out   path to output directory (default: ./out)
+#   -s, --schema-out  pass to output JSON Schema files including description and validated examples in the _new folder at output directory
+
 
 # run task
  node index.js -d ../models/schemas/draft-04/
@@ -72,7 +74,7 @@ If you run `npm install` before running `npm run prepare`, `npm` will install th
 
 * JSON Schema validation:
   * property naming convention
-  * vocabulary spellchecking 
+  * vocabulary spellchecking
 * …
 
 ## Contributing
