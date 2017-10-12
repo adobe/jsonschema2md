@@ -8,9 +8,9 @@ function displayStringIfExists(object,key,str){
   if(object[key])
     return "\n\n" + str;
 }
-%><%- HelperFunctions.displayType(nschema) %><%- HelperFunctions.getSimpleKeywords(nschema) %><%- displayIfExists(nschema,"description") %><%- displayStringIfExists(nschema,"properties"," **Properties**\n") %><% if(nschema.properties){
-  Object.keys(nschema.properties).map((prop) => { var value= nschema.properties[prop];%>
-*  **<% if(value["title"]) {%><%- value["title"] %><%} else{ %><%- HelperFunctions.linkProperty(prop) %><% } %>**    <%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions}) %><% }); } %><% Object.keys(nschema).map((keyword) => {
+%><%- HelperFunctions.displayType(nschema) %><%- HelperFunctions.getSimpleKeywords(nschema) %><%- displayIfExists(nschema,"description") %><%- displayStringIfExists(nschema,"properties"," **Properties**\n") %><% if(nschema.properties){ var resetVal=HelperFunctions.nestLevel;
+  Object.keys(nschema.properties).map((prop) => { var value= nschema.properties[prop]; HelperFunctions.nestLevel= resetVal+1;%>
+<%- Array(HelperFunctions.nestLevel + 1).join("\t") %>*  **<% if(value["title"]) {%><%- value["title"] %><%} else{ %><%- HelperFunctions.linkProperty(prop) %><% } %>**    <%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions}) %><% }); } %><% Object.keys(nschema).map((keyword) => {
   var value=nschema[keyword];
   switch(keyword){
     case "oneOf":

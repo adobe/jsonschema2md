@@ -1,5 +1,6 @@
 <%- include("meta",{schema:schema,_:_}) %>
 <%var HelperFunctions={
+  nestLevel:0,
   isRequired : function (key,requiredProperties) {
     if( _.indexOf(requiredProperties,key,0) != -1 )
     return "    \n_Required Property_";
@@ -35,8 +36,8 @@
       case "anyOf": return "    \n**Any one of the following conditions must be met**" ;
       case "items": {
         if(typeof value === "object" && value.type)
-          return "    \n **Array of **" + value.type;
-        else   return "    \n **Array of **";
+          return "    \n **Array of**" + value.type;
+        else   return "    \n **Array containing**";
     }
       case "contains": return "Atleast one of the element of array should be following \n" ;
       case "patternProperties": return "Pattern Specific Properties \n";
@@ -107,7 +108,7 @@
         case "maxProperties": str = str+"    \n"+"**Max Properties:** ";break;//Should these be there?
         case "minProperties": str = str+"    \n"+"**Min Properties:** ";break;
         //case "uniqueItems": str = str+"\n\n"+"This contains Unique Items";break;
-        case "examples": str = str+"    \n"+"**Examples: **" + HelperFunctions.displayExamples(value);break;
+        case "examples": str = str+"    \n"+"**Examples:**" + HelperFunctions.displayExamples(value);break;
         case "enum": str = str+"    \n"+"This value can be one of the following **Enum values**\n"+ HelperFunctions.displayEnum(value);break;
 
       }
@@ -157,8 +158,8 @@ function displayStringIfExists(object,key,str){
 ###  <%- HelperFunctions.linkProperty(prop) %><%- HelperFunctions.isRequired(prop,schema.required) %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions}) %>
 <% });} %>
 
-<%  if(schema.definitions){ %>
+<%  if(schema.definitions){  %>
 
 ## Definitions
-<%    Object.keys(schema.definitions).map((def) => { var value= schema.definitions[def]; %>
+<%    Object.keys(schema.definitions).map((def) => { var value= schema.definitions[def];  HelperFunctions.nestLevel = 1; %>
 ###  <%- def %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions}) %><% });} %>
