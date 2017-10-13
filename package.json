@@ -12,6 +12,7 @@
   "dependencies": {
     "ajv": "^5.0.1-beta",
     "async": "^2.0.1",
+    "bluebird": "^3.5.1",
     "ejs": "^2.4.2",
     "glob": "7.1.2",
     "json-schema-ref-parser": "3.1.2",

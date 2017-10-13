@@ -1,0 +1,3 @@
+<% if(schema.metaElements.length > 0){%>---<% _.forOwn(schema.metaElements, function (value,key) {%>
+<%- key %> : <%- value %><% }); %>
+---<% }%>

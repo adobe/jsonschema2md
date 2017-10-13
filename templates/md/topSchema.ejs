@@ -1,0 +1,167 @@
+<%- include("meta",{schema:schema,_:_}) %>
+<%var HelperFunctions={
+  nestLevel:0,
+  isRequired : function (key,requiredProperties) {
+    if( _.indexOf(requiredProperties,key,0) != -1 )
+    return "    \n_Required Property_";
+    else
+    return "";
+  },
+  createLink: function(str,link){
+    return "[" + str + "](" + link+ ")";
+  },
+  linkProperty: function(str){
+    if(validUrl.isUri(str)){
+      arr=str.split("/");
+      text=arr[arr.length - 1 ];
+      return HelperFunctions.createLink(text,str);
+    }
+    else
+      return str;
+  },
+  checkRefrence:  function(refObject,flag,nchild){
+
+    if(refObject.$linkVal && refObject.$linkPath){
+      if(flag)
+        return "  \n **Refrenced From** "+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
+      else if(nchild > 0)
+        return "  \n* "+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
+        else
+          return "  \n"+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
+    }
+  },
+  escapeText: function(text){
+    return text.replace(/\n\n/g,"   \n").replace(/\n- /g,"\n  - ");
+
+  },
+  getDescriptionForKeyword: function(keyword,value){
+    switch(keyword){
+      case "oneOf": return "    \n**Only one of the following conditions must be met**" ;
+      case "allOf": return "    \n**All following conditions must be met**" ;
+      case "anyOf": return "    \n**Any one of the following conditions must be met**" ;
+      case "items": {
+        if(typeof value === "object" && value.type)
+          return "    \n **Array of**" + value.type;
+        else   return "    \n **Array containing**";
+    }
+      case "contains": return "Atleast one of the element of array should be following \n" ;
+      case "patternProperties": return "Pattern Specific Properties \n";
+      case "additionalProperties": break;
+      case "additionalItems": break;
+      case "not": break;
+      case "propertyNames": break;
+    }
+  },
+  displayExamples: function (examples){
+  	var str="\n";
+    examples.map((item,index) => {
+      var temp=JSON.stringify(item,null, 4);
+      str=str+"```json\n"+temp+"\n```\n\n";
+    });
+  	return str;
+  },
+  displayEnum: function(value){
+    var str="  \n[ ";
+    value.map((item,index) => {
+      if(index != (value.length - 1) )
+        str=str+item+", ";
+      else
+        str=str+item+" ]";
+
+    });
+    return str;
+  },
+  displayType: function(value){
+    var typeVal=value["type"];
+
+    var str1="  \n**Type:** ", str2="";
+    if(value["format"])
+    str2=str2 + '`'+value["format"]+ '`  ';
+    else if(typeVal){
+      if(_.isArray(typeVal)){
+        _.each(typeVal, (item,index) => {
+          if(index != typeVal.length - 1)
+          str2=str2 + '`'+item+ '`, '
+          else str2=str2 + '`'+item+ '`';
+        })
+      }
+      else
+      str2=str2 + '`'+typeVal+ '`';
+    }
+    if(str2.length > 1)
+      return str1 + str2;
+    else
+      return ""
+  },
+  getSimpleKeywords: function (object){
+    var str="";
+    Object.keys(object).map((keyword) => {
+      var value=object[keyword];
+      switch(keyword){
+        case "description": break;
+        case "multipleOf": str = str+"  \n"+"This Value Should be Multiple of "+value; break;
+        case "maximum": str = str+"  \n"+"**Maximum Value:** "+value; break;
+        case "exclusiveMaximum": str = str+"  \n"+"**Maximum Value(Strictly less than):** "+value; break;
+        case "minimum": str = str+"  \n"+"**Minimum Value:** "+value; break;
+        case "exclusiveMinimum": str = str+"  \n"+"**Minimum Value(Strictly less than):** "+value; break;
+        case "maxLength": str = str+"  \n"+"**Maximum Length:** "+value; break;
+        case "minLength": str = str+"  \n"+"**Minimum Length:** "+value; break;
+        case "pattern": str = str+"  \n"+"**Pattern for the value:** " +value; break;
+        case "maxItems": str = str+"  \n"+"**Maximum Items:** "+value ;break;
+        case "minItems":  str = str+"  \n"+"**Minimum Items:** "+value ;break;
+        case "maxProperties": str = str+"  \n"+"**Max Properties:** ";break;//Should these be there?
+        case "minProperties": str = str+"  \n"+"**Min Properties:** ";break;
+        //case "uniqueItems": str = str+"  \n"+"This contains Unique Items";break;
+        case "examples": str = str+"  \n"+"**Examples:**" + HelperFunctions.displayExamples(value);break;
+        case "enum": str = str+"  \n"+"This value can be one of the following **Enum values**"+ HelperFunctions.displayEnum(value);break;
+
+      }
+    })
+    return str;
+  },
+
+}
+
+function displayIfExists(object,key){
+  if(object[key])
+    return "  \n" + HelperFunctions.escapeText(object[key]);
+}
+
+function displayStringIfExists(object,key,str){
+  if(object[key])
+    return "  \n" + str;
+}
+
+%>
+%>
+<%- displayStringIfExists(schema,"title","# "+schema["title"]) %>
+<%- HelperFunctions.displayType(schema) %>
+<%- displayIfExists(schema,"description") %>
+<% Object.keys(schema).map((keyword) => {
+  var value=schema[keyword];
+  switch(keyword){
+    case "oneOf":
+    case "allOf":
+    case "anyOf":
+    case "items":{
+%><%- HelperFunctions.getDescriptionForKeyword(keyword,value) %><%if(_.isArray(value)){
+          value.map((item,index)=>{%><%- include('innerSchema', {nschema: item, HelperFunctions:HelperFunctions,flag:false,nchild : value.length}) %><%      });
+    }else if(typeof value === "object"){
+%><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:false,nchild : Object.keys(value).length}) %><%  }
+} break;
+  default: return;
+}
+})
+%><%- HelperFunctions.getSimpleKeywords(schema) %>
+<%  if(schema.properties){ %>
+
+## Properties
+<%    Object.keys(schema.properties).map((prop) => { var value= schema.properties[prop]; %>
+###  <%- HelperFunctions.linkProperty(prop) %><%- HelperFunctions.isRequired(prop,schema.required) %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:true,nchild:0}) %>
+<% });} %>
+
+<%  if(schema.definitions){  %>
+
+## Definitions
+<%    Object.keys(schema.definitions).map((def) => { var value= schema.definitions[def];  HelperFunctions.nestLevel = 0; %>
+###  <%- def %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:true,nchild:0}) %><% });} %>
