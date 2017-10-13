@@ -19,10 +19,15 @@
     else
       return str;
   },
-  checkRefrence:  function(refObject){
+  checkRefrence:  function(refObject,flag,nchild){
 
     if(refObject.$linkVal && refObject.$linkPath){
-      return "  \n* "+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath)+"";
+      if(flag)
+        return "  \n **Refrenced From** "+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
+      else if(nchild > 0)
+        return "  \n* "+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
+        else
+          return "  \n"+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
     }
   },
   escapeText: function(text){
@@ -56,21 +61,20 @@
   	return str;
   },
   displayEnum: function(value){
-    var str="\n";
+    var str="  \n[ ";
     value.map((item,index) => {
       if(index != (value.length - 1) )
-      str=str+"\n*  "+item;
+        str=str+item+", ";
       else
-      str=str+"\n*  "+item+"\n ";
+        str=str+item+" ]";
 
     });
     return str;
-
   },
   displayType: function(value){
     var typeVal=value["type"];
 
-    var str1="    \n**Type:** ", str2="";
+    var str1="  \n**Type:** ", str2="";
     if(value["format"])
     str2=str2 + '`'+value["format"]+ '`  ';
     else if(typeVal){
@@ -78,7 +82,7 @@
         _.each(typeVal, (item,index) => {
           if(index != typeVal.length - 1)
           str2=str2 + '`'+item+ '`, '
-          else str2=str2 + '`'+item+ '` ';
+          else str2=str2 + '`'+item+ '`';
         })
       }
       else
@@ -95,21 +99,21 @@
       var value=object[keyword];
       switch(keyword){
         case "description": break;
-        case "multipleOf": str = str+"    \n"+"This Value Should be Multiple of "+value; break;
-        case "maximum": str = str+"    \n"+"**Maximum Value:** "+value; break;
-        case "exclusiveMaximum": str = str+"    \n"+"**Maximum Value(Strictly less than):** "+value; break;
-        case "minimum": str = str+"    \n"+"**Minimum Value:** "+value; break;
-        case "exclusiveMinimum": str = str+"    \n"+"**Minimum Value(Strictly less than):** "+value; break;
-        case "maxLength": str = str+"    \n"+"**Maximum Length:** "+value; break;
-        case "minLength": str = str+"    \n"+"**Minimum Length:** "+value; break;
-        case "pattern": str = str+"    \n"+"**Pattern for the value:** " +value; break;
-        case "maxItems": str = str+"    \n"+"**Maximum Items:** "+value ;break;
-        case "minItems":  str = str+"    \n"+"**Minimum Items:** "+value ;break;
-        case "maxProperties": str = str+"    \n"+"**Max Properties:** ";break;//Should these be there?
-        case "minProperties": str = str+"    \n"+"**Min Properties:** ";break;
-        //case "uniqueItems": str = str+"\n\n"+"This contains Unique Items";break;
-        case "examples": str = str+"    \n"+"**Examples:**" + HelperFunctions.displayExamples(value);break;
-        case "enum": str = str+"    \n"+"This value can be one of the following **Enum values**\n"+ HelperFunctions.displayEnum(value);break;
+        case "multipleOf": str = str+"  \n"+"This Value Should be Multiple of "+value; break;
+        case "maximum": str = str+"  \n"+"**Maximum Value:** "+value; break;
+        case "exclusiveMaximum": str = str+"  \n"+"**Maximum Value(Strictly less than):** "+value; break;
+        case "minimum": str = str+"  \n"+"**Minimum Value:** "+value; break;
+        case "exclusiveMinimum": str = str+"  \n"+"**Minimum Value(Strictly less than):** "+value; break;
+        case "maxLength": str = str+"  \n"+"**Maximum Length:** "+value; break;
+        case "minLength": str = str+"  \n"+"**Minimum Length:** "+value; break;
+        case "pattern": str = str+"  \n"+"**Pattern for the value:** " +value; break;
+        case "maxItems": str = str+"  \n"+"**Maximum Items:** "+value ;break;
+        case "minItems":  str = str+"  \n"+"**Minimum Items:** "+value ;break;
+        case "maxProperties": str = str+"  \n"+"**Max Properties:** ";break;//Should these be there?
+        case "minProperties": str = str+"  \n"+"**Min Properties:** ";break;
+        //case "uniqueItems": str = str+"  \n"+"This contains Unique Items";break;
+        case "examples": str = str+"  \n"+"**Examples:**" + HelperFunctions.displayExamples(value);break;
+        case "enum": str = str+"  \n"+"This value can be one of the following **Enum values**"+ HelperFunctions.displayEnum(value);break;
 
       }
     })
@@ -120,19 +124,20 @@
 
 function displayIfExists(object,key){
   if(object[key])
-    return "    \n" + HelperFunctions.escapeText(object[key]);
+    return "  \n" + HelperFunctions.escapeText(object[key]);
 }
 
 function displayStringIfExists(object,key,str){
   if(object[key])
-    return "\n\n" + str;
+    return "  \n" + str;
 }
 
 %>
 %>
 <%- displayStringIfExists(schema,"title","# "+schema["title"]) %>
 <%- HelperFunctions.displayType(schema) %>
-<%- displayIfExists(schema,"description") %><% Object.keys(schema).map((keyword) => {
+<%- displayIfExists(schema,"description") %>
+<% Object.keys(schema).map((keyword) => {
   var value=schema[keyword];
   switch(keyword){
     case "oneOf":
@@ -140,12 +145,9 @@ function displayStringIfExists(object,key,str){
     case "anyOf":
     case "items":{
 %><%- HelperFunctions.getDescriptionForKeyword(keyword,value) %><%if(_.isArray(value)){
-          value.map((item,index)=>{%><%- include('innerSchema', {nschema: item, HelperFunctions:HelperFunctions}) %>
-<%      });
-    }
-    else if(typeof value === "object"){
-%><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions}) %>
-<%  }
+          value.map((item,index)=>{%><%- include('innerSchema', {nschema: item, HelperFunctions:HelperFunctions,flag:false,nchild : value.length}) %><%      });
+    }else if(typeof value === "object"){
+%><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:false,nchild : Object.keys(value).length}) %><%  }
 } break;
   default: return;
 }
@@ -155,11 +157,11 @@ function displayStringIfExists(object,key,str){
 
 ## Properties
 <%    Object.keys(schema.properties).map((prop) => { var value= schema.properties[prop]; %>
-###  <%- HelperFunctions.linkProperty(prop) %><%- HelperFunctions.isRequired(prop,schema.required) %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions}) %>
+###  <%- HelperFunctions.linkProperty(prop) %><%- HelperFunctions.isRequired(prop,schema.required) %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:true,nchild:0}) %>
 <% });} %>
 
 <%  if(schema.definitions){  %>
 
 ## Definitions
-<%    Object.keys(schema.definitions).map((def) => { var value= schema.definitions[def];  HelperFunctions.nestLevel = 1; %>
-###  <%- def %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions}) %><% });} %>
+<%    Object.keys(schema.definitions).map((def) => { var value= schema.definitions[def];  HelperFunctions.nestLevel = 0; %>
+###  <%- def %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:true,nchild:0}) %><% });} %>

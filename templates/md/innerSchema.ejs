@@ -1,31 +1,28 @@
 <%
 function displayIfExists(object,key){
   if(object[key])
-    return "    \n" + HelperFunctions.escapeText(object[key]);
+    return "  \n " + HelperFunctions.escapeText(object[key]);
 }
 
 function displayStringIfExists(object,key,str){
   if(object[key])
-    return "\n\n" + str;
+    return  str;
 }
-%><%- HelperFunctions.displayType(nschema) %><%- HelperFunctions.getSimpleKeywords(nschema) %><%- displayIfExists(nschema,"description") %><%- displayStringIfExists(nschema,"properties"," **Properties**\n") %><% if(nschema.properties){ var resetVal=HelperFunctions.nestLevel;
-  Object.keys(nschema.properties).map((prop) => { var value= nschema.properties[prop]; HelperFunctions.nestLevel= resetVal+1;%>
-<%- Array(HelperFunctions.nestLevel + 1).join("\t") %>*  **<% if(value["title"]) {%><%- value["title"] %><%} else{ %><%- HelperFunctions.linkProperty(prop) %><% } %>**    <%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions}) %><% }); } %><% Object.keys(nschema).map((keyword) => {
+%><%- HelperFunctions.displayType(nschema) %><%- displayIfExists(nschema,"description") %><%- HelperFunctions.getSimpleKeywords(nschema) %><%- displayStringIfExists(nschema,"properties","  \n**Properties**") %><% if(nschema.properties){ var resetVal=HelperFunctions.nestLevel;
+  Object.keys(nschema.properties).map((prop) => { var value= nschema.properties[prop]; HelperFunctions.nestLevel= resetVal+1;%><%- "  \n"+Array(HelperFunctions.nestLevel * 4).join(" ") %><% if(value["title"]) {%><%- "*  **"+value["title"]+"**" %><%} else{ %><%- "*  **"+HelperFunctions.linkProperty(prop)+"**" %><% } %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:true,nchild:0}) %><% }); } %><%
+  Object.keys(nschema).map((keyword) => {
   var value=nschema[keyword];
   switch(keyword){
     case "oneOf":
     case "allOf":
     case "anyOf":
-    case "items":{
-      %><%- HelperFunctions.getDescriptionForKeyword(keyword,value) %><%if(_.isArray(value)){
-          value.map((item,index)=>{
-%><%- include('innerSchema', {nschema: item, HelperFunctions:HelperFunctions}) %>
-<%      });
+    case "items":{ %><%- HelperFunctions.getDescriptionForKeyword(keyword,value) %><%
+      if(_.isArray(value)){
+          value.map((item,index)=>{%><%- include('innerSchema', {nschema: item, HelperFunctions:HelperFunctions,flag:false,nchild : Object.keys(value).length}) %><%      });
     }
-    else if(typeof value === "object"){%><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions}) %>
-<%  }
+    else if(typeof value === "object"){%><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:false,nchild : Object.keys(value).length}) %><%  }
 } break;
   default: return;
 }
 })
-%><%- HelperFunctions.checkRefrence(nschema) %>
+%><%- HelperFunctions.checkRefrence(nschema,flag,nchild) %>
