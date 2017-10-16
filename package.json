@@ -1,7 +1,7 @@
 {
-  "name": "adobecloudplatform-machinery",
+  "name": "jsonschema2md",
   "description": "Validate and document complex JSON Schemas the easy way.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "index.js",
   "bin": {
     "jsonschema2md": "./index.js"
@@ -30,9 +30,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.corp.adobe.com/AdobeCloudPlatform/machinery.git"
+    "url": "https://git.corp.adobe.com/AdobeCloudPlatform/jsonschema2md.git"
   },
   "bugs": {
-    "url": "https://git.corp.adobe.com/AdobeCloudPlatform/machinery/issues"
+    "url": "https://git.corp.adobe.com/AdobeCloudPlatform/jsonschema2md/issues"
   }
 }
