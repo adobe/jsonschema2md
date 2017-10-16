@@ -44,7 +44,7 @@
           return "    \n **Array of**" + value.type;
         else   return "    \n **Array containing**";
     }
-      case "contains": return "Atleast one of the element of array should be following \n" ;
+      case "contains": return "At least one of the element of array should be following \n" ;
       case "patternProperties": return "Pattern Specific Properties \n";
       case "additionalProperties": break;
       case "additionalItems": break;
@@ -99,21 +99,21 @@
       var value=object[keyword];
       switch(keyword){
         case "description": break;
-        case "multipleOf": str = str+"  \n"+"This Value Should be Multiple of "+value; break;
-        case "maximum": str = str+"  \n"+"**Maximum Value:** "+value; break;
-        case "exclusiveMaximum": str = str+"  \n"+"**Maximum Value(Strictly less than):** "+value; break;
-        case "minimum": str = str+"  \n"+"**Minimum Value:** "+value; break;
-        case "exclusiveMinimum": str = str+"  \n"+"**Minimum Value(Strictly less than):** "+value; break;
-        case "maxLength": str = str+"  \n"+"**Maximum Length:** "+value; break;
-        case "minLength": str = str+"  \n"+"**Minimum Length:** "+value; break;
+        case "multipleOf": str = str+"  \n"+"This value should be a multiple of "+value; break;
+        case "maximum": str = str+"  \n"+"**Maximum value:** "+value; break;
+        case "exclusiveMaximum": str = str+"  \n"+"**Maximum value (strictly less than):** "+value; break;
+        case "minimum": str = str+"  \n"+"**Minimum value:** "+value; break;
+        case "exclusiveMinimum": str = str+"  \n"+"**Minimum value (strictly less than):** "+value; break;
+        case "maxLength": str = str+"  \n"+"**Maximum length:** "+value; break;
+        case "minLength": str = str+"  \n"+"**Minimum length:** "+value; break;
         case "pattern": str = str+"  \n"+"**Pattern for the value:** " +value; break;
-        case "maxItems": str = str+"  \n"+"**Maximum Items:** "+value ;break;
-        case "minItems":  str = str+"  \n"+"**Minimum Items:** "+value ;break;
-        case "maxProperties": str = str+"  \n"+"**Max Properties:** ";break;//Should these be there?
-        case "minProperties": str = str+"  \n"+"**Min Properties:** ";break;
-        //case "uniqueItems": str = str+"  \n"+"This contains Unique Items";break;
+        case "maxItems": str = str+"  \n"+"**Maximum number of items:** "+value ;break;
+        case "minItems":  str = str+"  \n"+"**Minimum number items:** "+value ;break;
+        case "maxProperties": str = str+"  \n"+"**Max properties:** ";break;//Should these be there?
+        case "minProperties": str = str+"  \n"+"**Min properties:** ";break;
+        //case "uniqueItems": str = str+"  \n"+"This contains unique items";break;
         case "examples": str = str+"  \n"+"**Examples:**" + HelperFunctions.displayExamples(value);break;
-        case "enum": str = str+"  \n"+"This value can be one of the following **Enum values**"+ HelperFunctions.displayEnum(value);break;
+        case "enum": str = str+"  \n"+"This value can be one of the following **enum values**"+ HelperFunctions.displayEnum(value);break;
 
       }
     })
