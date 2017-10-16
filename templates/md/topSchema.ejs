@@ -23,7 +23,7 @@
 
     if(refObject.$linkVal && refObject.$linkPath){
       if(flag)
-        return "  \n **Refrenced From** "+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
+        return "  \n **Referenced From** "+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
       else if(nchild > 0)
         return "  \n* "+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
         else
