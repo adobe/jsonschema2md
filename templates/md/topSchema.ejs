@@ -41,8 +41,8 @@
       case "anyOf": return "    \n**Any one of the following conditions must be met**" ;
       case "items": {
         if(typeof value === "object" && value.type)
-          return "    \n **Array of**" + value.type;
-        else   return "    \n **Array containing**";
+          return "  \n **Array of**" + " " + value.type;
+        else   return "  \n **Array Of**";
     }
       case "contains": return "Atleast one of the element of array should be following \n" ;
       case "patternProperties": return "Pattern Specific Properties \n";
@@ -163,5 +163,5 @@ function displayStringIfExists(object,key,str){
 <%  if(schema.definitions){  %>
 
 ## Definitions
-<%    Object.keys(schema.definitions).map((def) => { var value= schema.definitions[def];  HelperFunctions.nestLevel = 0; %>
+<%    Object.keys(schema.definitions).map((def) => { var value= schema.definitions[def];  HelperFunctions.nestLevel = -1; %>
 ###  <%- def %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:true,nchild:0}) %><% });} %>
