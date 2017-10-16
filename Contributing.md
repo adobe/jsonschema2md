@@ -30,7 +30,7 @@ In your pull request, outline,
 
 Each commit message:
 
-* Should contain the issue tag like `[ACP-123]`
+* Should contain the issue ID like `[ACP-123]`
 * Can contain the tag `[trivial]` for trivial changes that don't relate to an issue
 
 ## Coding Styleguides
