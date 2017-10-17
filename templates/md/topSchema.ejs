@@ -156,9 +156,8 @@ function displayStringIfExists(object,key,str){
 <%  if(schema.properties){ %>
 
 ## Properties
-<%    Object.keys(schema.properties).map((prop) => { var value= schema.properties[prop]; %>
-###  <%- HelperFunctions.linkProperty(prop) %><%- HelperFunctions.isRequired(prop,schema.required) %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:true,nchild:0}) %>
-<% });} %>
+<%    Object.keys(schema.properties).map((prop) => { var value= schema.properties[prop]; HelperFunctions.nestLevel = -1; %>
+###  <%- HelperFunctions.linkProperty(prop) %><%- HelperFunctions.isRequired(prop,schema.required) %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:true,nchild:0}) %><% });} %>
 
 <%  if(schema.definitions){  %>
 
