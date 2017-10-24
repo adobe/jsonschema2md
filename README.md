@@ -31,7 +31,8 @@ $ node index.js
 #   -d, --input   path to directory containing all JSON Schemas or a single JSON Schema file. This will be considered as the baseURL  [required]
 #   -f, --isFile  pass if input is a single file path
 #   -o, --out   path to output directory (default: ./out)
-#   -s, --schema-out  pass to output JSON Schema files including description and validated examples in the _new folder at output directory
+#   -x, --schema-out  pass to output JSON Schema files including description and validated examples in the _new folder at output directory
+#   -s, --metaSchema pass it followed by path to Custom meta schema to validate other schemas
 
 
 # run task
