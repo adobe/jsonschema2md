@@ -280,7 +280,7 @@ function displayStringIfExists(object,key,str){
 %>
 <%- displayStringIfExists(schema,"title","# "+schema["title"]) %>
 <%- HelperFunctions.getDependencies(dependencyMap,schema) %>
-<% HelperFunctions.displayType(schema,1) %>
+<%- HelperFunctions.displayType(schema,1) %>
 <%- displayIfExists(schema,"description") %>
 <%- HelperFunctions.getSimpleKeywords(schema) %>
 <%  if(schema.properties && Object.keys(schema.properties).length > 0){ %>
