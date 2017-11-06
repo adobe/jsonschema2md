@@ -1,6 +1,6 @@
 # JSON Schema Markdown Tools
 
-Documenting and validating complex JSON Schemas can be hard. This tool maks it easier by providing a number of scripts that can turn JSON Schema files into readable Markdown documenation that is ready to be read on GitHub, or processed using Jekyll or other static site generators.
+Documenting and validating complex JSON Schemas can be hard. This tool maks it easier by providing a number of scripts that can turn JSON Schema files into readable Markdown documenation that is ready for consumption on GitHub or processed using Jekyll or other static site generators.
 
 These tools have been introduced by Adobe to document Adobe's Experience Data Models (XDM), but can be used for other JSON Schema documents, too.
 
@@ -11,14 +11,14 @@ These tools have been introduced by Adobe to document Adobe's Experience Data Mo
 ## Installing and running
 
 ```bash
-# clone models project
-$ git clone git@git.corp.adobe.com:AdobeCloudPlatform/models.git
+# clone XDM project
+$ git clone git@git.corp.adobe.com:AdobeCloudPlatform/xdm.git
 
-# clone machinery project
-$ git clone git@git.corp.adobe.com:AdobeCloudPlatform/machinery.git
+# clone this project
+$ git clone git@git.corp.adobe.com:AdobeCloudPlatform/jsonschema2md.git
 
 # install dependencies
-$ cd machinery && npm install
+$ cd jsonschema2md && npm install
 
 # show usage information
 $ node index.js
@@ -28,15 +28,15 @@ $ node index.js
 # Usage: node index.js
 #
 # Options:
-#   -d, --input   path to directory containing all JSON Schemas or a single JSON Schema file. This will be considered as the baseURL  [required]
-#   -f, --isFile  pass if input is a single file path
-#   -o, --out   path to output directory (default: ./out)
-#   -x, --schema-out  pass to output JSON Schema files including description and validated examples in the _new folder at output directory
-#   -s, --metaSchema pass it followed by path to Custom meta schema to validate other schemas
-
+#   -d, --input       path to directory containing all JSON Schemas or a single JSON Schema file. This will be considered as the baseURL  [required]
+#   -f, --isFile      pass if input is a single file path
+#   -o, --out         path to output directory (default: ./out)
+#   -m, --meta        add metadata elements to .md files Eg -m template=reference. Multiple values can be added by repeating the flag Eg: -m template=reference -m hide-nav=true
+#   -x, --schema-out  output JSON Schema files including description and validated examples in the _new folder at output directory
+#   -s, --metaSchema  path to Custom meta schema to validate other schemas
 
 # run task
- node index.js -d ../models/schemas/draft-04/
+$ node index.js -d ../xdm/schemas/draft-04/
 # generated output for whole folder is written to ./out
 ```
 
@@ -56,10 +56,9 @@ You can conveniently use the JSON Schema Markdown Tools from `npm`. This makes i
 
 ```json
   "devDependencies": {
-    "adobecloudplatform-machinery": "git+ssh://git@git.corp.adobe.com:AdobeCloudPlatform/machinery.git"
+    "jsonschema2md": "git+ssh://git@git.corp.adobe.com:AdobeCloudPlatform/jsonschema2md.git"
   }
 ```
-
 
 Then add the following to the `"scripts"` section of your `package.json` and adapt accordingly:
 
@@ -76,7 +75,7 @@ If you run `npm install` before running `npm run prepare`, `npm` will install th
 * JSON Schema validation:
   * property naming convention
   * vocabulary spellchecking
-* …
+* Tests
 
 ## Contributing
 
