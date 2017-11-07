@@ -7,7 +7,8 @@
     "jsonschema2md": "./index.js"
   },
   "scripts": {
-    "start": "node ./index.js"
+    "start": "node ./index.js",
+    "test": "jasmine"
   },
   "dependencies": {
     "ajv": "^5.0.1-beta",
@@ -22,6 +23,9 @@
     "readdirp": "^2.1.0",
     "valid-url": "1.0.9",
     "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "jasmine": "~2.8.0"
   },
   "engines": {
     "node": ">= 6.0.0"
