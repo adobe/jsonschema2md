@@ -21,17 +21,17 @@
   },
   checkRefrence:  function(refObject,flag,nchild){
 
-    if(refObject.$linkVal && refObject.$linkPath){
-      if(flag)
-        return "  \n **Refrenced From** "+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
-      else if(nchild > 0)
-        return "  \n* "+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
-        else
-          return "  \n"+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
-    }
+    // if(refObject.$linkVal && refObject.$linkPath){
+    //   if(flag)
+    //     return "  \n **Refrenced From** "+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
+    //   else if(nchild > 0)
+    //     return "  \n* "+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
+    //     else
+    //       return "  \n"+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
+    // }
   },
   escapeText: function(text){
-    return text.replace(/\n\n/g,"   \n").replace(/\n- /g,"\n  - ");
+    return text.replace(/\n- /g,"\n  - ");
 
   },
   getDescriptionForKeyword: function(keyword,value){
@@ -72,56 +72,39 @@
     return str;
   },
   displayType: function(value,level){
-    var typeVal=value["type"];
-    var word1="";
 
-    switch(typeVal){
-      case "oneOf" : word1 = "Only one of "; break;
-      case "anyOf" : word1 = "Either "; break;
-      case "array" : word1 = "Array of "; break;
-    }
+      var typeVal=value["type"];
+      var word1="";
 
-    var str2="",str="",str3="";
-    if(level === 1)
-    str="  \n*  **Type:** "
-    else if(level === 3)
-    str="  "
-    else if(level === 4)
-    str="  \n        *  Type:  "
-    else if(level === 2)
-    str= "  \n    * "
+      switch(typeVal){
+        case "oneOf" : word1 = "Only one of "; break;
+        case "anyOf" : word1 = "Either "; break;
+        case "array" : word1 = "Array of "; break;
+        case "object": word1 = "";break;
+      }
 
-    //  var str="  \n "//" Type: ",
-    if(typeVal === "anyOf" || typeVal === "oneOf"){
-      var arr= value[typeVal]; //if not throw error
-      _.each(arr,function(item,index){
-        if(item["type"] != "anyOf" && item["type"] != "oneOf" && item["type"] != "array"){
-          if(item["$ref"]){
-
-            if(index === 0)
-            {str2= str2 + HelperFunctions.createLink(item["$linkVal"],item["$linkPath"]);}
-            else
-            str2= str2 + " or "+ HelperFunctions.createLink(item["$linkVal"],item["$linkPath"])
-
-          }
-          else{
-            //TODO
-          }
-        }
-        else{
-          str2= str2 + HelperFunctions.displayType(item,2);
-          //return HelperFunctions.displayType(item);
-        }
-
-      })
-    }
-    else if(typeVal === "array" && value["items"] ){
-      //str2=str2+"Array Of ";
-      if(_.isArray(value["items"])){
-        _.forOwn(value["items"],(item,key,object)=>{
+      var str2="",str="",str3="";
+      if(level === 1)
+      str="  \n*  **Type:** "
+      else if(level === 3)
+      str="  "
+      else if(level === 4)
+      str="  \n        *  Type:  "
+      else if(level === 2)
+      str= "  \n    * "
+    if(!value["$ref"]){
+      //  var str="  \n "//" Type: ",
+      if(typeVal === "anyOf" || typeVal === "oneOf"){
+        var arr= value[typeVal]; //if not throw error
+        _.each(arr,function(item,index){
           if(item["type"] != "anyOf" && item["type"] != "oneOf" && item["type"] != "array"){
             if(item["$ref"]){
-              // str2= str2 + HelperFunctions.createLink(item["$linkVal"],item["$linkPath"]) + " or "
+
+              if(index === 0)
+              {str2= str2 + HelperFunctions.createLink(item["$linkVal"],item["$linkPath"]);}
+              else
+              str2= str2 + " or "+ HelperFunctions.createLink(item["$linkVal"],item["$linkPath"])
+
             }
             else{
               //TODO
@@ -129,57 +112,80 @@
           }
           else{
             str2= str2 + HelperFunctions.displayType(item,2);
+            //return HelperFunctions.displayType(item);
           }
+
         })
       }
-      else if(typeof value["items"] === "object"){
-        if(value["items"]["type"] != "anyOf" && value["items"]["type"] != "oneOf" && value["items"]["type"] != "array"){
-          if(value["items"]["$ref"]){
-            str2= str2 + HelperFunctions.createLink(value["$linkVal"],value["$linkPath"])
-          }
-          else{
-            str2=""
-            if(value["items"]["properties"]){
-              var nschema=value["items"];
-              str3=str3+"following Properties  ";
-              _.forOwn(nschema.properties,(val,key) =>
-              {
-                str3=str3+"\n    * **"+HelperFunctions.linkProperty(key)+"**"+HelperFunctions.displayType(val,4)+displayIfExists(val,"description")
+      else if(typeVal === "array" && value["items"] ){
+        //str2=str2+"Array Of ";
+        if(_.isArray(value["items"])){
+          _.forOwn(value["items"],(item,key,object)=>{
+            if(item["type"] != "anyOf" && item["type"] != "oneOf" && item["type"] != "array"){
+              if(item["$ref"]){
+                // str2= str2 + HelperFunctions.createLink(item["$linkVal"],item["$linkPath"]) + " or "
+              }
+              else{
+                //TODO
+              }
+            }
+            else{
+              str2= str2 + HelperFunctions.displayType(item,2);
+            }
+          })
+        }
+        else if(typeof value["items"] === "object"){
+          if(value["items"]["type"] != "anyOf" && value["items"]["type"] != "oneOf" && value["items"]["type"] != "array"){
+            if(value["items"]["$ref"] && !value["items"]["properties"]){
+              str2= str2 + HelperFunctions.createLink(value["items"]["$linkVal"],value["items"]["$linkPath"]);
+            }
+            else{
+              str2=""
+              if(value["items"]["properties"]){
+                var nschema=value["items"];
+                str3=str3+"following Properties  ";
+                _.forOwn(nschema.properties,(val,key) =>
+                {
+                  str3=str3+"\n    * **"+HelperFunctions.linkProperty(key)+"**"+HelperFunctions.displayType(val,4)+displayIfExists(val,"description")
 
 
-              })
+                })
 
-            }else {
-              if(value["items"]["type"].length > 1)
+              }else {
+                if(value["items"]["type"])
+                if(value["items"]["type"].length > 1)
                 str3 = str3 + value["items"]["type"];
+              }
             }
           }
-        }
-        else{
-          str2= str2 + HelperFunctions.displayType(value["items"],3);
+          else{
+            str2= str2 + HelperFunctions.displayType(value["items"],3);
+          }
         }
       }
-    }
-    else if(typeVal){
-      if(_.isArray(typeVal)){
-        _.each(typeVal, (item,index) => {
-          if(index != typeVal.length - 1)
-          str2=str2 +item+ ', '
-          else str2=str2 + item;
-        })
+      else if(typeVal){
+        if(_.isArray(typeVal)){
+          _.each(typeVal, (item,index) => {
+            if(index != typeVal.length - 1)
+            str2=str2 +item+ ', '
+            else str2=str2 + item;
+          })
+        }
+        else
+        str2=str2 + typeVal;
       }
-      else
-      str2=str2 + typeVal;
-    }
-    if(str2.length > 1)
+      if(str2.length > 1)
       return str+ word1 + str2 ;
-    else if(str3.length > 1)
+      else if(str3.length > 1)
       return str+ word1 + str3 ;
-    else{
-      
-      return ""
-    }
+      else{
 
+        return ""
+      }
+    }
+    else {
+      return str + word1 + HelperFunctions.createLink(value["$linkVal"],value["$linkPath"])
+    }
   },
   displayFormat: function(value){
     var str = "";
@@ -228,39 +234,47 @@
     var str2="";
     var recurse = function(dmap,level){
 
-      if(dmap){
+      if(dmap)
+      {
 
-      if(Object.keys(dmap).length > 0){
+        if(Object.keys(dmap).length > 0){
 
-        _.forOwn(dmap,(val,key) => {
-          if(!(key in usemap)){
-            str2 = str2 + "  \n" +Array(level * 4).join(" ") + "* "+HelperFunctions.createLink(val.$linkVal,val.$linkPath);
-            //  console.log("str2");
-            usemap[key]=1;
-            if(dependencyMap[key] && Object.keys(dependencyMap[key]).length > 0){
-              if(key != mainId)
+          _.forOwn(dmap,(val,key) => {
+            if(!(key in usemap)){
+              str2 = str2 + "  \n" +Array(level * 4).join(" ") + "* "+HelperFunctions.createLink(val.$linkVal,val.$linkPath);
+              //  console.log("str2");
+              usemap[key]=1;
+              if(dependencyMap[key] && Object.keys(dependencyMap[key]).length > 0){
+                if(key != mainId)
                 recurse(dependencyMap[key],level+1)
 
+              }
+              else
+              return str2;
             }
             else
-              return str2;
-          }
-          else
             return ""
 
-        })
+          })
+        }
+        else {
+          return ""
+        }
       }
-      else {
-        return ""
-      }
-    }
-    else
+      else
       return ""
       return str2;
-  }
+    }
+    if(dependencyMap[id]){
+      if(Object.keys(dependencyMap[id]).length > 0)
+        return str + recurse(dependencyMap[id],0)
+      else
+        return "";
+    }
+    else {
+      return "";
+    }
 
-    if(Object.keys(dependencyMap[id]).length > 0)
-      return str + recurse(dependencyMap[id],0)
 
   }
 }
@@ -286,7 +300,7 @@ function displayStringIfExists(object,key,str){
 <%  if(schema.properties && Object.keys(schema.properties).length > 0){ %>
 
 ## Properties
-<%    Object.keys(schema.properties).map((prop) => { var value= schema.properties[prop]; HelperFunctions.nestLevel = -1; %>
+<%    Object.keys(schema.properties).map((prop) => { var value= schema.properties[prop]; HelperFunctions.nestLevel = 0; %>
 ###  <%- HelperFunctions.linkProperty(prop) %><%- HelperFunctions.isRequired(prop,schema.required) %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:true,nchild:0,sName:HelperFunctions.linkProperty(prop)}) %><% });} %>
 
 <%  if(schema.$definitions){  %>

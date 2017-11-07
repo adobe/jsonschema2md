@@ -10,11 +10,10 @@ function displayStringIfExists(object,key,str){
 }
 %><%- HelperFunctions.displayType(nschema,1) %><%- HelperFunctions.displayFormat(nschema)%>
 <% if(nschema["$oSchema"]) { %>* **Defined In:** <%- HelperFunctions.createLink(nschema.$oSchema.$linkVal,nschema.$oSchema.$linkPath) %>
-<% }%><%- displayIfExists(nschema,"description") %><%- HelperFunctions.getSimpleKeywords(nschema) %><%- displayStringIfExists(nschema,sName + "properties","  \n**Properties**") %><%
+<% }%><%- displayIfExists(nschema,"description") %><%- HelperFunctions.getSimpleKeywords(nschema) %><%- displayStringIfExists(nschema,"properties","  \n**"+ sName.charAt(0).toUpperCase() + sName.slice(1) + " Properties**") %><%
 if(nschema.properties){ var resetVal=HelperFunctions.nestLevel;
   Object.keys(nschema.properties).map((prop) => { var value= nschema.properties[prop]; HelperFunctions.nestLevel= resetVal+1;%><%- "  \n"+Array(HelperFunctions.nestLevel * 4).join(" ") %><% if(value["title"])
   {%><%- "*  **"+value["title"]+"**" %><%} else{ %><%- "*  **"+HelperFunctions.linkProperty(prop)+"**" %><%
 } %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:true,nchild:0})
  %><% });
 } %>
-<%- HelperFunctions.checkRefrence(nschema,flag,nchild) %>
