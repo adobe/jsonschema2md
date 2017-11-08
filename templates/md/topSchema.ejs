@@ -305,10 +305,16 @@ function displayStringIfExists(object,key,str){
 <%    Object.keys(schema.properties).map((prop) => { var value= schema.properties[prop]; HelperFunctions.nestLevel = 0; %>
 ###  <%- HelperFunctions.linkProperty(prop) %><%- HelperFunctions.isRequired(prop,schema.required) %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:true,nchild:0,sName:HelperFunctions.linkProperty(prop)}) %><% });} %>
 
-<%  if(schema.$definitions){  %>
+<% if(!schema.properties || (Object.keys(schema.properties).length == 0) && schema.definitions){  %>
 
-## Definitions
-
-<%    Object.keys(schema.definitions).map((def) => { var value= schema.definitions[def];  HelperFunctions.nestLevel = 0; %>
-###  <%- def %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:true,nchild:0}) %><% });} %>
-
+<%    Object.keys(schema.definitions).map((def) => { var value= schema.definitions[def];  HelperFunctions.nestLevel = -1; %>
+##  <%- HelperFunctions.linkProperty(def)
+%><% if(value["properties"]){
+%>
+### Properties
+<%    Object.keys(value.properties).map((prop) => { var val= value.properties[prop]; HelperFunctions.nestLevel = 0; %>
+###  <%- HelperFunctions.linkProperty(prop) %><%- HelperFunctions.isRequired(prop,value.required)
+%><%- include('innerSchema', {nschema: val, HelperFunctions:HelperFunctions,flag:true,nchild:0,sName:HelperFunctions.linkProperty(prop)
+})%><% })
+}
+})} %>
