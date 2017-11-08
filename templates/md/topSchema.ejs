@@ -3,7 +3,7 @@
   nestLevel:0,
   isRequired : function (key,requiredProperties) {
     if( _.indexOf(requiredProperties,key,0) != -1 )
-    return "    \n_Required Property_";
+    return "    \n* **Required**";
     else
     return "";
   },
@@ -21,17 +21,18 @@
   },
   checkRefrence:  function(refObject,flag,nchild){
 
-    if(refObject.$linkVal && refObject.$linkPath){
-      if(flag)
-        return "  \n **Referenced From** "+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
-      else if(nchild > 0)
-        return "  \n* "+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
-        else
-          return "  \n"+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
-    }
+    // if(refObject.$linkVal && refObject.$linkPath){
+    //   if(flag)
+    //     return "  \n **Refrenced From** "+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
+    //   else if(nchild > 0)
+    //     return "  \n* "+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
+    //     else
+    //       return "  \n"+ HelperFunctions.createLink(refObject.$linkVal,refObject.$linkPath);
+    // }
+
   },
   escapeText: function(text){
-    return text.replace(/\n\n/g,"   \n").replace(/\n- /g,"\n  - ");
+    return text.replace(/\n- /g,"\n  - ");
 
   },
   getDescriptionForKeyword: function(keyword,value){
@@ -41,8 +42,8 @@
       case "anyOf": return "    \n**Any one of the following conditions must be met**" ;
       case "items": {
         if(typeof value === "object" && value.type)
-          return "    \n **Array of**" + value.type;
-        else   return "    \n **Array containing**";
+          return "  \n **Array of**" + " " + value.type;
+        else   return "  \n **Array Of**";
     }
       case "contains": return "At least one of the element of array should be following \n" ;
       case "patternProperties": return "Pattern Specific Properties \n";
@@ -71,27 +72,129 @@
     });
     return str;
   },
-  displayType: function(value){
-    var typeVal=value["type"];
+  displayType: function(value,level){
 
-    var str1="  \n**Type:** ", str2="";
-    if(value["format"])
-    str2=str2 + '`'+value["format"]+ '`  ';
-    else if(typeVal){
-      if(_.isArray(typeVal)){
-        _.each(typeVal, (item,index) => {
-          if(index != typeVal.length - 1)
-          str2=str2 + '`'+item+ '`, '
-          else str2=str2 + '`'+item+ '`';
+      var typeVal=value["type"];
+      var word1="";
+
+      switch(typeVal){
+        case "oneOf" : word1 = "Only one of "; break;
+        case "anyOf" : word1 = "Either "; break;
+        case "array" : word1 = "Array of "; break;
+        case "object": word1 = "";break;
+      }
+
+      var str2="",str="",str3="";
+      if(level === 1)
+      str="  \n*  **Type:** "
+      else if(level === 3)
+      str="  "
+      else if(level === 4)
+      str="  \n        *  Type:  "
+      else if(level === 2)
+      str= "  \n    * "
+    if(!value["$ref"]){
+      //  var str="  \n "//" Type: ",
+      if(typeVal === "anyOf" || typeVal === "oneOf"){
+        var arr= value[typeVal]; //if not throw error
+        _.each(arr,function(item,index){
+          if(item["type"] != "anyOf" && item["type"] != "oneOf" && item["type"] != "array"){
+            if(item["$ref"]){
+
+              if(index === 0)
+              {str2= str2 + HelperFunctions.createLink(item["$linkVal"],item["$linkPath"]);}
+              else
+              str2= str2 + " or "+ HelperFunctions.createLink(item["$linkVal"],item["$linkPath"])
+
+            }
+            else{
+              //TODO
+            }
+          }
+          else{
+            str2= str2 + HelperFunctions.displayType(item,2);
+            //return HelperFunctions.displayType(item);
+          }
+
         })
       }
-      else
-      str2=str2 + '`'+typeVal+ '`';
+      else if(typeVal === "array" && value["items"] ){
+        //str2=str2+"Array Of ";
+        if(_.isArray(value["items"])){
+          _.forOwn(value["items"],(item,key,object)=>{
+            if(item["type"] != "anyOf" && item["type"] != "oneOf" && item["type"] != "array"){
+              if(item["$ref"]){
+                // str2= str2 + HelperFunctions.createLink(item["$linkVal"],item["$linkPath"]) + " or "
+              }
+              else{
+                //TODO
+              }
+            }
+            else{
+              str2= str2 + HelperFunctions.displayType(item,2);
+            }
+          })
+        }
+        else if(typeof value["items"] === "object"){
+          if(value["items"]["type"] != "anyOf" && value["items"]["type"] != "oneOf" && value["items"]["type"] != "array"){
+            if(value["items"]["$ref"] && !value["items"]["properties"]){
+              str2= str2 + HelperFunctions.createLink(value["items"]["$linkVal"],value["items"]["$linkPath"]);
+            }
+            else{
+              str2=""
+              if(value["items"]["properties"]){
+                var nschema=value["items"];
+                str3=str3+"following Properties  ";
+                _.forOwn(nschema.properties,(val,key) =>
+                {
+                  str3=str3+"\n    * **"+HelperFunctions.linkProperty(key)+"**"+HelperFunctions.displayType(val,4)+displayIfExists(val,"description")
+
+
+                })
+
+              }else {
+                if(value["items"]["type"])
+                if(value["items"]["type"].length > 1)
+                str3 = str3 + value["items"]["type"];
+              }
+            }
+          }
+          else{
+            str2= str2 + HelperFunctions.displayType(value["items"],3);
+          }
+        }
+      }
+      else if(typeVal){
+        if(_.isArray(typeVal)){
+          _.each(typeVal, (item,index) => {
+            if(index != typeVal.length - 1)
+            str2=str2 +item+ ', '
+            else str2=str2 + item;
+          })
+        }
+        else
+        str2=str2 + typeVal;
+      }
+      if(str2.length > 1)
+      return str+ word1 + str2 ;
+      else if(str3.length > 1)
+      return str+ word1 + str3 ;
+      else{
+
+        return ""
+      }
     }
-    if(str2.length > 1)
-      return str1 + str2;
-    else
-      return ""
+    else {
+      return str + word1 + HelperFunctions.createLink(value["$linkVal"],value["$linkPath"])
+    }
+  },
+  displayFormat: function(value){
+    var str = "";
+    if(value["format"])
+      str = str + "  \n*  **Format:** " +value["format"] ;
+
+    return str;
+
   },
   getSimpleKeywords: function (object){
     var str="";
@@ -119,12 +222,69 @@
     })
     return str;
   },
+  getDependencies: function(dependencyMap,schema){
 
+    var id="",title="";
+    if(schema["$id"])
+      id=schema["$id"];
+    if(schema["title"])
+      title=schema["title"]
+    var mainId=id;
+    var str = title + " is based on:  \n";
+    var usemap={};
+    var str2="";
+    var recurse = function(dmap,level){
+
+      if(dmap)
+      {
+
+        if(Object.keys(dmap).length > 0){
+
+          _.forOwn(dmap,(val,key) => {
+            if(!(key in usemap)){
+              str2 = str2 + "  \n" +Array(level * 4).join(" ") + "* "+HelperFunctions.createLink(val.$linkVal,val.$linkPath);
+              //  console.log("str2");
+              usemap[key]=1;
+              if(dependencyMap[key] && Object.keys(dependencyMap[key]).length > 0){
+                if(key != mainId)
+                recurse(dependencyMap[key],level+1)
+
+              }
+              else
+              return str2;
+            }
+            else
+            return ""
+
+          })
+        }
+        else {
+          return ""
+        }
+      }
+      else
+      return ""
+      return str2;
+    }
+    if(dependencyMap[id]){
+      if(Object.keys(dependencyMap[id]).length > 0)
+        return str + recurse(dependencyMap[id],0)
+      else
+        return "";
+    }
+    else {
+      return "";
+    }
+
+
+  }
 }
 
 function displayIfExists(object,key){
   if(object[key])
     return "  \n" + HelperFunctions.escapeText(object[key]);
+  else
+    return ""
 }
 
 function displayStringIfExists(object,key,str){
@@ -133,34 +293,28 @@ function displayStringIfExists(object,key,str){
 }
 
 %>
-%>
 <%- displayStringIfExists(schema,"title","# "+schema["title"]) %>
-<%- HelperFunctions.displayType(schema) %>
+<%- HelperFunctions.getDependencies(dependencyMap,schema) %>
+<%- HelperFunctions.displayType(schema,1) %>
 <%- displayIfExists(schema,"description") %>
-<% Object.keys(schema).map((keyword) => {
-  var value=schema[keyword];
-  switch(keyword){
-    case "oneOf":
-    case "allOf":
-    case "anyOf":
-    case "items":{
-%><%- HelperFunctions.getDescriptionForKeyword(keyword,value) %><%if(_.isArray(value)){
-          value.map((item,index)=>{%><%- include('innerSchema', {nschema: item, HelperFunctions:HelperFunctions,flag:false,nchild : value.length}) %><%      });
-    }else if(typeof value === "object"){
-%><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:false,nchild : Object.keys(value).length}) %><%  }
-} break;
-  default: return;
-}
-})
-%><%- HelperFunctions.getSimpleKeywords(schema) %>
-<%  if(schema.properties){ %>
+<%- HelperFunctions.getSimpleKeywords(schema) %>
+<%  if(schema.properties && Object.keys(schema.properties).length > 0){ %>
 
 ## Properties
-<%    Object.keys(schema.properties).map((prop) => { var value= schema.properties[prop]; HelperFunctions.nestLevel = -1; %>
-###  <%- HelperFunctions.linkProperty(prop) %><%- HelperFunctions.isRequired(prop,schema.required) %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:true,nchild:0}) %><% });} %>
 
-<%  if(schema.definitions){  %>
+<%    Object.keys(schema.properties).map((prop) => { var value= schema.properties[prop]; HelperFunctions.nestLevel = 0; %>
+###  <%- HelperFunctions.linkProperty(prop) %><%- HelperFunctions.isRequired(prop,schema.required) %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:true,nchild:0,sName:HelperFunctions.linkProperty(prop)}) %><% });} %>
 
-## Definitions
-<%    Object.keys(schema.definitions).map((def) => { var value= schema.definitions[def];  HelperFunctions.nestLevel = 0; %>
-###  <%- def %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:true,nchild:0}) %><% });} %>
+<% if(!schema.properties || (Object.keys(schema.properties).length == 0) && schema.definitions){  %>
+
+<%    Object.keys(schema.definitions).map((def) => { var value= schema.definitions[def];  HelperFunctions.nestLevel = -1; %>
+##  <%- HelperFunctions.linkProperty(def)
+%><% if(value["properties"]){
+%>
+### Properties
+<%    Object.keys(value.properties).map((prop) => { var val= value.properties[prop]; HelperFunctions.nestLevel = 0; %>
+###  <%- HelperFunctions.linkProperty(prop) %><%- HelperFunctions.isRequired(prop,value.required)
+%><%- include('innerSchema', {nschema: val, HelperFunctions:HelperFunctions,flag:true,nchild:0,sName:HelperFunctions.linkProperty(prop)
+})%><% })
+}
+})} %>

@@ -28,6 +28,7 @@ $ node index.js
 # Usage: node index.js
 #
 # Options:
+
 #   -d, --input       path to directory containing all JSON Schemas or a single JSON Schema file. This will be considered as the baseURL  [required]
 #   -f, --isFile      pass if input is a single file path
 #   -o, --out         path to output directory (default: ./out)

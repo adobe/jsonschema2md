@@ -8,21 +8,12 @@ function displayStringIfExists(object,key,str){
   if(object[key])
     return  str;
 }
-%><%- HelperFunctions.displayType(nschema) %><%- displayIfExists(nschema,"description") %><%- HelperFunctions.getSimpleKeywords(nschema) %><%- displayStringIfExists(nschema,"properties","  \n**Properties**") %><% if(nschema.properties){ var resetVal=HelperFunctions.nestLevel;
-  Object.keys(nschema.properties).map((prop) => { var value= nschema.properties[prop]; HelperFunctions.nestLevel= resetVal+1;%><%- "  \n"+Array(HelperFunctions.nestLevel * 4).join(" ") %><% if(value["title"]) {%><%- "*  **"+value["title"]+"**" %><%} else{ %><%- "*  **"+HelperFunctions.linkProperty(prop)+"**" %><% } %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:true,nchild:0}) %><% }); } %><%
-  Object.keys(nschema).map((keyword) => {
-  var value=nschema[keyword];
-  switch(keyword){
-    case "oneOf":
-    case "allOf":
-    case "anyOf":
-    case "items":{ %><%- HelperFunctions.getDescriptionForKeyword(keyword,value) %><%
-      if(_.isArray(value)){
-          value.map((item,index)=>{%><%- include('innerSchema', {nschema: item, HelperFunctions:HelperFunctions,flag:false,nchild : Object.keys(value).length}) %><%      });
-    }
-    else if(typeof value === "object"){%><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:false,nchild : Object.keys(value).length}) %><%  }
-} break;
-  default: return;
-}
-})
-%><%- HelperFunctions.checkRefrence(nschema,flag,nchild) %>
+%><%- HelperFunctions.displayType(nschema,1) %><%- HelperFunctions.displayFormat(nschema)%>
+<% if(nschema["$oSchema"]) { %>* **Defined In:** <%- HelperFunctions.createLink(nschema.$oSchema.$linkVal,nschema.$oSchema.$linkPath) %>
+<% }%><%- displayIfExists(nschema,"description") %><%- HelperFunctions.getSimpleKeywords(nschema) %><%- displayStringIfExists(nschema,"properties","  \n**"+ sName.charAt(0).toUpperCase() + sName.slice(1) + " Properties**") %><%
+if(nschema.properties){ var resetVal=HelperFunctions.nestLevel;
+  Object.keys(nschema.properties).map((prop) => { var value= nschema.properties[prop]; HelperFunctions.nestLevel= resetVal+1;%><%- "  \n"+Array(HelperFunctions.nestLevel * 4).join(" ") %><% if(value["title"])
+  {%><%- "*  **"+value["title"]+"**" %><%} else{ %><%- "*  **"+HelperFunctions.linkProperty(prop)+"**" %><%
+} %><%- include('innerSchema', {nschema: value, HelperFunctions:HelperFunctions,flag:true,nchild:0})
+ %><% });
+} %>
