@@ -32,5 +32,6 @@
   },
   "bugs": {
     "url": "https://git.corp.adobe.com/AdobeCloudPlatform/jsonschema2md/issues"
-  }
+  },
+  "license": "Apache-2.0"
 }
