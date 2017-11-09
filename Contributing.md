@@ -1,6 +1,14 @@
-# Contributing to Adobe Cloud Platform JSON Schema Markdown Tools
+# Contributing to JSON Schema Markdown Tools
 
-This project is an Open Development/Inner Source project and welcomes contributions from everyone at Adobe.
+This project is an Open Development/Inner Source project and welcomes contributions from everyone who finds it useful or lacking.
+
+## Code Of Conduct
+
+This project adheres to the Adobe [code of conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to SOMEEMAIL.
+
+## Contributor License Agreement
+
+All third-party contributions to this project must be accompanied by a signed contributor license. This gives Adobe permission to redistribute your contributions as part of the project. Sign our CLA at [SOME LINK](no link yet). You only need to submit an Adobe CLA one time, so if you have submitted one previously, you are probably good to go!
 
 ## Things to Keep in Mind
 
@@ -10,9 +18,8 @@ For other contributors, a maintainer of the project has to approve the pull requ
 
 # Before You Contribute
 
-* Check that there is an [existing issue](https://jira.corp.adobe.com/issues/?jql=project%20%3D%20ACP%20AND%20component%20in%20(%22machinery%22)) in the ACP project
+* Check that there is an existing issue in GitHub issues
 * Check if there are other pull requests that might overlap or conflict with your intended contribution
-* If there is no issue, and no prior work, send a short mail to [Grp-XDM-API-WGs](mailto:Grp-XDM-API-WGs@adobe.com) with the subject line `[XDM][JSONSchema2MD] Contribution …`
 
 # How to Contribute
 
@@ -25,12 +32,16 @@ In your pull request, outline:
 * What the changes intend
 * How they change the existing code
 * If (and what) they breaks (TODO: we should have tests instead. pst: working on that ;) )
-* Start the pull request with the JIRA issue ID, e.g. ACP-123
+* Start the pull request with the GitHub issue ID, e.g. #123
 
-Each commit message:
+Lastly, please follow the [pull request template](PULL_REQUEST_TEMPLATE.md) when submitting a pull request!
 
-* Should contain the issue ID like `[ACP-123]`
+Each commit message that is not part of a pull request:
+
+* Should contain the issue ID like `#123`
 * Can contain the tag `[trivial]` for trivial changes that don't relate to an issue
+
+
 
 ## Coding Styleguides
 
