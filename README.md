@@ -78,6 +78,14 @@ If you run `npm install` before running `npm run prepare`, `npm` will install th
   * vocabulary spellchecking
 * Tests
 
+## Style Guide / Linting
+
+This project uses [eslint](https://eslint.org) to enforce JavaScript coding style. To run the linter:
+
+```bash
+npm run lint
+```
+
 ## Contributing
 
 Please see [Contributing.md](Contributing.md) for details. Pull requests are welcome.
