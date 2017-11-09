@@ -2,7 +2,7 @@
   "name": "jsonschema2md",
   "description": "Validate and document complex JSON Schemas the easy way.",
   "version": "0.2.0",
-  "main": "index.js",
+  "main": "lib/main.js",
   "bin": {
     "jsonschema2md": "./index.js"
   },
