@@ -7,6 +7,7 @@
     "jsonschema2md": "./cli.js"
   },
   "scripts": {
+    "lint": "eslint .",
     "start": "node cli.js",
     "test": "jasmine"
   },
@@ -25,6 +26,7 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
+    "eslint": "^4.10.0",
     "jasmine": "~2.8.0"
   },
   "engines": {
