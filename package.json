@@ -7,7 +7,7 @@
     "jsonschema2md": "./cli.js"
   },
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
     "start": "node cli.js",
     "test": "jasmine"
   },
