@@ -1,14 +1,15 @@
 {
   "name": "jsonschema2md",
   "description": "Validate and document complex JSON Schemas the easy way.",
-  "version": "0.2.0",
-  "main": "index.js",
+  "version": "1.0.0",
+  "main": "lib/main.js",
   "bin": {
-    "jsonschema2md": "./index.js"
+    "jsonschema2md": "./cli.js"
   },
   "scripts": {
-    "start": "node ./index.js",
     "lint": "eslint ."
+    "start": "node cli.js",
+    "test": "jasmine"
   },
   "dependencies": {
     "ajv": "^5.0.1-beta",
@@ -25,7 +26,8 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
-    "eslint": "^4.10.0"
+    "eslint": "^4.10.0",
+    "jasmine": "~2.8.0"
   },
   "engines": {
     "node": ">= 6.0.0"
