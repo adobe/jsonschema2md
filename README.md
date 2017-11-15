@@ -67,19 +67,23 @@ Ensure you have all the dependencies installed via `npm install`, then run:
 npm test
 ```
 
-## TODOs
-
-* JSON Schema validation:
-  * property naming convention
-  * vocabulary spellchecking
-
-## Style Guide / Linting
+### Style Guide / Linting
 
 This project uses [eslint](https://eslint.org) to enforce JavaScript coding style. To run the linter:
 
 ```bash
 npm run lint
 ```
+
+### Code Coverage
+
+You can run `npm run cover` to get a code coverage report, that is, a sense of how much of the project's code is "covered" by the test suite.
+
+## TODOs
+
+* JSON Schema validation:
+  * property naming convention
+  * vocabulary spellchecking
 
 ## Contributing
 

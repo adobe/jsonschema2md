@@ -25,3 +25,6 @@ npm-debug.log
 .DS_Store
 
 .tool-versions
+
+# instanbul code coverage
+coverage
