@@ -17,13 +17,13 @@ describe('readSchemaFile module', () => {
   describe('reading schema files without an $id key', () => {
     it('should return a schema path map with path to the file as a key, and object value with path and json schema', (done) => {
       readSchemaFile({}, fakePath)
-      .then((map) => {
-        expect(map[fakePath]).toBeDefined();
-        expect(map[fakePath].filePath).toEqual(fakePath);
-        expect(map[fakePath].jsonSchema).toEqual({schema:'yes'});
-      })
-      .catch(fail)
-      .done(done);
+        .then((map) => {
+          expect(map[fakePath]).toBeDefined();
+          expect(map[fakePath].filePath).toEqual(fakePath);
+          expect(map[fakePath].jsonSchema).toEqual({ schema:'yes' });
+        })
+        .catch(fail)
+        .done(done);
     });
   });
   describe('reading schema files with an $id key', () => {
@@ -32,23 +32,23 @@ describe('readSchemaFile module', () => {
     });
     it('should return a schema path map with $id value as a key, and object value with path and json schema', (done) => {
       readSchemaFile({}, fakePath)
-      .then((map) => {
-        expect(map['allyourbase']).toBeDefined();
-        expect(map['allyourbase'].filePath).toEqual(fakePath);
-        expect(map['allyourbase'].jsonSchema).toEqual({$id:'allyourbase'});
-      })
-      .catch(fail)
-      .done(done);
+        .then((map) => {
+          expect(map['allyourbase']).toBeDefined();
+          expect(map['allyourbase'].filePath).toEqual(fakePath);
+          expect(map['allyourbase'].jsonSchema).toEqual({ $id:'allyourbase' });
+        })
+        .catch(fail)
+        .done(done);
     });
     it('should not overwrite the value for an existing $id key in the schema path map', (done) => {
-      readSchemaFile({allyourbase:{}}, fakePath)
-      .then((map) => {
-        expect(map['allyourbase']).toBeDefined();
-        expect(map['allyourbase'].filePath).not.toBeDefined();
-        expect(map['allyourbase'].jsonSchema).not.toBeDefined();
-      })
-      .catch(fail)
-      .done(done);
+      readSchemaFile({ allyourbase:{} }, fakePath)
+        .then((map) => {
+          expect(map['allyourbase']).toBeDefined();
+          expect(map['allyourbase'].filePath).not.toBeDefined();
+          expect(map['allyourbase'].jsonSchema).not.toBeDefined();
+        })
+        .catch(fail)
+        .done(done);
     });
   });
 });
