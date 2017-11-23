@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node cli.js",
-    "test": "jasmine",
+    "test": "npm run lint && jasmine",
     "cover": "istanbul cover --root lib --print detail jasmine"
   },
   "dependencies": {
