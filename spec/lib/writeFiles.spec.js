@@ -5,9 +5,19 @@
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
  */
 
-var Promise = require('bluebird');
-var fs = Promise.promisifyAll(require('fs'));
 var writeFiles = require('../../lib/writeFiles');
+var ejs = require('ejs');
 
 describe('writeFiles module', () => {
+  describe('generateMarkdown method', () => {
+    beforeEach(() => {
+      spyOn(ejs, 'renderFile');
+    });
+    it('should invoke ejs.renderFile with the topSchema ejs template', () => {
+      writeFiles.generateMarkdown('somefile', { 'my':'schema' });
+      var renderArgs = ejs.renderFile.calls.argsFor(0);
+      expect(renderArgs[0]).toContain('topSchema.ejs');
+      expect(renderArgs[1].schema.my).toEqual('schema');
+    });
+  });
 });
