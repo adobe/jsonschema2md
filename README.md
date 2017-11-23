@@ -67,17 +67,23 @@ Ensure you have all the dependencies installed via `npm install`, then run:
 npm test
 ```
 
-### Style Guide / Linting
+### CI
+
+> https://devexp.ci.corp.adobe.com:12001/blue/organizations/jenkins/jsonschema2md/pr
+
+Continuous integration runs on the [Developer Experience's Jenkins instance](https://devexp.ci.corp.adobe.com:12001) under the [jsonschema2md job](https://devexp.ci.corp.adobe.com:12001/blue/organizations/jenkins/jsonschema2md/pr). All pull requests automatically trigger a job that runs the [tests](#tests) by executing the [`Jenkinsfile`](Jenkinsfile). 
+
+### Code Coverage
+
+You can run `npm run cover` to get a code coverage report, that is, a sense of how much of the project's code is "covered" by the test suite.
+
+## Style Guide / Linting
 
 This project uses [eslint](https://eslint.org) to enforce JavaScript coding style. To run the linter:
 
 ```bash
 npm run lint
 ```
-
-### Code Coverage
-
-You can run `npm run cover` to get a code coverage report, that is, a sense of how much of the project's code is "covered" by the test suite.
 
 ## TODOs
 
