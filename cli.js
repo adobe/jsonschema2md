@@ -14,7 +14,6 @@ var fs = Promise.promisifyAll(require('fs'));
 var readdirp = require('readdirp');
 var Ajv = require('ajv');
 
-var processFile = require('./lib/main');
 var Schema = require('./lib/schema');
 var readSchemaFile = require('./lib/readSchemaFile');
 
