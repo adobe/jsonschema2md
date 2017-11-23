@@ -69,7 +69,7 @@ npm test
 
 ### CI
 
-> https://devexp.ci.corp.adobe.com:12001/blue/organizations/jenkins/jsonschema2md/pr
+[Jenkins](https://devexp.ci.corp.adobe.com:12001/blue/organizations/jenkins/jsonschema2md/).
 
 Continuous integration runs on the [Developer Experience's Jenkins instance](https://devexp.ci.corp.adobe.com:12001) under the [jsonschema2md job](https://devexp.ci.corp.adobe.com:12001/blue/organizations/jenkins/jsonschema2md/pr). All pull requests automatically trigger a job that runs the [tests](#tests) by executing the [`Jenkinsfile`](Jenkinsfile). 
 
