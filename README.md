@@ -67,6 +67,8 @@ Ensure you have all the dependencies installed via `npm install`, then run:
 npm test
 ```
 
+This will run our Jasmine test suite as well as lint the JavaScript according to our style guide (see below).
+
 ### CI
 
 [Jenkins](https://devexp.ci.corp.adobe.com:12001/blue/organizations/jenkins/jsonschema2md/).
