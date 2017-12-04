@@ -4,7 +4,7 @@ This project is an Open Development/Inner Source project and welcomes contributi
 
 ## Code Of Conduct
 
-This project adheres to the Adobe [code of conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to SOMEEMAIL.
+This project adheres to the Adobe [code of conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to cstaub at adobe dot com.
 
 ## Contributor License Agreement
 
