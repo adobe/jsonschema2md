@@ -18,7 +18,7 @@ These tools have been introduced by Adobe to document Adobe's Experience Data Mo
 $ git clone git@git.corp.adobe.com:AdobeCloudPlatform/xdm.git
 
 # clone this project
-$ git clone git@git.corp.adobe.com:AdobeCloudPlatform/jsonschema2md.git
+$ git clone git@github.com:adobe/jsonschema2md.git
 
 # install dependencies
 $ cd jsonschema2md && npm install
@@ -47,7 +47,7 @@ You can conveniently use the JSON Schema Markdown Tools from `npm`. This makes i
 
 ```json
   "devDependencies": {
-    "jsonschema2md": "git+ssh://git@git.corp.adobe.com:AdobeCloudPlatform/jsonschema2md.git"
+    "jsonschema2md": "git+ssh://git@github.com:adobe/jsonschema2md.git"
   }
 ```
 
