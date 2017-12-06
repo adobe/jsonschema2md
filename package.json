@@ -1,5 +1,5 @@
 {
-  "name": "jsonschema2md",
+  "name": "@adobe/jsonschema2md",
   "description": "Validate and document complex JSON Schemas the easy way.",
   "version": "1.0.0",
   "main": "lib/main.js",
@@ -28,17 +28,19 @@
   "devDependencies": {
     "eslint": "^4.10.0",
     "istanbul": "^0.4.5",
-    "jasmine": "~2.8.0"
+    "jasmine": "~2.8.0",
+    "npm-snapshot": "^1.0.3"
   },
   "engines": {
     "node": ">= 6.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://git.corp.adobe.com/AdobeCloudPlatform/jsonschema2md.git"
+    "url": "https://github.com/adobe/jsonschema2md.git"
   },
   "bugs": {
-    "url": "https://git.corp.adobe.com/AdobeCloudPlatform/jsonschema2md/issues"
+    "url": "https://github.com/adobe/jsonschema2md/issues"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "author": ""
 }
