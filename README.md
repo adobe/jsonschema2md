@@ -15,7 +15,7 @@ These tools have been introduced by Adobe to document Adobe's Experience Data Mo
 
 ```bash
 # clone XDM project
-$ git clone git@git.corp.adobe.com:AdobeCloudPlatform/xdm.git
+$ git clone git@github.com:adobe/xdm.git
 
 # clone this project
 $ git clone git@github.com:adobe/jsonschema2md.git
