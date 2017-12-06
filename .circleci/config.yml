@@ -38,6 +38,6 @@ jobs:
       # run tests!
       - run: npm test
 
-      - run: BUILD_TAG=$(./node/modules/.bin/npm-snapshot $CIRCLE_BUILD_NUM)
+      - run: BUILD_TAG=$(./node_modules/.bin/npm-snapshot $CIRCLE_BUILD_NUM)
       - run: npm publish --tag $BUILD_TAG --access public
 
