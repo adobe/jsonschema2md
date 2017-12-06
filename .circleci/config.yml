@@ -40,9 +40,9 @@ jobs:
 
       - run: BUILD_TAG=$(./node_modules/.bin/npm-snapshot $CIRCLE_BUILD_NUM) echo 'export BUILD_TAG=$BUILD_TAG' >> $BASH_ENV
       - run: 
-        name: Publish Snapshot
-        command: npm publish --access public
-        filters:
-          branches:
-            only: master
+          name: Publish Snapshot
+          command: npm publish --access public
+          filters:
+            branches:
+              only: master
 
