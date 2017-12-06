@@ -52,3 +52,16 @@ There are no coding style guides... yet.
 One of the maintainers will look at the pull request within one week. If you haven't heard back from the maintainers within a week, it is not impolite to send a reminder to [Grp-XDM-API-WGs](mailto:Grp-XDM-API-WGs@adobe.com).
 
 Feedback on the pull request will be given in writing, in GitHub.
+
+# Release Management
+
+The project's committers will release to the [Adobe organization on npmjs.org](https://www.npmjs.com/org/adobe).
+Please contact the [Adobe Open Source Advisory Board](https://git.corp.adobe.com/OpenSourceAdvisoryBoard/discuss/issues) to get access to the npmjs organization.
+Then, you can release using:
+
+```bash
+$ npm login
+$ npm publish --access public
+```
+
+Do not forget to add a `git tag` corresponding to the released version number
