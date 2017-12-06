@@ -26,6 +26,8 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+
       - run: npm install
 
       - save_cache:
@@ -35,4 +37,7 @@ jobs:
         
       # run tests!
       - run: npm test
+
+      - run: BUILD_TAG=$(./node/modules/.bin/npm-snapshot $CIRCLE_BUILD_NUM)
+      - run: npm publish --tag $BUILD_TAG --access public
 
