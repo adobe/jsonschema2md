@@ -58,7 +58,7 @@ if (argv.s){
 
 if (argv.m) {
   if (_.isArray(argv.m)){
-    _.each(argv.m, function(item){
+    _.each(argv.m, function (item){
       var meta=item.split('=');
       if (meta.length === 2) {
         metaElements[meta[0]] = meta[1];
