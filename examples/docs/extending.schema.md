@@ -32,6 +32,18 @@ This is an extending schema. It pulls `definitions` from other schemas.
 ## bar
 
 A horse walks into it.
+`bar`
+* required (or not)
+* type: `string`
+* defined in here
+### Type
+
+### Known Values
+
+| Value | Description |
+|-------|-------------|
+| `hi`  | Welcome     |
+| `bye` | Farewell    |
 
 ### Examples
 
@@ -48,12 +60,37 @@ A horse walks into it.
 ## id
 
 A unique identifier given to every addressable thing.
+`id`
+* required (or not)
+* type: `string`
+* defined in here
+### Type
+
+### Known Values
+
+| Value | Description |
+|-------|-------------|
+| `hi`  | Welcome     |
+| `bye` | Farewell    |
+
 
 
 ## baz
 ### BAAAZ!
 
 This property has a unique name to demonstrate it&#39;s uniqueness.
+`baz`
+* required (or not)
+* type: `string`
+* defined in here
+### Type
+
+### Known Values
+
+| Value | Description |
+|-------|-------------|
+| `hi`  | Welcome     |
+| `bye` | Farewell    |
 
 ### Example
 

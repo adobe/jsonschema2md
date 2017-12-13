@@ -30,6 +30,18 @@ This is an example schema with examples. Too many examples? There can never be t
 ## foo
 
 A simple string.
+`foo`
+* required (or not)
+* type: `string`
+* defined in here
+### Type
+
+### Known Values
+
+| Value | Description |
+|-------|-------------|
+| `hi`  | Welcome     |
+| `bye` | Farewell    |
 
 ### Example
 
@@ -41,6 +53,18 @@ A simple string.
 ## bar
 
 A simple string.
+`bar`
+* required (or not)
+* type: `string`
+* defined in here
+### Type
+
+### Known Values
+
+| Value | Description |
+|-------|-------------|
+| `hi`  | Welcome     |
+| `bye` | Farewell    |
 
 ### Examples
 

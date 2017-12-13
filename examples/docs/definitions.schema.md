@@ -25,4 +25,17 @@ It is imported using `allOf` and `$ref`.
 ## id
 
 A unique identifier given to every addressable thing.
+`id`
+* required (or not)
+* type: `string`
+* defined in here
+### Type
+
+### Known Values
+
+| Value | Description |
+|-------|-------------|
+| `hi`  | Welcome     |
+| `bye` | Farewell    |
+
 

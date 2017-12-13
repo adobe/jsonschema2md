@@ -25,9 +25,35 @@ This is an extensible schema. It has `definitions`, that can be used in other sc
 ## foo
 
 A unique identifier given to every addressable thing.
+`foo`
+* required (or not)
+* type: `string`
+* defined in here
+### Type
+
+### Known Values
+
+| Value | Description |
+|-------|-------------|
+| `hi`  | Welcome     |
+| `bye` | Farewell    |
+
 
 
 ## bar
 
 A unique identifier given to every addressable thing.
+`bar`
+* required (or not)
+* type: `string`
+* defined in here
+### Type
+
+### Known Values
+
+| Value | Description |
+|-------|-------------|
+| `hi`  | Welcome     |
+| `bye` | Farewell    |
+
 
