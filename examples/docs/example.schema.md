@@ -15,4 +15,9 @@ This is an example schema with examples. Too many examples? There can never be t
 |----------|------------|-------------------|------------|
 | Can be instantiated | No | Forbidden | [example.schema.json](example.schema.json) |
 
+## Example Example
+```json
+{"foo":"bar","bar":"baz"}
+```
+
 ---
