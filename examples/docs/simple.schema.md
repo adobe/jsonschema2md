@@ -6,7 +6,8 @@
 
   
 *  **Type:** object
-
+  
+This is a *very* simple example of a JSON schema. There is only one property.
 
 
 
