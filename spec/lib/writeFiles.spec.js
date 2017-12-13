@@ -14,7 +14,7 @@ describe('writeFiles module', () => {
       spyOn(ejs, 'renderFile');
     });
     it('should invoke ejs.renderFile with the topSchema ejs template', () => {
-      markdownWriter('somefile', { 'my':'schema' });
+      markdownWriter('somefile', { 'my':'schema' }, 'some/path');
       var renderArgs = ejs.renderFile.calls.argsFor(0);
       expect(renderArgs);
     });
