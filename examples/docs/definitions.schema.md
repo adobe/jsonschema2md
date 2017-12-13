@@ -4,7 +4,8 @@ template: reference
 foo: bar
 ---
 
-# Definitions
+# Definitions Schema
+
 ```
 https://example.com/schemas/definitions
 ```
@@ -15,4 +16,5 @@ It is imported using `allOf` and `$ref`.
 | Abstract | Extensible | Custom Properties | Defined In |
 |----------|------------|-------------------|------------|
 | Can be instantiated | Yes | Forbidden | [definitions.schema.json](definitions.schema.json) |
+
 ---
