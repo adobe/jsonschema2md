@@ -10,7 +10,7 @@
   "title": "Definitions",
   "type": "object",
   "definitions": {
-    "content": {
+    "myid": {
       "properties": {
         "id": {
           "type": "string",
@@ -21,6 +21,9 @@
     }
   },
   "allOf": [
-    {"$ref": "#/definitions/id"}
+    {"$ref": "#/definitions/myid"}
+  ],
+  "required": [
+    "id"
   ]
 }

@@ -13,15 +13,15 @@ It is imported using `allOf` and `$ref`.
 
 
 
+## Properties
 
 
-
-##  content
-### Properties
-
-###  id  
+###  id    
+* **Required**  
 *  **Type:** string  
 *  **Format:** uri
   
  A unique identifier given to every addressable thing.
+
+
 

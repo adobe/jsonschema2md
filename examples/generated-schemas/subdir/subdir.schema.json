@@ -6,11 +6,12 @@
         "of the License at http://www.apache.org/licenses/LICENSE-2.0"
     ],
     "$schema": "http://json-schema.org/draft-06/schema#",
-    "$id": "https://example.com/schemas/definitions",
-    "title": "Definitions",
+    "$id": "https://example.com/schemas/subdir/subdir",
+    "title": "Subdir",
     "type": "object",
+    "description": "A schema in a sub directory",
     "definitions": {
-        "myid": {
+        "content": {
             "properties": {
                 "id": {
                     "type": "string",
@@ -22,11 +23,7 @@
     },
     "allOf": [
         {
-            "$ref": "#/definitions/myid"
+            "$ref": "#/definitions/id"
         }
-    ],
-    "required": [
-        "id"
-    ],
-    "description": "This is an example of using a `definitions` object within a schema.\n\nIt is imported using `allOf` and `$ref`."
+    ]
 }

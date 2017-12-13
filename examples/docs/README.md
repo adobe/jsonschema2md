@@ -7,6 +7,7 @@
 ## /
 
 * [Definitions](./definitions.schema.md) – `https://example.com/schemas/definitions`
+* [Example](./example.schema.md) – `https://example.com/schemas/example`
 * [Simple](./simple.schema.md) – `https://example.com/schemas/simple`
 
 ## /subdir/
