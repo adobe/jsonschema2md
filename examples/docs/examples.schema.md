@@ -30,8 +30,8 @@ This is an example schema with *multiple* examples. Too many examples? There can
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
-| [foo](#foo) | `string` | Optional | [Examples](#foo) |
-| [bar](#bar) | `string` | **Required** | [Examples](#bar) |
+| [foo](#foo) | `string` | Optional | Examples (this schema) |
+| [bar](#bar) | `string` | **Required** | Examples (this schema) |
 
 ## foo
 

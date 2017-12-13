@@ -29,7 +29,7 @@ This is an extending schema. It is extending another extending schema. It pulls 
 | [bar](#bar) | `string` | Optional | [Extensible](extensible.schema.md#bar) |
 | [id](#id) | `string` | Optional | [Definitions](definitions.schema.md#id) |
 | [baz](#baz) | `string` | Optional | [Extending](extending.schema.md#baz) |
-| [hey](#hey) | `string` | Optional | [Custom](#hey) |
+| [hey](#hey) | `string` | Optional | Custom (this schema) |
 
 ## bar
 

@@ -24,8 +24,8 @@ This is an example schema with examples. Too many examples? There can never be t
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
-| [foo](#foo) | `string` | Optional | [Example](#foo) |
-| [bar](#bar) | `string` | Optional | [Example](#bar) |
+| [foo](#foo) | `string` | Optional | Example (this schema) |
+| [bar](#bar) | `string` | Optional | Example (this schema) |
 
 ## foo
 

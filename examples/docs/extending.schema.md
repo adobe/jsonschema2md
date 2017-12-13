@@ -27,7 +27,7 @@ This is an extending schema. It pulls `definitions` from other schemas.
 |----------|------|----------|------------|
 | [bar](#bar) | `string` | Optional | [Extensible](extensible.schema.md#bar) |
 | [id](#id) | `string` | Optional | [Definitions](definitions.schema.md#id) |
-| [baz](#baz) | `string` | Optional | [Extending](#baz) |
+| [baz](#baz) | `string` | Optional | Extending (this schema) |
 
 ## bar
 
