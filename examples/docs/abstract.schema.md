@@ -13,5 +13,5 @@ This is an abstract schema. It has `definitions`, but does not declare any prope
 
 | Abstract | Extensible | Custom Properties | Defined In |
 |----------|------------|-------------------|------------|
-| Cannot be instantiated | Is extensible | true | [abstract.schema.json](abstract.schema.json) |
+| Cannot be instantiated | Yes | Forbidden | [abstract.schema.json](abstract.schema.json) |
 ---

@@ -13,5 +13,5 @@ This is an example schema with examples. Too many examples? There can never be t
 
 | Abstract | Extensible | Custom Properties | Defined In |
 |----------|------------|-------------------|------------|
-| Can be instantiated | Is not extensible | true | [example.schema.json](example.schema.json) |
+| Can be instantiated | No | Forbidden | [example.schema.json](example.schema.json) |
 ---
