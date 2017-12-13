@@ -86,7 +86,7 @@ if (target.isDirectory()) {
       Schema.setSchemaPathMap(schemaPathMap);
       return Promise.reduce(files, readSchemaFile, schemaPathMap)
         .then((schemaMap)=>{
-          logger.info('finished reading all *.schema.json files in %s, beginning processing....', schemaPath);
+          logger.info('finished reading all *.schema.json files in %s, beginning processing….', schemaPath);
           return Schema.load(schemaMap, schemaPath, outDir, schemaDir, metaElements);
         })
         .then(() => {
