@@ -11,6 +11,10 @@ These tools have been introduced by Adobe to document Adobe's Experience Data Mo
 - `npm` version 3.10.8 or up
 - `node` v6 or up
 
+## Example Output
+
+Using the schemas in [`examples/schemas`](examples/schemas), the output in [`examples/docs`](examples/docs) has been generated.
+
 ## Installing and running
 
 ```bash
