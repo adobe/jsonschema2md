@@ -71,7 +71,7 @@ This will run our Jasmine test suite as well as lint the JavaScript according to
 ### CI
 
 Continuous integration runs on [CircleCI](https://circleci.com/gh/adobe/jsonschema2md). 
-All pull requests automatically trigger a job that runs the [tests](#tests) by executing the [`Jenkinsfile`](Jenkinsfile). 
+All pull requests automatically trigger a job that runs the [tests](#tests) by executing the [`config.yml`](.circleci/config.yml). 
 
 ### Code Coverage
 
