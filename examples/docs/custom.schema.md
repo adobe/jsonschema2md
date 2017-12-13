@@ -26,6 +26,8 @@ This is an extensible schema. It has `definitions`, that can be used in other sc
 
 A unique identifier given to every addressable thing.
 
+
 ## bar
 
 A unique identifier given to every addressable thing.
+

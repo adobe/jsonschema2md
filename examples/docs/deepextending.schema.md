@@ -33,17 +33,38 @@ This is an extending schema. It is extending another extending schema. It pulls 
 
 ## bar
 
-A unique identifier given to every addressable thing.
+A horse walks into it.
+
+### Examples
+
+```json
+"whoo"
+```
+
+```json
+"hoo"
+```
+
+
 
 ## id
 
 A unique identifier given to every addressable thing.
+
 
 ## baz
 ### BAAAZ!
 
 This property has a unique name to demonstrate it&#39;s uniqueness.
 
+### Example
+
+```json
+"I'm just a humble example"
+```
+
+
 ## hey
 
 A unique identifier given to every addressable thing.
+

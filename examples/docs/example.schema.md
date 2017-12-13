@@ -31,6 +31,25 @@ This is an example schema with examples. Too many examples? There can never be t
 
 A simple string.
 
+### Example
+
+```json
+"bar"
+```
+
+
 ## bar
 
 A simple string.
+
+### Examples
+
+```json
+"bar"
+```
+
+```json
+"baz"
+```
+
+

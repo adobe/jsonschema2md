@@ -25,3 +25,4 @@ It is imported using `allOf` and `$ref`.
 ## id
 
 A unique identifier given to every addressable thing.
+

@@ -37,6 +37,25 @@ This is an example schema with *multiple* examples. Too many examples? There can
 
 A simple string.
 
+### Example
+
+```json
+"bar"
+```
+
+
 ## bar
 
 A simple string.
+
+### Examples
+
+```json
+"bar"
+```
+
+```json
+"baz"
+```
+
+

@@ -16,6 +16,7 @@
             "properties": {
                 "foo": {
                     "type": "string",
+                    "meta:example": "bar",
                     "description": "A unique identifier given to every addressable thing."
                 }
             }
@@ -24,7 +25,8 @@
             "properties": {
                 "bar": {
                     "type": "string",
-                    "description": "A unique identifier given to every addressable thing."
+                    "meta:example": [ "whoo", "hoo"],
+                    "description": "A horse walks into it."
                 }
             }
         }
