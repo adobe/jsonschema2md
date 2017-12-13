@@ -77,7 +77,7 @@ if (target.isDirectory()) {
   // the ajv json validator will be passed into the main module to help with processing
   var files=[];
   readdirp({ root: schemaPath, fileFilter: '*.schema.json' })
-    .on('data', (entry) => {
+    .on('data', entry => {
       files.push(entry.fullPath);
       ajv.addSchema(require(entry.fullPath), entry.fullPath);
     })
@@ -85,25 +85,25 @@ if (target.isDirectory()) {
       Schema.setAjv(ajv);
       Schema.setSchemaPathMap(schemaPathMap);
       return Promise.reduce(files, readSchemaFile, schemaPathMap)
-        .then((schemaMap) => {
+        .then(schemaMap => {
           logger.info('finished reading all *.schema.json files in %s, beginning processing….', schemaPath);
           return Schema.load(schemaMap, schemaPath, outDir, schemaDir, metaElements);
         })
         .then(() => {
           logger.info('Processing complete.');
         })
-        .catch((err) => {
+        .catch(err => {
           logger.error(err);
           process.exit(1);
         });
     })
-    .on('error', (err) => {
+    .on('error', err => {
       logger.error(err);
       process.exit(1);
     });
 } else {
   readSchemaFile(schemaPathMap, schemaPath)
-    .then((schemaMap) => {
+    .then(schemaMap => {
       ajv.addSchema(require(schemaPath), schemaPath);
       Schema.setAjv(ajv);
       Schema.setSchemaPathMap(schemaPathMap);
@@ -113,7 +113,7 @@ if (target.isDirectory()) {
     .then(() => {
       logger.info('Processing complete.');
     })
-    .catch((err) => {
+    .catch(err => {
       logger.error(err);
       process.exit(1);
     });

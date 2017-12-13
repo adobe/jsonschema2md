@@ -14,12 +14,12 @@ describe('schema module', () => {
     beforeEach(() => {
       spyOn(fs, 'readFileAsync');
     });
-    it('should read a description.md file based on provided file path and tack it onto a provided schema', (done) => {
+    it('should read a description.md file based on provided file path and tack it onto a provided schema', done => {
       var fakeContents = 'IMPORTANT CONTENTS!';
       fs.readFileAsync.and.returnValue(Promise.resolve(fakeContents));
       var skeem = {};
       schema.getDescription('/some/path', skeem)
-        .then((returnedSchema) => {
+        .then(returnedSchema => {
           expect(returnedSchema.description).toEqual(fakeContents);
           expect(skeem.description).toEqual(fakeContents);
         }).catch(() => {

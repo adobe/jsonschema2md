@@ -32,6 +32,7 @@
     "space-unary-ops": 2,
     "comma-spacing": ["error", { "before": false, "after": true }],
     "space-before-function-paren": ["error", "always"],
-    "arrow-spacing": "error"
+    "arrow-spacing": "error",
+    "arrow-parens": ["error", "as-needed"]
   }
 }
