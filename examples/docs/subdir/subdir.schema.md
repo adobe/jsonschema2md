@@ -13,5 +13,5 @@ A schema in a sub directory
 
 | Abstract | Extensible | Custom Properties | Defined In |
 |----------|------------|-------------------|------------|
-| true | true | true | [subdir/subdir.schema.json](subdir/subdir.schema.json) |
+| Cannot be instantiated | Is extensible | true | [subdir/subdir.schema.json](subdir/subdir.schema.json) |
 ---

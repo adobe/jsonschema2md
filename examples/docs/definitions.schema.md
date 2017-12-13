@@ -14,5 +14,5 @@ It is imported using `allOf` and `$ref`.
 
 | Abstract | Extensible | Custom Properties | Defined In |
 |----------|------------|-------------------|------------|
-| false | true | true | [definitions.schema.json](definitions.schema.json) |
+| Can be instantiated | Is extensible | true | [definitions.schema.json](definitions.schema.json) |
 ---

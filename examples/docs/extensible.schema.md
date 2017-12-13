@@ -13,5 +13,5 @@ This is an extensible schema. It has `definitions`, that can be used in other sc
 
 | Abstract | Extensible | Custom Properties | Defined In |
 |----------|------------|-------------------|------------|
-| true | true | true | [extensible.schema.json](extensible.schema.json) |
+| Cannot be instantiated | Is extensible | true | [extensible.schema.json](extensible.schema.json) |
 ---
