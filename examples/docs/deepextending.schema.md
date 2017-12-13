@@ -17,9 +17,9 @@ This is an extending schema. It is extending another extending schema. It pulls 
 
 ## Schema Hierarchy
 
-* Custom `schema.$id`
- * [Extensible](extensible.schema.md) `https://example.com/schemas/extensible`
- * [Definitions](definitions.schema.md) `https://example.com/schemas/definitions`
- * [Extending](extending.schema.md) `https://example.com/schemas/extending`
+* Custom `https://example.com/schemas/deepextending`
+  * [Extensible](extensible.schema.md) `https://example.com/schemas/extensible`
+  * [Definitions](definitions.schema.md) `https://example.com/schemas/definitions`
+  * [Extending](extending.schema.md) `https://example.com/schemas/extending`
 
 ---

@@ -17,8 +17,8 @@ This is an extending schema. It pulls `definitions` from other schemas.
 
 ## Schema Hierarchy
 
-* Extending `schema.$id`
- * [Extensible](extensible.schema.md) `https://example.com/schemas/extensible`
- * [Definitions](definitions.schema.md) `https://example.com/schemas/definitions`
+* Extending `https://example.com/schemas/extending`
+  * [Extensible](extensible.schema.md) `https://example.com/schemas/extensible`
+  * [Definitions](definitions.schema.md) `https://example.com/schemas/definitions`
 
 ---

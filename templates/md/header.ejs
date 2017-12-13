@@ -24,8 +24,8 @@
 ## Schema Hierarchy
 
 
-* <%=schema.title %> `schema.$id`
+* <%=schema.title %> `<%= schema.$id %>`
 <%  _.forEach(dependencies, ({$linkVal, $linkPath, $id}) => { %>
- * [<%= $linkVal %>](<%=$linkPath %>) `<%= $id %>`
+  * [<%= $linkVal %>](<%=$linkPath %>) `<%= $id %>`
 <% }); %>
 <% } %>
