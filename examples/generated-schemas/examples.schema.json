@@ -25,6 +25,9 @@
             ]
         }
     },
+    "required": [
+        "bar"
+    ],
     "examples": [
         {
             "foo": "bi",

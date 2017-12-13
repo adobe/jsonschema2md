@@ -21,4 +21,10 @@ This is an extending schema. It pulls `definitions` from other schemas.
   * [Extensible](extensible.schema.md) `https://example.com/schemas/extensible`
   * [Definitions](definitions.schema.md) `https://example.com/schemas/definitions`
 
----
+# Extending Properties
+
+| Property | Type | Required |
+|----------|------|----------|
+| [bar](#bar) | `string` | Optional |
+| [id](#id) | `string` | Optional |
+| [baz](#baz) | `string` | Optional |

@@ -22,4 +22,11 @@ This is an extending schema. It is extending another extending schema. It pulls 
   * [Definitions](definitions.schema.md) `https://example.com/schemas/definitions`
   * [Extending](extending.schema.md) `https://example.com/schemas/extending`
 
----
+# Custom Properties
+
+| Property | Type | Required |
+|----------|------|----------|
+| [bar](#bar) | `string` | Optional |
+| [id](#id) | `string` | Optional |
+| [baz](#baz) | `string` | Optional |
+| [hey](#hey) | `string` | Optional |

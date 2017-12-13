@@ -20,4 +20,9 @@ This is an example schema with examples. Too many examples? There can never be t
 {"foo":"bar","bar":"baz"}
 ```
 
----
+# Example Properties
+
+| Property | Type | Required |
+|----------|------|----------|
+| [foo](#foo) | `string` | Optional |
+| [bar](#bar) | `string` | Optional |

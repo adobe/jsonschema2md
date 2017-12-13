@@ -16,4 +16,8 @@ It is imported using `allOf` and `$ref`.
 |----------|------------|-------------------|------------|
 | Can be instantiated | Yes | Forbidden | [definitions.schema.json](definitions.schema.json) |
 
----
+# Definitions Properties
+
+| Property | Type | Required |
+|----------|------|----------|
+| [id](#id) | `string` | Required |
