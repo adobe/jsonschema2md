@@ -11,5 +11,5 @@
 | Property | Type | Required |
 |----------|------|----------|
 <%  _.forIn(props, (schema, property, object) => { %>
-| [<%= property %>](#<%= property %>) | `<%= schema.type %>` | <%= schema.required === true ? "Required" : "Optional" %> |
+| [<%= property %>](#<%= property %>) | <%= schema.simpletype %> | <%= schema.required === true ? "**Required**" : "Optional" %> |
 <% }); %>

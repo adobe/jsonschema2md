@@ -20,4 +20,4 @@ It is imported using `allOf` and `$ref`.
 
 | Property | Type | Required |
 |----------|------|----------|
-| [id](#id) | `string` | Required |
+| [id](#id) | `string` | **Required** |
