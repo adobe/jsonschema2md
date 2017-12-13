@@ -21,3 +21,11 @@ This is an extensible schema. It has `definitions`, that can be used in other sc
 |----------|------|----------|------------|
 | [foo](#foo) | `string` | Optional | [Custom](#foo) |
 | [bar](#bar) | `string` | Optional | [Custom](#bar) |
+
+## foo
+
+A unique identifier given to every addressable thing.
+
+## bar
+
+A unique identifier given to every addressable thing.

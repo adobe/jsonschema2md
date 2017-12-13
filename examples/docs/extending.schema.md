@@ -28,3 +28,16 @@ This is an extending schema. It pulls `definitions` from other schemas.
 | [bar](#bar) | `string` | Optional | [Extensible](extensible.schema.md#bar) |
 | [id](#id) | `string` | Optional | [Definitions](definitions.schema.md#id) |
 | [baz](#baz) | `string` | Optional | [Extending](#baz) |
+
+## bar
+
+A unique identifier given to every addressable thing.
+
+## id
+
+A unique identifier given to every addressable thing.
+
+## baz
+### BAAAZ!
+
+This property has a unique name to demonstrate it&#39;s uniqueness.

@@ -20,7 +20,8 @@
             "properties": {
                 "baz": {
                     "type": "string",
-                    "description": "A unique identifier given to every addressable thing."
+                    "title": "BAAAZ!",
+                    "description": "This property has a unique name to demonstrate it's uniqueness."
                 }
             }
         }

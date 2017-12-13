@@ -26,3 +26,11 @@ This is an example schema with examples. Too many examples? There can never be t
 |----------|------|----------|------------|
 | [foo](#foo) | `string` | Optional | [Example](#foo) |
 | [bar](#bar) | `string` | Optional | [Example](#bar) |
+
+## foo
+
+A simple string.
+
+## bar
+
+A simple string.

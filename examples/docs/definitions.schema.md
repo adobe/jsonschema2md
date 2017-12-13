@@ -21,3 +21,7 @@ It is imported using `allOf` and `$ref`.
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
 | [id](#id) | `string` | **Required** | [Definitions](#id) |
+
+## id
+
+A unique identifier given to every addressable thing.

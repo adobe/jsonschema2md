@@ -32,3 +32,11 @@ This is an example schema with *multiple* examples. Too many examples? There can
 |----------|------|----------|------------|
 | [foo](#foo) | `string` | Optional | [Examples](#foo) |
 | [bar](#bar) | `string` | **Required** | [Examples](#bar) |
+
+## foo
+
+A simple string.
+
+## bar
+
+A simple string.

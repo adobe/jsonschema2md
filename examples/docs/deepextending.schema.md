@@ -30,3 +30,20 @@ This is an extending schema. It is extending another extending schema. It pulls 
 | [id](#id) | `string` | Optional | [Definitions](definitions.schema.md#id) |
 | [baz](#baz) | `string` | Optional | [Extending](extending.schema.md#baz) |
 | [hey](#hey) | `string` | Optional | [Custom](#hey) |
+
+## bar
+
+A unique identifier given to every addressable thing.
+
+## id
+
+A unique identifier given to every addressable thing.
+
+## baz
+### BAAAZ!
+
+This property has a unique name to demonstrate it&#39;s uniqueness.
+
+## hey
+
+A unique identifier given to every addressable thing.
