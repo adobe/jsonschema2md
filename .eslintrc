@@ -29,6 +29,7 @@
       "before": true,
       "after": true
     }],
-    "space-unary-ops": 2
+    "space-unary-ops": 2,
+    "comma-spacing": ["error", { "before": false, "after": true }]
   }
 }

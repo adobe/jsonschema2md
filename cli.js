@@ -28,8 +28,8 @@ var argv = require('optimist')
   .describe('o', 'path to output directory')
   .default('o', path.resolve(path.join('.', 'out')))
   .alias('m', 'meta')
-  .describe('m','add metadata elements to .md files Eg -m template=reference. Multiple values can be added by repeating the flag Eg: -m template=reference -m hide-nav=true')
-  .alias('s','metaSchema')
+  .describe('m', 'add metadata elements to .md files Eg -m template=reference. Multiple values can be added by repeating the flag Eg: -m template=reference -m hide-nav=true')
+  .alias('s', 'metaSchema')
   .describe('s', 'Custom meta schema path to validate schemas')
   .alias('x', 'schema-out')
   .describe('x', 'output JSON Schema files including description and validated examples in the _new folder at output directory')
@@ -43,7 +43,7 @@ var argv = require('optimist')
   })
   .argv;
 
-var ajv = new Ajv({ allErrors: true , messages:true });
+var ajv = new Ajv({ allErrors: true, messages:true });
 ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'));
 var schemaPathMap = {};
 var metaElements = {};
@@ -58,7 +58,7 @@ if (argv.s){
 
 if (argv.m) {
   if (_.isArray(argv.m)){
-    _.each(argv.m,function(item){
+    _.each(argv.m, function(item){
       var meta=item.split('=');
       if (meta.length === 2) {
         metaElements[meta[0]] = meta[1];
@@ -77,11 +77,11 @@ if (target.isDirectory()) {
   // the ajv json validator will be passed into the main module to help with processing
   var files=[];
   readdirp({ root: schemaPath, fileFilter: '*.schema.json' })
-    .on('data',(entry) => {
+    .on('data', (entry) => {
       files.push(entry.fullPath);
       ajv.addSchema(require(entry.fullPath), entry.fullPath);
     })
-    .on('end',() => {
+    .on('end', () => {
       Schema.setAjv(ajv);
       Schema.setSchemaPathMap(schemaPathMap);
       return Promise.reduce(files, readSchemaFile, schemaPathMap)
@@ -97,7 +97,7 @@ if (target.isDirectory()) {
           process.exit(1);
         });
     })
-    .on('error',(err)=>{
+    .on('error', (err)=>{
       logger.error(err);
       process.exit(1);
     });
@@ -108,7 +108,7 @@ if (target.isDirectory()) {
       Schema.setAjv(ajv);
       Schema.setSchemaPathMap(schemaPathMap);
       logger.info('finished reading %s, beginning processing....', schemaPath);
-      return Schema.load(schemaMap , schemaPath, outDir, schemaDir, metaElements);
+      return Schema.load(schemaMap, schemaPath, outDir, schemaDir, metaElements);
     })
     .then(() => {
       logger.info('Processing complete.');
