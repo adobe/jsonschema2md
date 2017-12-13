@@ -11,5 +11,5 @@
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
 <%  _.forIn(props, (schema, property, object) => { %>
-| [<%= property %>](#<%= property %>) | <%= schema.simpletype %> | <%= schema.required === true ? "**Required**" : "Optional" %> | <% if (schema.$oSchema) { %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= property %>)<% } else { %>[<%= title %>](#<%= property %>)<% } %> |
+| [<%= property %>](#<%= property %>) | <%= schema.simpletype %> | <%= schema.required === true ? "**Required**" : "Optional" %> | <% if (schema.$oSchema) { %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= property %>)<% } else { %><%= title %> (this schema)<% } %> |
 <% }); %>
