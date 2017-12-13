@@ -33,7 +33,7 @@ var argv = require('optimist')
   .describe('s', 'Custom meta schema path to validate schemas')
   .alias('x', 'schema-out')
   .describe('x', 'output JSON Schema files including description and validated examples in the _new folder at output directory')
-  .check(function (args) {
+  .check(function(args) {
     if (!fs.existsSync(args.input)) {
       throw 'Input file "' + args.input + '" does not exist!';
     }
@@ -58,7 +58,7 @@ if (argv.s){
 
 if (argv.m) {
   if (_.isArray(argv.m)){
-    _.each(argv.m, function (item){
+    _.each(argv.m, function(item){
       var meta=item.split('=');
       if (meta.length === 2) {
         metaElements[meta[0]] = meta[1];
