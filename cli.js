@@ -85,7 +85,7 @@ if (target.isDirectory()) {
       Schema.setAjv(ajv);
       Schema.setSchemaPathMap(schemaPathMap);
       return Promise.reduce(files, readSchemaFile, schemaPathMap)
-        .then((schemaMap)=>{
+        .then((schemaMap) => {
           logger.info('finished reading all *.schema.json files in %s, beginning processing….', schemaPath);
           return Schema.load(schemaMap, schemaPath, outDir, schemaDir, metaElements);
         })
@@ -97,7 +97,7 @@ if (target.isDirectory()) {
           process.exit(1);
         });
     })
-    .on('error', (err)=>{
+    .on('error', (err) => {
       logger.error(err);
       process.exit(1);
     });
