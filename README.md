@@ -14,9 +14,6 @@ These tools have been introduced by Adobe to document Adobe's Experience Data Mo
 ## Installing and running
 
 ```bash
-# clone XDM project
-$ git clone git@github.com:adobe/xdm.git
-
 # clone this project
 $ git clone git@github.com:adobe/jsonschema2md.git
 
@@ -27,8 +24,8 @@ $ cd jsonschema2md && npm install
 $ node cli.js
 
 # run task
-$ node cli.js -d ../xdm/schemas/external/
-# generated output for whole folder is written to ./out
+$ node cli.js -d examples/schemas -o examples/docs
+# generated output for whole folder is written to ./examples/docs
 ```
 
 ### Installing the `jsonschema2md` Command Line Tools
@@ -47,7 +44,7 @@ You can conveniently use the JSON Schema Markdown Tools from `npm`. This makes i
 
 ```json
   "devDependencies": {
-    "jsonschema2md": "^1.0.0"
+    "jsonschema2md": "^1.0.1"
   }
 ```
 
