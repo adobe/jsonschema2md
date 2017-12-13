@@ -17,7 +17,7 @@ This is an extensible schema. It has `definitions`, that can be used in other sc
 
 # Custom Properties
 
-| Property | Type | Required |
-|----------|------|----------|
-| [foo](#foo) | `string` | Optional |
-| [bar](#bar) | `string` | Optional |
+| Property | Type | Required | Defined by |
+|----------|------|----------|------------|
+| [foo](#foo) | `string` | Optional | [Custom](#foo) |
+| [bar](#bar) | `string` | Optional | [Custom](#bar) |

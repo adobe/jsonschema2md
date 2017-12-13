@@ -17,6 +17,6 @@ This is a *very* simple example of a JSON schema. There is only one property.
 
 # Simple Properties
 
-| Property | Type | Required |
-|----------|------|----------|
-| [id](#id) | `string` | Optional |
+| Property | Type | Required | Defined by |
+|----------|------|----------|------------|
+| [id](#id) | `string` | Optional | [Simple](#id) |

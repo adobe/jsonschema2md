@@ -28,7 +28,7 @@ This is an example schema with *multiple* examples. Too many examples? There can
 
 # Examples Properties
 
-| Property | Type | Required |
-|----------|------|----------|
-| [foo](#foo) | `string` | Optional |
-| [bar](#bar) | `string` | **Required** |
+| Property | Type | Required | Defined by |
+|----------|------|----------|------------|
+| [foo](#foo) | `string` | Optional | [Examples](#foo) |
+| [bar](#bar) | `string` | **Required** | [Examples](#bar) |

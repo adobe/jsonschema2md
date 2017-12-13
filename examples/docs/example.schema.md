@@ -22,7 +22,7 @@ This is an example schema with examples. Too many examples? There can never be t
 
 # Example Properties
 
-| Property | Type | Required |
-|----------|------|----------|
-| [foo](#foo) | `string` | Optional |
-| [bar](#bar) | `string` | Optional |
+| Property | Type | Required | Defined by |
+|----------|------|----------|------------|
+| [foo](#foo) | `string` | Optional | [Example](#foo) |
+| [bar](#bar) | `string` | Optional | [Example](#bar) |

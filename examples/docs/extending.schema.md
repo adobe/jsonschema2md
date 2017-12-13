@@ -23,8 +23,8 @@ This is an extending schema. It pulls `definitions` from other schemas.
 
 # Extending Properties
 
-| Property | Type | Required |
-|----------|------|----------|
-| [bar](#bar) | `string` | Optional |
-| [id](#id) | `string` | Optional |
-| [baz](#baz) | `string` | Optional |
+| Property | Type | Required | Defined by |
+|----------|------|----------|------------|
+| [bar](#bar) | `string` | Optional | [Extensible](extensible.schema.md#bar) |
+| [id](#id) | `string` | Optional | [Definitions](definitions.schema.md#id) |
+| [baz](#baz) | `string` | Optional | [Extending](#baz) |

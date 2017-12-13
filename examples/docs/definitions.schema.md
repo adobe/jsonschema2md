@@ -18,6 +18,6 @@ It is imported using `allOf` and `$ref`.
 
 # Definitions Properties
 
-| Property | Type | Required |
-|----------|------|----------|
-| [id](#id) | `string` | **Required** |
+| Property | Type | Required | Defined by |
+|----------|------|----------|------------|
+| [id](#id) | `string` | **Required** | [Definitions](#id) |
