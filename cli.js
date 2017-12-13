@@ -33,6 +33,8 @@ var argv = require('optimist')
   .describe('s', 'Custom meta schema path to validate schemas')
   .alias('x', 'schema-out')
   .describe('x', 'output JSON Schema files including description and validated examples in the _new folder at output directory')
+  .alias('n', 'no-readme')
+  .describe('n', 'Do not generate a README.md file in the output directory')
   .check(function(args) {
     if (!fs.existsSync(args.input)) {
       throw 'Input file "' + args.input + '" does not exist!';
@@ -51,6 +53,7 @@ var schemaPath = path.resolve(argv.d);
 var outDir = path.resolve(argv.o);
 var schemaDir = argv.x ? path.resolve(argv.x) : outDir;
 var target = fs.statSync(schemaPath);
+const readme = argv.n !== true;
 
 if (argv.s){
   ajv.addMetaSchema(require(path.resolve(argv.s)));
@@ -87,7 +90,7 @@ if (target.isDirectory()) {
       return Promise.reduce(files, readSchemaFile, schemaPathMap)
         .then(schemaMap => {
           logger.info('finished reading all *.schema.json files in %s, beginning processing….', schemaPath);
-          return Schema.process(schemaMap, schemaPath, outDir, schemaDir, metaElements);
+          return Schema.process(schemaMap, schemaPath, outDir, schemaDir, metaElements, readme);
         })
         .then(() => {
           logger.info('Processing complete.');
