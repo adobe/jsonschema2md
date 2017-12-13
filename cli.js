@@ -49,6 +49,7 @@ var schemaPathMap = {};
 var metaElements = {};
 var schemaPath = path.resolve(argv.d);
 var outDir = path.resolve(argv.o);
+var schemaDir = argv.x ? path.resolve(argv.x) : outDir;
 var target = fs.statSync(schemaPath);
 
 if (argv.s){
@@ -86,7 +87,7 @@ if (target.isDirectory()) {
       return Promise.reduce(files, readSchemaFile, schemaPathMap)
         .then((schemaMap)=>{
           logger.info('finished reading all *.schema.json files in %s, beginning processing....', schemaPath);
-          return Schema.load(schemaMap, schemaPath, outDir, metaElements);
+          return Schema.load(schemaMap, schemaPath, outDir, schemaDir, metaElements);
         })
         .then(() => {
           logger.info('Processing complete.');
@@ -107,7 +108,7 @@ if (target.isDirectory()) {
       Schema.setAjv(ajv);
       Schema.setSchemaPathMap(schemaPathMap);
       logger.info('finished reading %s, beginning processing....', schemaPath);
-      return Schema.load(schemaMap , schemaPath, outDir, metaElements);
+      return Schema.load(schemaMap , schemaPath, outDir, schemaDir, metaElements);
     })
     .then(() => {
       logger.info('Processing complete.');
