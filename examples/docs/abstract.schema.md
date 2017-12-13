@@ -1,4 +1,3 @@
-
 ---
 template: reference
 foo: bar
