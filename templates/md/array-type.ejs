@@ -19,7 +19,9 @@ if (schema.items.type==="string") {
   %><% } else if (schema.items.type==="boolean") {
   %><%- include("boolean-type",{schema:schema.items,_:_}) 
   %><% } else if (schema.items.type==="array") { 
-  %><%- include("array-type",{schema:schema.items,_:_, nested:true}) %>
+  %><%- include("array-type",{schema:schema.items,_:_, nested:true}) 
+  %><% } else if (schema.items.$ref!==undefined) { 
+  %><%- include("referenced-type",{schema:schema.items,_:_}) %>
 <% } else { %>
 Unknown type `<%= schema.type %>`.
 

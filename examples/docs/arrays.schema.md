@@ -107,7 +107,6 @@ All items must be of the type:
 
 
 
-
 ## intlist
 
 This is an array
@@ -205,7 +204,6 @@ All items must be of the type:
 `number`
 * minimum value: `0`
 * maximum value: `10`
-
 
 
 

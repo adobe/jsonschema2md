@@ -93,20 +93,7 @@ Unknown type ``.
 Array type: Simple
 
 All items must be of the type:
-Unknown type `array`.
-
-```json
-{
-  "type": "array",
-  "items": {
-    "$ref": "https://example.com/schemas/simple",
-    "$linkVal": "Simple",
-    "$linkPath": "simple.schema.md",
-    "simpletype": "Simple"
-  },
-  "simpletype": "Simple"
-}
-```
+* Complex type: [Simple](simple.schema.md) – `https://example.com/schemas/simple`
 
 
 
