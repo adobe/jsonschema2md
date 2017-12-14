@@ -7,7 +7,7 @@
   ],
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://example.com/schemas/complex",
-  "title": "Enumerated ",
+  "title": "Complex References ",
   "type": "object",
   "description": "This is an example schema that uses types defined in other schemas.",
   "properties": {
