@@ -20,6 +20,8 @@ This is an example schema with examples for multiple array types and their const
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
 | [list](#list) | `string[]` | Optional | Arrays (this schema) |
+| [listlist](#listlist) | `array[]` | Optional | Arrays (this schema) |
+| [stringlistlist](#stringlistlist) | `string[][]` | Optional | Arrays (this schema) |
 | [intlist](#intlist) | `integer[]` | Optional | Arrays (this schema) |
 | [boollist](#boollist) | `boolean[]` | Optional | Arrays (this schema) |
 | [numlist](#numlist) | `number[]` | Optional | Arrays (this schema) |
@@ -47,6 +49,70 @@ Unknown type `array`.
     "simpletype": "`string`"
   },
   "simpletype": "`string[]`"
+}
+```
+
+
+
+
+
+## listlist
+
+This is an array of arrays
+
+`listlist`
+* is optional
+* type: `array[]`
+
+* defined in this schema
+
+### listlist Type
+
+Unknown type `array`.
+
+```json
+{
+  "type": "array",
+  "description": "This is an array of arrays",
+  "items": {
+    "type": "array",
+    "simpletype": "`array`"
+  },
+  "simpletype": "`array[]`"
+}
+```
+
+
+
+
+
+## stringlistlist
+
+This is an array of arrays of strings
+
+`stringlistlist`
+* is optional
+* type: `string[][]`
+
+* defined in this schema
+
+### stringlistlist Type
+
+Unknown type `array`.
+
+```json
+{
+  "type": "array",
+  "description": "This is an array of arrays of strings",
+  "items": {
+    "type": "array",
+    "items": {
+      "type": "string",
+      "simpletype": "`string`"
+    },
+    "simpletype": "`string[]`"
+  },
+  "simpletype": "`string[][]`"
 }
 ```
 

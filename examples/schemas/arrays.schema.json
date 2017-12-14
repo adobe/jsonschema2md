@@ -18,6 +18,23 @@
         "type": "string"
       }
     },
+    "listlist": {
+      "type":"array",
+      "description": "This is an array of arrays",
+      "items": {
+        "type": "array"
+      }
+    },
+    "stringlistlist": {
+      "type":"array",
+      "description": "This is an array of arrays of strings",
+      "items": {
+        "type": "array",
+        "items": {
+          "type":"string"
+        }
+      }
+    },
     "intlist": {
       "type":"array",
       "description": "This is an array",
