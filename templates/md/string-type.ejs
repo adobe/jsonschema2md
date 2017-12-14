@@ -26,3 +26,10 @@ else if (schema.format==="relative-json-pointer") { %>* format: `relative-json-p
 else if (schema.format==="hostname") {              %>* format: `hostname` Domain Name (according to [RFC 1034, section 3.1](https://tools.ietf.org/html/rfc1034))<% } %>
 <% if(schema.minLength) { %>* minimum length: <%=schema.minLength %> characters<% } %>
 <% if(schema.maxLength) { %>* maximum length: <%=schema.maxLength %> characters<% } %>
+<% if(schema.pattern) { %>
+All instances must conform to this regular expression (test examples [here](https://regexr.com/?expression=<%- encodeURIComponent(schema.pattern) %>)):
+
+```regex
+<%- schema.pattern %>
+```
+<% } %>

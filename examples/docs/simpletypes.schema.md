@@ -45,6 +45,7 @@ A simple string, without any constraints.
 `string`
 
 
+
 ### Known Values
 
 | Value | Description |
@@ -108,6 +109,11 @@ A string following a regular expression
 
 `string`
 
+
+All instances must conform to this regular expression (test examples [here](https://regexr.com/?expression=%5Eba.%24)):
+```regex
+^ba.$
+```
 
 ### Known Values
 
