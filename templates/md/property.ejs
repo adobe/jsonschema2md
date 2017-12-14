@@ -15,9 +15,9 @@
 `<%=name %>`
 * is <% if (required) { %>**required**<% } else { %>optional<% } %>
 * type: <%=schema.simpletype %><% if (schema.type==='array') { %>
-<%   if (schema.maxItems!==undefined&&schema.minItems!==undefined) { %>* between `x` and `y` items in the array<% } 
-else if (schema.maxItems!==undefined                             ) { %>* no more than `y` items in the array<% }
-else if (schema.minItems!==undefined                             ) { %>* at least `x` items in the array<% } %>
+<%   if (schema.maxItems!==undefined&&schema.minItems!==undefined) { %>* between `<%=schema.minItems %>` and `<%=schema.maxItems %>` items in the array<% } 
+else if (schema.maxItems!==undefined                             ) { %>* no more than `<%=schema.maxItems %>` items in the array<% }
+else if (schema.minItems!==undefined                             ) { %>* at least `<%=schema.minItems %>` items in the array<% } %>
 <% } %>
 * defined in <% if (schema.$oSchema) { %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= name %>)<% } else { %>this schema<% } %>
 

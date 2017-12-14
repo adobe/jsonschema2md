@@ -26,6 +26,22 @@
       },
       "maxItems": 10,
       "minItems": 1
+    },
+    "boollist": {
+      "type":"array",
+      "description": "This is an array",
+      "items": {
+        "type": "boolean"
+      },
+      "minItems": 1
+    },
+    "numlist": {
+      "type":"array",
+      "description": "This is an array",
+      "items": {
+        "type": "number"
+      },
+      "maxItems": 10
     }
   }
 }

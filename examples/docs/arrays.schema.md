@@ -21,6 +21,8 @@ This is an example schema with examples for multiple array types and their const
 |----------|------|----------|------------|
 | [list](#list) | `string[]` | Optional | Arrays (this schema) |
 | [intlist](#intlist) | `integer[]` | Optional | Arrays (this schema) |
+| [boollist](#boollist) | `boolean[]` | Optional | Arrays (this schema) |
+| [numlist](#numlist) | `number[]` | Optional | Arrays (this schema) |
 
 ## list
 
@@ -29,6 +31,7 @@ This is an array
 `list`
 * is optional
 * type: `string[]`
+
 * defined in this schema
 
 ### list Type
@@ -58,6 +61,7 @@ This is an array
 `intlist`
 * is optional
 * type: `integer[]`
+* between `1` and `10` items in the array
 * defined in this schema
 
 ### intlist Type
@@ -72,7 +76,71 @@ Unknown type `array`.
     "type": "integer",
     "simpletype": "`integer`"
   },
+  "maxItems": 10,
+  "minItems": 1,
   "simpletype": "`integer[]`"
+}
+```
+
+
+
+
+
+## boollist
+
+This is an array
+
+`boollist`
+* is optional
+* type: `boolean[]`
+* at least `1` items in the array
+* defined in this schema
+
+### boollist Type
+
+Unknown type `array`.
+
+```json
+{
+  "type": "array",
+  "description": "This is an array",
+  "items": {
+    "type": "boolean",
+    "simpletype": "`boolean`"
+  },
+  "minItems": 1,
+  "simpletype": "`boolean[]`"
+}
+```
+
+
+
+
+
+## numlist
+
+This is an array
+
+`numlist`
+* is optional
+* type: `number[]`
+* no more than `10` items in the array
+* defined in this schema
+
+### numlist Type
+
+Unknown type `array`.
+
+```json
+{
+  "type": "array",
+  "description": "This is an array",
+  "items": {
+    "type": "number",
+    "simpletype": "`number`"
+  },
+  "maxItems": 10,
+  "simpletype": "`number[]`"
 }
 ```
 
