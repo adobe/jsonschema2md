@@ -7,7 +7,7 @@
     ],
     "$schema": "http://json-schema.org/draft-06/schema#",
     "$id": "https://example.com/schemas/deepextending",
-    "title": "Custom",
+    "title": "Deeply Extending",
     "description": "This is an extending schema. It is extending another extending schema. It pulls `definitions` from other schemas.",
     "type": "object",
     "meta:extensible": true,

@@ -8,9 +8,10 @@
 
 * [Abstract](./abstract.schema.md) – `https://example.com/schemas/abstract`
 * [Arrays](./arrays.schema.md) – `https://example.com/schemas/arrays`
+* [Enumerated ](./complex.schema.md) – `https://example.com/schemas/complex`
 * [Constant Types](./constants.schema.md) – `https://example.com/schemas/constants`
 * [Custom](./custom.schema.md) – `https://example.com/schemas/custom`
-* [Custom](./deepextending.schema.md) – `https://example.com/schemas/deepextending`
+* [Deeply Extending](./deepextending.schema.md) – `https://example.com/schemas/deepextending`
 * [Definitions](./definitions.schema.md) – `https://example.com/schemas/definitions`
 * [Enumerated ](./enums.schema.md) – `https://example.com/schemas/enums`
 * [Example](./example.schema.md) – `https://example.com/schemas/example`

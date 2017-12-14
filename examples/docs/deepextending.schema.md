@@ -3,7 +3,7 @@ template: reference
 foo: bar
 ---
 
-# Custom Schema
+# Deeply Extending Schema
 
 ```
 https://example.com/schemas/deepextending
@@ -17,19 +17,19 @@ This is an extending schema. It is extending another extending schema. It pulls 
 
 ## Schema Hierarchy
 
-* Custom `https://example.com/schemas/deepextending`
+* Deeply Extending `https://example.com/schemas/deepextending`
   * [Extensible](extensible.schema.md) `https://example.com/schemas/extensible`
   * [Definitions](definitions.schema.md) `https://example.com/schemas/definitions`
   * [Extending](extending.schema.md) `https://example.com/schemas/extending`
 
-# Custom Properties
+# Deeply Extending Properties
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
 | [bar](#bar) | `string` | Optional | [Extensible](extensible.schema.md#bar) |
 | [id](#id) | `string` | Optional | [Definitions](definitions.schema.md#id) |
 | [baz](#baz) | `string` | Optional | [Extending](extending.schema.md#baz) |
-| [hey](#hey) | `string` | Optional | Custom (this schema) |
+| [hey](#hey) | `string` | Optional | Deeply Extending (this schema) |
 
 ## bar
 
