@@ -25,7 +25,7 @@ This is a *very* simple example of a JSON schema. There is only one property.
 
 A unique identifier given to every addressable thing.
 `id`
-* required (or not)
+* is optional
 * type: `string`
 * defined in here
 ### Type

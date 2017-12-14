@@ -26,7 +26,7 @@ It is imported using `allOf` and `$ref`.
 
 A unique identifier given to every addressable thing.
 `id`
-* required (or not)
+* is **required**
 * type: `string`
 * defined in here
 ### Type

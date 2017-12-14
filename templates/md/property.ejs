@@ -12,7 +12,7 @@
 <%= schema.description %>
 
 `<%=name %>`
-* required (or not)
+* is <% if (required) { %>**required**<% } else { %>optional<% } %>
 * type: <%=schema.simpletype %>
 * defined in here
 

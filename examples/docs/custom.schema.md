@@ -26,7 +26,7 @@ This is an extensible schema. It has `definitions`, that can be used in other sc
 
 A unique identifier given to every addressable thing.
 `foo`
-* required (or not)
+* is optional
 * type: `string`
 * defined in here
 ### Type
@@ -44,7 +44,7 @@ A unique identifier given to every addressable thing.
 
 A unique identifier given to every addressable thing.
 `bar`
-* required (or not)
+* is optional
 * type: `string`
 * defined in here
 ### Type

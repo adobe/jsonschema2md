@@ -33,7 +33,7 @@ This is an extending schema. It pulls `definitions` from other schemas.
 
 A horse walks into it.
 `bar`
-* required (or not)
+* is optional
 * type: `string`
 * defined in here
 ### Type
@@ -61,7 +61,7 @@ A horse walks into it.
 
 A unique identifier given to every addressable thing.
 `id`
-* required (or not)
+* is optional
 * type: `string`
 * defined in here
 ### Type
@@ -80,7 +80,7 @@ A unique identifier given to every addressable thing.
 
 This property has a unique name to demonstrate it&#39;s uniqueness.
 `baz`
-* required (or not)
+* is optional
 * type: `string`
 * defined in here
 ### Type

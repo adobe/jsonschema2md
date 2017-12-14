@@ -37,7 +37,7 @@ This is an example schema with *multiple* examples. Too many examples? There can
 
 A simple string.
 `foo`
-* required (or not)
+* is optional
 * type: `string`
 * defined in here
 ### Type
@@ -60,7 +60,7 @@ A simple string.
 
 A simple string.
 `bar`
-* required (or not)
+* is **required**
 * type: `string`
 * defined in here
 ### Type
