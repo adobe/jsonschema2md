@@ -19,13 +19,13 @@ This is an example schema with examples for multiple array types and their const
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
-| [list](#list) | `string`[] | Optional | Arrays (this schema) |
-| [listlist](#listlist) | `array`[] | Optional | Arrays (this schema) |
-| [stringlistlist](#stringlistlist) | `string`[][] | Optional | Arrays (this schema) |
-| [intlist](#intlist) | `integer`[] | Optional | Arrays (this schema) |
-| [boollist](#boollist) | `boolean`[] | Optional | Arrays (this schema) |
-| [numlist](#numlist) | `number`[] | Optional | Arrays (this schema) |
-| [coordinatelist](#coordinatelist) | `number`[][] | Optional | Arrays (this schema) |
+| [list](#list) | `string[]` | Optional | Arrays (this schema) |
+| [listlist](#listlist) | `array[]` | Optional | Arrays (this schema) |
+| [stringlistlist](#stringlistlist) | `string[][]` | Optional | Arrays (this schema) |
+| [intlist](#intlist) | `integer[]` | Optional | Arrays (this schema) |
+| [boollist](#boollist) | `boolean[]` | Optional | Arrays (this schema) |
+| [numlist](#numlist) | `number[]` | Optional | Arrays (this schema) |
+| [coordinatelist](#coordinatelist) | `number[][]` | Optional | Arrays (this schema) |
 
 ## list
 
@@ -33,14 +33,14 @@ This is an array
 
 `list`
 * is optional
-* type: `string`[]
+* type: `string[]`
 
 * defined in this schema
 
 ### list Type
 
 
-Array type: `string`[]
+Array type: `string[]`
 
 All items must be of the type:
 `string`
@@ -59,7 +59,7 @@ This is an array of arrays
 
 `listlist`
 * is optional
-* type: `array`[]
+* type: `array[]` (nested array)
 
 * defined in this schema
 
@@ -83,14 +83,14 @@ This is an array of arrays of strings
 
 `stringlistlist`
 * is optional
-* type: `string`[][] (nested array)
+* type: `string[][]` (nested array)
 
 * defined in this schema
 
 ### stringlistlist Type
 
 
-Nested array type: `string`[]
+Nested array type: `string[]`
 
 
 
@@ -113,14 +113,14 @@ This is an array
 
 `intlist`
 * is optional
-* type: `integer`[]
+* type: `integer[]`
 * between `1` and `10` items in the array
 * defined in this schema
 
 ### intlist Type
 
 
-Array type: `integer`[]
+Array type: `integer[]`
 
 All items must be of the type:
 `integer`
@@ -139,14 +139,14 @@ This is an array
 
 `boollist`
 * is optional
-* type: `boolean`[]
+* type: `boolean[]`
 * at least `1` items in the array
 * defined in this schema
 
 ### boollist Type
 
 
-Array type: `boolean`[]
+Array type: `boolean[]`
 
 All items must be of the type:
 `boolean`
@@ -163,14 +163,14 @@ This is an array
 
 `numlist`
 * is optional
-* type: `number`[]
+* type: `number[]`
 * no more than `10` items in the array
 * defined in this schema
 
 ### numlist Type
 
 
-Array type: `number`[]
+Array type: `number[]`
 
 All items must be of the type:
 `number`
@@ -189,14 +189,14 @@ This is an array of coordinates in three-dimensional space.
 
 `coordinatelist`
 * is optional
-* type: `number`[][] (nested array)
+* type: `number[][]` (nested array)
 * no more than `10` items in the array
 * defined in this schema
 
 ### coordinatelist Type
 
 
-Nested array type: `number`[]
+Nested array type: `number[]`
 
 
 

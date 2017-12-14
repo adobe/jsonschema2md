@@ -27,7 +27,7 @@ This is an example schema that uses types defined in other schemas.
 |----------|------|----------|------------|
 | [refabstract](#refabstract) | complex | **Required** | Complex References  (this schema) |
 | [refnamed](#refnamed) | Simple | Optional | Complex References  (this schema) |
-| [reflist](#reflist) | Simple[] | Optional | Complex References  (this schema) |
+| [reflist](#reflist) | Simple | Optional | Complex References  (this schema) |
 
 ## refabstract
 
@@ -83,14 +83,14 @@ Unknown type ``.
 
 `reflist`
 * is optional
-* type: Simple[]
+* type: Simple
 
 * defined in this schema
 
 ### reflist Type
 
 
-Array type: Simple[]
+Array type: Simple
 
 All items must be of the type:
 * [Simple](simple.schema.md) – `https://example.com/schemas/simple`
