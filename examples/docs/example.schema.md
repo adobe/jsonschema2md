@@ -42,7 +42,7 @@ A simple string.
 ### foo Type
 
 
-* Type `string`
+`string`
 
 
 ### Known Values
@@ -71,7 +71,7 @@ A simple string.
 ### bar Type
 
 
-* Type `string`
+`string`
 
 
 ### Known Values

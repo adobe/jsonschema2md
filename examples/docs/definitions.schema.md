@@ -34,7 +34,7 @@ A unique identifier given to every addressable thing.
 ### id Type
 
 
-* Type `string`
+`string`
 * format: `uri` (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 

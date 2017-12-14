@@ -34,7 +34,7 @@ A unique identifier given to every addressable thing.
 ### foo Type
 
 
-* Type `string`
+`string`
 
 
 ### Known Values
@@ -58,7 +58,7 @@ A unique identifier given to every addressable thing.
 ### bar Type
 
 
-* Type `string`
+`string`
 
 
 ### Known Values

@@ -42,7 +42,7 @@ A simple string, without any constraints.
 ### string_unconstrained Type
 
 
-* Type `string`
+`string`
 
 
 ### Known Values
@@ -71,7 +71,7 @@ A string with minumum and maximum length
 ### string_length Type
 
 
-* Type `string`
+`string`
 * minimum length: 3 characters
 * maximum length: 3 characters
 
@@ -106,7 +106,7 @@ A string following a regular expression
 ### string_pattern Type
 
 
-* Type `string`
+`string`
 
 
 ### Known Values
@@ -130,7 +130,7 @@ A date-like string.
 ### string_date Type
 
 
-* Type `string`
+`string`
 * format: `date-time` (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))
 
 
@@ -155,7 +155,7 @@ An email-like string.
 ### string_email Type
 
 
-* Type `string`
+`string`
 * format: `date-time` (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))
 
 
@@ -180,7 +180,7 @@ A hostname-like string.
 ### string_hostname Type
 
 
-* Type `string`
+`string`
 * format: `date-time` (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))
 
 
@@ -205,7 +205,7 @@ An IPv4-like string.
 ### string_ipv4 Type
 
 
-* Type `string`
+`string`
 * format: `date-time` (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))
 
 
@@ -230,7 +230,7 @@ An IPv6-like string.
 ### string_ipv6 Type
 
 
-* Type `string`
+`string`
 * format: `date-time` (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))
 
 
@@ -255,7 +255,7 @@ A URI.
 ### string_uri Type
 
 
-* Type `string`
+`string`
 * format: `uri` (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 
