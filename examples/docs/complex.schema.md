@@ -26,7 +26,7 @@ This is an example schema that uses types defined in other schemas.
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
 | [refabstract](#refabstract) | complex | **Required** | Complex References  (this schema) |
-| [refnamed](#refnamed) | complex | Optional | Complex References  (this schema) |
+| [refnamed](#refnamed) | Simple | Optional | Complex References  (this schema) |
 
 ## refabstract
 
@@ -64,7 +64,7 @@ Unknown type ``.
 
 `refnamed`
 * is optional
-* type: complex
+* type: Simple
 * defined in this schema
 
 ### refnamed Type
