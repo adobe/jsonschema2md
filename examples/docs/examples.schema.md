@@ -50,7 +50,9 @@ A simple string.
 
 ### foo Type
 
-This is a string. 
+
+* Type `string`
+
 
 ### Known Values
 
@@ -77,7 +79,9 @@ A simple string.
 
 ### bar Type
 
-This is a string. 
+
+* Type `string`
+
 
 ### Known Values
 

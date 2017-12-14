@@ -33,7 +33,10 @@ A unique identifier given to every addressable thing.
 
 ### id Type
 
-This is a string. 
+
+* Type `string`
+* format: `uri` (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
+
 
 ### Known Values
 

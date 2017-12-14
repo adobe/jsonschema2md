@@ -42,7 +42,9 @@ A horse walks into it.
 
 ### bar Type
 
-This is a string. 
+
+* Type `string`
+
 
 ### Known Values
 
@@ -74,7 +76,10 @@ A unique identifier given to every addressable thing.
 
 ### id Type
 
-This is a string. 
+
+* Type `string`
+* format: `uri` (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
+
 
 ### Known Values
 
@@ -97,7 +102,9 @@ This property has a unique name to demonstrate it&#39;s uniqueness.
 
 ### baz Type
 
-This is a string. 
+
+* Type `string`
+
 
 ### Known Values
 
@@ -124,7 +131,9 @@ A unique identifier given to every addressable thing.
 
 ### hey Type
 
-This is a string. 
+
+* Type `string`
+
 
 ### Known Values
 
