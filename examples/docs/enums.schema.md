@@ -30,7 +30,7 @@ A simple string. Pick a value.
 * type: `enum`
 * defined in this schema
 
-The value of this property **must** be equal to one of the known values below.
+The value of this property **must** be equal to one of the [known values below](#hello-known-values).
 
 ### hello Known Values
 | Value | Description |
