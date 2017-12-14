@@ -27,9 +27,22 @@
       "description": "String or number…",
       "anyOf": [
         { "type":"string" },
-        { "type":"number"}
+        { "type":"number", "minimum": 0}
       ]
-
+    },
+    "and": {
+      "description": "Number in a range",
+      "allOf": [
+        { "type":"number", "maximum": 10 },
+        { "type":"number", "minimum": 0}
+      ]
+    },
+    "xor": {
+      "description": "Exclusive choice.",
+      "oneOf": [
+        { "type":"number", "maximum": 0 },
+        { "type":"number", "minimum": 10}
+      ]
     }
   },
   "required": [

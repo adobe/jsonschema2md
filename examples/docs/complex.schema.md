@@ -29,6 +29,8 @@ This is an example schema that uses types defined in other schemas.
 | [refnamed](#refnamed) | Simple | Optional | Complex References  (this schema) |
 | [reflist](#reflist) | Simple | Optional | Complex References  (this schema) |
 | [or](#or) | complex | Optional | Complex References  (this schema) |
+| [and](#and) | complex | Optional | Complex References  (this schema) |
+| [xor](#xor) | complex | Optional | Complex References  (this schema) |
 
 ## refabstract
 
@@ -114,22 +116,92 @@ String or number…
 
 ### or Type
 
-Unknown type ``.
 
-```json
-{
-  "description": "String or number…",
-  "anyOf": [
-    {
-      "type": "string"
-    },
-    {
-      "type": "number"
-    }
-  ],
-  "simpletype": "complex"
-}
-```
+**Any** following *options* needs to be fulfilled.
+
+
+#### Option 1
+
+
+`string`
+
+
+
+#### Option 2
+
+
+`number`
+* minimum value: `0`
+
+
+
+
+
+
+
+## and
+
+Number in a range
+
+`and`
+* is optional
+* type: complex
+* defined in this schema
+
+### and Type
+
+
+**All** of the following *requirements* need to be fulfilled.
+
+
+#### Requirement 1
+
+
+`number`
+* maximum value: `10`
+
+
+#### Requirement 2
+
+
+`number`
+* minimum value: `0`
+
+
+
+
+
+
+
+## xor
+
+Exclusive choice.
+
+`xor`
+* is optional
+* type: complex
+* defined in this schema
+
+### xor Type
+
+
+**One** of the following *conditions* need to be fulfilled.
+
+
+#### Condition 1
+
+
+`number`
+* maximum value: `0`
+
+
+#### Condition 2
+
+
+`number`
+* minimum value: `10`
+
+
 
 
 
