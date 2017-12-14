@@ -8,7 +8,7 @@
 
 * [Abstract](./abstract.schema.md) – `https://example.com/schemas/abstract`
 * [Arrays](./arrays.schema.md) – `https://example.com/schemas/arrays`
-* [Enumerated ](./complex.schema.md) – `https://example.com/schemas/complex`
+* [Complex References ](./complex.schema.md) – `https://example.com/schemas/complex`
 * [Constant Types](./constants.schema.md) – `https://example.com/schemas/constants`
 * [Custom](./custom.schema.md) – `https://example.com/schemas/custom`
 * [Deeply Extending](./deepextending.schema.md) – `https://example.com/schemas/deepextending`

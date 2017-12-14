@@ -3,7 +3,7 @@ template: reference
 foo: bar
 ---
 
-# Enumerated  Schema
+# Complex References  Schema
 
 ```
 https://example.com/schemas/complex
@@ -17,16 +17,16 @@ This is an example schema that uses types defined in other schemas.
 
 ## Schema Hierarchy
 
-* Enumerated  `https://example.com/schemas/complex`
+* Complex References  `https://example.com/schemas/complex`
   * [Abstract](abstract.schema.md) `https://example.com/schemas/abstract`
   * [Simple](simple.schema.md) `https://example.com/schemas/simple`
 
-# Enumerated  Properties
+# Complex References  Properties
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
-| [refabstract](#refabstract) | complex | **Required** | Enumerated  (this schema) |
-| [refnamed](#refnamed) | complex | Optional | Enumerated  (this schema) |
+| [refabstract](#refabstract) | complex | **Required** | Complex References  (this schema) |
+| [refnamed](#refnamed) | complex | Optional | Complex References  (this schema) |
 
 ## refabstract
 
