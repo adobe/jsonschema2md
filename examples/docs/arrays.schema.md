@@ -68,7 +68,7 @@ This is an array of arrays
 
 Nested array type: `array`
 
-
+All items must be of the type:
 Array type: `array`
 
 
@@ -94,10 +94,10 @@ This is an array of arrays of strings
 
 Nested array type: `string[]`
 
-
+All items must be of the type:
 Array type: `string[]`
 
-All items must be of the type:
+
 `string`
 
 
@@ -202,10 +202,10 @@ This is an array of coordinates in three-dimensional space.
 
 Nested array type: `number[]`
 
-
+All items must be of the type:
 Array type: `number[]`
 
-All items must be of the type:
+
 `number`
 * minimum value: `0`
 * maximum value: `10`

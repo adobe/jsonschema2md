@@ -10,7 +10,7 @@ Nested array type: <%=schema.items.simpletype %>
 Array type: <%=schema.simpletype %>
 <% } %>
 <% if (schema.items!==undefined) { %>
-<% if (!nested) { %>
+<% if (nested===false) { %>
 All items must be of the type:<% }
 if (schema.items.type==="string") { 
   %><%- include("string-type",{schema:schema.items,_:_}) 
