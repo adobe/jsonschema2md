@@ -71,7 +71,7 @@ Unknown type ``.
 ### refnamed Type
 
 
-* Complex type: [Simple](simple.schema.md) – `https://example.com/schemas/simple`
+* [Simple](simple.schema.md) – `https://example.com/schemas/simple`
 
 
 
@@ -93,7 +93,7 @@ Unknown type ``.
 Array type: Simple[]
 
 All items must be of the type:
-* Complex type: [Simple](simple.schema.md) – `https://example.com/schemas/simple`
+* [Simple](simple.schema.md) – `https://example.com/schemas/simple`
 
 
 
