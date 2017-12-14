@@ -17,10 +17,10 @@ This is an extensible schema. It has `definitions`, that can be used in other sc
 
 # Extensible Definitions
 
-| Property | Type |
-|----------|------|
-| [foo](#foo) | `string` |
-| [bar](#bar) | `string` |
+| Property | Type | Group |
+|----------|------|-------|
+| [foo](#foo) | `string` | `#/definitions/first` |
+| [bar](#bar) | `string` | `#/definitions/second` |
 
 ## foo
 

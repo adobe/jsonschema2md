@@ -17,9 +17,9 @@ A schema in a sub directory
 
 # Subdir Definitions
 
-| Property | Type |
-|----------|------|
-| [id](#id) | `string` |
+| Property | Type | Group |
+|----------|------|-------|
+| [id](#id) | `string` | `#/definitions/content` |
 
 ## id
 

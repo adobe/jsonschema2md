@@ -17,10 +17,10 @@ This is an abstract schema. It has `definitions`, but does not declare any prope
 
 # Abstract Definitions
 
-| Property | Type |
-|----------|------|
-| [foo](#foo) | `string` |
-| [bar](#bar) | `string` |
+| Property | Type | Group |
+|----------|------|-------|
+| [foo](#foo) | `string` | `#/definitions/first` |
+| [bar](#bar) | `string` | `#/definitions/second` |
 
 ## foo
 

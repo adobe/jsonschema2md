@@ -8,8 +8,8 @@
 
 
 
-| Property | Type |
-|----------|------|
+| Property | Type | Group |
+|----------|------|-------|
 <%  _.forIn(props, (schema, property, object) => { %>
-| [<%= property %>](#<%= property %>) | <%= schema.simpletype %> |
+| [<%= property %>](#<%= property %>) | <%= schema.simpletype %> | `#/definitions/<%= schema.definitiongroup %>` |
 <% }); %>
