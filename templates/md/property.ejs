@@ -22,6 +22,8 @@
 
 <% if (schema.type==="string") { %>
 <%- include("string-type",{schema:schema,_:_}) %>
+<% } else if (schema.type==="number"||schema.type==="integer") { %>
+<%- include("number-type",{schema:schema,_:_}) %>
 <% } else { %>
 Unknown type `<%= schema.type %>`.
 

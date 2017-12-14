@@ -64,6 +64,27 @@
         "number_unconstrained": {
             "type": "number",
             "description": "Just a number"
+        },
+        "interger_unconstrained": {
+            "type": "integer",
+            "description": "Just a whole number. I don't like fractions."
+        },
+        "interger_constrained": {
+            "type": "integer",
+            "description": "Just a whole number. I don't like fractions. Don't get too small",
+            "minimum": 10
+        },
+        "number_constrained": {
+            "type": "number",
+            "description": "Just a number. Don't get too big.",
+            "exclusiveMaximum": 10
+        },
+        "integer_threes": {
+            "type": "integer",
+            "description": "Guess what number is valid",
+            "multipleOf": 3,
+            "minimum": 2,
+            "maximum": 4
         }
     },
     "required": [
