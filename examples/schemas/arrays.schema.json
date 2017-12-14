@@ -23,7 +23,9 @@
       "description": "This is an array",
       "items": {
         "type": "integer"
-      }
+      },
+      "maxItems": 10,
+      "minItems": 1
     }
   }
 }
