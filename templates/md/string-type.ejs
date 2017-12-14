@@ -28,10 +28,10 @@ else if (schema.format==="hostname") {              %>* format: `hostname` Domai
 <% if(schema.maxLength) { %>* maximum length: <%=schema.maxLength %> characters<% } %>
 <% if(schema.pattern) { %>
 All instances must conform to this regular expression 
-<% if (schema['meta:example']===undefined) { %>
+<% if(schema['meta:example']===undefined) { %>
 (test examples [here](https://regexr.com/?expression=<%- encodeURIComponent(schema.pattern) %>)):
-} else if ((typeof schema['meta:example'])==="string") { %>
-(test example: [<%= schema['meta:example']%>](https://regexr.com/?expression=<%- encodeURIComponent(schema.pattern) %>)):
+<% } else if((typeof schema['meta:example'])==="string") { %>
+(test example: [<%= schema['meta:example']%>](https://regexr.com/?expression=<%- encodeURIComponent(schema.pattern) %>&text=<%- encodeURIComponent(schema['meta:example']) %>)):
 <% } %>
 ```regex
 <%- schema.pattern %>

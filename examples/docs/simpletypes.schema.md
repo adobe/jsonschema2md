@@ -162,8 +162,6 @@ A string following a regular expression
 
 All instances must conform to this regular expression 
 (test examples [here](https://regexr.com/?expression=%5Eba.%24)):
-} else if ((typeof schema['meta:example'])==="string") { 
-(test example: [](https://regexr.com/?expression=%5Eba.%24)):
 ```regex
 ^ba.$
 ```
@@ -194,6 +192,7 @@ A string following a regular expression
 
 
 All instances must conform to this regular expression 
+(test example: [bar](https://regexr.com/?expression=%5Eba.%24&text=bar)):
 ```regex
 ^ba.$
 ```
