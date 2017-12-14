@@ -117,6 +117,20 @@ All instances must conform to this regular expression
 * test example: [bat](https://regexr.com/?expression=%5Eba.%24&text=bat)
 
 
+### string_pattern Known Values
+| Value | Description |
+|-------|-------------|
+| `baa` | the sounds of sheeps |
+| `bad` | German bathroom |
+| `bag` | holding device |
+| `bah` | humbug! |
+| `bam` | a loud sound |
+| `ban` | don&#39;t do this |
+| `bap` | a British soft bread roll |
+| `bas` | from ancient Egyptian religion, an aspect of the soul |
+| `bat` | …out of hell |
+| `bay` | , sitting by the dock of the |
+
 
 
 ### string_pattern Examples
