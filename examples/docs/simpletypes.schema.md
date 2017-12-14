@@ -341,7 +341,7 @@ Just a whole number. I don&#39;t like fractions. Don&#39;t get too small
 
 
 `integer`
-* minimum value: 10
+* minimum value: `10`
 
 
 ### Known Values
@@ -366,7 +366,7 @@ Just a number. Don&#39;t get too big.
 
 
 `number`
-* value must not be greater or equal than: 10
+* value must not be greater or equal than: `10`
 
 
 ### Known Values
@@ -391,9 +391,9 @@ Guess what number is valid
 
 
 `integer`
-* minimum value: 2
-* maximum value: 4
-* must be a multiple of 3
+* minimum value: `2`
+* maximum value: `4`
+* must be a multiple of `3`
 
 ### Known Values
 
