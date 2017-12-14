@@ -1,0 +1,72 @@
+{
+    "meta:license": [
+        "Copyright 2017 Adobe Systems Incorporated. All rights reserved.",
+        "This file is licensed to you under the Apache License, Version 2.0 (the 'License');",
+        "you may not use this file except in compliance with the License. You may obtain a copy",
+        "of the License at http://www.apache.org/licenses/LICENSE-2.0"
+    ],
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$id": "https://example.com/schemas/simpletypes",
+    "title": "Simple Types",
+    "type": "object",
+    "description": "This is an example schema with examples for multiple types and their constraints.",
+    "properties": {
+        "string_unconstrained": {
+            "type": "string",
+            "description": "A simple string, without any constraints.",
+            "meta:example": "bar"
+        },
+        "string_length": {
+            "type": "string",
+            "description": "A string with minumum and maximum length",
+            "meta:example": [
+                "bar",
+                "baz"
+            ],
+            "minLength": 3,
+            "maxLength": 3
+        },
+        "string_pattern": {
+            "type": "string",
+            "description": "A string following a regular expression",
+            "pattern": "^ba.$"
+        },
+        "string_date": {
+            "type": "string",
+            "description": "A date-like string.",
+            "format": "date-time"
+        },
+        "string_email": {
+            "type": "string",
+            "description": "An email-like string.",
+            "format": "email"
+        },
+        "string_hostname": {
+            "type": "string",
+            "description": "A hostname-like string.",
+            "format": "hostname"
+        },
+        "string_ipv4": {
+            "type": "string",
+            "description": "An IPv4-like string.",
+            "format": "ipv4"
+        },
+        "string_ipv6": {
+            "type": "string",
+            "description": "An IPv6-like string.",
+            "format": "ipv6"
+        },
+        "string_uri": {
+            "type": "string",
+            "description": "A URI.",
+            "format": "uri"
+        },
+        "number_unconstrained": {
+            "type": "number",
+            "description": "Just a number"
+        }
+    },
+    "required": [
+        "bar"
+    ]
+}

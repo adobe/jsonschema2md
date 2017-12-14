@@ -18,9 +18,19 @@
 * defined in <% if (schema.$oSchema) { %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= name %>)<% } else { %>this schema<% } %>
 
 
-### Type
+### <%=name %> Type
+
+<% if (schema.type==="string") { %>
+<%- include("string-type",{schema:schema,_:_}) %>
+<% } else { %>
+Unknown type `<%= schema.type %>`.
 
 
+```json
+<%- JSON.stringify(schema, null, 2) %>
+```
+
+<% } %>
 
 ### Known Values
 

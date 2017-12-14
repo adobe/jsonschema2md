@@ -30,7 +30,9 @@ A unique identifier given to every addressable thing.
 * type: `string`
 * defined in this schema
 
-### Type
+### id Type
+
+This is a string. 
 
 ### Known Values
 

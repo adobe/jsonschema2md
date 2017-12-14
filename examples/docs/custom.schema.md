@@ -31,7 +31,9 @@ A unique identifier given to every addressable thing.
 * type: `string`
 * defined in this schema
 
-### Type
+### foo Type
+
+This is a string. 
 
 ### Known Values
 
@@ -51,7 +53,9 @@ A unique identifier given to every addressable thing.
 * type: `string`
 * defined in this schema
 
-### Type
+### bar Type
+
+This is a string. 
 
 ### Known Values
 

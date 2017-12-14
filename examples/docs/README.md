@@ -15,6 +15,7 @@
 * [Extending](./extending.schema.md) – `https://example.com/schemas/extending`
 * [Extensible](./extensible.schema.md) – `https://example.com/schemas/extensible`
 * [Simple](./simple.schema.md) – `https://example.com/schemas/simple`
+* [Simple Types](./simpletypes.schema.md) – `https://example.com/schemas/simpletypes`
 
 ## /subdir/
 

@@ -17,7 +17,10 @@ This is an example schema with examples. Too many examples? There can never be t
 
 ## Example Example
 ```json
-{"foo":"bar","bar":"baz"}
+{
+  "foo": "bar",
+  "bar": "baz"
+}
 ```
 
 # Example Properties
@@ -36,7 +39,9 @@ A simple string.
 * type: `string`
 * defined in this schema
 
-### Type
+### foo Type
+
+This is a string. 
 
 ### Known Values
 
@@ -61,7 +66,9 @@ A simple string.
 * type: `string`
 * defined in this schema
 
-### Type
+### bar Type
+
+This is a string. 
 
 ### Known Values
 

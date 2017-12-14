@@ -18,11 +18,17 @@ This is an example schema with *multiple* examples. Too many examples? There can
 ## Examples Examples
 
 ```json
-{"foo":"bi","bar":"bu"}
+{
+  "foo": "bi",
+  "bar": "bu"
+}
 ```
 
 ```json
-{"foo":"zip","bar":"zap"}
+{
+  "foo": "zip",
+  "bar": "zap"
+}
 ```
 
 
@@ -42,7 +48,9 @@ A simple string.
 * type: `string`
 * defined in this schema
 
-### Type
+### foo Type
+
+This is a string. 
 
 ### Known Values
 
@@ -67,7 +75,9 @@ A simple string.
 * type: `string`
 * defined in this schema
 
-### Type
+### bar Type
+
+This is a string. 
 
 ### Known Values
 

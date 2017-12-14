@@ -40,7 +40,9 @@ A horse walks into it.
 * type: `string`
 * defined in [Extensible](extensible.schema.md#bar)
 
-### Type
+### bar Type
+
+This is a string. 
 
 ### Known Values
 
@@ -70,7 +72,9 @@ A unique identifier given to every addressable thing.
 * type: `string`
 * defined in [Definitions](definitions.schema.md#id)
 
-### Type
+### id Type
+
+This is a string. 
 
 ### Known Values
 
@@ -91,7 +95,9 @@ This property has a unique name to demonstrate it&#39;s uniqueness.
 * type: `string`
 * defined in [Extending](extending.schema.md#baz)
 
-### Type
+### baz Type
+
+This is a string. 
 
 ### Known Values
 
@@ -116,7 +122,9 @@ A unique identifier given to every addressable thing.
 * type: `string`
 * defined in this schema
 
-### Type
+### hey Type
+
+This is a string. 
 
 ### Known Values
 
