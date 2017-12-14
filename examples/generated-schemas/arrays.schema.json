@@ -56,7 +56,8 @@
             "type": "array",
             "description": "This is an array",
             "items": {
-                "type": "number"
+                "type": "number",
+                "minimum": 10
             },
             "maxItems": 10
         }

@@ -38,19 +38,14 @@ This is an array
 
 ### list Type
 
-Unknown type `array`.
 
-```json
-{
-  "type": "array",
-  "description": "This is an array",
-  "items": {
-    "type": "string",
-    "simpletype": "`string`"
-  },
-  "simpletype": "`string[]`"
-}
-```
+Array type: `string[]`.
+
+All items must be of the type:
+`string`
+
+
+
 
 
 
@@ -68,19 +63,15 @@ This is an array of arrays
 
 ### listlist Type
 
-Unknown type `array`.
 
-```json
-{
-  "type": "array",
-  "description": "This is an array of arrays",
-  "items": {
-    "type": "array",
-    "simpletype": "`array`"
-  },
-  "simpletype": "`array[]`"
-}
-```
+Array type: `array[]`.
+
+All items must be of the type:
+Nesting alarm!
+
+Array type: `array`.
+
+
 
 
 
@@ -98,23 +89,21 @@ This is an array of arrays of strings
 
 ### stringlistlist Type
 
-Unknown type `array`.
 
-```json
-{
-  "type": "array",
-  "description": "This is an array of arrays of strings",
-  "items": {
-    "type": "array",
-    "items": {
-      "type": "string",
-      "simpletype": "`string`"
-    },
-    "simpletype": "`string[]`"
-  },
-  "simpletype": "`string[][]`"
-}
-```
+Array type: `string[][]`.
+
+All items must be of the type:
+Nesting alarm!
+
+Array type: `string[]`.
+
+All items must be of the type:
+`string`
+
+
+
+
+
 
 
 
@@ -132,21 +121,14 @@ This is an array
 
 ### intlist Type
 
-Unknown type `array`.
 
-```json
-{
-  "type": "array",
-  "description": "This is an array",
-  "items": {
-    "type": "integer",
-    "simpletype": "`integer`"
-  },
-  "maxItems": 10,
-  "minItems": 1,
-  "simpletype": "`integer[]`"
-}
-```
+Array type: `integer[]`.
+
+All items must be of the type:
+`integer`
+
+
+
 
 
 
@@ -164,20 +146,12 @@ This is an array
 
 ### boollist Type
 
-Unknown type `array`.
 
-```json
-{
-  "type": "array",
-  "description": "This is an array",
-  "items": {
-    "type": "boolean",
-    "simpletype": "`boolean`"
-  },
-  "minItems": 1,
-  "simpletype": "`boolean[]`"
-}
-```
+Array type: `boolean[]`.
+
+All items must be of the type:
+`boolean`
+
 
 
 
@@ -195,20 +169,14 @@ This is an array
 
 ### numlist Type
 
-Unknown type `array`.
 
-```json
-{
-  "type": "array",
-  "description": "This is an array",
-  "items": {
-    "type": "number",
-    "simpletype": "`number`"
-  },
-  "maxItems": 10,
-  "simpletype": "`number[]`"
-}
-```
+Array type: `number[]`.
+
+All items must be of the type:
+`number`
+* minimum value: `10`
+
+
 
 
 
