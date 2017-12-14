@@ -4,11 +4,14 @@
  * you may not use this file except in compliance with the License. You may obtain a copy
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
  */ %>
-
+<% if (schema.items!==undefined&&schema.items.type==="array") { %>
+Nested array type: <%=schema.items.simpletype %>
+<% } else { %>
 Array type: <%=schema.simpletype %>
+<% } %>
 <% if (schema.items!==undefined) { %>
-
-All items must be of the type:<% 
+<% if (!(schema.items!==undefined&&schema.items.type==="array")) { %>
+All items must be of the type:<% }
 if (schema.items.type==="string") { 
   %><%- include("string-type",{schema:schema.items,_:_}) 
   %><% } else if (schema.items.type==="number"||schema.items.type==="integer") { 
@@ -24,6 +27,12 @@ Unknown type `<%= schema.type %>`.
 ```json
 <%- JSON.stringify(schema, null, 2) %>
 ```
+
+<% } %>
+
+<% if (schema.items.description!==undefined) { %>
+  
+<%=schema.items.description %>
 
 <% } %>
 

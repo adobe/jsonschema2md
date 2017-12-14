@@ -25,6 +25,7 @@ This is an example schema with examples for multiple array types and their const
 | [intlist](#intlist) | `integer[]` | Optional | Arrays (this schema) |
 | [boollist](#boollist) | `boolean[]` | Optional | Arrays (this schema) |
 | [numlist](#numlist) | `number[]` | Optional | Arrays (this schema) |
+| [coordinatelist](#coordinatelist) | `number[][]` | Optional | Arrays (this schema) |
 
 ## list
 
@@ -51,6 +52,7 @@ All items must be of the type:
 
 
 
+
 ## listlist
 
 This is an array of arrays
@@ -64,10 +66,12 @@ This is an array of arrays
 ### listlist Type
 
 
-Array type: `array[]`
+Nested array type: `array`
 
-All items must be of the type:
+
 Array type: `array`
+
+
 
 
 
@@ -88,13 +92,15 @@ This is an array of arrays of strings
 ### stringlistlist Type
 
 
-Array type: `string[][]`
+Nested array type: `string[]`
 
-All items must be of the type:
+
 Array type: `string[]`
 
 All items must be of the type:
 `string`
+
+
 
 
 
@@ -130,6 +136,7 @@ All items must be of the type:
 
 
 
+
 ## boollist
 
 This is an array
@@ -147,6 +154,7 @@ Array type: `boolean[]`
 
 All items must be of the type:
 `boolean`
+
 
 
 
@@ -171,6 +179,43 @@ Array type: `number[]`
 All items must be of the type:
 `number`
 * minimum value: `10`
+
+
+
+
+
+
+
+
+## coordinatelist
+
+This is an array of coordinates in three-dimensional space.
+
+`coordinatelist`
+* is optional
+* type: `number[][]` (nested array)
+* no more than `10` items in the array
+* defined in this schema
+
+### coordinatelist Type
+
+
+Nested array type: `number[]`
+
+
+Array type: `number[]`
+
+All items must be of the type:
+`number`
+* minimum value: `0`
+* maximum value: `10`
+
+
+
+
+
+  
+A coordinate, specified by `x`, `y`, and `z` values
 
 
 

@@ -19,15 +19,15 @@ This is an example schema with *multiple* examples. Too many examples? There can
 
 ```json
 {
-  "foo": "zip",
-  "bar": "zap"
+  "foo": "bi",
+  "bar": "bu"
 }
 ```
 
 ```json
 {
-  "foo": "bi",
-  "bar": "bu"
+  "foo": "zip",
+  "bar": "zap"
 }
 ```
 
