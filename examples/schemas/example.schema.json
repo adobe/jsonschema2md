@@ -14,12 +14,12 @@
     "foo": {
       "type": "string",
       "description": "A simple string.",
-      "meta:example": "bar"
+      "examples": ["bar"]
     },
     "bar": {
       "type": "string",
       "description": "A simple string.",
-      "meta:example": ["bar", "baz"]
+      "examples": ["bar", "baz"]
     }
   }
 }

@@ -21,7 +21,9 @@
                 "baz": {
                     "type": "string",
                     "title": "BAAAZ!",
-                    "meta:example": "I'm just a humble example",
+                    "examples": [
+                        "I'm just a humble example"
+                    ],
                     "description": "This property has a unique name to demonstrate it's uniqueness."
                 }
             }

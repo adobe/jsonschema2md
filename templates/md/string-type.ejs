@@ -28,18 +28,18 @@ else if (schema.format==="hostname") {              %>* format: `hostname` Domai
 <% if(schema.maxLength) { %>* maximum length: <%=schema.maxLength %> characters<% } %>
 <% if(schema.pattern) { %>
 All instances must conform to this regular expression 
-<% if(schema['meta:example']===undefined) { %>
+<% if(schema['examples']===undefined) { %>
 (test examples [here](https://regexr.com/?expression=<%- encodeURIComponent(schema.pattern) %>)):
-<% } else if((typeof schema['meta:example'])==="string") { %>
-(test example: [<%= schema['meta:example']%>](https://regexr.com/?expression=<%- encodeURIComponent(schema.pattern) %>&text=<%- encodeURIComponent(schema['meta:example']) %>)):
+<% } else if((typeof schema['examples'])==="string") { %>
+(test example: [<%= schema['examples']%>](https://regexr.com/?expression=<%- encodeURIComponent(schema.pattern) %>&text=<%- encodeURIComponent(schema['examples']) %>)):
 <% } %>
 ```regex
 <%- schema.pattern %>
 ```
 
-<% if (schema['meta:example']!==undefined&&(typeof schema['meta:example'])!=="string") {
-    for (let i=0;i<schema['meta:example'].length;i++) { %>
-* test example: [<%= schema['meta:example'][i] %>](https://regexr.com/?expression=<%- encodeURIComponent(schema.pattern) %>&text=<%- encodeURIComponent(schema['meta:example'][i]) %>)<% }
+<% if (schema['examples']!==undefined&&(typeof schema['examples'])!=="string") {
+    for (let i=0;i<schema['examples'].length;i++) { %>
+* test example: [<%= schema['examples'][i] %>](https://regexr.com/?expression=<%- encodeURIComponent(schema.pattern) %>&text=<%- encodeURIComponent(schema['examples'][i]) %>)<% }
 } %>
 
 <% } %>

@@ -16,7 +16,9 @@
             "properties": {
                 "foo": {
                     "type": "string",
-                    "meta:example": "bar",
+                    "examples": [
+                        "bar"
+                    ],
                     "description": "A unique identifier given to every addressable thing."
                 }
             }
@@ -25,7 +27,7 @@
             "properties": {
                 "bar": {
                     "type": "string",
-                    "meta:example": [
+                    "examples": [
                         "whoo",
                         "hoo"
                     ],

@@ -14,12 +14,12 @@
     "string_unconstrained": {
       "type": "string",
       "description": "A simple string, without any constraints.",
-      "meta:example": "bar"
+      "examples": ["bar"]
     },
     "string_length": {
       "type": "string",
       "description": "A string with minumum and maximum length",
-      "meta:example": ["bar", "baz"],
+      "examples": ["bar", "baz"],
       "minLength": 3,
       "maxLength": 3
     },
@@ -27,7 +27,7 @@
       "type": "string",
       "description": "A string following a regular expression",
       "pattern": "^ba.$",
-      "meta:example": ["bar", "baz", "bat"]
+      "examples": ["bar", "baz", "bat"]
     },
     "string_pattern_noexample": {
       "type": "string",
@@ -38,7 +38,7 @@
       "type": "string",
       "description": "A string following a regular expression",
       "pattern": "^ba.$",
-      "meta:example": "bar"
+      "examples": ["bar"]
     },
     "string_date": {
       "type": "string",

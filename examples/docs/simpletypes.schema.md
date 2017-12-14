@@ -197,11 +197,11 @@ A string following a regular expression
 
 
 All instances must conform to this regular expression 
-(test example: [bar](https://regexr.com/?expression=%5Eba.%24&text=bar)):
 ```regex
 ^ba.$
 ```
 
+* test example: [bar](https://regexr.com/?expression=%5Eba.%24&text=bar)
 
 
 ### Known Values
