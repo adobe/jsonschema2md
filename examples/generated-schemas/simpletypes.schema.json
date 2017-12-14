@@ -123,6 +123,6 @@
         }
     },
     "required": [
-        "bar"
+        "yesno"
     ]
 }

@@ -112,6 +112,6 @@
     }
   },
   "required": [
-    "bar"
+    "yesno"
   ]
 }

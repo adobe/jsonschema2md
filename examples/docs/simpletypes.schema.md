@@ -35,7 +35,7 @@ This is an example schema with examples for multiple types and their constraints
 | [interger_constrained](#interger_constrained) | `integer` | Optional | Simple Types (this schema) |
 | [number_constrained](#number_constrained) | `number` | Optional | Simple Types (this schema) |
 | [integer_threes](#integer_threes) | `integer` | Optional | Simple Types (this schema) |
-| [yesno](#yesno) | `boolean` | Optional | Simple Types (this schema) |
+| [yesno](#yesno) | `boolean` | **Required** | Simple Types (this schema) |
 
 ## string_unconstrained
 
@@ -430,7 +430,7 @@ Guess what number is valid
 
 
 `yesno`
-* is optional
+* is **required**
 * type: `boolean`
 * defined in this schema
 
