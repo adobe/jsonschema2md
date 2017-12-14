@@ -38,12 +38,6 @@ A unique identifier given to every addressable thing.
 
 
 
-### Known Values
-
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 
 
@@ -63,11 +57,5 @@ A unique identifier given to every addressable thing.
 
 
 
-### Known Values
-
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 

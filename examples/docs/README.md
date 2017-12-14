@@ -11,6 +11,7 @@
 * [Custom](./custom.schema.md) – `https://example.com/schemas/custom`
 * [Custom](./deepextending.schema.md) – `https://example.com/schemas/deepextending`
 * [Definitions](./definitions.schema.md) – `https://example.com/schemas/definitions`
+* [Enumerated ](./enums.schema.md) – `https://example.com/schemas/enums`
 * [Example](./example.schema.md) – `https://example.com/schemas/example`
 * [Examples](./examples.schema.md) – `https://example.com/schemas/examples`
 * [Extending](./extending.schema.md) – `https://example.com/schemas/extending`

@@ -25,6 +25,8 @@ The value of this property **must** be equal to:
 <%- JSON.stringify(schema.const, null, 2) %>
 ```
 
+<% } else if (schema.enum!==undefined) { %>
+The value of this property **must** be equal to one of the known values below.
 <% } else { %>
 
 ### <%=name %> Type
@@ -45,14 +47,16 @@ Unknown type `<%= schema.type %>`.
 
 <% }} %>
 
-### Known Values
-
-
+<% if (schema.enum!==undefined||schema["meta:enum"]!==undefined) { %>
+### <%=name %> Known Values
 
 | Value | Description |
 |-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
+<%  _.forIn(schema["meta:enum"], (value, key, object) => { %>
+| `<%= key %>` | <%= value %> |
+<% }); %>
+
+<% } %>
 
 
 <% if (examples && examples.length == 1) { %>

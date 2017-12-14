@@ -53,12 +53,7 @@ A simple string, without any constraints.
 
 
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 ### string_unconstrained Example
 
@@ -83,12 +78,7 @@ A string with minumum and maximum length
 * minimum length: 3 characters
 * maximum length: 3 characters
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 ### string_length Examples
 
@@ -127,12 +117,7 @@ All instances must conform to this regular expression
 * test example: [bat](https://regexr.com/?expression=%5Eba.%24&text=bat)
 
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 ### string_pattern Examples
 
@@ -173,12 +158,6 @@ All instances must conform to this regular expression
 
 
 
-### Known Values
-
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 
 
@@ -205,12 +184,7 @@ All instances must conform to this regular expression
 * test example: [bar](https://regexr.com/?expression=%5Eba.%24&text=bar)
 
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 ### string_pattern_singleexample Example
 
@@ -235,12 +209,7 @@ A date-like string.
 * format: `date-time` date and time (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))
 
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 
 
@@ -260,12 +229,7 @@ An email-like string.
 * format: `email` email address (according to [RFC 5322, section 3.4.1](https://tools.ietf.org/html/rfc5322))
 
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 
 
@@ -285,12 +249,7 @@ A hostname-like string.
 * format: `hostname` Domain Name (according to [RFC 1034, section 3.1](https://tools.ietf.org/html/rfc1034))
 
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 
 
@@ -310,12 +269,7 @@ An IPv4-like string.
 * format: `ipv4` IP (v4) address (according to [RFC 2673, section 3.2](https://tools.ietf.org/html/rfc2673))
 
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 
 
@@ -335,12 +289,7 @@ An IPv6-like string.
 * format: `ipv6` IP (v6) address (according to [RFC 4291, section 2.2](https://tools.ietf.org/html/rfc4291))
 
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 
 
@@ -360,12 +309,7 @@ A URI.
 * format: `uri` Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 
 
@@ -385,12 +329,6 @@ Just a number
 
 
 
-### Known Values
-
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 
 
@@ -410,12 +348,6 @@ Just a whole number. I don&#39;t like fractions.
 
 
 
-### Known Values
-
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 
 
@@ -435,12 +367,7 @@ Just a whole number. I don&#39;t like fractions. Don&#39;t get too small
 * minimum value: `10`
 
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 
 
@@ -460,12 +387,6 @@ Just a number. Don&#39;t get too big.
 * value must not be greater or equal than: `10`
 
 
-### Known Values
-
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 
 
@@ -486,12 +407,7 @@ Guess what number is valid
 * maximum value: `4`
 * must be a multiple of `3`
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 
 
@@ -509,11 +425,6 @@ Guess what number is valid
 
 `boolean`
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 

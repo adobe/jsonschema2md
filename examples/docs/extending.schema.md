@@ -45,12 +45,7 @@ A horse walks into it.
 
 
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 ### bar Examples
 
@@ -80,12 +75,7 @@ A unique identifier given to every addressable thing.
 * format: `uri` Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 
 
@@ -106,12 +96,7 @@ This property has a unique name to demonstrate it&#39;s uniqueness.
 
 
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 ### baz Example
 

@@ -36,11 +36,6 @@ The value of this property **must** be equal to:
 "World"
 ```
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 

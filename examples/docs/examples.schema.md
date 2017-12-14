@@ -55,12 +55,7 @@ A simple string.
 
 
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 ### foo Example
 
@@ -85,12 +80,7 @@ A simple string.
 
 
 
-### Known Values
 
-| Value | Description |
-|-------|-------------|
-| `hi`  | Welcome     |
-| `bye` | Farewell    |
 
 ### bar Examples
 
