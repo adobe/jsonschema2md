@@ -7,6 +7,7 @@
 ## /
 
 * [Abstract](./abstract.schema.md) – `https://example.com/schemas/abstract`
+* [Constant Types](./constants.schema.md) – `https://example.com/schemas/constants`
 * [Custom](./custom.schema.md) – `https://example.com/schemas/custom`
 * [Custom](./deepextending.schema.md) – `https://example.com/schemas/deepextending`
 * [Definitions](./definitions.schema.md) – `https://example.com/schemas/definitions`

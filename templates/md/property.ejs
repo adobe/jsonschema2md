@@ -17,6 +17,15 @@
 * type: <%=schema.simpletype %>
 * defined in <% if (schema.$oSchema) { %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= name %>)<% } else { %>this schema<% } %>
 
+<% if (schema.const!==undefined) { %>
+The value of this property **must** be equal to:
+
+
+```json
+<%- JSON.stringify(schema.const, null, 2) %>
+```
+
+<% } else { %>
 
 ### <%=name %> Type
 
@@ -34,7 +43,7 @@ Unknown type `<%= schema.type %>`.
 <%- JSON.stringify(schema, null, 2) %>
 ```
 
-<% } %>
+<% }} %>
 
 ### Known Values
 

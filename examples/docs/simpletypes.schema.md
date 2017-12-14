@@ -31,10 +31,10 @@ This is an example schema with examples for multiple types and their constraints
 | [string_ipv6](#string_ipv6) | `string` | Optional | Simple Types (this schema) |
 | [string_uri](#string_uri) | `string` | Optional | Simple Types (this schema) |
 | [number_unconstrained](#number_unconstrained) | `number` | Optional | Simple Types (this schema) |
-| [interger_unconstrained](#interger_unconstrained) | complex | Optional | Simple Types (this schema) |
-| [interger_constrained](#interger_constrained) | complex | Optional | Simple Types (this schema) |
+| [interger_unconstrained](#interger_unconstrained) | `integer` | Optional | Simple Types (this schema) |
+| [interger_constrained](#interger_constrained) | `integer` | Optional | Simple Types (this schema) |
 | [number_constrained](#number_constrained) | `number` | Optional | Simple Types (this schema) |
-| [integer_threes](#integer_threes) | complex | Optional | Simple Types (this schema) |
+| [integer_threes](#integer_threes) | `integer` | Optional | Simple Types (this schema) |
 | [yesno](#yesno) | `boolean` | Optional | Simple Types (this schema) |
 
 ## string_unconstrained
@@ -400,7 +400,7 @@ Just a whole number. I don&#39;t like fractions.
 
 `interger_unconstrained`
 * is optional
-* type: complex
+* type: `integer`
 * defined in this schema
 
 ### interger_unconstrained Type
@@ -425,7 +425,7 @@ Just a whole number. I don&#39;t like fractions. Don&#39;t get too small
 
 `interger_constrained`
 * is optional
-* type: complex
+* type: `integer`
 * defined in this schema
 
 ### interger_constrained Type
@@ -475,7 +475,7 @@ Guess what number is valid
 
 `integer_threes`
 * is optional
-* type: complex
+* type: `integer`
 * defined in this schema
 
 ### integer_threes Type
