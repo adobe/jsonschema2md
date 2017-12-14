@@ -31,14 +31,14 @@
 
 
 <% if (examples && examples.length == 1) { %>
-### Example
+### <%=name %> Example
 
 
 ```json
 <%- examples[0] %>
 ```
 <% } else if (examples && examples.length > 1) { %>
-### Examples
+### <%=name %> Examples
 <%  _.forEach(examples, example => { %>
 
 ```json

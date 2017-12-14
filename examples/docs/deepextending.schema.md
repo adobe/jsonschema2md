@@ -47,7 +47,7 @@ A horse walks into it.
 | `hi`  | Welcome     |
 | `bye` | Farewell    |
 
-### Examples
+### bar Examples
 
 ```json
 "whoo"
@@ -94,7 +94,7 @@ This property has a unique name to demonstrate it&#39;s uniqueness.
 | `hi`  | Welcome     |
 | `bye` | Farewell    |
 
-### Example
+### baz Example
 
 ```json
 "I'm just a humble example"

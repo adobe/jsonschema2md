@@ -49,7 +49,7 @@ A simple string.
 | `hi`  | Welcome     |
 | `bye` | Farewell    |
 
-### Example
+### foo Example
 
 ```json
 "bar"
@@ -72,7 +72,7 @@ A simple string.
 | `hi`  | Welcome     |
 | `bye` | Farewell    |
 
-### Examples
+### bar Examples
 
 ```json
 "bar"
