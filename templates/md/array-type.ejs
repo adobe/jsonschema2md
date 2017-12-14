@@ -6,11 +6,11 @@
  */ %>
 <% if (schema.items!==undefined&&schema.items.type==="array") { %>
 Nested array type: <%=schema.items.simpletype %>
-<% } else { %>
+<% } else if (nested===undefined||nested===false) { %>
 Array type: <%=schema.simpletype %>
 <% } %>
 <% if (schema.items!==undefined) { %>
-<% if (nested===false) { %>
+<% if (!(schema.items!==undefined&&schema.items.type==="array")) { %>
 All items must be of the type:<% }
 if (schema.items.type==="string") { 
   %><%- include("string-type",{schema:schema.items,_:_}) 
