@@ -20,7 +20,7 @@ It is imported using `allOf` and `$ref`.
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
-| [id](#id) | `string` | **Required** | Definitions (this schema) |
+| [id](#id) | `string` | Optional | Definitions (this schema) |
 
 ## id
 
