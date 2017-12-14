@@ -10,7 +10,7 @@ Nested array type: <%=schema.items.simpletype %>
 Array type: <%=schema.simpletype %>
 <% } %>
 <% if (schema.items!==undefined) { %>
-<% if (!(schema.items!==undefined&&schema.items.type==="array")) { %>
+<% if (!nested) { %>
 All items must be of the type:<% }
 if (schema.items.type==="string") { 
   %><%- include("string-type",{schema:schema.items,_:_}) 
@@ -19,7 +19,7 @@ if (schema.items.type==="string") {
   %><% } else if (schema.items.type==="boolean") {
   %><%- include("boolean-type",{schema:schema.items,_:_}) 
   %><% } else if (schema.items.type==="array") { 
-  %><%- include("array-type",{schema:schema.items,_:_}) %>
+  %><%- include("array-type",{schema:schema.items,_:_, nested:true}) %>
 <% } else { %>
 Unknown type `<%= schema.type %>`.
 
