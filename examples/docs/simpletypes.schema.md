@@ -131,7 +131,7 @@ A date-like string.
 
 
 `string`
-* format: `date-time` (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))
+* format: `date-time` date and time (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))
 
 
 ### Known Values
@@ -156,7 +156,7 @@ An email-like string.
 
 
 `string`
-* format: `date-time` (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))
+* format: `email` email address (according to [RFC 5322, section 3.4.1](https://tools.ietf.org/html/rfc5322))
 
 
 ### Known Values
@@ -181,7 +181,7 @@ A hostname-like string.
 
 
 `string`
-* format: `date-time` (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))
+* format: `hostname` Domain Name (according to [RFC 1034, section 3.1](https://tools.ietf.org/html/rfc1034))
 
 
 ### Known Values
@@ -206,7 +206,7 @@ An IPv4-like string.
 
 
 `string`
-* format: `date-time` (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))
+* format: `ipv4` IP (v4) address (according to [RFC 2673, section 3.2](https://tools.ietf.org/html/rfc2673))
 
 
 ### Known Values
@@ -231,7 +231,7 @@ An IPv6-like string.
 
 
 `string`
-* format: `date-time` (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))
+* format: `ipv6` IP (v6) address (according to [RFC 4291, section 2.2](https://tools.ietf.org/html/rfc4291))
 
 
 ### Known Values
@@ -256,7 +256,7 @@ A URI.
 
 
 `string`
-* format: `uri` (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
+* format: `uri` Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 
 ### Known Values

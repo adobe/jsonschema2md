@@ -7,11 +7,22 @@
 
 `string`
 <% 
-       if (schema.format==="uri") {       %>* format: `uri` (according to [RFC3986](http://tools.ietf.org/html/rfc3986))<% } 
-  else if (schema.format==="date-time") { %>* format: `date-time` (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))<% } 
-  else if (schema.format==="email") {     %>* format: `date-time` (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))<% } 
-  else if (schema.format==="ipv4") {      %>* format: `date-time` (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))<% } 
-  else if (schema.format==="ipv6") {      %>* format: `date-time` (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))<% } 
-  else if (schema.format==="hostname") {  %>* format: `date-time` (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))<% } %>
+     if (schema.format==="uri") {                   %>* format: `uri` Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))<% } 
+else if (schema.format==="date-time") {             %>* format: `date-time` date and time (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))<% } 
+else if (schema.format==="email") {                 %>* format: `email` email address (according to [RFC 5322, section 3.4.1](https://tools.ietf.org/html/rfc5322))<% } 
+else if (schema.format==="ipv4") {                  %>* format: `ipv4` IP (v4) address (according to [RFC 2673, section 3.2](https://tools.ietf.org/html/rfc2673))<% } 
+else if (schema.format==="ipv6") {                  %>* format: `ipv6` IP (v6) address (according to [RFC 4291, section 2.2](https://tools.ietf.org/html/rfc4291))<% } 
+else if (schema.format==="date") {                  %>* format: `date` date, without time (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))<% } 
+else if (schema.format==="time") {                  %>* format: `time` time, without date (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))<% } 
+else if (schema.format==="idn-email") {             %>* format: `idn-email` international email address (according to [RFC 6531](https://tools.ietf.org/html/rfc6531))<% } 
+else if (schema.format==="idn-hostname") {          %>* format: `idn-hostname` Internationalized Domain Name (according to [RFC 5890, section 2.3.2.3](https://tools.ietf.org/html/rfc5890))<% } 
+else if (schema.format==="uri-reference") {         %>* format: `uri-reference` URI Reference (according to [RFC3986](https://tools.ietf.org/html/rfc3986))<% } 
+else if (schema.format==="iri") {                   %>* format: `iri` Internationalized Resource Identifier (according to [RFC3987](https://tools.ietf.org/html/rfc3987))<% } 
+else if (schema.format==="iri-reference") {         %>* format: `iri-reference` IRI Reference (according to [RFC3987](https://tools.ietf.org/html/rfc3987))<% } 
+else if (schema.format==="uri-template") {          %>* format: `uri-template` URI Template (according to [RFC6570](https://tools.ietf.org/html/rfc6570))<% } 
+else if (schema.format==="json-pointer") {          %>* format: `json-pointer` JSON Pointer (according to [RFC 6901, section 5](https://tools.ietf.org/html/rfc6901))<% } 
+else if (schema.format==="regex") {                 %>* format: `regex` Regular Expression (according to [ECMA 262](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf))<% } 
+else if (schema.format==="relative-json-pointer") { %>* format: `relative-json-pointer` Relative JSON Pointer (according to [Relative JSON Pointer](http://tools.ietf.org/html/draft-handrews-relative-json-pointer-00))<% } 
+else if (schema.format==="hostname") {              %>* format: `hostname` Domain Name (according to [RFC 1034, section 3.1](https://tools.ietf.org/html/rfc1034))<% } %>
 <% if(schema.minLength) { %>* minimum length: <%=schema.minLength %> characters<% } %>
 <% if(schema.maxLength) { %>* maximum length: <%=schema.maxLength %> characters<% } %>
