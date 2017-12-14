@@ -32,12 +32,12 @@
     ],
     "examples": [
         {
-            "foo": "bi",
-            "bar": "bu"
-        },
-        {
             "foo": "zip",
             "bar": "zap"
+        },
+        {
+            "foo": "bi",
+            "bar": "bu"
         }
     ]
 }

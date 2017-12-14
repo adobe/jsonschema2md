@@ -62,7 +62,7 @@ This is an array of arrays
 
 `listlist`
 * is optional
-* type: `array[]`
+* type: `array[]` (nested array)
 
 * defined in this schema
 
@@ -92,7 +92,7 @@ This is an array of arrays of strings
 
 `stringlistlist`
 * is optional
-* type: `string[][]`
+* type: `string[][]` (nested array)
 
 * defined in this schema
 
