@@ -39,7 +39,7 @@ All instances must conform to this regular expression
 
 <% if (schema['meta:example']!==undefined&&(typeof schema['meta:example'])!=="string") {
     for (let i=0;i<schema['meta:example'].length;i++) { %>
-* test example: [<%= schema['meta:example'][i] %>](https://regexr.com/?expression=<%- encodeURIComponent(schema.pattern) %>&text=<%- encodeURIComponent(schema['meta:example'][i]) %><% }
+* test example: [<%= schema['meta:example'][i] %>](https://regexr.com/?expression=<%- encodeURIComponent(schema.pattern) %>&text=<%- encodeURIComponent(schema['meta:example'][i]) %>)<% }
 } %>
 
 <% } %>
