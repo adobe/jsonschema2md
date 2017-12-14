@@ -21,3 +21,41 @@ This is an abstract schema. It has `definitions`, but does not declare any prope
 |----------|------|
 | [foo](#foo) | `string` |
 | [bar](#bar) | `string` |
+
+## foo
+
+A unique identifier given to every addressable thing.
+
+`foo`
+* is optional
+* type: `string`
+* defined in this schema
+
+### foo Type
+
+
+`string`
+
+
+
+
+
+
+## bar
+
+A unique identifier given to every addressable thing.
+
+`bar`
+* is optional
+* type: `string`
+* defined in this schema
+
+### bar Type
+
+
+`string`
+
+
+
+
+

@@ -20,3 +20,23 @@ A schema in a sub directory
 | Property | Type |
 |----------|------|
 | [id](#id) | `string` |
+
+## id
+
+A unique identifier given to every addressable thing.
+
+`id`
+* is optional
+* type: `string`
+* defined in this schema
+
+### id Type
+
+
+`string`
+* format: `uri` Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
+
+
+
+
+
