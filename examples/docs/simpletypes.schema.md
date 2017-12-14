@@ -22,6 +22,8 @@ This is an example schema with examples for multiple types and their constraints
 | [string_unconstrained](#string_unconstrained) | `string` | Optional | Simple Types (this schema) |
 | [string_length](#string_length) | `string` | Optional | Simple Types (this schema) |
 | [string_pattern](#string_pattern) | `string` | Optional | Simple Types (this schema) |
+| [string_pattern_noexample](#string_pattern_noexample) | `string` | Optional | Simple Types (this schema) |
+| [string_pattern_singleexample](#string_pattern_singleexample) | `string` | Optional | Simple Types (this schema) |
 | [string_date](#string_date) | `string` | Optional | Simple Types (this schema) |
 | [string_email](#string_email) | `string` | Optional | Simple Types (this schema) |
 | [string_hostname](#string_hostname) | `string` | Optional | Simple Types (this schema) |
@@ -114,10 +116,11 @@ A string following a regular expression
 `string`
 
 
-All instances must conform to this regular expression (test examples [here](https://regexr.com/?expression=%5Eba.%24)):
+All instances must conform to this regular expression 
 ```regex
 ^ba.$
 ```
+
 
 ### Known Values
 
@@ -126,6 +129,88 @@ All instances must conform to this regular expression (test examples [here](http
 | `hi`  | Welcome     |
 | `bye` | Farewell    |
 
+### string_pattern Examples
+
+```json
+"bar"
+```
+
+```json
+"baz"
+```
+
+```json
+"bat"
+```
+
+
+
+## string_pattern_noexample
+
+A string following a regular expression
+
+`string_pattern_noexample`
+* is optional
+* type: `string`
+* defined in this schema
+
+### string_pattern_noexample Type
+
+
+`string`
+
+
+All instances must conform to this regular expression 
+(test examples [here](https://regexr.com/?expression=%5Eba.%24)):
+} else if ((typeof schema['meta:example'])==="string") { 
+(test example: [](https://regexr.com/?expression=%5Eba.%24)):
+```regex
+^ba.$
+```
+
+
+### Known Values
+
+| Value | Description |
+|-------|-------------|
+| `hi`  | Welcome     |
+| `bye` | Farewell    |
+
+
+
+## string_pattern_singleexample
+
+A string following a regular expression
+
+`string_pattern_singleexample`
+* is optional
+* type: `string`
+* defined in this schema
+
+### string_pattern_singleexample Type
+
+
+`string`
+
+
+All instances must conform to this regular expression 
+```regex
+^ba.$
+```
+
+
+### Known Values
+
+| Value | Description |
+|-------|-------------|
+| `hi`  | Welcome     |
+| `bye` | Farewell    |
+
+### string_pattern_singleexample Example
+
+```json
+"bar"
+```
 
 
 ## string_date

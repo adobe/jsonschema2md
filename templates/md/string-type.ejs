@@ -27,9 +27,15 @@ else if (schema.format==="hostname") {              %>* format: `hostname` Domai
 <% if(schema.minLength) { %>* minimum length: <%=schema.minLength %> characters<% } %>
 <% if(schema.maxLength) { %>* maximum length: <%=schema.maxLength %> characters<% } %>
 <% if(schema.pattern) { %>
-All instances must conform to this regular expression (test examples [here](https://regexr.com/?expression=<%- encodeURIComponent(schema.pattern) %>)):
-
+All instances must conform to this regular expression 
+<% if (schema['meta:example']===undefined) { %>
+(test examples [here](https://regexr.com/?expression=<%- encodeURIComponent(schema.pattern) %>)):
+} else if ((typeof schema['meta:example'])==="string") { %>
+(test example: [<%= schema['meta:example']%>](https://regexr.com/?expression=<%- encodeURIComponent(schema.pattern) %>)):
+<% } %>
 ```regex
 <%- schema.pattern %>
 ```
+
+
 <% } %>

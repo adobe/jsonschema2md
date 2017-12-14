@@ -26,7 +26,19 @@
     "string_pattern": {
       "type": "string",
       "description": "A string following a regular expression",
+      "pattern": "^ba.$",
+      "meta:example": ["bar", "baz", "bat"]
+    },
+    "string_pattern_noexample": {
+      "type": "string",
+      "description": "A string following a regular expression",
       "pattern": "^ba.$"
+    },
+    "string_pattern_singleexample": {
+      "type": "string",
+      "description": "A string following a regular expression",
+      "pattern": "^ba.$",
+      "meta:example": "bar"
     },
     "string_date": {
       "type": "string",
