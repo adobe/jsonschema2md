@@ -16,6 +16,12 @@
         },
         "refnamed": {
             "$ref": "https://example.com/schemas/simple"
+        },
+        "reflist": {
+            "type": "array",
+            "items": {
+                "$ref": "https://example.com/schemas/simple"
+            }
         }
     },
     "required": [
