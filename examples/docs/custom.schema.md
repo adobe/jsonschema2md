@@ -25,10 +25,12 @@ This is an extensible schema. It has `definitions`, that can be used in other sc
 ## foo
 
 A unique identifier given to every addressable thing.
+
 `foo`
 * is optional
 * type: `string`
-* defined in here
+* defined in this schema
+
 ### Type
 
 ### Known Values
@@ -43,10 +45,12 @@ A unique identifier given to every addressable thing.
 ## bar
 
 A unique identifier given to every addressable thing.
+
 `bar`
 * is optional
 * type: `string`
-* defined in here
+* defined in this schema
+
 ### Type
 
 ### Known Values

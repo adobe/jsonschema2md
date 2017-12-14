@@ -32,10 +32,12 @@ This is an extending schema. It pulls `definitions` from other schemas.
 ## bar
 
 A horse walks into it.
+
 `bar`
 * is optional
 * type: `string`
-* defined in here
+* defined in [Extensible](extensible.schema.md#bar)
+
 ### Type
 
 ### Known Values
@@ -60,10 +62,12 @@ A horse walks into it.
 ## id
 
 A unique identifier given to every addressable thing.
+
 `id`
 * is optional
 * type: `string`
-* defined in here
+* defined in [Definitions](definitions.schema.md#id)
+
 ### Type
 
 ### Known Values
@@ -79,10 +83,12 @@ A unique identifier given to every addressable thing.
 ### BAAAZ!
 
 This property has a unique name to demonstrate it&#39;s uniqueness.
+
 `baz`
 * is optional
 * type: `string`
-* defined in here
+* defined in this schema
+
 ### Type
 
 ### Known Values

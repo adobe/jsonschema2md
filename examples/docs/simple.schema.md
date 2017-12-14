@@ -24,10 +24,12 @@ This is a *very* simple example of a JSON schema. There is only one property.
 ## id
 
 A unique identifier given to every addressable thing.
+
 `id`
 * is optional
 * type: `string`
-* defined in here
+* defined in this schema
+
 ### Type
 
 ### Known Values

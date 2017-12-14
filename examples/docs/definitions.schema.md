@@ -25,10 +25,12 @@ It is imported using `allOf` and `$ref`.
 ## id
 
 A unique identifier given to every addressable thing.
+
 `id`
 * is **required**
 * type: `string`
-* defined in here
+* defined in this schema
+
 ### Type
 
 ### Known Values

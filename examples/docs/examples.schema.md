@@ -36,10 +36,12 @@ This is an example schema with *multiple* examples. Too many examples? There can
 ## foo
 
 A simple string.
+
 `foo`
 * is optional
 * type: `string`
-* defined in here
+* defined in this schema
+
 ### Type
 
 ### Known Values
@@ -59,10 +61,12 @@ A simple string.
 ## bar
 
 A simple string.
+
 `bar`
 * is **required**
 * type: `string`
-* defined in here
+* defined in this schema
+
 ### Type
 
 ### Known Values

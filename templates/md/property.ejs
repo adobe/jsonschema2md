@@ -11,10 +11,12 @@
 
 <%= schema.description %>
 
+
 `<%=name %>`
 * is <% if (required) { %>**required**<% } else { %>optional<% } %>
 * type: <%=schema.simpletype %>
-* defined in here
+* defined in <% if (schema.$oSchema) { %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= name %>)<% } else { %>this schema<% } %>
+
 
 ### Type
 
