@@ -39,7 +39,7 @@ This is an array
 ### list Type
 
 
-Array type: `string[]`.
+Array type: `string[]`
 
 All items must be of the type:
 `string`
@@ -64,12 +64,10 @@ This is an array of arrays
 ### listlist Type
 
 
-Array type: `array[]`.
+Array type: `array[]`
 
 All items must be of the type:
-Nesting alarm!
-
-Array type: `array`.
+Array type: `array`
 
 
 
@@ -90,12 +88,10 @@ This is an array of arrays of strings
 ### stringlistlist Type
 
 
-Array type: `string[][]`.
+Array type: `string[][]`
 
 All items must be of the type:
-Nesting alarm!
-
-Array type: `string[]`.
+Array type: `string[]`
 
 All items must be of the type:
 `string`
@@ -122,7 +118,7 @@ This is an array
 ### intlist Type
 
 
-Array type: `integer[]`.
+Array type: `integer[]`
 
 All items must be of the type:
 `integer`
@@ -147,7 +143,7 @@ This is an array
 ### boollist Type
 
 
-Array type: `boolean[]`.
+Array type: `boolean[]`
 
 All items must be of the type:
 `boolean`
@@ -170,7 +166,7 @@ This is an array
 ### numlist Type
 
 
-Array type: `number[]`.
+Array type: `number[]`
 
 All items must be of the type:
 `number`
