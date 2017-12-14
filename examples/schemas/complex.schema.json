@@ -22,6 +22,14 @@
       "items": {
         "$ref": "https://example.com/schemas/simple"
       }
+    },
+    "or": {
+      "description": "String or number…",
+      "anyOf": [
+        { "type":"string" },
+        { "type":"number"}
+      ]
+
     }
   },
   "required": [
