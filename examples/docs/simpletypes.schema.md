@@ -121,6 +121,10 @@ All instances must conform to this regular expression
 ^ba.$
 ```
 
+      * test example: [bar](https://regexr.com/?expression=%5Eba.%24&text=bar
+      * test example: [baz](https://regexr.com/?expression=%5Eba.%24&text=baz
+      * test example: [bat](https://regexr.com/?expression=%5Eba.%24&text=bat
+
 
 ### Known Values
 
@@ -167,6 +171,7 @@ All instances must conform to this regular expression
 ```
 
 
+
 ### Known Values
 
 | Value | Description |
@@ -196,6 +201,7 @@ All instances must conform to this regular expression
 ```regex
 ^ba.$
 ```
+
 
 
 ### Known Values
