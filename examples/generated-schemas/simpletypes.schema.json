@@ -105,6 +105,9 @@
             "multipleOf": 3,
             "minimum": 2,
             "maximum": 4
+        },
+        "yesno": {
+            "type": "boolean"
         }
     },
     "required": [
