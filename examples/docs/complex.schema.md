@@ -69,16 +69,8 @@ Unknown type ``.
 
 ### refnamed Type
 
-Unknown type ``.
 
-```json
-{
-  "$ref": "https://example.com/schemas/simple",
-  "$linkVal": "Simple",
-  "$linkPath": "simple.schema.md",
-  "simpletype": "complex"
-}
-```
+* Complex type: [Simple](simple.schema.md) – `https://example.com/schemas/simple`
 
 
 
