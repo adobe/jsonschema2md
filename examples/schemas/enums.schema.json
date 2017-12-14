@@ -6,20 +6,18 @@
     "of the License at http://www.apache.org/licenses/LICENSE-2.0"
   ],
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "$id": "https://example.com/schemas/example",
-  "title": "Example",
+  "$id": "https://example.com/schemas/enums",
+  "title": "Enumerated ",
   "type": "object",
-  "description": "This is an example schema with examples. Too many examples? There can never be too many examples!",
+  "description": "This is an example schema with examples for properties with enum values",
   "properties": {
-    "foo": {
+    "hello": {
       "type": "string",
-      "description": "A simple string.",
-      "examples": ["bar"]
-    },
-    "bar": {
-      "type": "string",
-      "description": "A simple string.",
-      "examples": ["bar", "baz"]
+      "enum": ["World", "Welt"],
+      "description": "A simple string. Pick a value."
     }
-  }
+  },
+  "required": [
+    "hello"
+  ]
 }

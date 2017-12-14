@@ -1,0 +1,43 @@
+{
+    "meta:license": [
+        "Copyright 2017 Adobe Systems Incorporated. All rights reserved.",
+        "This file is licensed to you under the Apache License, Version 2.0 (the 'License');",
+        "you may not use this file except in compliance with the License. You may obtain a copy",
+        "of the License at http://www.apache.org/licenses/LICENSE-2.0"
+    ],
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$id": "https://example.com/schemas/deepextending",
+    "title": "Deeply Extending",
+    "description": "This is an extending schema. It is extending another extending schema. It pulls `definitions` from other schemas.",
+    "type": "object",
+    "meta:extensible": true,
+    "meta:extends": [
+        "https://example.com/schemas/definitions",
+        "https://example.com/schemas/extensible",
+        "https://example.com/schemas/extending"
+    ],
+    "definitions": {
+        "fourth": {
+            "properties": {
+                "hey": {
+                    "type": "string",
+                    "description": "A unique identifier given to every addressable thing."
+                }
+            }
+        }
+    },
+    "allOf": [
+        {
+            "$ref": "https://example.com/schemas/extensible#/definitions/second"
+        },
+        {
+            "$ref": "https://example.com/schemas/definitions#/definitions/myid"
+        },
+        {
+            "$ref": "https://example.com/schemas/extending#/definitions/third"
+        },
+        {
+            "$ref": "#/definitions/fourth"
+        }
+    ]
+}

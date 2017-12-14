@@ -3,19 +3,19 @@ template: reference
 foo: bar
 ---
 
-# Abstract Schema
+# Extensible Schema
 
 ```
-https://example.com/schemas/abstract
+https://example.com/schemas/extensible
 ```
 
-This is an abstract schema. It has `definitions`, but does not declare any properties
+This is an extensible schema. It has `definitions`, that can be used in other schemas
 
 | Abstract | Extensible | Custom Properties | Defined In |
 |----------|------------|-------------------|------------|
-| Cannot be instantiated | Yes | Forbidden | [abstract.schema.json](abstract.schema.json) |
+| Cannot be instantiated | Yes | Forbidden | [extensible.schema.json](extensible.schema.json) |
 
-# Abstract Definitions
+# Extensible Definitions
 
 | Property | Type | Group |
 |----------|------|-------|
@@ -40,10 +40,16 @@ A unique identifier given to every addressable thing.
 
 
 
+### foo Example
+
+```json
+"bar"
+```
+
 
 ## bar
 
-A unique identifier given to every addressable thing.
+A horse walks into it.
 
 `bar`
 * is optional
@@ -57,5 +63,16 @@ A unique identifier given to every addressable thing.
 
 
 
+
+
+### bar Examples
+
+```json
+"whoo"
+```
+
+```json
+"hoo"
+```
 
 

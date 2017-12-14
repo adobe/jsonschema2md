@@ -3,32 +3,41 @@ template: reference
 foo: bar
 ---
 
-# Example Schema
+# Examples Schema
 
 ```
-https://example.com/schemas/example
+https://example.com/schemas/examples
 ```
 
-This is an example schema with examples. Too many examples? There can never be too many examples!
+This is an example schema with *multiple* examples. Too many examples? There can never be too many examples!
 
 | Abstract | Extensible | Custom Properties | Defined In |
 |----------|------------|-------------------|------------|
-| Can be instantiated | No | Forbidden | [example.schema.json](example.schema.json) |
+| Can be instantiated | No | Forbidden | [examples.schema.json](examples.schema.json) |
 
-## Example Example
+## Examples Examples
+
 ```json
 {
-  "foo": "bar",
-  "bar": "baz"
+  "foo": "bi",
+  "bar": "bu"
 }
 ```
 
-# Example Properties
+```json
+{
+  "foo": "zip",
+  "bar": "zap"
+}
+```
+
+
+# Examples Properties
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
-| [foo](#foo) | `string` | Optional | Example (this schema) |
-| [bar](#bar) | `string` | Optional | Example (this schema) |
+| [foo](#foo) | `string` | Optional | Examples (this schema) |
+| [bar](#bar) | `string` | **Required** | Examples (this schema) |
 
 ## foo
 
@@ -60,7 +69,7 @@ A simple string.
 A simple string.
 
 `bar`
-* is optional
+* is **required**
 * type: `string`
 * defined in this schema
 

@@ -1,25 +1,42 @@
+---
+template: reference
+foo: bar
+---
 
+# Subdir Schema
 
+```
+https://example.com/schemas/subdir/subdir
+```
 
-  
-# Subdir
-
-  
-*  **Type:** object
-  
 A schema in a sub directory
 
+| Abstract | Extensible | Custom Properties | Defined In |
+|----------|------------|-------------------|------------|
+| Cannot be instantiated | Yes | Forbidden | [subdir/subdir.schema.json](subdir/subdir.schema.json) |
+
+# Subdir Definitions
+
+| Property | Type | Group |
+|----------|------|-------|
+| [id](#id) | `string` | `#/definitions/content` |
+
+## id
+
+A unique identifier given to every addressable thing.
+
+`id`
+* is optional
+* type: `string`
+* defined in this schema
+
+### id Type
+
+
+`string`
+* format: `uri` Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 
 
 
-
-##  content
-### Properties
-
-###  id  
-*  **Type:** string  
-*  **Format:** uri
-  
- A unique identifier given to every addressable thing.
 

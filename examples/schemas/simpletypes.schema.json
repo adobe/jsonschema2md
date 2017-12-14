@@ -1,0 +1,117 @@
+{
+  "meta:license": [
+    "Copyright 2017 Adobe Systems Incorporated. All rights reserved.",
+    "This file is licensed to you under the Apache License, Version 2.0 (the 'License');",
+    "you may not use this file except in compliance with the License. You may obtain a copy",
+    "of the License at http://www.apache.org/licenses/LICENSE-2.0"
+  ],
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "https://example.com/schemas/simpletypes",
+  "title": "Simple Types",
+  "type": "object",
+  "description": "This is an example schema with examples for multiple types and their constraints.",
+  "properties": {
+    "string_unconstrained": {
+      "type": "string",
+      "description": "A simple string, without any constraints.",
+      "examples": ["bar"]
+    },
+    "string_length": {
+      "type": "string",
+      "description": "A string with minumum and maximum length",
+      "examples": ["bar", "baz"],
+      "minLength": 3,
+      "maxLength": 3
+    },
+    "string_pattern": {
+      "type": "string",
+      "description": "A string following a regular expression",
+      "pattern": "^ba.$",
+      "examples": ["bar", "baz", "bat"],
+      "meta:enum": {
+        "baa": "the sounds of sheeps",
+        "bad": "German bathroom",
+        "bag": "holding device",
+        "bah": "humbug!",
+        "bam": "a loud sound",
+        "ban": "don't do this",
+        "bap": "a British soft bread roll",
+        "bas": "from ancient Egyptian religion, an aspect of the soul",
+        "bat": "…out of hell",
+        "bay": ", sitting by the dock of the"
+      }
+    },
+    "string_pattern_noexample": {
+      "type": "string",
+      "description": "A string following a regular expression",
+      "pattern": "^ba.$"
+    },
+    "string_pattern_singleexample": {
+      "type": "string",
+      "description": "A string following a regular expression",
+      "pattern": "^ba.$",
+      "examples": ["bar"]
+    },
+    "string_date": {
+      "type": "string",
+      "description": "A date-like string.",
+      "format": "date-time"
+    },
+    "string_email": {
+      "type": "string",
+      "description": "An email-like string.",
+      "format": "email"
+    },
+    "string_hostname": {
+      "type": "string",
+      "description": "A hostname-like string.",
+      "format": "hostname"
+    },
+    "string_ipv4": {
+      "type": "string",
+      "description": "An IPv4-like string.",
+      "format": "ipv4"
+    },
+    "string_ipv6": {
+      "type": "string",
+      "description": "An IPv6-like string.",
+      "format": "ipv6"
+    },
+    "string_uri": {
+      "type": "string",
+      "description": "A URI.",
+      "format": "uri"
+    },
+    "number_unconstrained": {
+      "type": "number",
+      "description": "Just a number"
+    },
+    "interger_unconstrained": {
+      "type": "integer",
+      "description": "Just a whole number. I don't like fractions."
+    },
+    "interger_constrained": {
+      "type": "integer",
+      "description": "Just a whole number. I don't like fractions. Don't get too small",
+      "minimum": 10
+    },
+    "number_constrained": {
+      "type": "number",
+      "description": "Just a number. Don't get too big.",
+      "exclusiveMaximum": 10
+    },
+    "integer_threes": {
+      "type":"integer",
+      "description": "Guess what number is valid",
+      "multipleOf": 3,
+      "minimum": 2,
+      "maximum": 4
+    },
+    "yesno": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "yesno"
+  ]
+}

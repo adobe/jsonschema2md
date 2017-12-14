@@ -1,0 +1,41 @@
+<% /**
+ * Copyright 2017 Adobe Systems Incorporated. All rights reserved.
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ */ %>
+
+<% if (schema.anyOf!==undefined) { %>
+**Any** following *options* needs to be fulfilled.
+<% } else if (schema.allOf!==undefined) { %>
+**All** of the following *requirements* need to be fulfilled.
+<% } else if (schema.oneOf!==undefined) { %>
+**One** of the following *conditions* need to be fulfilled.
+<% } %>
+
+<% for (let i=0;i<schemas.length;i++) { -%>
+
+<% if (schema.anyOf!==undefined) { %>
+#### Option <%= i+1 %>
+<% } else if (schema.allOf!==undefined) { %>
+#### Requirement <%= i+1 %>
+<% } else if (schema.oneOf!==undefined) { %>
+#### Condition <%= i+1 %>
+<% } %>
+
+<% if (schemas[i].type==="string") { %>
+<%- include("string-type",{schema:schemas[i],_:_}) %>
+<% } else if (schemas[i].type==="number"||schemas[i].type==="integer") { %>
+<%- include("number-type",{schema:schemas[i],_:_}) %>
+<% } else if (schemas[i].type==="boolean") { %>
+<%- include("boolean-type",{schema:schemas[i],_:_}) %>
+<% } else if (schemas[i].type==="array") { %>
+<%- include("array-type",{schema:schemas[i],_:_,nested:false,ejs:ejs}) %>
+<% } else if (schemas[i].$ref!==undefined) { %>
+<%- include("referenced-type",{schema:schemas[i],_:_}) %>
+<% } else if (schemas[i].anyOf!==undefined||schemas[i].allOf!==undefined) { %>
+<%- include("join-type",{schema:schemas[i],_:_,schemas:schemas[i].anyOf || schemas[i].allOf ,ejs:ejs}) %>
+<% } else { %>
+<% } %>
+<% } %>
+<%- // ejs({hello:"world"}) %>
