@@ -18,6 +18,15 @@
       %><%= title %> (this schema)<% } %> |
 <%
 });
+%><% _.keys(pprops).forEach(property => {
+  const schema = pprops[property]; %>
+| `<%= property %>` | <%= schema.simpletype %> | Optional | <% 
+    if (schema.$oSchema) { 
+      %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= property.replace(':', '') %>)<% 
+    } else { 
+      %><%= title %> (this schema)<% } %> |
+<%
+});
 %><% if (additional!==false||additional===undefined) { %>
 | `*` | any | Optional | this schema *allows* additional properties |
 <% } %>
