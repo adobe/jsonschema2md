@@ -206,3 +206,41 @@ Exclusive choice.
 
 
 
+
+## Pattern: `int.*`
+Applies to all properties that match the regular expression `int.*`
+
+
+`int.*`
+* is a property pattern
+* type: `integer`
+* defined in this schema
+
+### Pattern int.* Type
+
+
+`integer`
+
+
+
+
+
+
+## Pattern: `str.*`
+Applies to all properties that match the regular expression `str.*`
+
+
+`str.*`
+* is a property pattern
+* type: `string`
+* defined in this schema
+
+### Pattern str.* Type
+
+
+`string`
+
+
+
+
+
