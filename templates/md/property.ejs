@@ -8,9 +8,9 @@
 ## <%=name %>
 <% if (schema.title) { %>### <%= schema.title %><% } %>
 
-
-<%= (""+schema.description).replace(/\n/g, '\n\n') %>
-
+<% if (schema.description) { %>
+<%= schema.description.replace(/\n/g, '\n\n') %>
+<% } %>
 
 `<%=name %>`
 * is <% if (required) { %>**required**<% } else { %>optional<% } %>

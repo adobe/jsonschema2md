@@ -48,5 +48,13 @@
   "required": [
     "refabstract"
   ],
-  "additionalProperties": true
+  "additionalProperties": true,
+  "patternProperties": {
+    "int.*": {
+      "type": "integer"
+    },
+    "str.*": {
+      "type":"string"
+    }
+  }
 }
