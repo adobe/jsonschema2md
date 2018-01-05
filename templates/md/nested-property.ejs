@@ -19,7 +19,6 @@
 else if (schema.maxItems!==undefined                             ) { %>* no more than `<%=schema.maxItems %>` items in the array<% }
 else if (schema.minItems!==undefined                             ) { %>* at least `<%=schema.minItems %>` items in the array<% } %>
 <% } %>
-* defined in <% if (schema.$oSchema) { %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= name %>)<% } else { %>this schema<% } %>
 
 <% if (schema.const!==undefined) { %>
 The value of this property **must** be equal to:
