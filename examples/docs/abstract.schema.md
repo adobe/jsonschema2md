@@ -21,6 +21,7 @@ This is an abstract schema. It has `definitions`, but does not declare any prope
 |----------|------|-------|
 | [bar](#bar) | `string` | `https://example.com/schemas/abstract#/definitions/second` |
 | [foo](#foo) | `string` | `https://example.com/schemas/abstract#/definitions/first` |
+| [nonfoo](#nonfoo) | `const` | `https://example.com/schemas/abstract#/definitions/first` |
 
 ## bar
 
@@ -55,6 +56,25 @@ A unique identifier given to every addressable thing.
 
 `string`
 
+
+
+
+
+
+## nonfoo
+
+This is not foo.
+
+`nonfoo`
+* is optional
+* type: `const`
+* defined in this schema
+
+The value of this property **must** be equal to:
+
+```json
+false
+```
 
 
 

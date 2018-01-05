@@ -17,6 +17,11 @@
                 "foo": {
                     "type": "string",
                     "description": "A unique identifier given to every addressable thing."
+                },
+                "nonfoo": {
+                    "type": "boolean",
+                    "const": false,
+                    "description": "This is not foo."
                 }
             }
         },

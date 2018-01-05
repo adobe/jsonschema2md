@@ -113,21 +113,55 @@ String or number…
 
 ### refabstract Type
 
-Unknown type `object`.
+
+`object` with following properties:
+
+
+| Property | Type | Required
+|----------|------|----------|
+| `foo`| string | Optional | 
+| `nonfoo`| boolean | Optional | 
+
+
+
+#### foo
+
+A unique identifier given to every addressable thing.
+
+`foo`
+* is optional
+* type: `string`
+
+##### foo Type
+
+
+`string`
+
+
+
+
+
+
+
+
+#### nonfoo
+
+This is not foo.
+
+`nonfoo`
+* is optional
+* type: `boolean`
+
+The value of this property **must** be equal to:
 
 ```json
-{
-  "type": "object",
-  "properties": {
-    "foo": {
-      "type": "string",
-      "description": "A unique identifier given to every addressable thing."
-    }
-  },
-  "required": true,
-  "simpletype": "`object`"
-}
+false
 ```
+
+
+
+
+
 
 
 
