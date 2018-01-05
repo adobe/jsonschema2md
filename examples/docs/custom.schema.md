@@ -21,6 +21,7 @@ This is an extensible schema. It has `definitions`, that can be used in other sc
 |----------|------|----------|------------|
 | [bar](#bar) | `string` | Optional | Custom (this schema) |
 | [foo](#foo) | `string` | Optional | Custom (this schema) |
+| `*` | any | Optional | this schema *allows* additional properties |
 
 ## bar
 

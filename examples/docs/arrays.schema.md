@@ -27,6 +27,7 @@ This is an example schema with examples for multiple array types and their const
 | [numlist](#numlist) | `number[]` | Optional | Arrays (this schema) |
 | [objectlist](#objectlist) | `object[]` | Optional | Arrays (this schema) |
 | [stringlistlist](#stringlistlist) | `string[][]` | Optional | Arrays (this schema) |
+| `*` | any | Optional | this schema *allows* additional properties |
 
 ## boollist
 

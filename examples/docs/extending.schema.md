@@ -30,6 +30,7 @@ This is an extending schema. It pulls `definitions` from other schemas.
 | [baz](#baz) | `string` | Optional | Extending (this schema) |
 | [id](#id) | `string` | Optional | [Definitions](definitions.schema.md#id) |
 | [meta:id](#metaid) | `string` | Optional | [Definitions](definitions.schema.md#metaid) |
+| `*` | any | Optional | this schema *allows* additional properties |
 
 ## @id
 

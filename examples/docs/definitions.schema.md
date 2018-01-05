@@ -36,6 +36,7 @@ aks.
 | [@id](#@id) | `string` | Optional | Definitions (this schema) |
 | [id](#id) | `string` | **Required** | Definitions (this schema) |
 | [meta:id](#metaid) | `string` | Optional | Definitions (this schema) |
+| `*` | any | Optional | this schema *allows* additional properties |
 
 ## @id
 

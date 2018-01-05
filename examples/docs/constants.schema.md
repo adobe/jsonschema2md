@@ -20,6 +20,7 @@ This is an example schema with examples for properties with constant values
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
 | [hello](#hello) | `const` | **Required** | Constant Types (this schema) |
+| `*` | any | Optional | this schema *allows* additional properties |
 
 ## hello
 

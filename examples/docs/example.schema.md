@@ -29,6 +29,7 @@ This is an example schema with examples. Too many examples? There can never be t
 |----------|------|----------|------------|
 | [bar](#bar) | `string` | Optional | Example (this schema) |
 | [foo](#foo) | `string` | Optional | Example (this schema) |
+| `*` | any | Optional | this schema *allows* additional properties |
 
 ## bar
 
