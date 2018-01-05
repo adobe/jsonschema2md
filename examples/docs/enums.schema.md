@@ -20,7 +20,7 @@ This is an example schema with examples for properties with enum values
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
 | [hello](#hello) | `enum` | **Required** | Enumerated  (this schema) |
-| `*` | any | Optional | this schema *allows* additional properties |
+| `*` | any | Additional | this schema *allows* additional properties |
 
 ## hello
 

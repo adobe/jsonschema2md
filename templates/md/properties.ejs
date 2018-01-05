@@ -20,7 +20,7 @@
 });
 %><% _.keys(pprops).forEach(property => {
   const schema = pprops[property]; %>
-| `<%= property %>` | <%= schema.simpletype %> | Optional | <% 
+| `<%= property %>` | <%= schema.simpletype %> | Pattern | <% 
     if (schema.$oSchema) { 
       %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= property.replace(':', '') %>)<% 
     } else { 
@@ -28,5 +28,5 @@
 <%
 });
 %><% if (additional!==false||additional===undefined) { %>
-| `*` | any | Optional | this schema *allows* additional properties |
+| `*` | any | Additional | this schema *allows* additional properties |
 <% } %>

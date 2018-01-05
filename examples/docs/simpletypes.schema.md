@@ -36,7 +36,7 @@ This is an example schema with examples for multiple types and their constraints
 | [string_unconstrained](#string_unconstrained) | `string` | Optional | Simple Types (this schema) |
 | [string_uri](#string_uri) | `string` | Optional | Simple Types (this schema) |
 | [yesno](#yesno) | `boolean` | **Required** | Simple Types (this schema) |
-| `*` | any | Optional | this schema *allows* additional properties |
+| `*` | any | Additional | this schema *allows* additional properties |
 
 ## integer_threes
 

@@ -38,7 +38,7 @@ This is an example schema with *multiple* examples. Too many examples? There can
 |----------|------|----------|------------|
 | [bar](#bar) | `string` | **Required** | Examples (this schema) |
 | [foo](#foo) | `string` | Optional | Examples (this schema) |
-| `*` | any | Optional | this schema *allows* additional properties |
+| `*` | any | Additional | this schema *allows* additional properties |
 
 ## bar
 

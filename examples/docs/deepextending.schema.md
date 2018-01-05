@@ -32,7 +32,7 @@ This is an extending schema. It is extending another extending schema. It pulls 
 | [hey](#hey) | `string` | Optional | Deeply Extending (this schema) |
 | [id](#id) | `string` | Optional | [Definitions](definitions.schema.md#id) |
 | [meta:id](#metaid) | `string` | Optional | [Definitions](definitions.schema.md#metaid) |
-| `*` | any | Optional | this schema *allows* additional properties |
+| `*` | any | Additional | this schema *allows* additional properties |
 
 ## @id
 
