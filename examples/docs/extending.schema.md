@@ -11,9 +11,9 @@ https://example.com/schemas/extending
 
 This is an extending schema. It pulls `definitions` from other schemas.
 
-| Abstract | Extensible | Custom Properties | Defined In |
-|----------|------------|-------------------|------------|
-| Can be instantiated | Yes | Forbidden | [extending.schema.json](extending.schema.json) |
+| Abstract | Extensible | Custom Properties | Additional Properties | Defined In |
+|----------|------------|-------------------|-----------------------|------------|
+| Can be instantiated | Yes | Forbidden | Permitted | [extending.schema.json](extending.schema.json) |
 
 ## Schema Hierarchy
 

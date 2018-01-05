@@ -18,4 +18,6 @@
       %><%= title %> (this schema)<% } %> |
 <%
 });
-%>
+%><% if (additional) { %>
+| `*` | `any` | Optional | this schema *allows* additional properties |
+<% } %>

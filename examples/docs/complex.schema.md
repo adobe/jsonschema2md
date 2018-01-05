@@ -11,9 +11,9 @@ https://example.com/schemas/complex
 
 This is an example schema that uses types defined in other schemas.
 
-| Abstract | Extensible | Custom Properties | Defined In |
-|----------|------------|-------------------|------------|
-| Can be instantiated | No | Forbidden | [complex.schema.json](complex.schema.json) |
+| Abstract | Extensible | Custom Properties | Additional Properties | Defined In |
+|----------|------------|-------------------|-----------------------|------------|
+| Can be instantiated | No | Forbidden | Forbidden | [complex.schema.json](complex.schema.json) |
 
 ## Schema Hierarchy
 
@@ -31,6 +31,7 @@ This is an example schema that uses types defined in other schemas.
 | [reflist](#reflist) | Simple | Optional | Complex References  (this schema) |
 | [refnamed](#refnamed) | Simple | Optional | Complex References  (this schema) |
 | [xor](#xor) | complex | Optional | Complex References  (this schema) |
+| `*` | `any` | Optional | this schema *allows* additional properties |
 
 ## and
 

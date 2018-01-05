@@ -64,5 +64,6 @@
     },
     "required": [
         "refabstract"
-    ]
+    ],
+    "additionalProperties": true
 }

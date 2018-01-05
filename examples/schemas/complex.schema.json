@@ -47,5 +47,6 @@
   },
   "required": [
     "refabstract"
-  ]
+  ],
+  "additionalProperties": true
 }
