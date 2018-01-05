@@ -27,7 +27,7 @@ This is an example schema that uses types defined in other schemas.
 |----------|------|----------|------------|
 | [and](#and) | complex | Optional | Complex References  (this schema) |
 | [or](#or) | complex | Optional | Complex References  (this schema) |
-| [refabstract](#refabstract) | complex | **Required** | Complex References  (this schema) |
+| [refabstract](#refabstract) | `object` | **Required** | Complex References  (this schema) |
 | [reflist](#reflist) | Simple | Optional | Complex References  (this schema) |
 | [refnamed](#refnamed) | Simple | Optional | Complex References  (this schema) |
 | [xor](#xor) | complex | Optional | Complex References  (this schema) |
@@ -108,15 +108,16 @@ String or number…
 
 `refabstract`
 * is **required**
-* type: complex
+* type: `object`
 * defined in this schema
 
 ### refabstract Type
 
-Unknown type ``.
+Unknown type `object`.
 
 ```json
 {
+  "type": "object",
   "properties": {
     "foo": {
       "type": "string",
@@ -124,7 +125,7 @@ Unknown type ``.
     }
   },
   "required": true,
-  "simpletype": "complex"
+  "simpletype": "`object`"
 }
 ```
 

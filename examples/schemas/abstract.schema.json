@@ -12,6 +12,7 @@
   "type": "object",
   "definitions": {
     "first": {
+      "type": "object",
       "properties": {
         "foo": {
           "type": "string",
@@ -20,6 +21,7 @@
       }
     },
     "second": {
+      "type":"object",
       "properties": {
         "bar": {
           "type": "string",
