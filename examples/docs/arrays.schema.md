@@ -27,6 +27,90 @@ This is an example schema with examples for multiple array types and their const
 | [numlist](#numlist) | `number[]` | Optional | Arrays (this schema) |
 | [stringlistlist](#stringlistlist) | `string[][]` | Optional | Arrays (this schema) |
 
+## boollist
+
+This is an array
+
+`boollist`
+* is optional
+* type: `boolean[]`
+* at least `1` items in the array
+* defined in this schema
+
+### boollist Type
+
+
+Array type: `boolean[]`
+
+All items must be of the type:
+`boolean`
+
+
+
+
+
+
+
+## coordinatelist
+
+This is an array of coordinates in three-dimensional space.
+
+`coordinatelist`
+* is optional
+* type: `number[][]` (nested array)
+* no more than `10` items in the array
+* defined in this schema
+
+### coordinatelist Type
+
+
+Nested array type: `number[]`
+
+
+
+All items must be of the type:
+`number`
+* minimum value: `0`
+* maximum value: `10`
+
+
+
+
+  
+A coordinate, specified by `x`, `y`, and `z` values
+
+
+
+
+
+
+
+## intlist
+
+This is an array
+
+`intlist`
+* is optional
+* type: `integer[]`
+* between `1` and `10` items in the array
+* defined in this schema
+
+### intlist Type
+
+
+Array type: `integer[]`
+
+All items must be of the type:
+`integer`
+
+
+
+
+
+
+
+
+
 ## list
 
 This is an array
@@ -77,86 +161,6 @@ Nested array type: `array`
 
 
 
-## stringlistlist
-
-This is an array of arrays of strings
-
-`stringlistlist`
-* is optional
-* type: `string[][]` (nested array)
-
-* defined in this schema
-
-### stringlistlist Type
-
-
-Nested array type: `string[]`
-
-
-
-All items must be of the type:
-`string`
-
-
-
-
-
-
-
-
-
-
-
-## intlist
-
-This is an array
-
-`intlist`
-* is optional
-* type: `integer[]`
-* between `1` and `10` items in the array
-* defined in this schema
-
-### intlist Type
-
-
-Array type: `integer[]`
-
-All items must be of the type:
-`integer`
-
-
-
-
-
-
-
-
-
-## boollist
-
-This is an array
-
-`boollist`
-* is optional
-* type: `boolean[]`
-* at least `1` items in the array
-* defined in this schema
-
-### boollist Type
-
-
-Array type: `boolean[]`
-
-All items must be of the type:
-`boolean`
-
-
-
-
-
-
-
 ## numlist
 
 This is an array
@@ -183,33 +187,29 @@ All items must be of the type:
 
 
 
-## coordinatelist
+## stringlistlist
 
-This is an array of coordinates in three-dimensional space.
+This is an array of arrays of strings
 
-`coordinatelist`
+`stringlistlist`
 * is optional
-* type: `number[][]` (nested array)
-* no more than `10` items in the array
+* type: `string[][]` (nested array)
+
 * defined in this schema
 
-### coordinatelist Type
+### stringlistlist Type
 
 
-Nested array type: `number[]`
+Nested array type: `string[]`
 
 
 
 All items must be of the type:
-`number`
-* minimum value: `0`
-* maximum value: `10`
+`string`
 
 
 
 
-  
-A coordinate, specified by `x`, `y`, and `z` values
 
 
 

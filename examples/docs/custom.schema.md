@@ -22,25 +22,6 @@ This is an extensible schema. It has `definitions`, that can be used in other sc
 | [bar](#bar) | `string` | Optional | Custom (this schema) |
 | [foo](#foo) | `string` | Optional | Custom (this schema) |
 
-## foo
-
-A unique identifier given to every addressable thing.
-
-`foo`
-* is optional
-* type: `string`
-* defined in this schema
-
-### foo Type
-
-
-`string`
-
-
-
-
-
-
 ## bar
 
 A unique identifier given to every addressable thing.
@@ -51,6 +32,25 @@ A unique identifier given to every addressable thing.
 * defined in this schema
 
 ### bar Type
+
+
+`string`
+
+
+
+
+
+
+## foo
+
+A unique identifier given to every addressable thing.
+
+`foo`
+* is optional
+* type: `string`
+* defined in this schema
+
+### foo Type
 
 
 `string`

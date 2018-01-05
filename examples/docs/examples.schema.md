@@ -39,31 +39,6 @@ This is an example schema with *multiple* examples. Too many examples? There can
 | [bar](#bar) | `string` | **Required** | Examples (this schema) |
 | [foo](#foo) | `string` | Optional | Examples (this schema) |
 
-## foo
-
-A simple string.
-
-`foo`
-* is optional
-* type: `string`
-* defined in this schema
-
-### foo Type
-
-
-`string`
-
-
-
-
-
-### foo Example
-
-```json
-"bar"
-```
-
-
 ## bar
 
 A simple string.
@@ -92,4 +67,29 @@ A simple string.
 "baz"
 ```
 
+
+
+## foo
+
+A simple string.
+
+`foo`
+* is optional
+* type: `string`
+* defined in this schema
+
+### foo Type
+
+
+`string`
+
+
+
+
+
+### foo Example
+
+```json
+"bar"
+```
 

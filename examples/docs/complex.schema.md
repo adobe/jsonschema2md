@@ -32,72 +32,33 @@ This is an example schema that uses types defined in other schemas.
 | [refnamed](#refnamed) | Simple | Optional | Complex References  (this schema) |
 | [xor](#xor) | complex | Optional | Complex References  (this schema) |
 
-## refabstract
+## and
 
+Number in a range
 
-
-`refabstract`
-* is **required**
+`and`
+* is optional
 * type: complex
 * defined in this schema
 
-### refabstract Type
-
-Unknown type ``.
-
-```json
-{
-  "properties": {
-    "foo": {
-      "type": "string",
-      "description": "A unique identifier given to every addressable thing."
-    }
-  },
-  "required": true,
-  "simpletype": "complex"
-}
-```
+### and Type
 
 
+**All** of the following *requirements* need to be fulfilled.
 
 
-
-## refnamed
-
+#### Requirement 1
 
 
-`refnamed`
-* is optional
-* type: Simple
-* defined in this schema
-
-### refnamed Type
+`number`
+* maximum value: `10`
 
 
-* [Simple](simple.schema.md) – `https://example.com/schemas/simple`
+#### Requirement 2
 
 
-
-
-
-## reflist
-
-
-
-`reflist`
-* is optional
-* type: Simple
-
-* defined in this schema
-
-### reflist Type
-
-
-Array type: Simple
-
-All items must be of the type:
-* [Simple](simple.schema.md) – `https://example.com/schemas/simple`
-
+`number`
+* minimum value: `0`
 
 
 
@@ -139,35 +100,74 @@ String or number…
 
 
 
-## and
+## refabstract
 
-Number in a range
 
-`and`
-* is optional
+
+`refabstract`
+* is **required**
 * type: complex
 * defined in this schema
 
-### and Type
+### refabstract Type
+
+Unknown type ``.
+
+```json
+{
+  "properties": {
+    "foo": {
+      "type": "string",
+      "description": "A unique identifier given to every addressable thing."
+    }
+  },
+  "required": true,
+  "simpletype": "complex"
+}
+```
 
 
-**All** of the following *requirements* need to be fulfilled.
 
 
-#### Requirement 1
+
+## reflist
 
 
-`number`
-* maximum value: `10`
+
+`reflist`
+* is optional
+* type: Simple
+
+* defined in this schema
+
+### reflist Type
 
 
-#### Requirement 2
+Array type: Simple
+
+All items must be of the type:
+* [Simple](simple.schema.md) – `https://example.com/schemas/simple`
 
 
-`number`
-* minimum value: `0`
 
 
+
+
+
+
+## refnamed
+
+
+
+`refnamed`
+* is optional
+* type: Simple
+* defined in this schema
+
+### refnamed Type
+
+
+* [Simple](simple.schema.md) – `https://example.com/schemas/simple`
 
 
 

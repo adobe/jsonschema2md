@@ -61,26 +61,6 @@ A horse walks into it.
 
 
 
-## id
-
-A unique identifier given to every addressable thing.
-
-`id`
-* is optional
-* type: `string`
-* defined in [Definitions](definitions.schema.md#id)
-
-### id Type
-
-
-`string`
-* format: `uri` Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
-
-
-
-
-
-
 ## baz
 ### BAAAZ!
 
@@ -120,6 +100,26 @@ A unique identifier given to every addressable thing.
 
 
 `string`
+
+
+
+
+
+
+## id
+
+A unique identifier given to every addressable thing.
+
+`id`
+* is optional
+* type: `string`
+* defined in [Definitions](definitions.schema.md#id)
+
+### id Type
+
+
+`string`
+* format: `uri` Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 
 

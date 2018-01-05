@@ -22,31 +22,6 @@ This is an extensible schema. It has `definitions`, that can be used in other sc
 | [foo](#foo) | `string` | `#/definitions/first` |
 | [bar](#bar) | `string` | `#/definitions/second` |
 
-## foo
-
-A unique identifier given to every addressable thing.
-
-`foo`
-* is optional
-* type: `string`
-* defined in this schema
-
-### foo Type
-
-
-`string`
-
-
-
-
-
-### foo Example
-
-```json
-"bar"
-```
-
-
 ## bar
 
 A horse walks into it.
@@ -75,4 +50,29 @@ A horse walks into it.
 "hoo"
 ```
 
+
+
+## foo
+
+A unique identifier given to every addressable thing.
+
+`foo`
+* is optional
+* type: `string`
+* defined in this schema
+
+### foo Type
+
+
+`string`
+
+
+
+
+
+### foo Example
+
+```json
+"bar"
+```
 

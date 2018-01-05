@@ -37,29 +37,202 @@ This is an example schema with examples for multiple types and their constraints
 | [string_uri](#string_uri) | `string` | Optional | Simple Types (this schema) |
 | [yesno](#yesno) | `boolean` | **Required** | Simple Types (this schema) |
 
-## string_unconstrained
+## integer_threes
 
-A simple string, without any constraints.
+Guess what number is valid
 
-`string_unconstrained`
+`integer_threes`
+* is optional
+* type: `integer`
+* defined in this schema
+
+### integer_threes Type
+
+
+`integer`
+* minimum value: `2`
+* maximum value: `4`
+* must be a multiple of `3`
+
+
+
+
+
+## interger_constrained
+
+Just a whole number. I don&#39;t like fractions. Don&#39;t get too small
+
+`interger_constrained`
+* is optional
+* type: `integer`
+* defined in this schema
+
+### interger_constrained Type
+
+
+`integer`
+* minimum value: `10`
+
+
+
+
+
+
+## interger_unconstrained
+
+Just a whole number. I don&#39;t like fractions.
+
+`interger_unconstrained`
+* is optional
+* type: `integer`
+* defined in this schema
+
+### interger_unconstrained Type
+
+
+`integer`
+
+
+
+
+
+
+## number_constrained
+
+Just a number. Don&#39;t get too big.
+
+`number_constrained`
+* is optional
+* type: `number`
+* defined in this schema
+
+### number_constrained Type
+
+
+`number`
+* value must not be greater or equal than: `10`
+
+
+
+
+
+## number_unconstrained
+
+Just a number
+
+`number_unconstrained`
+* is optional
+* type: `number`
+* defined in this schema
+
+### number_unconstrained Type
+
+
+`number`
+
+
+
+
+
+
+## string_date
+
+A date-like string.
+
+`string_date`
 * is optional
 * type: `string`
 * defined in this schema
 
-### string_unconstrained Type
+### string_date Type
 
 
 `string`
+* format: `date-time` date and time (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))
 
 
 
 
 
-### string_unconstrained Example
 
-```json
-"bar"
-```
+## string_email
+
+An email-like string.
+
+`string_email`
+* is optional
+* type: `string`
+* defined in this schema
+
+### string_email Type
+
+
+`string`
+* format: `email` email address (according to [RFC 5322, section 3.4.1](https://tools.ietf.org/html/rfc5322))
+
+
+
+
+
+
+## string_hostname
+
+A hostname-like string.
+
+`string_hostname`
+* is optional
+* type: `string`
+* defined in this schema
+
+### string_hostname Type
+
+
+`string`
+* format: `hostname` Domain Name (according to [RFC 1034, section 3.1](https://tools.ietf.org/html/rfc1034))
+
+
+
+
+
+
+## string_ipv4
+
+An IPv4-like string.
+
+`string_ipv4`
+* is optional
+* type: `string`
+* defined in this schema
+
+### string_ipv4 Type
+
+
+`string`
+* format: `ipv4` IP (v4) address (according to [RFC 2673, section 3.2](https://tools.ietf.org/html/rfc2673))
+
+
+
+
+
+
+## string_ipv6
+
+An IPv6-like string.
+
+`string_ipv6`
+* is optional
+* type: `string`
+* defined in this schema
+
+### string_ipv6 Type
+
+
+`string`
+* format: `ipv6` IP (v6) address (according to [RFC 4291, section 2.2](https://tools.ietf.org/html/rfc4291))
+
+
+
+
 
 
 ## string_length
@@ -207,104 +380,29 @@ All instances must conform to this regular expression
 ```
 
 
-## string_date
+## string_unconstrained
 
-A date-like string.
+A simple string, without any constraints.
 
-`string_date`
+`string_unconstrained`
 * is optional
 * type: `string`
 * defined in this schema
 
-### string_date Type
+### string_unconstrained Type
 
 
 `string`
-* format: `date-time` date and time (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))
 
 
 
 
 
+### string_unconstrained Example
 
-## string_email
-
-An email-like string.
-
-`string_email`
-* is optional
-* type: `string`
-* defined in this schema
-
-### string_email Type
-
-
-`string`
-* format: `email` email address (according to [RFC 5322, section 3.4.1](https://tools.ietf.org/html/rfc5322))
-
-
-
-
-
-
-## string_hostname
-
-A hostname-like string.
-
-`string_hostname`
-* is optional
-* type: `string`
-* defined in this schema
-
-### string_hostname Type
-
-
-`string`
-* format: `hostname` Domain Name (according to [RFC 1034, section 3.1](https://tools.ietf.org/html/rfc1034))
-
-
-
-
-
-
-## string_ipv4
-
-An IPv4-like string.
-
-`string_ipv4`
-* is optional
-* type: `string`
-* defined in this schema
-
-### string_ipv4 Type
-
-
-`string`
-* format: `ipv4` IP (v4) address (according to [RFC 2673, section 3.2](https://tools.ietf.org/html/rfc2673))
-
-
-
-
-
-
-## string_ipv6
-
-An IPv6-like string.
-
-`string_ipv6`
-* is optional
-* type: `string`
-* defined in this schema
-
-### string_ipv6 Type
-
-
-`string`
-* format: `ipv6` IP (v6) address (according to [RFC 4291, section 2.2](https://tools.ietf.org/html/rfc4291))
-
-
-
-
+```json
+"bar"
+```
 
 
 ## string_uri
@@ -322,104 +420,6 @@ A URI.
 `string`
 * format: `uri` Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
-
-
-
-
-
-## number_unconstrained
-
-Just a number
-
-`number_unconstrained`
-* is optional
-* type: `number`
-* defined in this schema
-
-### number_unconstrained Type
-
-
-`number`
-
-
-
-
-
-
-## interger_unconstrained
-
-Just a whole number. I don&#39;t like fractions.
-
-`interger_unconstrained`
-* is optional
-* type: `integer`
-* defined in this schema
-
-### interger_unconstrained Type
-
-
-`integer`
-
-
-
-
-
-
-## interger_constrained
-
-Just a whole number. I don&#39;t like fractions. Don&#39;t get too small
-
-`interger_constrained`
-* is optional
-* type: `integer`
-* defined in this schema
-
-### interger_constrained Type
-
-
-`integer`
-* minimum value: `10`
-
-
-
-
-
-
-## number_constrained
-
-Just a number. Don&#39;t get too big.
-
-`number_constrained`
-* is optional
-* type: `number`
-* defined in this schema
-
-### number_constrained Type
-
-
-`number`
-* value must not be greater or equal than: `10`
-
-
-
-
-
-## integer_threes
-
-Guess what number is valid
-
-`integer_threes`
-* is optional
-* type: `integer`
-* defined in this schema
-
-### integer_threes Type
-
-
-`integer`
-* minimum value: `2`
-* maximum value: `4`
-* must be a multiple of `3`
 
 
 

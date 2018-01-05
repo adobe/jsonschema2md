@@ -30,31 +30,6 @@ This is an example schema with examples. Too many examples? There can never be t
 | [bar](#bar) | `string` | Optional | Example (this schema) |
 | [foo](#foo) | `string` | Optional | Example (this schema) |
 
-## foo
-
-A simple string.
-
-`foo`
-* is optional
-* type: `string`
-* defined in this schema
-
-### foo Type
-
-
-`string`
-
-
-
-
-
-### foo Example
-
-```json
-"bar"
-```
-
-
 ## bar
 
 A simple string.
@@ -83,4 +58,29 @@ A simple string.
 "baz"
 ```
 
+
+
+## foo
+
+A simple string.
+
+`foo`
+* is optional
+* type: `string`
+* defined in this schema
+
+### foo Type
+
+
+`string`
+
+
+
+
+
+### foo Example
+
+```json
+"bar"
+```
 

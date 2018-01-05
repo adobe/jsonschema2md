@@ -22,25 +22,6 @@ This is an abstract schema. It has `definitions`, but does not declare any prope
 | [foo](#foo) | `string` | `#/definitions/first` |
 | [bar](#bar) | `string` | `#/definitions/second` |
 
-## foo
-
-A unique identifier given to every addressable thing.
-
-`foo`
-* is optional
-* type: `string`
-* defined in this schema
-
-### foo Type
-
-
-`string`
-
-
-
-
-
-
 ## bar
 
 A unique identifier given to every addressable thing.
@@ -51,6 +32,25 @@ A unique identifier given to every addressable thing.
 * defined in this schema
 
 ### bar Type
+
+
+`string`
+
+
+
+
+
+
+## foo
+
+A unique identifier given to every addressable thing.
+
+`foo`
+* is optional
+* type: `string`
+* defined in this schema
+
+### foo Type
 
 
 `string`
