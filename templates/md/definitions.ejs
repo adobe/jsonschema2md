@@ -12,5 +12,5 @@
 |----------|------|-------|
 <% _.keys(props).sort().forEach(property => {
   const schema = props[property]; %>
-| [<%= property %>](#<%= property %>) | <%= schema.simpletype %> | `#/definitions/<%= schema.definitiongroup %>` |
+| [<%= property %>](#<%= property %>) | <%= schema.simpletype %> | `<%= id%>#/definitions/<%= schema.definitiongroup %>` |
 <% }); %>

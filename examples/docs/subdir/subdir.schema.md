@@ -19,7 +19,7 @@ A schema in a sub directory
 
 | Property | Type | Group |
 |----------|------|-------|
-| [id](#id) | `string` | `#/definitions/content` |
+| [id](#id) | `string` | `https://example.com/schemas/subdir/subdir#/definitions/content` |
 
 ## id
 
