@@ -16,6 +16,16 @@
                     "type": "string",
                     "format": "uri",
                     "description": "A unique identifier given to every addressable thing."
+                },
+                "@id": {
+                    "type": "string",
+                    "format": "uri-reference",
+                    "description": "An `id` with an `@` in front of it. The `@` stands for \"dot com\""
+                },
+                "meta:id": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "An about ids. It is meta. If you are confused, send an email to the address specified in this property value."
                 }
             }
         }
