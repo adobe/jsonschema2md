@@ -17,7 +17,9 @@ if (schema.items.type==="string") {
   %><% } else if (schema.items.type==="number"||schema.items.type==="integer") { 
   %><%- include("number-type",{schema:schema.items,_:_})
   %><% } else if (schema.items.type==="boolean") {
-  %><%- include("boolean-type",{schema:schema.items,_:_}) 
+  %><%- include("boolean-type",{schema:schema.items,_:_})
+  %><% } else if (schema.items.type==="object") {
+  %><%- include("object-type",{schema:schema.items,_:_}) 
   %><% } else if (schema.items.type==="array") { 
   %><%- include("array-type",{schema:schema.items,_:_, nested:true}) 
   %><% } else if (schema.items.$ref!==undefined) { 
