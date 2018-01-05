@@ -23,7 +23,7 @@ if (schema.items.type==="string") {
   %><% } else if (schema.items.$ref!==undefined) { 
   %><%- include("referenced-type",{schema:schema.items,_:_}) %>
 <% } else { %>
-Unknown type `<%= schema.type %>`.
+Unknown type `<%= schema.items.type %>`.
 
 
 ```json

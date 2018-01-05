@@ -76,6 +76,23 @@
         }
       },
       "maxItems": 10
+    },
+    "objectlist": {
+      "type": "array",
+      "description": "An array of simple objects",
+      "items": {
+        "type": "object",
+        "properties": {
+          "a": {
+            "type": "string",
+            "description": "The a property"
+          },
+          "b": {
+            "type":"integer",
+            "description": "The b property"
+          }
+        }
+      }
     }
   }
 }

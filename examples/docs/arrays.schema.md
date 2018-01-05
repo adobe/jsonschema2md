@@ -25,6 +25,7 @@ This is an example schema with examples for multiple array types and their const
 | [list](#list) | `string[]` | Optional | Arrays (this schema) |
 | [listlist](#listlist) | `array[]` | Optional | Arrays (this schema) |
 | [numlist](#numlist) | `number[]` | Optional | Arrays (this schema) |
+| [objectlist](#objectlist) | `object[]` | Optional | Arrays (this schema) |
 | [stringlistlist](#stringlistlist) | `string[][]` | Optional | Arrays (this schema) |
 
 ## boollist
@@ -179,6 +180,53 @@ Array type: `number[]`
 All items must be of the type:
 `number`
 * minimum value: `10`
+
+
+
+
+
+
+
+
+## objectlist
+
+An array of simple objects
+
+`objectlist`
+* is optional
+* type: `object[]`
+
+* defined in this schema
+
+### objectlist Type
+
+
+Array type: `object[]`
+
+All items must be of the type:
+Unknown type `object`.
+
+```json
+{
+  "type": "array",
+  "description": "An array of simple objects",
+  "items": {
+    "type": "object",
+    "properties": {
+      "a": {
+        "type": "string",
+        "description": "The a property"
+      },
+      "b": {
+        "type": "integer",
+        "description": "The b property"
+      }
+    },
+    "simpletype": "`object`"
+  },
+  "simpletype": "`object[]`"
+}
+```
 
 
 
