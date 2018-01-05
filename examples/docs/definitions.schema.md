@@ -50,7 +50,7 @@ An `id` with an `@` in front of it. The `@` stands for &#34;dot com&#34;
 
 
 `string`
-* format: `uri-reference` URI Reference (according to [RFC3986](https://tools.ietf.org/html/rfc3986))
+* format: `uri-reference` – URI Reference (according to [RFC3986](https://tools.ietf.org/html/rfc3986))
 
 
 
@@ -70,7 +70,7 @@ A unique identifier given to every addressable thing.
 
 
 `string`
-* format: `uri` Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
+* format: `uri` – Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 
 
@@ -90,7 +90,7 @@ An about ids. It is meta. If you are confused, send an email to the address spec
 
 
 `string`
-* format: `email` email address (according to [RFC 5322, section 3.4.1](https://tools.ietf.org/html/rfc5322))
+* format: `email` – email address (according to [RFC 5322, section 3.4.1](https://tools.ietf.org/html/rfc5322))
 
 
 

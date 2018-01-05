@@ -148,7 +148,7 @@ A date-like string.
 
 
 `string`
-* format: `date-time` date and time (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))
+* format: `date-time` – date and time (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))
 
 
 
@@ -168,7 +168,7 @@ An email-like string.
 
 
 `string`
-* format: `email` email address (according to [RFC 5322, section 3.4.1](https://tools.ietf.org/html/rfc5322))
+* format: `email` – email address (according to [RFC 5322, section 3.4.1](https://tools.ietf.org/html/rfc5322))
 
 
 
@@ -188,7 +188,7 @@ A hostname-like string.
 
 
 `string`
-* format: `hostname` Domain Name (according to [RFC 1034, section 3.1](https://tools.ietf.org/html/rfc1034))
+* format: `hostname` – Domain Name (according to [RFC 1034, section 3.1](https://tools.ietf.org/html/rfc1034))
 
 
 
@@ -208,7 +208,7 @@ An IPv4-like string.
 
 
 `string`
-* format: `ipv4` IP (v4) address (according to [RFC 2673, section 3.2](https://tools.ietf.org/html/rfc2673))
+* format: `ipv4` – IP (v4) address (according to [RFC 2673, section 3.2](https://tools.ietf.org/html/rfc2673))
 
 
 
@@ -228,7 +228,7 @@ An IPv6-like string.
 
 
 `string`
-* format: `ipv6` IP (v6) address (according to [RFC 4291, section 2.2](https://tools.ietf.org/html/rfc4291))
+* format: `ipv6` – IP (v6) address (according to [RFC 4291, section 2.2](https://tools.ietf.org/html/rfc4291))
 
 
 
@@ -418,7 +418,7 @@ A URI.
 
 
 `string`
-* format: `uri` Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
+* format: `uri` – Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 
 

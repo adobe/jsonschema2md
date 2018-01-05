@@ -204,30 +204,15 @@ An array of simple objects
 Array type: `object[]`
 
 All items must be of the type:
-Unknown type `object`.
+`object` with following properties:
 
-```json
-{
-  "type": "array",
-  "description": "An array of simple objects",
-  "items": {
-    "type": "object",
-    "properties": {
-      "a": {
-        "type": "string",
-        "description": "The a property"
-      },
-      "b": {
-        "type": "integer",
-        "description": "The b property"
-      }
-    },
-    "simpletype": "`object`"
-  },
-  "simpletype": "`object[]`"
-}
-```
 
+| Property | Type | Required
+|----------|------|----------|
+| `a`| string | **Required** | 
+| `b`| integer | Optional | 
+
+full list.
 
 
 

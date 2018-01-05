@@ -82,6 +82,9 @@
             "description": "An array of simple objects",
             "items": {
                 "type": "object",
+                "required": [
+                    "a"
+                ],
                 "properties": {
                     "a": {
                         "type": "string",
