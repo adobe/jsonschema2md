@@ -19,13 +19,13 @@ This is an example schema with examples for multiple array types and their const
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
+| [boollist](#boollist) | `boolean[]` | Optional | Arrays (this schema) |
+| [coordinatelist](#coordinatelist) | `number[][]` | Optional | Arrays (this schema) |
+| [intlist](#intlist) | `integer[]` | Optional | Arrays (this schema) |
 | [list](#list) | `string[]` | Optional | Arrays (this schema) |
 | [listlist](#listlist) | `array[]` | Optional | Arrays (this schema) |
-| [stringlistlist](#stringlistlist) | `string[][]` | Optional | Arrays (this schema) |
-| [intlist](#intlist) | `integer[]` | Optional | Arrays (this schema) |
-| [boollist](#boollist) | `boolean[]` | Optional | Arrays (this schema) |
 | [numlist](#numlist) | `number[]` | Optional | Arrays (this schema) |
-| [coordinatelist](#coordinatelist) | `number[][]` | Optional | Arrays (this schema) |
+| [stringlistlist](#stringlistlist) | `string[][]` | Optional | Arrays (this schema) |
 
 ## list
 

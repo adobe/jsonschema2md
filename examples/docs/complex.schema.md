@@ -25,11 +25,11 @@ This is an example schema that uses types defined in other schemas.
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
-| [refabstract](#refabstract) | complex | **Required** | Complex References  (this schema) |
-| [refnamed](#refnamed) | Simple | Optional | Complex References  (this schema) |
-| [reflist](#reflist) | Simple | Optional | Complex References  (this schema) |
-| [or](#or) | complex | Optional | Complex References  (this schema) |
 | [and](#and) | complex | Optional | Complex References  (this schema) |
+| [or](#or) | complex | Optional | Complex References  (this schema) |
+| [refabstract](#refabstract) | complex | **Required** | Complex References  (this schema) |
+| [reflist](#reflist) | Simple | Optional | Complex References  (this schema) |
+| [refnamed](#refnamed) | Simple | Optional | Complex References  (this schema) |
 | [xor](#xor) | complex | Optional | Complex References  (this schema) |
 
 ## refabstract

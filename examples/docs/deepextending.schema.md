@@ -27,9 +27,9 @@ This is an extending schema. It is extending another extending schema. It pulls 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
 | [bar](#bar) | `string` | Optional | [Extensible](extensible.schema.md#bar) |
-| [id](#id) | `string` | Optional | [Definitions](definitions.schema.md#id) |
 | [baz](#baz) | `string` | Optional | [Extending](extending.schema.md#baz) |
 | [hey](#hey) | `string` | Optional | Deeply Extending (this schema) |
+| [id](#id) | `string` | Optional | [Definitions](definitions.schema.md#id) |
 
 ## bar
 
