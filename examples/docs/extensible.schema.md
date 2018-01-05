@@ -19,8 +19,8 @@ This is an extensible schema. It has `definitions`, that can be used in other sc
 
 | Property | Type | Group |
 |----------|------|-------|
-| [foo](#foo) | `string` | `#/definitions/first` |
 | [bar](#bar) | `string` | `#/definitions/second` |
+| [foo](#foo) | `string` | `#/definitions/first` |
 
 ## bar
 

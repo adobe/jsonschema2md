@@ -19,8 +19,8 @@ This is an abstract schema. It has `definitions`, but does not declare any prope
 
 | Property | Type | Group |
 |----------|------|-------|
-| [foo](#foo) | `string` | `#/definitions/first` |
 | [bar](#bar) | `string` | `#/definitions/second` |
+| [foo](#foo) | `string` | `#/definitions/first` |
 
 ## bar
 

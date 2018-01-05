@@ -10,6 +10,7 @@
 
 | Property | Type | Group |
 |----------|------|-------|
-<%  _.forIn(props, (schema, property, object) => { %>
+<% _.keys(props).sort().forEach(property => {
+  const schema = props[property]; %>
 | [<%= property %>](#<%= property %>) | <%= schema.simpletype %> | `#/definitions/<%= schema.definitiongroup %>` |
 <% }); %>
