@@ -221,7 +221,6 @@ The a property
 `a`
 * is **required**
 * type: `string`
-* defined in this schema
 
 ##### a Type
 
@@ -242,7 +241,6 @@ The b property
 `b`
 * is optional
 * type: `integer`
-* defined in this schema
 
 ##### b Type
 
