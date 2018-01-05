@@ -31,7 +31,7 @@ This is an extending schema. It is extending another extending schema. It pulls 
 | [baz](#baz) | `string` | Optional | [Extending](extending.schema.md#baz) |
 | [hey](#hey) | `string` | Optional | Deeply Extending (this schema) |
 | [id](#id) | `string` | Optional | [Definitions](definitions.schema.md#id) |
-| [meta:id](#meta:id) | `string` | Optional | [Definitions](definitions.schema.md#meta:id) |
+| [meta:id](#meta:id) | `string` | Optional | [Definitions](definitions.schema.md#metaid) |
 
 ## @id
 

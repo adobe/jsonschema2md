@@ -29,7 +29,7 @@ This is an extending schema. It pulls `definitions` from other schemas.
 | [bar](#bar) | `string` | Optional | [Extensible](extensible.schema.md#bar) |
 | [baz](#baz) | `string` | Optional | Extending (this schema) |
 | [id](#id) | `string` | Optional | [Definitions](definitions.schema.md#id) |
-| [meta:id](#meta:id) | `string` | Optional | [Definitions](definitions.schema.md#meta:id) |
+| [meta:id](#meta:id) | `string` | Optional | [Definitions](definitions.schema.md#metaid) |
 
 ## @id
 
