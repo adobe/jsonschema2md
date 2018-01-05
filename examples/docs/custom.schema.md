@@ -13,7 +13,7 @@ This is an extensible schema. It has `definitions`, that can be used in other sc
 
 | Abstract | Extensible | Custom Properties | Additional Properties | Defined In |
 |----------|------------|-------------------|-----------------------|------------|
-| Can be instantiated | Yes | Allowed | Forbidden | [custom.schema.json](custom.schema.json) |
+| Can be instantiated | Yes | Allowed | Permitted | [custom.schema.json](custom.schema.json) |
 
 # Custom Properties
 

@@ -13,7 +13,7 @@ This is an example schema with *multiple* examples. Too many examples? There can
 
 | Abstract | Extensible | Custom Properties | Additional Properties | Defined In |
 |----------|------------|-------------------|-----------------------|------------|
-| Can be instantiated | No | Forbidden | Forbidden | [examples.schema.json](examples.schema.json) |
+| Can be instantiated | No | Forbidden | Permitted | [examples.schema.json](examples.schema.json) |
 
 ## Examples Examples
 

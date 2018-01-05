@@ -27,7 +27,7 @@ aks.
 
 | Abstract | Extensible | Custom Properties | Additional Properties | Defined In |
 |----------|------------|-------------------|-----------------------|------------|
-| Can be instantiated | Yes | Forbidden | Forbidden | [definitions.schema.json](definitions.schema.json) |
+| Can be instantiated | Yes | Forbidden | Permitted | [definitions.schema.json](definitions.schema.json) |
 
 # Definitions Properties
 
