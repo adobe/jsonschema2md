@@ -13,7 +13,7 @@ This is an extending schema. It is extending another extending schema. It pulls 
 
 | Abstract | Extensible | Custom Properties | Additional Properties | Defined In |
 |----------|------------|-------------------|-----------------------|------------|
-| Can be instantiated | Yes | Forbidden | Permitted | [deepextending.schema.json](deepextending.schema.json) |
+| Can be instantiated | Yes | Forbidden | Forbidden | [deepextending.schema.json](deepextending.schema.json) |
 
 ## Schema Hierarchy
 

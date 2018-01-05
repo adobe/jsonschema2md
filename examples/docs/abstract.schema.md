@@ -13,7 +13,7 @@ This is an abstract schema. It has `definitions`, but does not declare any prope
 
 | Abstract | Extensible | Custom Properties | Additional Properties | Defined In |
 |----------|------------|-------------------|-----------------------|------------|
-| Cannot be instantiated | Yes | Forbidden | Permitted | [abstract.schema.json](abstract.schema.json) |
+| Cannot be instantiated | Yes | Forbidden | Forbidden | [abstract.schema.json](abstract.schema.json) |
 
 # Abstract Definitions
 

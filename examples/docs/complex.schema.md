@@ -13,7 +13,7 @@ This is an example schema that uses types defined in other schemas.
 
 | Abstract | Extensible | Custom Properties | Additional Properties | Defined In |
 |----------|------------|-------------------|-----------------------|------------|
-| Can be instantiated | No | Forbidden | Forbidden | [complex.schema.json](complex.schema.json) |
+| Can be instantiated | No | Forbidden | Permitted | [complex.schema.json](complex.schema.json) |
 
 ## Schema Hierarchy
 

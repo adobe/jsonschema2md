@@ -18,7 +18,7 @@
 
 | Abstract | Extensible | Custom Properties | Additional Properties | Defined In |
 |----------|------------|-------------------|-----------------------|------------|
-| <%=props.abstract %> | <%=props.extensible %> | <%=props.custom %> | <%= schema.additionalProperties===true ? "Forbidden" : "Permitted"  %> | [<%=props.original %>](<%=props.original %>) |
+| <%=props.abstract %> | <%=props.extensible %> | <%=props.custom %> | <%= schema.additionalProperties===true ? "Permitted" : "Forbidden"  %> | [<%=props.original %>](<%=props.original %>) |
 
 <% if (dependencies.length > 0) { %>
 ## Schema Hierarchy

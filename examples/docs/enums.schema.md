@@ -13,7 +13,7 @@ This is an example schema with examples for properties with enum values
 
 | Abstract | Extensible | Custom Properties | Additional Properties | Defined In |
 |----------|------------|-------------------|-----------------------|------------|
-| Can be instantiated | No | Forbidden | Permitted | [enums.schema.json](enums.schema.json) |
+| Can be instantiated | No | Forbidden | Forbidden | [enums.schema.json](enums.schema.json) |
 
 # Enumerated  Properties
 

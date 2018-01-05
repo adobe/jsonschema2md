@@ -13,7 +13,7 @@ This is an example schema with examples for properties with constant values
 
 | Abstract | Extensible | Custom Properties | Additional Properties | Defined In |
 |----------|------------|-------------------|-----------------------|------------|
-| Can be instantiated | No | Forbidden | Permitted | [constants.schema.json](constants.schema.json) |
+| Can be instantiated | No | Forbidden | Forbidden | [constants.schema.json](constants.schema.json) |
 
 # Constant Types Properties
 
