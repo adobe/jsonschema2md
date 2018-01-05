@@ -102,7 +102,7 @@ String or number…
 
 ## refabstract
 
-
+undefined
 
 `refabstract`
 * is **required**
@@ -132,7 +132,7 @@ Unknown type ``.
 
 ## reflist
 
-
+undefined
 
 `reflist`
 * is optional
@@ -157,7 +157,7 @@ All items must be of the type:
 
 ## refnamed
 
-
+undefined
 
 `refnamed`
 * is optional

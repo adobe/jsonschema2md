@@ -10,7 +10,20 @@ https://example.com/schemas/definitions
 ```
 
 This is an example of using a `definitions` object within a schema.
+
 It is imported using `allOf` and `$ref`.
+
+And the description has line breaks.
+
+So.
+
+Many.
+
+Line.
+
+Bre-
+
+aks.
 
 | Abstract | Extensible | Custom Properties | Defined In |
 |----------|------------|-------------------|------------|
