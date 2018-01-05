@@ -212,7 +212,49 @@ All items must be of the type:
 | `a`| string | **Required** | 
 | `b`| integer | Optional | 
 
-full list.
+
+
+#### a
+
+The a property
+
+`a`
+* is **required**
+* type: `string`
+* defined in this schema
+
+##### a Type
+
+
+`string`
+
+
+
+
+
+
+
+
+#### b
+
+The b property
+
+`b`
+* is optional
+* type: `integer`
+* defined in this schema
+
+##### b Type
+
+
+`integer`
+
+
+
+
+
+
+
 
 
 

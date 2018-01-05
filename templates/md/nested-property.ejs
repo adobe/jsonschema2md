@@ -1,0 +1,89 @@
+<% /**
+ * Copyright 2017 Adobe Systems Incorporated. All rights reserved.
+ * This file is licensed to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy
+ * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ */ %>
+
+#### <%=name %>
+<% if (schema.title) { %>##### <%= schema.title %><% } %>
+
+
+<%= (""+schema.description).replace(/\n/g, '\n\n') %>
+
+
+`<%=name %>`
+* is <% if (required) { %>**required**<% } else { %>optional<% } %>
+* type: <%=schema.simpletype %><% if (schema.simpletype.match(/\[\]\[\]/)||schema.simpletype==="`array[]`") { %> (nested array)<% } %><% if (schema.type==='array') { %>
+<%   if (schema.maxItems!==undefined&&schema.minItems!==undefined) { %>* between `<%=schema.minItems %>` and `<%=schema.maxItems %>` items in the array<% } 
+else if (schema.maxItems!==undefined                             ) { %>* no more than `<%=schema.maxItems %>` items in the array<% }
+else if (schema.minItems!==undefined                             ) { %>* at least `<%=schema.minItems %>` items in the array<% } %>
+<% } %>
+* defined in <% if (schema.$oSchema) { %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= name %>)<% } else { %>this schema<% } %>
+
+<% if (schema.const!==undefined) { %>
+The value of this property **must** be equal to:
+
+
+```json
+<%- JSON.stringify(schema.const, null, 2) %>
+```
+
+<% } else if (schema.enum!==undefined) { %>
+The value of this property **must** be equal to one of the [known values below](#<%=name %>-known-values).
+<% } else { %>
+
+##### <%=name %> Type
+
+<% if (schema.type==="string") { %>
+<%- include("string-type",{schema:schema,_:_}) %>
+<% } else if (schema.type==="number"||schema.type==="integer") { %>
+<%- include("number-type",{schema:schema,_:_}) %>
+<% } else if (schema.type==="boolean") { %>
+<%- include("boolean-type",{schema:schema,_:_}) %>
+<% } else if (schema.type==="array") { %>
+<%- include("array-type",{schema:schema,_:_,nested:false,ejs:ejs}) %>
+<% } else if (schema.$ref!==undefined) { %>
+<%- include("referenced-type",{schema:schema,_:_}) %>
+<% } else if (schema.anyOf!==undefined || schema.allOf!==undefined || schema.oneOf!==undefined) { %>
+<%- include("join-type",{schema:schema,_:_,schemas:schema.anyOf || schema.allOf || schema.oneOf,ejs:ejs}) %>
+<% } else { %>
+Unknown type `<%= schema.type %>`.
+
+
+```json
+<%- JSON.stringify(schema, null, 2) %>
+```
+
+<% }} %>
+
+<% if (schema.enum!==undefined||schema["meta:enum"]!==undefined) { %>
+##### <%=name %> Known Values
+
+| Value | Description |
+|-------|-------------|
+<%  _.forIn(schema["meta:enum"], (value, key, object) => { %>
+| `<%= key %>` | <%= value %> |
+<% }); %>
+
+<% } %>
+
+
+<% if (examples && examples.length == 1) { %>
+##### <%=name %> Example
+
+
+```json
+<%- examples[0] %>
+```
+<% } else if (examples && examples.length > 1) { %>
+##### <%=name %> Examples
+<%  _.forEach(examples, example => { %>
+
+```json
+<%- example %>
+```
+
+<% }); %>
+<% } %>
+

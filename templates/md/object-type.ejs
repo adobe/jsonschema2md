@@ -9,4 +9,20 @@
 
 <%- include("nested-properties",{outer:schema,props: schema.properties,_:_, nested:true}) %>
 
-full list.
+<% _.keys(schema.properties).sort().forEach(property => {
+  const inner = schema.properties[property];
+  inner.simpletype = "`" + inner.type + "`";
+  const required = (schema.required&&schema.required.indexOf(property)>=0); %>
+
+<%- include("nested-property",{
+    _:_, 
+    nested:true, 
+    name: property, 
+    schema: inner,
+    required: required,
+    examples: inner.examples
+  }) %>
+
+<%
+});
+%>
