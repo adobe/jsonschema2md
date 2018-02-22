@@ -28,7 +28,7 @@ jobs:
 
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
 
-      - run: npm install
+      - run: npm install && npm i jasmine-xml-reporter
 
       - save_cache:
           paths:
@@ -36,7 +36,12 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: npm test
+      - run: ./node_modules/jasmine-xml-reporter/bin/jasmine.js --junitreport --output=junit
+
+      - store_test_results:
+          path: junit
+      - store_artifacts:
+          path: junit 
 
       - run: BUILD_TAG=$(./node_modules/.bin/npm-snapshot $CIRCLE_BUILD_NUM) echo 'export BUILD_TAG=$BUILD_TAG' >> $BASH_ENV
       - run: 

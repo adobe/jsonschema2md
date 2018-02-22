@@ -6,6 +6,7 @@
 
 ## /
 
+* [Abstract](./abstract.schema.md) – `https://example.com/schemas/abstract`
 * [Arrays](./arrays.schema.md) – `https://example.com/schemas/arrays`
 * [Complex References ](./complex.schema.md) – `https://example.com/schemas/complex`
 * [Constant Types](./constants.schema.md) – `https://example.com/schemas/constants`
@@ -19,7 +20,6 @@
 * [Extensible](./extensible.schema.md) – `https://example.com/schemas/extensible`
 * [Simple](./simple.schema.md) – `https://example.com/schemas/simple`
 * [Simple Types](./simpletypes.schema.md) – `https://example.com/schemas/simpletypes`
-* [Abstract](./abstract.schema.md) – `https://example.com/schemas/abstract`
 
 ## /subdir/
 
