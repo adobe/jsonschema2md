@@ -26,8 +26,6 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-
       - run: npm install && npm i jasmine-xml-reporter
 
       - save_cache:
@@ -43,11 +41,50 @@ jobs:
       - store_artifacts:
           path: junit 
 
+  publish:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:7.10
+      
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+
+      - run: npm install && npm i jasmine-xml-reporter
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
       - run: BUILD_TAG=$(./node_modules/.bin/npm-snapshot $CIRCLE_BUILD_NUM) echo 'export BUILD_TAG=$BUILD_TAG' >> $BASH_ENV
       - run: 
           name: Publish Snapshot
           command: npm publish --access public
+
+workflows:
+  version: 2
+  build_test_deploy:
+    jobs:
+      - build
+      - publish:
+          requires:
+            - build
           filters:
             branches:
               only: master
-
