@@ -11,18 +11,18 @@
 |----------|------|----------|------------|
 <% _.keys(props).sort().forEach(property => {
   const schema = props[property]; %>
-| [<%= property %>](#<%= property.replace(':', '') %>) | <%= schema.simpletype %> | <%= schema.isrequired === true ? "**Required**" : "Optional" %> | <% 
+| [<%= property %>](#<%= property.replace(':', '').toLowerCase() %>) | <%= schema.simpletype %> | <%= schema.isrequired === true ? "**Required**" : "Optional" %> | <% 
     if (schema.$oSchema) { 
-      %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= property.replace(':', '') %>)<% 
+      %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= property.replace(':', '').toLowerCase() %>)<% 
     } else { 
       %><%= title %> (this schema)<% } %> |
 <%
 });
 %><% _.keys(pprops).forEach(property => {
   const schema = pprops[property]; %>
-| `<%= property %>` | <%= schema.simpletype %> | Pattern | <% 
+| `<%= property.replace(':', '') %>` | <%= schema.simpletype %> | Pattern | <% 
     if (schema.$oSchema) { 
-      %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= property.replace(':', '') %>)<% 
+      %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= property.replace(':', '').toLowerCase() %>)<% 
     } else { 
       %><%= title %> (this schema)<% } %> |
 <%
