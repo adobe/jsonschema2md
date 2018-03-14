@@ -11,9 +11,9 @@ https://example.com/schemas/simple
 
 This is a *very* simple example of a JSON schema. There is only one property.
 
-| Abstract | Extensible | Custom Properties | Additional Properties | Defined In |
-|----------|------------|-------------------|-----------------------|------------|
-| Can be instantiated | No | Forbidden | Permitted | [simple.schema.json](simple.schema.json) |
+| Abstract | Extensible | Status | Custom Properties | Additional Properties | Defined In |
+|----------|------------|--------|-------------------|-----------------------|------------|
+| Can be instantiated | No | Experimental | Forbidden | Permitted | [simple.schema.json](simple.schema.json) |
 
 # Simple Properties
 

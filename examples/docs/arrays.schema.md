@@ -11,9 +11,9 @@ https://example.com/schemas/arrays
 
 This is an example schema with examples for multiple array types and their constraints.
 
-| Abstract | Extensible | Custom Properties | Additional Properties | Defined In |
-|----------|------------|-------------------|-----------------------|------------|
-| Can be instantiated | No | Forbidden | Permitted | [arrays.schema.json](arrays.schema.json) |
+| Abstract | Extensible | Status | Custom Properties | Additional Properties | Defined In |
+|----------|------------|--------|-------------------|-----------------------|------------|
+| Can be instantiated | No | Experimental | Forbidden | Permitted | [arrays.schema.json](arrays.schema.json) |
 
 # Arrays Properties
 

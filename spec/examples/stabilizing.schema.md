@@ -3,23 +3,23 @@ template: reference
 foo: bar
 ---
 
-# Simple Schema
+# Stabilizing Schema
 
 ```
-https://example.com/schemas/simple
+https://example.com/schemas/stabilizing
 ```
 
-This is a *very* simple example of a JSON schema. There is only one property.
+This is a schema which is currently in the `stabilizing` status.
 
 | Abstract | Extensible | Status | Custom Properties | Additional Properties | Defined In |
 |----------|------------|--------|-------------------|-----------------------|------------|
-| Can be instantiated | No | Experimental | Forbidden | Permitted | [simple.schema.json](simple.schema.json) |
+| Can be instantiated | No | Stabilizing | Forbidden | Permitted | [stabilizing.schema.json](stabilizing.schema.json) |
 
-# Simple Properties
+# Stabilizing Properties
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
-| [id](#id) | `string` | Optional | Simple (this schema) |
+| [id](#id) | `string` | Optional | Stabilizing (this schema) |
 | `*` | any | Additional | this schema *allows* additional properties |
 
 ## id
