@@ -11,9 +11,9 @@ https://example.com/schemas/subdir/subdir
 
 A schema in a sub directory
 
-| Abstract | Extensible | Custom Properties | Additional Properties | Defined In |
-|----------|------------|-------------------|-----------------------|------------|
-| Cannot be instantiated | Yes | Forbidden | Permitted | [subdir/subdir.schema.json](subdir/subdir.schema.json) |
+| Abstract | Extensible | Status | Custom Properties | Additional Properties | Defined In |
+|----------|------------|--------|-------------------|-----------------------|------------|
+| Cannot be instantiated | Yes | Experimental | Forbidden | Permitted | [subdir/subdir.schema.json](subdir/subdir.schema.json) |
 
 # Subdir Definitions
 
