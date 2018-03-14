@@ -10,6 +10,7 @@
   "title": "Abstract",
   "description": "This is an abstract schema. It has `definitions`, but does not declare any properties",
   "type": "object",
+  "meta:status": "stabilizing",
   "definitions": {
     "first": {
       "type": "object",
