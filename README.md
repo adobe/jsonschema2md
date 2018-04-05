@@ -48,7 +48,7 @@ You can conveniently use the JSON Schema Markdown Tools from `npm`. This makes i
 
 ```json
   "devDependencies": {
-    "jsonschema2md": "^1.0.2"
+    "jsonschema2md": "^1.0.3"
   }
 ```
 
