@@ -14,12 +14,12 @@ This is an extending schema. It pulls `definitions` from other schemas.
 | Abstract | Extensible | Status | Custom Properties | Additional Properties | Defined In |
 |----------|------------|--------|-------------------|-----------------------|------------|
 | Can be instantiated | Yes | Experimental | Forbidden | Permitted | [extending.schema.json](extending.schema.json) |
-
 ## Schema Hierarchy
 
 * Extending `https://example.com/schemas/extending`
   * [Extensible](extensible.schema.md) `https://example.com/schemas/extensible`
   * [Definitions](definitions.schema.md) `https://example.com/schemas/definitions`
+
 
 # Extending Properties
 
