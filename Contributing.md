@@ -8,7 +8,7 @@ This project adheres to the Adobe [code of conduct](CODE_OF_CONDUCT.md). By part
 
 ## Contributor License Agreement
 
-All third-party contributions to this project must be accompanied by a signed contributor license. This gives Adobe permission to redistribute your contributions as part of the project. Sign our CLA at [SOME LINK](no link yet). You only need to submit an Adobe CLA one time, so if you have submitted one previously, you are probably good to go!
+All third-party contributions to this project must be accompanied by a signed contributor license. This gives Adobe permission to redistribute your contributions as part of the project. Sign our CLA at [http://opensource.adobe.com/cla.html](http://opensource.adobe.com/cla.html). You only need to submit an Adobe CLA one time, so if you have submitted one previously, you are probably good to go!
 
 ## Things to Keep in Mind
 
