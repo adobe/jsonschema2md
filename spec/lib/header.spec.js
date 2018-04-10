@@ -1,5 +1,12 @@
 const { Header, headers } = require('../../lib/header');
 
+beforeEach(function() {
+  jasmine.addMatchers(require('jasmine-diff')(jasmine, {
+    colors: true,
+    inline: true
+  }));
+});
+
 describe('Header Integration Test', () => {
   it('Renders a header without link if link is unknown', () => {
     const h = new Header('Foo');
@@ -25,17 +32,12 @@ describe('Header Integration Test', () => {
 describe('Headers Integration Test', () => {
   it('Abstract', () => {
     const schema = {
-      additionalProperties: true
-    };
-    const props = {
-      abstract: 'Can be instantiated',
-      extensible: 'No',
-      status: 'Experimental',
-      custom: 'Forbidden',
-      original: 'complex.schema.json'
+      additionalProperties: true,
+      'meta:extensible': false,
+      properties: { 'foo':'bar', 'bar': 'baz' }
     };
 
-    const h = headers(schema, props);
+    const h = headers(schema, '/home/lars', '/home/lars/complex.schema.json');
 
     const result = `| Abstract | Extensible | Status | Custom Properties | Additional Properties | Defined In |
 |----------|------------|--------|-------------------|-----------------------|------------|
