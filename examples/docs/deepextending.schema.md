@@ -14,13 +14,13 @@ This is an extending schema. It is extending another extending schema. It pulls 
 | Abstract | Extensible | Status | Custom Properties | Additional Properties | Defined In |
 |----------|------------|--------|-------------------|-----------------------|------------|
 | Can be instantiated | Yes | Experimental | Forbidden | Permitted | [deepextending.schema.json](deepextending.schema.json) |
-
 ## Schema Hierarchy
 
 * Deeply Extending `https://example.com/schemas/deepextending`
   * [Extensible](extensible.schema.md) `https://example.com/schemas/extensible`
   * [Definitions](definitions.schema.md) `https://example.com/schemas/definitions`
   * [Extending](extending.schema.md) `https://example.com/schemas/extending`
+
 
 # Deeply Extending Properties
 

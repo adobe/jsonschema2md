@@ -15,11 +15,7 @@
 <%= schema.description.replace(/\n/g, '\n\n') %>
 
 
-
-| Abstract | Extensible | Status | Custom Properties | Additional Properties | Defined In |
-|----------|------------|--------|-------------------|-----------------------|------------|
-| <%=props.abstract %> | <%=props.extensible %> | <%=props.status %> | <%=props.custom %> | <%= schema.additionalProperties===false ? "Forbidden" : "Permitted"  %> | [<%=props.original %>](<%=props.original %>) |
-
+<%= table %>
 <% if (dependencies.length > 0) { %>
 ## Schema Hierarchy
 

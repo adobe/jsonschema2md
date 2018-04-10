@@ -1,7 +1,12 @@
 const { spawn } = require('child_process');
 const { readFile, readdirSync } = require('fs');
 
-
+beforeEach(function() {
+  jasmine.addMatchers(require('jasmine-diff')(jasmine, {
+    colors: true,
+    inline: true
+  }));
+});
 
 describe('Process examples', () => {
   it('Run jsonschema2md on example schemas', done => {
