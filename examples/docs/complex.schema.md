@@ -14,12 +14,12 @@ This is an example schema that uses types defined in other schemas.
 | Abstract | Extensible | Status | Custom Properties | Additional Properties | Defined In |
 |----------|------------|--------|-------------------|-----------------------|------------|
 | Can be instantiated | No | Experimental | Forbidden | Permitted | [complex.schema.json](complex.schema.json) |
-
 ## Schema Hierarchy
 
 * Complex References  `https://example.com/schemas/complex`
   * [Abstract](abstract.schema.md) `https://example.com/schemas/abstract`
   * [Simple](simple.schema.md) `https://example.com/schemas/simple`
+
 
 # Complex References  Properties
 
