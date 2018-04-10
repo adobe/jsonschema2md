@@ -8,6 +8,7 @@
   },
   "scripts": {
     "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
     "start": "node cli.js",
     "test": "npm run lint && jasmine",
     "cover": "istanbul cover --root lib --print detail jasmine"
