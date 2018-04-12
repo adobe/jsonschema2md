@@ -25,7 +25,7 @@ Bre-
 
 aks.
 
-&gt; Everything is better with a quote.
+> Everything is better with a quote.
 
 
 | Abstract | Extensible | Status | Custom Properties | Additional Properties | Defined In |
