@@ -25,8 +25,8 @@ Bre-
 
 aks.
 
-| Abstract | Extensible | Status | Custom Properties | Additional Properties | Defined In |
-|----------|------------|--------|-------------------|-----------------------|------------|
+| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Custom Properties | Additional Properties | Defined In |
+|----------------------------|------------|------------------------|-------------------|-----------------------|------------|
 | Can be instantiated | Yes | Experimental | Forbidden | Permitted | [definitions.schema.json](definitions.schema.json) |
 
 # Definitions Properties

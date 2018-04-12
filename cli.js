@@ -47,7 +47,6 @@ var argv = require('optimist')
   .argv;
 
 const docs = _.fromPairs(_.toPairs(argv).filter(([ key, value ]) => { return key.startsWith('link-'); }).map(([ key, value ]) => { return [ key.substr(5), value ];}));
-console.log(docs);
 
 var ajv = new Ajv({ allErrors: true, messages:true });
 ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'));

@@ -11,8 +11,8 @@ https://example.com/schemas/simpletypes
 
 This is an example schema with examples for multiple types and their constraints.
 
-| Abstract | Extensible | Status | Custom Properties | Additional Properties | Defined In |
-|----------|------------|--------|-------------------|-----------------------|------------|
+| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Custom Properties | Additional Properties | Defined In |
+|----------------------------|------------|------------------------|-------------------|-----------------------|------------|
 | Can be instantiated | No | Experimental | Forbidden | Permitted | [simpletypes.schema.json](simpletypes.schema.json) |
 
 # Simple Types Properties

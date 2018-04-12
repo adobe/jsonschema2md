@@ -11,8 +11,8 @@ https://example.com/schemas/enums
 
 This is an example schema with examples for properties with enum values
 
-| Abstract | Extensible | Status | Custom Properties | Additional Properties | Defined In |
-|----------|------------|--------|-------------------|-----------------------|------------|
+| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Custom Properties | Additional Properties | Defined In |
+|----------------------------|------------|------------------------|-------------------|-----------------------|------------|
 | Can be instantiated | No | Experimental | Forbidden | Permitted | [enums.schema.json](enums.schema.json) |
 
 # Enumerated  Properties

@@ -11,8 +11,8 @@ https://example.com/schemas/custom
 
 This is an extensible schema. It has `definitions`, that can be used in other schemas. Additionally, it allows custom properties.
 
-| Abstract | Extensible | Status | Custom Properties | Additional Properties | Defined In |
-|----------|------------|--------|-------------------|-----------------------|------------|
+| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Custom Properties | Additional Properties | Defined In |
+|----------------------------|------------|------------------------|-------------------|-----------------------|------------|
 | Can be instantiated | Yes | Experimental | Allowed | Permitted | [custom.schema.json](custom.schema.json) |
 
 # Custom Properties
