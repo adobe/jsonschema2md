@@ -21,7 +21,9 @@ describe('Process examples', () => {
       '-m',
       'template=reference',
       '-m',
-      'foo=bar'
+      'foo=bar',
+      '--link-abstract',
+      '../abstract.md'
     ]);
 
     ls.on('close', code => {
