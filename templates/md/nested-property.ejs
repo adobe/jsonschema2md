@@ -9,7 +9,7 @@
 <% if (schema.title) { %>##### <%= schema.title %><% } %>
 
 
-<%= (""+schema.description).replace(/\n/g, '\n\n') %>
+<%- (""+schema.description).replace(/\n/g, '\n\n') %>
 
 
 `<%=name %>`

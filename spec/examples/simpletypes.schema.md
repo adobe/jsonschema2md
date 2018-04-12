@@ -61,7 +61,7 @@ Guess what number is valid
 
 ## interger_constrained
 
-Just a whole number. I don&#39;t like fractions. Don&#39;t get too small
+Just a whole number. I don't like fractions. Don't get too small
 
 `interger_constrained`
 * is optional
@@ -81,7 +81,7 @@ Just a whole number. I don&#39;t like fractions. Don&#39;t get too small
 
 ## interger_unconstrained
 
-Just a whole number. I don&#39;t like fractions.
+Just a whole number. I don't like fractions.
 
 `interger_unconstrained`
 * is optional
@@ -100,7 +100,7 @@ Just a whole number. I don&#39;t like fractions.
 
 ## number_constrained
 
-Just a number. Don&#39;t get too big.
+Just a number. Don't get too big.
 
 `number_constrained`
 * is optional

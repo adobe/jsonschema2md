@@ -43,7 +43,7 @@ aks.
 
 ## @id
 
-An `id` with an `@` in front of it. The `@` stands for &#34;dot com&#34;
+An `id` with an `@` in front of it. The `@` stands for "dot com"
 
 `@id`
 * is optional
