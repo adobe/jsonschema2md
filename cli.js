@@ -94,7 +94,7 @@ if (target.isDirectory()) {
       return Promise.reduce(files, readSchemaFile, schemaPathMap)
         .then(schemaMap => {
           logger.info('finished reading all *.schema.json files in %s, beginning processing….', schemaPath);
-          return Schema.process(schemaMap, schemaPath, outDir, schemaDir, metaElements, readme);
+          return Schema.process(schemaMap, schemaPath, outDir, schemaDir, metaElements, readme, docs);
         })
         .then(() => {
           logger.info('Processing complete.');
@@ -115,7 +115,7 @@ if (target.isDirectory()) {
       Schema.setAjv(ajv);
       Schema.setSchemaPathMap(schemaPathMap);
       logger.info('finished reading %s, beginning processing....', schemaPath);
-      return Schema.process(schemaMap, schemaPath, outDir, schemaDir, metaElements);
+      return Schema.process(schemaMap, schemaPath, outDir, schemaDir, metaElements, false, docs);
     })
     .then(() => {
       logger.info('Processing complete.');
