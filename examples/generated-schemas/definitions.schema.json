@@ -38,5 +38,5 @@
     "required": [
         "id"
     ],
-    "description": "This is an example of using a `definitions` object within a schema.\n\nIt is imported using `allOf` and `$ref`.\n\nAnd the description has line breaks.\n\nSo.\n\nMany.\n\nLine.\n\nBre-\n\naks."
+    "description": "This is an example of using a `definitions` object within a schema.\n\nIt is imported using `allOf` and `$ref`.\n\nAnd the description has line breaks.\n\nSo.\n\nMany.\n\nLine.\n\nBre-\n\naks.\n\n> Everything is better with a quote.\n"
 }
