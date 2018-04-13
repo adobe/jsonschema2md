@@ -25,6 +25,9 @@ Bre-
 
 aks.
 
+> Everything is better with a quote.
+
+
 | Abstract | Extensible | Status | Custom Properties | Additional Properties | Defined In |
 |----------|------------|--------|-------------------|-----------------------|------------|
 | Can be instantiated | Yes | Experimental | Forbidden | Permitted | [definitions.schema.json](definitions.schema.json) |
@@ -40,7 +43,7 @@ aks.
 
 ## @id
 
-An `id` with an `@` in front of it. The `@` stands for &#34;dot com&#34;
+An `id` with an `@` in front of it. The `@` stands for "dot com"
 
 `@id`
 * is optional

@@ -34,7 +34,7 @@ This is an extending schema. It pulls `definitions` from other schemas.
 
 ## @id
 
-An `id` with an `@` in front of it. The `@` stands for &#34;dot com&#34;
+An `id` with an `@` in front of it. The `@` stands for "dot com"
 
 `@id`
 * is optional
@@ -85,7 +85,7 @@ A horse walks into it.
 ## baz
 ### BAAAZ!
 
-This property has a unique name to demonstrate it&#39;s uniqueness.
+This property has a unique name to demonstrate it's uniqueness.
 
 `baz`
 * is optional

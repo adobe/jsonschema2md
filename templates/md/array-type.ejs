@@ -36,7 +36,7 @@ Unknown type `<%= schema.items.type %>`.
 
 <% if (schema.items.description!==undefined) { %>
   
-<%= (""+schema.items.description).replace(/\n/g, '\n\n') %>
+<%- (""+schema.items.description).replace(/\n/g, '\n\n') %>
 
 <% } %>
 
