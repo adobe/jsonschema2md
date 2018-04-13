@@ -11,8 +11,8 @@ https://example.com/schemas/extensible
 
 This is an extensible schema. It has `definitions`, that can be used in other schemas
 
-| Abstract | Extensible | Status | Custom Properties | Additional Properties | Defined In |
-|----------|------------|--------|-------------------|-----------------------|------------|
+| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Custom Properties | Additional Properties | Defined In |
+|----------------------------|------------|------------------------|-------------------|-----------------------|------------|
 | Cannot be instantiated | Yes | Experimental | Forbidden | Permitted | [extensible.schema.json](extensible.schema.json) |
 
 # Extensible Definitions

@@ -35,6 +35,7 @@ var argv = require('optimist')
   .describe('x', 'output JSON Schema files including description and validated examples in the _new folder at output directory')
   .alias('n', 'no-readme')
   .describe('n', 'Do not generate a README.md file in the output directory')
+  .describe('link-*', 'Add this file as a link the explain the * attribute, e.g. --link-abstract=abstract.md')
   .check(function(args) {
     if (!fs.existsSync(args.input)) {
       throw 'Input file "' + args.input + '" does not exist!';
@@ -44,6 +45,8 @@ var argv = require('optimist')
     }
   })
   .argv;
+
+const docs = _.fromPairs(_.toPairs(argv).filter(([ key, value ]) => { return key.startsWith('link-'); }).map(([ key, value ]) => { return [ key.substr(5), value ];}));
 
 var ajv = new Ajv({ allErrors: true, messages:true });
 ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'));
@@ -90,7 +93,7 @@ if (target.isDirectory()) {
       return Promise.reduce(files, readSchemaFile, schemaPathMap)
         .then(schemaMap => {
           logger.info('finished reading all *.schema.json files in %s, beginning processing….', schemaPath);
-          return Schema.process(schemaMap, schemaPath, outDir, schemaDir, metaElements, readme);
+          return Schema.process(schemaMap, schemaPath, outDir, schemaDir, metaElements, readme, docs);
         })
         .then(() => {
           logger.info('Processing complete.');
@@ -111,7 +114,7 @@ if (target.isDirectory()) {
       Schema.setAjv(ajv);
       Schema.setSchemaPathMap(schemaPathMap);
       logger.info('finished reading %s, beginning processing....', schemaPath);
-      return Schema.process(schemaMap, schemaPath, outDir, schemaDir, metaElements);
+      return Schema.process(schemaMap, schemaPath, outDir, schemaDir, metaElements, false, docs);
     })
     .then(() => {
       logger.info('Processing complete.');

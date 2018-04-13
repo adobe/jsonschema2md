@@ -11,8 +11,8 @@ https://example.com/schemas/abstract
 
 This is an abstract schema. It has `definitions`, but does not declare any properties
 
-| Abstract | Extensible | Status | Custom Properties | Additional Properties | Defined In |
-|----------|------------|--------|-------------------|-----------------------|------------|
+| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Custom Properties | Additional Properties | Defined In |
+|----------------------------|------------|------------------------|-------------------|-----------------------|------------|
 | Cannot be instantiated | Yes | Experimental | Forbidden | Permitted | [abstract.schema.json](abstract.schema.json) |
 
 # Abstract Definitions
