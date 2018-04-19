@@ -12,7 +12,9 @@
 ```
 
 
+<% if (schema.description!==undefined) { %>
 <%- schema.description.replace(/\n/g, '\n\n') %>
+<% } %>
 
 
 <%= table %>
