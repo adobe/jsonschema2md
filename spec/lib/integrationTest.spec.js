@@ -36,6 +36,25 @@ describe('Compare results', () => {
     });
   });
 
+  it('Run jsonschema2md for custom file extension', done => {
+    const ls = spawn('node', [
+      'cli.js',
+      '-d',
+      'examples/schemas',
+      '-o',
+      'examples/docs',
+      '-x',
+      'examples/generated-schemas',
+      '-e',
+      'js'
+    ]);
+
+    ls.on('close', code => {
+      expect(code).toEqual(1);
+      done();
+    });
+  });
+
   const files = readdirSync('./spec/examples');
 
   files.forEach(file => {
