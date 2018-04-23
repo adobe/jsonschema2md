@@ -32,6 +32,24 @@ describe('Compare results', () => {
 
     ls.on('close', code => {
       expect(code).toEqual(0);
+
+      const files = readdirSync('./spec/examples');
+
+      files.forEach(file => {
+        if (statSync('./spec/examples/' + file).isFile()) {
+          it('Comparing ' + file, indone => {
+            console.log('file ' + file);
+            readFile('./spec/examples/' + file, (err, expectedbuf) => {
+              expect(err).toBeNull();
+              readFile('./examples/docs/' + file, (err, actualbuf) => {
+                expect(err).toBeNull();
+                expect(actualbuf.toString()).toEqual(expectedbuf.toString());
+                indone();
+              });
+            });
+          });
+        }
+      });
       done();
     });
   });
@@ -53,23 +71,5 @@ describe('Compare results', () => {
       expect(code).toEqual(0);
       done();
     });
-  });
-
-  const files = readdirSync('./spec/examples');
-
-  files.forEach(file => {
-    if (statSync('./spec/examples/' + file).isFile()) {
-      it('Comparing ' + file, done => {
-        console.log('file ' + file);
-        readFile('./spec/examples/' + file, (err, expectedbuf) => {
-          expect(err).toBeNull();
-          readFile('./examples/docs/' + file, (err, actualbuf) => {
-            expect(err).toBeNull();
-            expect(actualbuf.toString()).toEqual(expectedbuf.toString());
-            done();
-          });
-        });
-      });
-    }
   });
 });
