@@ -25,3 +25,4 @@
 ## /subdir/
 
 * [Subdir](./subdir/subdir.schema.md) – `https://example.com/schemas/subdir/subdir`
+
