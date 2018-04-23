@@ -23,7 +23,7 @@ var argv = require('optimist')
   .demand('d')
   .alias('d', 'input')
   // TODO: is baseURL still a valid parameter?
-  .describe('d', 'path to directory containing all JSON Schemas or a single JSON Schema file. This will be considered as the baseURL. Note that only files ending in .schema.json will be processed.')
+  .describe('d', 'path to directory containing all JSON Schemas or a single JSON Schema file. This will be considered as the baseURL. By default only files ending in .schema.json will be processed, unless the schema-extension is set with the -e flag.')
   .alias('o', 'out')
   .describe('o', 'path to output directory')
   .default('o', path.resolve(path.join('.', 'out')))
@@ -33,6 +33,8 @@ var argv = require('optimist')
   .describe('s', 'Custom meta schema path to validate schemas')
   .alias('x', 'schema-out')
   .describe('x', 'output JSON Schema files including description and validated examples in the _new folder at output directory')
+  .alias('e', 'schema-extension')
+  .describe('e', 'JSON Schema file extension eg. schema.json or json')
   .alias('n', 'no-readme')
   .describe('n', 'Do not generate a README.md file in the output directory')
   .describe('link-*', 'Add this file as a link the explain the * attribute, e.g. --link-abstract=abstract.md')
@@ -57,6 +59,7 @@ var outDir = path.resolve(argv.o);
 var schemaDir = argv.x ? path.resolve(argv.x) : outDir;
 var target = fs.statSync(schemaPath);
 const readme = argv.n !== true;
+const schemaExtension = argv.e || 'schema.json';
 
 if (argv.s){
   ajv.addMetaSchema(require(path.resolve(argv.s)));
@@ -82,7 +85,7 @@ logger.info('output directory: %s', outDir);
 if (target.isDirectory()) {
   // the ajv json validator will be passed into the main module to help with processing
   var files=[];
-  readdirp({ root: schemaPath, fileFilter: '*.schema.json' })
+  readdirp({ root: schemaPath, fileFilter: `*.${schemaExtension}` })
     .on('data', entry => {
       files.push(entry.fullPath);
       ajv.addSchema(require(entry.fullPath), entry.fullPath);
@@ -92,7 +95,7 @@ if (target.isDirectory()) {
       Schema.setSchemaPathMap(schemaPathMap);
       return Promise.reduce(files, readSchemaFile, schemaPathMap)
         .then(schemaMap => {
-          logger.info('finished reading all *.schema.json files in %s, beginning processing….', schemaPath);
+          logger.info('finished reading all *.%s files in %s, beginning processing….', schemaExtension, schemaPath);
           return Schema.process(schemaMap, schemaPath, outDir, schemaDir, metaElements, readme, docs);
         })
         .then(() => {
