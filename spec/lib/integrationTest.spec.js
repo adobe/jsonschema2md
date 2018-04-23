@@ -50,7 +50,7 @@ describe('Compare results', () => {
     ]);
 
     ls.on('close', code => {
-      expect(code).toEqual(1);
+      expect(code).toEqual(0);
       done();
     });
   });
