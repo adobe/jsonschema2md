@@ -7,8 +7,9 @@
 
  # Readme
 
-<% for(group in groups) {%>
 
+<% _.forIn(groups, (schemas, group) => { %>
 ## <%= group %>
-<% for(let i=0; i<groups[group].length; i++) { %>
-* [<%= groups[group][i].title %>](.<%= groups[group][i].relative %>.schema.md) – `<%= groups[group][i].id %>`<% }} %>
+<% _.forEach(_.sortBy(schemas, [o => { return o.title }]), schema => { %>
+* [<%= schema.title %>](.<%= schema.relative %>.schema.md) – `<%= schema.id %>`<% }); %>
+<% }); %>
