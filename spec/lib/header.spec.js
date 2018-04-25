@@ -39,9 +39,9 @@ describe('Headers Integration Test', () => {
 
     const h = headers(schema, '/home/lars', '/home/lars/complex.schema.json');
 
-    const result = `| Abstract | Extensible | Status | Custom Properties | Additional Properties | Defined In |
-|----------|------------|--------|-------------------|-----------------------|------------|
-| Can be instantiated | No | Experimental | Forbidden | Permitted | [complex.schema.json](complex.schema.json) |`;
+    const result = `| Abstract | Extensible | Status | Identifiable | Custom Properties | Additional Properties | Defined In |
+|----------|------------|--------|--------------|-------------------|-----------------------|------------|
+| Can be instantiated | No | Experimental | No | Forbidden | Permitted | [complex.schema.json](complex.schema.json) |`;
     expect(h.render()).toEqual(result);
   });
 

@@ -11,9 +11,9 @@ https://example.com/schemas/deepextending
 
 This is an extending schema. It is extending another extending schema. It pulls `definitions` from other schemas.
 
-| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Custom Properties | Additional Properties | Defined In |
-|----------------------------|------------|------------------------|-------------------|-----------------------|------------|
-| Can be instantiated | Yes | Experimental | Forbidden | Permitted | [deepextending.schema.json](deepextending.schema.json) |
+| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Identifiable | Custom Properties | Additional Properties | Defined In |
+|----------------------------|------------|------------------------|--------------|-------------------|-----------------------|------------|
+| Can be instantiated | Yes | Experimental | No | Forbidden | Permitted | [deepextending.schema.json](deepextending.schema.json) |
 ## Schema Hierarchy
 
 * Deeply Extending `https://example.com/schemas/deepextending`

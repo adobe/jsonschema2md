@@ -28,9 +28,9 @@ aks.
 > Everything is better with a quote.
 
 
-| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Custom Properties | Additional Properties | Defined In |
-|----------------------------|------------|------------------------|-------------------|-----------------------|------------|
-| Can be instantiated | Yes | Experimental | Forbidden | Permitted | [definitions.schema.json](definitions.schema.json) |
+| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Identifiable | Custom Properties | Additional Properties | Defined In |
+|----------------------------|------------|------------------------|--------------|-------------------|-----------------------|------------|
+| Can be instantiated | Yes | Experimental | No | Forbidden | Permitted | [definitions.schema.json](definitions.schema.json) |
 
 # Definitions Properties
 
