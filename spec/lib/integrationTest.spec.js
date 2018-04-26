@@ -55,7 +55,7 @@ describe('Compare results', () => {
       expect(code).toEqual(0);
 
       const files = readdirSync('./spec/examples');
-      expect(files.length).toEqual(17);
+      expect(files.length).toEqual(18);
       done();
     });
   });

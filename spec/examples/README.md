@@ -18,6 +18,7 @@
 * [Examples](./examples.schema.md) – `https://example.com/schemas/examples`
 * [Extending](./extending.schema.md) – `https://example.com/schemas/extending`
 * [Extensible](./extensible.schema.md) – `https://example.com/schemas/extensible`
+* [Identifiable](./identifiable.schema.md) – `https://example.com/schemas/identifiable`
 * [Simple](./simple.schema.md) – `https://example.com/schemas/simple`
 * [Simple Types](./simpletypes.schema.md) – `https://example.com/schemas/simpletypes`
 * [Stabilizing](./stabilizing.schema.md) – `https://example.com/schemas/stabilizing`

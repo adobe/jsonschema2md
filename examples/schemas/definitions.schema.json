@@ -14,12 +14,12 @@
       "properties": {
         "id": {
           "type": "string",
-          "format": "uri",
+          "format": "uri-reference",
           "description": "A unique identifier given to every addressable thing."
         },
         "@id": {
           "type": "string",
-          "format": "uri-reference",
+          "format": "uri",
           "description": "An `id` with an `@` in front of it. The `@` stands for \"dot com\""
         },
         "meta:id": {
