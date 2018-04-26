@@ -50,7 +50,6 @@ describe('Compare results', () => {
       '--link-status',
       'status.md'
     ]);
-
     ls.on('close', code => {
       expect(code).toEqual(0);
 
