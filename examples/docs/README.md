@@ -6,24 +6,24 @@
 
 ## /
 
-* [Abstract](./abstract.schema.md) – `https://example.com/schemas/abstract`
-* [Arrays](./arrays.schema.md) – `https://example.com/schemas/arrays`
-* [Complex References ](./complex.schema.md) – `https://example.com/schemas/complex`
-* [Constant Types](./constants.schema.md) – `https://example.com/schemas/constants`
-* [Custom](./custom.schema.md) – `https://example.com/schemas/custom`
-* [Deeply Extending](./deepextending.schema.md) – `https://example.com/schemas/deepextending`
-* [Definitions](./definitions.schema.md) – `https://example.com/schemas/definitions`
-* [Enumerated ](./enums.schema.md) – `https://example.com/schemas/enums`
-* [Example](./example.schema.md) – `https://example.com/schemas/example`
-* [Examples](./examples.schema.md) – `https://example.com/schemas/examples`
-* [Extending](./extending.schema.md) – `https://example.com/schemas/extending`
-* [Extensible](./extensible.schema.md) – `https://example.com/schemas/extensible`
-* [Identifiable](./identifiable.schema.md) – `https://example.com/schemas/identifiable`
-* [Simple](./simple.schema.md) – `https://example.com/schemas/simple`
-* [Simple Types](./simpletypes.schema.md) – `https://example.com/schemas/simpletypes`
-* [Stabilizing](./stabilizing.schema.md) – `https://example.com/schemas/stabilizing`
+* [Abstract](./abstract.schema.md) – `https://example.com/schemas/abstract` (Unknown)
+* [Arrays](./arrays.schema.md) – `https://example.com/schemas/arrays` (Unknown)
+* [Complex References ](./complex.schema.md) – `https://example.com/schemas/complex` (Unknown)
+* [Constant Types](./constants.schema.md) – `https://example.com/schemas/constants` (Unknown)
+* [Custom](./custom.schema.md) – `https://example.com/schemas/custom` (Unknown)
+* [Deeply Extending](./deepextending.schema.md) – `https://example.com/schemas/deepextending` (Unknown)
+* [Definitions](./definitions.schema.md) – `https://example.com/schemas/definitions` (Unknown)
+* [Enumerated ](./enums.schema.md) – `https://example.com/schemas/enums` (Unknown)
+* [Example](./example.schema.md) – `https://example.com/schemas/example` (Unknown)
+* [Examples](./examples.schema.md) – `https://example.com/schemas/examples` (Unknown)
+* [Extending](./extending.schema.md) – `https://example.com/schemas/extending` (Unknown)
+* [Extensible](./extensible.schema.md) – `https://example.com/schemas/extensible` (Unknown)
+* [Identifiable](./identifiable.schema.md) – `https://example.com/schemas/identifiable` (Unknown)
+* [Simple](./simple.schema.md) – `https://example.com/schemas/simple` (Unknown)
+* [Simple Types](./simpletypes.schema.md) – `https://example.com/schemas/simpletypes` (Unknown)
+* [Stabilizing](./stabilizing.schema.md) – `https://example.com/schemas/stabilizing` (Stabilizing)
 
 ## /subdir/
 
-* [Subdir](./subdir/subdir.schema.md) – `https://example.com/schemas/subdir/subdir`
+* [Subdir](./subdir/subdir.schema.md) – `https://example.com/schemas/subdir/subdir` (Unknown)
 
