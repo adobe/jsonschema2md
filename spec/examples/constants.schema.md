@@ -11,9 +11,9 @@ https://example.com/schemas/constants
 
 This is an example schema with examples for properties with constant values
 
-| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Custom Properties | Additional Properties | Defined In |
-|----------------------------|------------|------------------------|-------------------|-----------------------|------------|
-| Can be instantiated | No | Experimental | Forbidden | Permitted | [constants.schema.json](constants.schema.json) |
+| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Identifiable | Custom Properties | Additional Properties | Defined In |
+|----------------------------|------------|------------------------|--------------|-------------------|-----------------------|------------|
+| Can be instantiated | No | Experimental | No | Forbidden | Permitted | [constants.schema.json](constants.schema.json) |
 
 # Constant Types Properties
 
