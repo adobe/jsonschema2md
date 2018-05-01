@@ -36,8 +36,8 @@ aks.
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
-| [@id](#@id) | `string` | Optional | Definitions (this schema) |
-| [id](#id) | `string` | **Required** | Definitions (this schema) |
+| [@id](#id) | `string` | Optional | Definitions (this schema) |
+| [id](#id-1) | `string` | **Required** | Definitions (this schema) |
 | [meta:id](#metaid) | `string` | Optional | Definitions (this schema) |
 | `*` | any | Additional | this schema *allows* additional properties |
 
