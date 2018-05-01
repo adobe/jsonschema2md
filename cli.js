@@ -88,7 +88,13 @@ if (target.isDirectory()) {
   readdirp({ root: schemaPath, fileFilter: `*.${schemaExtension}` })
     .on('data', entry => {
       files.push(entry.fullPath);
-      ajv.addSchema(require(entry.fullPath), entry.fullPath);
+      try {
+        ajv.addSchema(require(entry.fullPath), entry.fullPath);
+      }catch(e){
+        logger.error('Ajv processing error for schema at path %s',entry.fullPath);
+        logger.error(e);
+        process.exit(1);
+      }
     })
     .on('end', () => {
       Schema.setAjv(ajv);
