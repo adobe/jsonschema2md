@@ -11,9 +11,9 @@
 |----------|------|----------|------------|
 <% _.keys(props).sort().forEach(property => {
   const schema = props[property]; %>
-| [<%= property %>](#<%= property.replace(':', '').toLowerCase() %>) | <%= schema.simpletype %> | <%= schema.isrequired === true ? "**Required**" : "Optional" %> | <% 
+| [<%= property %>](#<%= propertiesSlugs[property] %>) | <%= schema.simpletype %> | <%= schema.isrequired === true ? "**Required**" : "Optional" %> | <% 
     if (schema.$oSchema) { 
-      %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= property.replace(':', '').toLowerCase() %>)<% 
+      %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= propertiesSlugs[property] %>)<% 
     } else { 
       %><%= title %> (this schema)<% } %> |
 <%

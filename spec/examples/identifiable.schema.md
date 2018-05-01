@@ -19,7 +19,7 @@ This is a *very* simple example of a JSON schema. There is only one property.
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
-| [@id](#@id) | `string` | Optional | Identifiable (this schema) |
+| [@id](#id) | `string` | Optional | Identifiable (this schema) |
 | `*` | any | Additional | this schema *allows* additional properties |
 
 ## @id

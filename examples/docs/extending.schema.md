@@ -25,10 +25,10 @@ This is an extending schema. It pulls `definitions` from other schemas.
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
-| [@id](#@id) | `string` | Optional | [Definitions](definitions.schema.md#@id) |
+| [@id](#id) | `string` | Optional | [Definitions](definitions.schema.md#id) |
 | [bar](#bar) | `string` | Optional | [Extensible](extensible.schema.md#bar) |
 | [baz](#baz) | `string` | Optional | Extending (this schema) |
-| [id](#id) | `string` | Optional | [Definitions](definitions.schema.md#id) |
+| [id](#id-1) | `string` | Optional | [Definitions](definitions.schema.md#id-1) |
 | [meta:id](#metaid) | `string` | Optional | [Definitions](definitions.schema.md#metaid) |
 | `*` | any | Additional | this schema *allows* additional properties |
 
@@ -39,7 +39,7 @@ An `id` with an `@` in front of it. The `@` stands for "dot com"
 `@id`
 * is optional
 * type: `string`
-* defined in [Definitions](definitions.schema.md#@id)
+* defined in [Definitions](definitions.schema.md#id)
 
 ### @id Type
 
@@ -115,7 +115,7 @@ A unique identifier given to every addressable thing.
 `id`
 * is optional
 * type: `string`
-* defined in [Definitions](definitions.schema.md#id)
+* defined in [Definitions](definitions.schema.md#id-1)
 
 ### id Type
 
@@ -135,7 +135,7 @@ An about ids. It is meta. If you are confused, send an email to the address spec
 `meta:id`
 * is optional
 * type: `string`
-* defined in [Definitions](definitions.schema.md#meta:id)
+* defined in [Definitions](definitions.schema.md#metaid)
 
 ### meta:id Type
 

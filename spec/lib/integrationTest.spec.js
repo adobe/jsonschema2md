@@ -52,14 +52,13 @@ describe('Compare results', () => {
     ]);
     ls.on('close', code => {
       expect(code).toEqual(0);
-
-      const files = readdirSync('./spec/examples');
+      const files = readdirSync('./spec/examples').filter(item => !(/(^|\/)\.[^\/\.]/g).test(item));
       expect(files.length).toEqual(18);
       done();
     });
   });
 
-  const files = readdirSync('./spec/examples');
+  const files = readdirSync('./spec/examples').filter(item => !(/(^|\/)\.[^\/\.]/g).test(item));
   files.forEach(file => {
     if (statSync('./spec/examples/' + file).isFile()) {
       it('Comparing ' + file, indone => {
