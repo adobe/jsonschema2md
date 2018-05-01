@@ -90,8 +90,8 @@ if (target.isDirectory()) {
       files.push(entry.fullPath);
       try {
         ajv.addSchema(require(entry.fullPath), entry.fullPath);
-      }catch(e){
-        logger.error('Ajv processing error for schema at path %s',entry.fullPath);
+      } catch (e){
+        logger.error('Ajv processing error for schema at path %s', entry.fullPath);
         logger.error(e);
         process.exit(1);
       }
