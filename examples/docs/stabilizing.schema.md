@@ -11,9 +11,9 @@ https://example.com/schemas/stabilizing
 
 This is a schema which is currently in the `stabilizing` status.
 
-| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Custom Properties | Additional Properties | Defined In |
-|----------------------------|------------|------------------------|-------------------|-----------------------|------------|
-| Can be instantiated | No | Stabilizing | Forbidden | Permitted | [stabilizing.schema.json](stabilizing.schema.json) |
+| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Identifiable | Custom Properties | Additional Properties | Defined In |
+|----------------------------|------------|------------------------|--------------|-------------------|-----------------------|------------|
+| Can be instantiated | No | Stabilizing | No | Forbidden | Permitted | [stabilizing.schema.json](stabilizing.schema.json) |
 
 # Stabilizing Properties
 

@@ -3,35 +3,35 @@ template: reference
 foo: bar
 ---
 
-# Simple Schema
+# Identifiable Schema
 
 ```
-https://example.com/schemas/simple
+https://example.com/schemas/identifiable
 ```
 
 This is a *very* simple example of a JSON schema. There is only one property.
 
 | [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Identifiable | Custom Properties | Additional Properties | Defined In |
 |----------------------------|------------|------------------------|--------------|-------------------|-----------------------|------------|
-| Can be instantiated | No | Experimental | No | Forbidden | Permitted | [simple.schema.json](simple.schema.json) |
+| Can be instantiated | No | Experimental | Yes | Forbidden | Permitted | [identifiable.schema.json](identifiable.schema.json) |
 
-# Simple Properties
+# Identifiable Properties
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
-| [id](#id) | `string` | Optional | Simple (this schema) |
+| [@id](#id) | `string` | Optional | Identifiable (this schema) |
 | `*` | any | Additional | this schema *allows* additional properties |
 
-## id
+## @id
 
 A unique identifier given to every addressable thing.
 
-`id`
+`@id`
 * is optional
 * type: `string`
 * defined in this schema
 
-### id Type
+### @id Type
 
 
 `string`

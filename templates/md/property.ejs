@@ -19,7 +19,7 @@
 else if (schema.maxItems!==undefined                             ) { %>* no more than `<%=schema.maxItems %>` items in the array<% }
 else if (schema.minItems!==undefined                             ) { %>* at least `<%=schema.minItems %>` items in the array<% } %>
 <% } %>
-* defined in <% if (schema.$oSchema) { %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= name %>)<% } else { %>this schema<% } %>
+* defined in <% if (schema.$oSchema) { %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= nameSlug %>)<% } else { %>this schema<% } %>
 
 <% if (schema.const!==undefined) { %>
 The value of this property **must** be equal to:
@@ -30,7 +30,7 @@ The value of this property **must** be equal to:
 ```
 
 <% } else if (schema.enum!==undefined) { %>
-The value of this property **must** be equal to one of the [known values below](#<%=name %>-known-values).
+The value of this property **must** be equal to one of the [known values below](#<%=nameSlug %>-known-values).
 <% } else { %>
 
 ### <%=name %> Type
@@ -42,7 +42,7 @@ The value of this property **must** be equal to one of the [known values below](
 <% } else if (schema.type==="boolean") { %>
 <%- include("boolean-type",{schema:schema,_:_}) %>
 <% } else if (schema.type==="object") { %>
-<%- include("object-type",{schema:schema,_:_}) %>
+<%- include("object-type",{schema:schema,_:_,nameSlug:nameSlug}) %>
 <% } else if (schema.type==="array") { %>
 <%- include("array-type",{schema:schema,_:_,nested:false,ejs:ejs}) %>
 <% } else if (schema.$ref!==undefined) { %>

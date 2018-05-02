@@ -28,16 +28,16 @@ aks.
 > Everything is better with a quote.
 
 
-| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Custom Properties | Additional Properties | Defined In |
-|----------------------------|------------|------------------------|-------------------|-----------------------|------------|
-| Can be instantiated | Yes | Experimental | Forbidden | Permitted | [definitions.schema.json](definitions.schema.json) |
+| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Identifiable | Custom Properties | Additional Properties | Defined In |
+|----------------------------|------------|------------------------|--------------|-------------------|-----------------------|------------|
+| Can be instantiated | Yes | Experimental | Yes | Forbidden | Permitted | [definitions.schema.json](definitions.schema.json) |
 
 # Definitions Properties
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
-| [@id](#@id) | `string` | Optional | Definitions (this schema) |
-| [id](#id) | `string` | **Required** | Definitions (this schema) |
+| [@id](#id) | `string` | Optional | Definitions (this schema) |
+| [id](#id-1) | `string` | **Required** | Definitions (this schema) |
 | [meta:id](#metaid) | `string` | Optional | Definitions (this schema) |
 | `*` | any | Additional | this schema *allows* additional properties |
 
@@ -54,7 +54,7 @@ An `id` with an `@` in front of it. The `@` stands for "dot com"
 
 
 `string`
-* format: `uri-reference` – URI Reference (according to [RFC3986](https://tools.ietf.org/html/rfc3986))
+* format: `uri` – Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 
 
@@ -74,7 +74,7 @@ A unique identifier given to every addressable thing.
 
 
 `string`
-* format: `uri` – Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
+* format: `uri-reference` – URI Reference (according to [RFC3986](https://tools.ietf.org/html/rfc3986))
 
 
 

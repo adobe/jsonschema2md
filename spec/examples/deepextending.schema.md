@@ -11,9 +11,9 @@ https://example.com/schemas/deepextending
 
 This is an extending schema. It is extending another extending schema. It pulls `definitions` from other schemas.
 
-| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Custom Properties | Additional Properties | Defined In |
-|----------------------------|------------|------------------------|-------------------|-----------------------|------------|
-| Can be instantiated | Yes | Experimental | Forbidden | Permitted | [deepextending.schema.json](deepextending.schema.json) |
+| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Identifiable | Custom Properties | Additional Properties | Defined In |
+|----------------------------|------------|------------------------|--------------|-------------------|-----------------------|------------|
+| Can be instantiated | Yes | Experimental | Yes | Forbidden | Permitted | [deepextending.schema.json](deepextending.schema.json) |
 ## Schema Hierarchy
 
 * Deeply Extending `https://example.com/schemas/deepextending`
@@ -26,11 +26,11 @@ This is an extending schema. It is extending another extending schema. It pulls 
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
-| [@id](#@id) | `string` | Optional | [Definitions](definitions.schema.md#@id) |
+| [@id](#id) | `string` | Optional | [Definitions](definitions.schema.md#id) |
 | [bar](#bar) | `string` | Optional | [Extensible](extensible.schema.md#bar) |
 | [baz](#baz) | `string` | Optional | [Extending](extending.schema.md#baz) |
 | [hey](#hey) | `string` | Optional | Deeply Extending (this schema) |
-| [id](#id) | `string` | Optional | [Definitions](definitions.schema.md#id) |
+| [id](#id-1) | `string` | Optional | [Definitions](definitions.schema.md#id-1) |
 | [meta:id](#metaid) | `string` | Optional | [Definitions](definitions.schema.md#metaid) |
 | `*` | any | Additional | this schema *allows* additional properties |
 
@@ -41,13 +41,13 @@ An `id` with an `@` in front of it. The `@` stands for "dot com"
 `@id`
 * is optional
 * type: `string`
-* defined in [Definitions](definitions.schema.md#@id)
+* defined in [Definitions](definitions.schema.md#id)
 
 ### @id Type
 
 
 `string`
-* format: `uri-reference` – URI Reference (according to [RFC3986](https://tools.ietf.org/html/rfc3986))
+* format: `uri` – Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 
 
@@ -136,13 +136,13 @@ A unique identifier given to every addressable thing.
 `id`
 * is optional
 * type: `string`
-* defined in [Definitions](definitions.schema.md#id)
+* defined in [Definitions](definitions.schema.md#id-1)
 
 ### id Type
 
 
 `string`
-* format: `uri` – Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
+* format: `uri-reference` – URI Reference (according to [RFC3986](https://tools.ietf.org/html/rfc3986))
 
 
 
@@ -156,7 +156,7 @@ An about ids. It is meta. If you are confused, send an email to the address spec
 `meta:id`
 * is optional
 * type: `string`
-* defined in [Definitions](definitions.schema.md#meta:id)
+* defined in [Definitions](definitions.schema.md#metaid)
 
 ### meta:id Type
 
