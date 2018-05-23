@@ -11,7 +11,7 @@
 |----------|------|----------|---------|------------|
 <% _.keys(props).sort().forEach(property => {
   const schema = props[property]; %>
-| [<%= property %>](#<%= propertiesSlugs[property] %>) | <%= schema.simpletype %> | <%= schema.isrequired === true ? "**Required**" : "Optional" %> | `<%= JSON.stringify(schema.default) %>` | <%
+| [<%= property %>](#<%= propertiesSlugs[property] %>) | <%= schema.simpletype %> | <%= schema.isrequired === true ? "**Required**" : "Optional" %> | <% if (schema.default!==undefined) { %>`<%= JSON.stringify(schema.default) %>`<% } %> | <%
     if (schema.$oSchema) { 
       %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= propertiesSlugs[property] %>)<% 
     } else { 
