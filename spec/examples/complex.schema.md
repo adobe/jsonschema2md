@@ -117,7 +117,7 @@ String or number…
 `object` with following properties:
 
 
-| Property | Type | Required
+| Property | Type | Required |
 |----------|------|----------|
 | `foo`| string | Optional | 
 | `nonfoo`| boolean | Optional | 

@@ -208,7 +208,7 @@ All items must be of the type:
 `object` with following properties:
 
 
-| Property | Type | Required
+| Property | Type | Required |
 |----------|------|----------|
 | `a`| string | **Required** | 
 | `b`| integer | Optional | 
