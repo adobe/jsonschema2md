@@ -132,7 +132,6 @@ A unique identifier given to every addressable thing.
 * is optional
 * type: `string`
 
-
 ##### foo Type
 
 

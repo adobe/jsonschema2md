@@ -37,7 +37,6 @@ This is an array
 * is optional
 * type: `boolean[]`
 * at least `1` items in the array
-
 * defined in this schema
 
 ### boollist Type
@@ -62,7 +61,6 @@ This is an array of coordinates in three-dimensional space.
 * is optional
 * type: `number[][]` (nested array)
 * no more than `10` items in the array
-
 * defined in this schema
 
 ### coordinatelist Type
@@ -97,7 +95,6 @@ This is an array
 * is optional
 * type: `integer[]`
 * between `1` and `10` items in the array
-
 * defined in this schema
 
 ### intlist Type
@@ -174,7 +171,6 @@ This is an array
 * is optional
 * type: `number[]`
 * no more than `10` items in the array
-
 * defined in this schema
 
 ### numlist Type
@@ -227,7 +223,6 @@ The a property
 * is **required**
 * type: `string`
 
-
 ##### a Type
 
 
@@ -247,7 +242,6 @@ The b property
 `b`
 * is optional
 * type: `integer`
-
 
 ##### b Type
 

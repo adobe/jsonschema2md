@@ -21,8 +21,7 @@ Applies to all properties that match the regular expression `<%=name %>`
 <%   if (schema.maxItems!==undefined&&schema.minItems!==undefined) { %>* between `<%=schema.minItems %>` and `<%=schema.maxItems %>` items in the array<% } 
 else if (schema.maxItems!==undefined                             ) { %>* no more than `<%=schema.maxItems %>` items in the array<% }
 else if (schema.minItems!==undefined                             ) { %>* at least `<%=schema.minItems %>` items in the array<% } %>
-<% } %>
-<% if (schema.default!==undefined) { %>
+<% } %><% if (schema.default!==undefined) { %>
 * default: `<%= JSON.stringify(schema.default) %>`
 <% } %>
 * defined in <% if (schema.$oSchema) { %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= name %>)<% } else { %>this schema<% } %>
