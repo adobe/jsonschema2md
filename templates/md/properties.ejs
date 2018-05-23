@@ -20,7 +20,7 @@
 });
 %><% _.keys(pprops).forEach(property => {
   const schema = pprops[property]; %>
-| `<%= property.replace(':', '') %>` | <%= schema.simpletype %> | Pattern | <% 
+| `<%= property.replace(':', '') %>` | <%= schema.simpletype %> | Pattern | <% if (schema.default!==undefined) { %>`<%= JSON.stringify(schema.default) %>`<% } %> | <%
     if (schema.$oSchema) { 
       %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= property.replace(':', '').toLowerCase() %>)<% 
     } else { 
