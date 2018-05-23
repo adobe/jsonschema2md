@@ -6,12 +6,13 @@
  */ %>
 # <%=title %> Properties
 
+<% const hasDefault = _.keys(props).filter(property => _.has(props, property + '.default')).length > 0; %>
 
-| Property | Type | Required | Default | Defined by |
-|----------|------|----------|---------|------------|
+| Property | Type | Required |<% if(hasDefault) { %> Default |<% } %> Defined by |
+|----------|------|----------|<% if(hasDefault) { %>---------|<% } %>------------|
 <% _.keys(props).sort().forEach(property => {
   const schema = props[property]; %>
-| [<%= property %>](#<%= propertiesSlugs[property] %>) | <%= schema.simpletype %> | <%= schema.isrequired === true ? "**Required**" : "Optional" %> | <% if (schema.default!==undefined) { %>`<%= JSON.stringify(schema.default) %>`<% } %> | <%
+| [<%= property %>](#<%= propertiesSlugs[property] %>) | <%= schema.simpletype %> | <%= schema.isrequired === true ? "**Required**" : "Optional" %> |<% if(hasDefault) { %> <% if (schema.default!==undefined) { %>`<%= JSON.stringify(schema.default) %>`<% } %> |<% } %> <%
     if (schema.$oSchema) { 
       %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= propertiesSlugs[property] %>)<% 
     } else { 
@@ -20,7 +21,7 @@
 });
 %><% _.keys(pprops).forEach(property => {
   const schema = pprops[property]; %>
-| `<%= property.replace(':', '') %>` | <%= schema.simpletype %> | Pattern | <% if (schema.default!==undefined) { %>`<%= JSON.stringify(schema.default) %>`<% } %> | <%
+| `<%= property.replace(':', '') %>` | <%= schema.simpletype %> | Pattern |<% if(hasDefault) { %> <% if (schema.default!==undefined) { %>`<%= JSON.stringify(schema.default) %>`<% } %> |<% } %> <%
     if (schema.$oSchema) { 
       %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= property.replace(':', '').toLowerCase() %>)<% 
     } else { 
