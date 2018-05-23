@@ -117,10 +117,10 @@ String or number…
 `object` with following properties:
 
 
-| Property | Type | Required
+| Property | Type | Required |
 |----------|------|----------|
-| `foo`| string | Optional | 
-| `nonfoo`| boolean | Optional | 
+| `foo`| string | Optional |
+| `nonfoo`| boolean | Optional |
 
 
 
@@ -131,6 +131,7 @@ A unique identifier given to every addressable thing.
 `foo`
 * is optional
 * type: `string`
+
 
 ##### foo Type
 
