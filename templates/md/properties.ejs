@@ -7,11 +7,11 @@
 # <%=title %> Properties
 
 
-| Property | Type | Required | Defined by |
-|----------|------|----------|------------|
+| Property | Type | Required | Default | Defined by |
+|----------|------|----------|---------|------------|
 <% _.keys(props).sort().forEach(property => {
   const schema = props[property]; %>
-| [<%= property %>](#<%= propertiesSlugs[property] %>) | <%= schema.simpletype %> | <%= schema.isrequired === true ? "**Required**" : "Optional" %> | <% 
+| [<%= property %>](#<%= propertiesSlugs[property] %>) | <%= schema.simpletype %> | <%= schema.isrequired === true ? "**Required**" : "Optional" %> | `<%= JSON.stringify(schema.default) %>` | <%
     if (schema.$oSchema) { 
       %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= propertiesSlugs[property] %>)<% 
     } else { 

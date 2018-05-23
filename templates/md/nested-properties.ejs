@@ -6,11 +6,11 @@
  */ %>
 
 
-| Property | Type | Required
-|----------|------|----------|
+| Property | Type | Required | Default |
+|----------|------|----------|---------|
 <% _.keys(props).sort().forEach(property => {
   const schema = props[property]; %>
-| `<%= property %>`| <%= schema.type %> | <%= (Array.isArray(outer.required)&&outer.required.indexOf(property)>=0) ? "**Required**" : "Optional" %> | 
+| `<%= property %>`| <%= schema.type %> | <%= (Array.isArray(outer.required)&&outer.required.indexOf(property)>=0) ? "**Required**" : "Optional" %> | `<%= JSON.stringify(schema.default) %>` |
 <%
 });
 %>
