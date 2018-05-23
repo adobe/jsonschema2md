@@ -210,8 +210,8 @@ All items must be of the type:
 
 | Property | Type | Required |
 |----------|------|----------|
-| `a`| string | **Required** | 
-| `b`| integer | Optional | 
+| `a`| string | **Required** |
+| `b`| integer | Optional |
 
 
 

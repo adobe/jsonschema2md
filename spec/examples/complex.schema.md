@@ -119,8 +119,8 @@ String or number…
 
 | Property | Type | Required |
 |----------|------|----------|
-| `foo`| string | Optional | 
-| `nonfoo`| boolean | Optional | 
+| `foo`| string | Optional |
+| `nonfoo`| boolean | Optional |
 
 
 
