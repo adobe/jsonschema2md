@@ -32,7 +32,7 @@ var argv = require('optimist')
   .alias('s', 'metaSchema')
   .describe('s', 'Custom meta schema path to validate schemas')
   .alias('x', 'schema-out')
-  .describe('x', 'output JSON Schema files including description and validated examples in the _new folder at output directory')
+  .describe('x', 'output JSON Schema files including description and validated examples in the _new folder at output directory, or suppress with -')
   .alias('e', 'schema-extension')
   .describe('e', 'JSON Schema file extension eg. schema.json or json')
   .alias('n', 'no-readme')
@@ -56,7 +56,7 @@ var schemaPathMap = {};
 var metaElements = {};
 var schemaPath = path.resolve(argv.d);
 var outDir = path.resolve(argv.o);
-var schemaDir = argv.x ? path.resolve(argv.x) : outDir;
+var schemaDir = argv.x === '-' ? '' : argv.x ? path.resolve(argv.x) : outDir;
 var target = fs.statSync(schemaPath);
 const readme = argv.n !== true;
 const schemaExtension = argv.e || 'schema.json';
