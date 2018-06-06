@@ -5,12 +5,13 @@
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
  */ %>
 
+<% const hasDefault = _.keys(props).filter(property => _.has(props, property + '.default')).length > 0; %>
 
-| Property | Type | Required
-|----------|------|----------|
+| Property | Type | Required |<% if(hasDefault) { %> Default |<% } %>
+|----------|------|----------|<% if(hasDefault) { %>---------|<% } %>
 <% _.keys(props).sort().forEach(property => {
   const schema = props[property]; %>
-| `<%= property %>`| <%= schema.type %> | <%= (Array.isArray(outer.required)&&outer.required.indexOf(property)>=0) ? "**Required**" : "Optional" %> | 
+| `<%= property %>`| <%= schema.type %> | <%= (Array.isArray(outer.required)&&outer.required.indexOf(property)>=0) ? "**Required**" : "Optional" %> |<% if(hasDefault) { %> <% if (schema.default!==undefined) { %>`<%- JSON.stringify(schema.default) %>`<% } %> |<% } %>
 <%
 });
 %>
