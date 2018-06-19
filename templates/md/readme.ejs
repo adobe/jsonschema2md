@@ -10,6 +10,8 @@
 
 <% _.forIn(groups, (schemas, group) => { %>
 ## <%= group %>
-<% _.forEach(_.sortBy(schemas, [o => { return o.title }]), schema => { %>
-* [<%= schema.title %>](.<%= schema.relative %>.schema.md) – `<%= schema.id %>` (<%= schema.status %>)<% }); %>
+<%
+ const reJson = /\.json$/;
+ _.forEach(_.sortBy(schemas, [o => { return o.title }]), schema => { %>
+* [<%= schema.title %>](.<%= schema.relative.replace(reJson, '') %>.md) – `<%= schema.id %>` (<%= schema.status %>)<% }); %>
 <% }); %>
