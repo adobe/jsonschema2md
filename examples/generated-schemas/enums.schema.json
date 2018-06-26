@@ -18,6 +18,22 @@
                 "Welt"
             ],
             "description": "A simple string. Pick a value."
+        },
+        "nested": {
+            "title": "Enumerated (Nested)",
+            "description": "This is an example schema with examples for properties of nested objects with enum values",
+            "type": "object",
+            "properties": {
+                "test": {
+                    "type": "string",
+                    "enum": [
+                        "nested",
+                        "object",
+                        "works"
+                    ],
+                    "description": "A simple string. Pick a value."
+                }
+            }
         }
     },
     "required": [

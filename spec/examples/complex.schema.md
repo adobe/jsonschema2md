@@ -150,7 +150,7 @@ This is not foo.
 
 `nonfoo`
 * is optional
-* type: `boolean`
+* type: `const`
 
 The value of this property **must** be equal to:
 
