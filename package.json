@@ -1,7 +1,7 @@
 {
   "name": "@adobe/jsonschema2md",
   "description": "Validate and document complex JSON Schemas the easy way.",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "lib/main.js",
   "bin": {
     "jsonschema2md": "./cli.js"
