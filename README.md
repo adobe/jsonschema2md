@@ -1,6 +1,6 @@
 # JSON Schema Markdown Tools
 
-[![CircleCI](https://circleci.com/gh/adobe/jsonschema2md.svg?style=svg)](https://circleci.com/gh/adobe/jsonschema2md)
+[![CircleCI](https://circleci.com/gh/adobe/jsonschema2md.svg?style=svg)](https://circleci.com/gh/adobe/jsonschema2md) [![Greenkeeper badge](https://badges.greenkeeper.io/adobe/jsonschema2md.svg)](https://greenkeeper.io/)
 
 Documenting and validating complex JSON Schemas can be hard. This tool makes it easier by providing a number of scripts that can turn JSON Schema files into readable Markdown documentation that is ready for consumption on GitHub or processed using Jekyll or other static site generators.
 
@@ -30,6 +30,19 @@ $ node cli.js
 # run task
 $ node cli.js -d examples/schemas -o examples/docs
 # generated output for whole folder is written to ./examples/docs
+```
+## JSON Schema Draft Versions
+
+`jsonschema2md` assumes `draft-07` by default. If your schemas are not on `draft-07`, you can specify the draft version using the `-v` or `--draft` flag.
+
+```bash
+# run against JSON Schema Draft 04
+$ node cli.js -d examples/schemas -o examples/docs -v 04
+```
+
+```bash
+# run against JSON Schema Draft 06
+$ node cli.js -d examples/schemas -o examples/docs -v 06
 ```
 
 ### Installing the `jsonschema2md` Command Line Tools

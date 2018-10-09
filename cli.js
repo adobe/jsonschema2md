@@ -36,6 +36,9 @@ var argv = require('optimist')
   .alias('e', 'schema-extension')
   .describe('e', 'JSON Schema file extension eg. schema.json or json')
   .alias('n', 'no-readme')
+  .describe('v', 'JSON Schema Draft version to use. Supported: 04, 06, 07 (default)')
+  .alias('v', 'draft')
+  .default('v', '07')
   .describe('n', 'Do not generate a README.md file in the output directory')
   .describe('link-*', 'Add this file as a link the explain the * attribute, e.g. --link-abstract=abstract.md')
   .check(function(args) {
@@ -50,8 +53,14 @@ var argv = require('optimist')
 
 const docs = _.fromPairs(_.toPairs(argv).filter(([ key, value ]) => { return key.startsWith('link-'); }).map(([ key, value ]) => { return [ key.substr(5), value ];}));
 
-var ajv = new Ajv({ allErrors: true, messages:true });
-ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'));
+var ajv = new Ajv({ allErrors: true, messages:true, schemaId: 'auto' });
+console.log(argv.v);
+if (argv.v === '06'||argv.v === 6) {
+  console.log('enabling draft-06 support');
+  ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
+} else if (argv.v === '04' || argv.v === 4) {
+  ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'));
+}
 var schemaPathMap = {};
 var metaElements = {};
 var schemaPath = path.resolve(argv.d);
