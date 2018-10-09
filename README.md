@@ -1,6 +1,6 @@
 # JSON Schema Markdown Tools
 
-[![CircleCI](https://circleci.com/gh/adobe/jsonschema2md.svg?style=svg)](https://circleci.com/gh/adobe/jsonschema2md)
+[![CircleCI](https://circleci.com/gh/adobe/jsonschema2md.svg?style=svg)](https://circleci.com/gh/adobe/jsonschema2md) [![Greenkeeper badge](https://badges.greenkeeper.io/adobe/jsonschema2md.svg)](https://greenkeeper.io/)
 
 Documenting and validating complex JSON Schemas can be hard. This tool makes it easier by providing a number of scripts that can turn JSON Schema files into readable Markdown documentation that is ready for consumption on GitHub or processed using Jekyll or other static site generators.
 
