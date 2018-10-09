@@ -31,6 +31,19 @@ $ node cli.js
 $ node cli.js -d examples/schemas -o examples/docs
 # generated output for whole folder is written to ./examples/docs
 ```
+## JSON Schema Draft Versions
+
+`jsonschema2md` assumes `draft-07` by default. If your schemas are not on `draft-07`, you can specify the draft version using the `-v` or `--draft` flag.
+
+```bash
+# run against JSON Schema Draft 04
+$ node cli.js -d examples/schemas -o examples/docs -v 04
+```
+
+```bash
+# run against JSON Schema Draft 06
+$ node cli.js -d examples/schemas -o examples/docs -v 06
+```
 
 ### Installing the `jsonschema2md` Command Line Tools
 
