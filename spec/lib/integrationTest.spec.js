@@ -48,7 +48,8 @@ describe('Compare results', () => {
       '--link-abstract',
       'abstract.md',
       '--link-status',
-      'status.md'
+      'status.md',
+      '-v', '06'
     ]);
     ls.on('close', code => {
       expect(code).toEqual(0);
