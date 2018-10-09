@@ -14,7 +14,7 @@
     "cover": "istanbul cover --root lib --print detail jasmine"
   },
   "dependencies": {
-    "ajv": "^5.0.1-beta",
+    "ajv": "^6.5.4",
     "async": "^2.0.1",
     "bluebird": "^3.5.1",
     "ejs": "^2.4.2",
