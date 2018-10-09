@@ -14,7 +14,7 @@
     "cover": "istanbul cover --root lib --print detail jasmine"
   },
   "dependencies": {
-    "ajv": "^5.0.1-beta",
+    "ajv": "^6.5.4",
     "async": "^2.0.1",
     "bluebird": "^3.5.1",
     "ejs": "^2.4.2",
@@ -25,12 +25,12 @@
     "optimist": "^0.6.1",
     "readdirp": "^2.1.0",
     "valid-url": "1.0.9",
-    "winston": "^2.2.0"
+    "winston": "^3.1.0"
   },
   "devDependencies": {
-    "eslint": "^4.10.0",
+    "eslint": "^5.6.1",
     "istanbul": "^0.4.5",
-    "jasmine": "~2.8.0",
+    "jasmine": "~3.2.0",
     "jasmine-diff": "^0.1.3",
     "npm-snapshot": "^1.0.3"
   },
