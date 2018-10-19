@@ -6,13 +6,13 @@
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
  */
 
-var logger = require('winston');
 var Promise = require('bluebird');
 var path = require('path');
 var _ = require('lodash');
 var fs = Promise.promisifyAll(require('fs'));
 var readdirp = require('readdirp');
 var Ajv = require('ajv');
+var winston = require('winston');
 
 var Schema = require('./lib/schema');
 var readSchemaFile = require('./lib/readSchemaFile');
@@ -53,7 +53,18 @@ var argv = require('optimist')
 
 const docs = _.fromPairs(_.toPairs(argv).filter(([ key, value ]) => { return key.startsWith('link-'); }).map(([ key, value ]) => { return [ key.substr(5), value ];}));
 
-var ajv = new Ajv({ allErrors: true, messages:true, schemaId: 'auto' });
+const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.combine(
+    winston.format.splat(),
+    winston.format.simple()
+  ),
+  transports: [
+    new winston.transports.Console({})
+  ]
+});
+
+var ajv = new Ajv({ allErrors: true, messages:true, schemaId: 'auto', logger: logger });
 console.log(argv.v);
 if (argv.v === '06'||argv.v === 6) {
   console.log('enabling draft-06 support');
