@@ -19,8 +19,8 @@ Applies to all properties that match the regular expression `<%=name %>`
 
 
 * is a property pattern
-* type: <%=schema.simpletype %><% if (schema.simpletype.match(/\[\]\[\]/)||schema.simpletype==="`array[]`") { %> (nested array)<% } %><% if (schema.type==='array') { %>
-<%   if (schema.maxItems!==undefined&&schema.minItems!==undefined) { %>* between `<%=schema.minItems %>` and `<%=schema.maxItems %>` items in the array<% } 
+* type: <%=schema.simpletype %><% if (schema.simpletype.match(/\[\]\[\]/)||schema.simpletype==="`array[]`") { %> (nested array)<% } %><% if (schema.type==='array') { -%>
+<%   if (schema.maxItems!==undefined&&schema.minItems!==undefined) { %>* between `<%=schema.minItems %>` and `<%=schema.maxItems %>` items in the array<% }
 else if (schema.maxItems!==undefined                             ) { %>* no more than `<%=schema.maxItems %>` items in the array<% }
 else if (schema.minItems!==undefined                             ) { %>* at least `<%=schema.minItems %>` items in the array<% } %>
 <% } %><% if (schema.default!==undefined) { %>
