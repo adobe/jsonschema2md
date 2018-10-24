@@ -17,10 +17,10 @@ This is an example schema with examples for properties with constant values
 
 # Constant Types Properties
 
-| Property | Type | Required | Defined by |
-|----------|------|----------|------------|
-| [hello](#hello) | `const` | **Required** | Constant Types (this schema) |
-| `*` | any | Additional | this schema *allows* additional properties |
+| Property | Type | Required | Nullable | Defined by |
+|----------|------|----------|----------|------------|
+| [hello](#hello) | `const` | **Required**  | No | Constant Types (this schema) |
+| `*` | any | Additional | Yes | this schema *allows* additional properties |
 
 ## hello
 

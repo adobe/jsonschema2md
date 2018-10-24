@@ -23,17 +23,17 @@ This is an example schema that uses types defined in other schemas.
 
 # Complex References  Properties
 
-| Property | Type | Required | Defined by |
-|----------|------|----------|------------|
-| [and](#and) | complex | Optional | Complex References  (this schema) |
-| [or](#or) | complex | Optional | Complex References  (this schema) |
-| [refabstract](#refabstract) | `object` | **Required** | Complex References  (this schema) |
-| [reflist](#reflist) | Simple | Optional | Complex References  (this schema) |
-| [refnamed](#refnamed) | Simple | Optional | Complex References  (this schema) |
-| [xor](#xor) | complex | Optional | Complex References  (this schema) |
-| `int.*` | `integer` | Pattern | Complex References  (this schema) |
-| `str.*` | `string` | Pattern | Complex References  (this schema) |
-| `*` | any | Additional | this schema *allows* additional properties |
+| Property | Type | Required | Nullable | Defined by |
+|----------|------|----------|----------|------------|
+| [and](#and) | complex | Optional  | No | Complex References  (this schema) |
+| [or](#or) | complex | Optional  | No | Complex References  (this schema) |
+| [refabstract](#refabstract) | `object` | **Required**  | No | Complex References  (this schema) |
+| [reflist](#reflist) | Simple | Optional  | No | Complex References  (this schema) |
+| [refnamed](#refnamed) | Simple | Optional  | No | Complex References  (this schema) |
+| [xor](#xor) | complex | Optional  | No | Complex References  (this schema) |
+| `int.*` | `integer` | Pattern  No | Complex References  (this schema) |
+| `str.*` | `string` | Pattern  No | Complex References  (this schema) |
+| `*` | any | Additional | Yes | this schema *allows* additional properties |
 
 ## and
 

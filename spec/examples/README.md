@@ -22,6 +22,7 @@
 * [Simple](./simple.schema.md) – `https://example.com/schemas/simple` (Unknown)
 * [Simple Types](./simpletypes.schema.md) – `https://example.com/schemas/simpletypes` (Unknown)
 * [Stabilizing](./stabilizing.schema.md) – `https://example.com/schemas/stabilizing` (Stabilizing)
+* [Type Arrays](./typearrays.schema.md) – `https://example.com/schemas/typearrays` (Unknown)
 
 ## /subdir/
 

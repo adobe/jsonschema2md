@@ -41,6 +41,8 @@ The value of this property **must** be equal to one of the [known values below](
 <%- include("string-type",{schema:schema,_:_}) %>
 <% } else if (schema.type==="number"||schema.type==="integer") { %>
 <%- include("number-type",{schema:schema,_:_}) %>
+<% } else if (schema.type==="null") { %>
+<%- include("null-type",{schema:schema,_:_}) %>
 <% } else if (schema.type==="boolean") { %>
 <%- include("boolean-type",{schema:schema,_:_}) %>
 <% } else if (schema.type==="object") { %>
@@ -51,6 +53,8 @@ The value of this property **must** be equal to one of the [known values below](
 <%- include("referenced-type",{schema:schema,_:_}) %>
 <% } else if (schema.anyOf!==undefined || schema.allOf!==undefined || schema.oneOf!==undefined) { %>
 <%- include("join-type",{schema:schema,_:_,schemas:schema.anyOf || schema.allOf || schema.oneOf,ejs:ejs}) %>
+<% } else if (schema.simpletype==="multiple") { %>
+<%- include("multiple-type",{schema:schema,_:_}) %>
 <% } else { %>
 Unknown type `<%= schema.type %>`.
 
