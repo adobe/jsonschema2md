@@ -45,6 +45,7 @@ This is an example schema with *multiple* examples. Too many examples? There can
 A simple string.
 
 `bar`
+
 * is **required**
 * type: `string`
 * defined in this schema
@@ -53,6 +54,7 @@ A simple string.
 
 
 `string`
+
 
 
 
@@ -75,6 +77,7 @@ A simple string.
 A simple string.
 
 `foo`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -83,6 +86,7 @@ A simple string.
 
 
 `string`
+
 
 
 
