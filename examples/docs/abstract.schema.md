@@ -28,6 +28,7 @@ This is an abstract schema. It has `definitions`, but does not declare any prope
 A unique identifier given to every addressable thing.
 
 `bar`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -42,11 +43,13 @@ A unique identifier given to every addressable thing.
 
 
 
+
 ## foo
 
 A unique identifier given to every addressable thing.
 
 `foo`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -61,11 +64,13 @@ A unique identifier given to every addressable thing.
 
 
 
+
 ## nonfoo
 
 This is not foo.
 
 `nonfoo`
+
 * is optional
 * type: `const`
 * defined in this schema

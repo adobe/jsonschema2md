@@ -40,6 +40,7 @@ This is an example schema that uses types defined in other schemas.
 Number in a range
 
 `and`
+
 * is optional
 * type: complex
 * defined in this schema
@@ -54,6 +55,7 @@ Number in a range
 
 
 `number`
+
 * maximum value: `10`
 
 
@@ -61,6 +63,7 @@ Number in a range
 
 
 `number`
+
 * minimum value: `0`
 
 
@@ -74,6 +77,7 @@ Number in a range
 String or number…
 
 `or`
+
 * is optional
 * type: complex
 * defined in this schema
@@ -91,10 +95,12 @@ String or number…
 
 
 
+
 #### Option 2
 
 
 `number`
+
 * minimum value: `0`
 
 
@@ -107,6 +113,7 @@ String or number…
 
 
 `refabstract`
+
 * is **required**
 * type: `object`
 * defined in this schema
@@ -129,6 +136,7 @@ String or number…
 A unique identifier given to every addressable thing.
 
 `foo`
+
 * is optional
 * type: `string`
 
@@ -144,11 +152,13 @@ A unique identifier given to every addressable thing.
 
 
 
+
 #### nonfoo
 
 This is not foo.
 
 `nonfoo`
+
 * is optional
 * type: `const`
 
@@ -171,9 +181,9 @@ false
 
 
 `reflist`
+
 * is optional
 * type: Simple
-
 * defined in this schema
 
 ### reflist Type
@@ -195,6 +205,7 @@ All items must be of the type:
 
 
 `refnamed`
+
 * is optional
 * type: Simple
 * defined in this schema
@@ -213,6 +224,7 @@ All items must be of the type:
 Exclusive choice.
 
 `xor`
+
 * is optional
 * type: complex
 * defined in this schema
@@ -227,6 +239,7 @@ Exclusive choice.
 
 
 `number`
+
 * maximum value: `0`
 
 
@@ -234,6 +247,7 @@ Exclusive choice.
 
 
 `number`
+
 * minimum value: `10`
 
 
@@ -247,6 +261,7 @@ Applies to all properties that match the regular expression `int.*`
 
 
 `int.*`
+
 * is a property pattern
 * type: `integer`
 * defined in this schema
@@ -261,11 +276,13 @@ Applies to all properties that match the regular expression `int.*`
 
 
 
+
 ## Pattern: `str.*`
 Applies to all properties that match the regular expression `str.*`
 
 
 `str.*`
+
 * is a property pattern
 * type: `string`
 * defined in this schema
@@ -274,6 +291,7 @@ Applies to all properties that match the regular expression `str.*`
 
 
 `string`
+
 
 
 
