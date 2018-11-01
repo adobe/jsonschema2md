@@ -46,6 +46,7 @@ aks.
 An `id` with an `@` in front of it. The `@` stands for "dot com"
 
 `@id`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -54,6 +55,7 @@ An `id` with an `@` in front of it. The `@` stands for "dot com"
 
 
 `string`
+
 * format: `uri` – Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 
@@ -66,6 +68,7 @@ An `id` with an `@` in front of it. The `@` stands for "dot com"
 A unique identifier given to every addressable thing.
 
 `id`
+
 * is **required**
 * type: `string`
 * defined in this schema
@@ -74,6 +77,7 @@ A unique identifier given to every addressable thing.
 
 
 `string`
+
 * format: `uri-reference` – URI Reference (according to [RFC3986](https://tools.ietf.org/html/rfc3986))
 
 
@@ -86,6 +90,7 @@ A unique identifier given to every addressable thing.
 An about ids. It is meta. If you are confused, send an email to the address specified in this property value.
 
 `meta:id`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -94,6 +99,7 @@ An about ids. It is meta. If you are confused, send an email to the address spec
 
 
 `string`
+
 * format: `email` – email address (according to [RFC 5322, section 3.4.1](https://tools.ietf.org/html/rfc5322))
 
 

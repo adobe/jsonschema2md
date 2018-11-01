@@ -6,13 +6,15 @@
  */ %>
 
 `<%=schema.type %>`
-<% if(schema.exclusiveMinumum!==undefined) { 
-  %>* value must not be smaller or equal than: `<%=schema.exclusiveMinumum %>`<% 
-  } else if(schema.minimum!==undefined) { 
+
+
+<% if(schema.exclusiveMinumum!==undefined) {
+  %>* value must not be smaller or equal than: `<%=schema.exclusiveMinumum %>`<%
+  } else if(schema.minimum!==undefined) {
   %>* minimum value: `<%=schema.minimum %>`<% } %>
-<% if(schema.exclusiveMaximum!==undefined) { 
-  %>* value must not be greater or equal than: `<%=schema.exclusiveMaximum %>`<% 
-  }  if(schema.maximum!==undefined) { 
+<% if(schema.exclusiveMaximum!==undefined) {
+  %>* value must not be greater or equal than: `<%=schema.exclusiveMaximum %>`<%
+  }  if(schema.maximum!==undefined) {
   %>* maximum value: `<%=schema.maximum %>`<% } %>
-<% if(schema.multipleOf!==undefined) { 
+<% if(schema.multipleOf!==undefined) {
   %>* must be a multiple of `<%=schema.multipleOf %>`<% } %>
