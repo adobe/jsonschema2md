@@ -27,6 +27,7 @@ This is a schema which is currently in the `stabilizing` status.
 A unique identifier given to every addressable thing.
 
 `id`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -35,6 +36,7 @@ A unique identifier given to every addressable thing.
 
 
 `string`
+
 * format: `uri` – Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 

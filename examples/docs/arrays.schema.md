@@ -34,6 +34,7 @@ This is an example schema with examples for multiple array types and their const
 This is an array
 
 `boollist`
+
 * is optional
 * type: `boolean[]`
 * at least `1` items in the array
@@ -58,6 +59,7 @@ All items must be of the type:
 This is an array of coordinates in three-dimensional space.
 
 `coordinatelist`
+
 * is optional
 * type: `number[][]` (nested array)
 * no more than `10` items in the array
@@ -72,6 +74,7 @@ Nested array type: `number[]`
 
 All items must be of the type:
 `number`
+
 * minimum value: `0`
 * maximum value: `10`
 
@@ -92,6 +95,7 @@ A coordinate, specified by `x`, `y`, and `z` values
 This is an array
 
 `intlist`
+
 * is optional
 * type: `integer[]`
 * between `1` and `10` items in the array
@@ -113,14 +117,15 @@ All items must be of the type:
 
 
 
+
 ## list
 
 This is an array
 
 `list`
+
 * is optional
 * type: `string[]`
-
 * defined in this schema
 
 ### list Type
@@ -139,14 +144,15 @@ All items must be of the type:
 
 
 
+
 ## listlist
 
 This is an array of arrays
 
 `listlist`
+
 * is optional
 * type: `array[]` (nested array)
-
 * defined in this schema
 
 ### listlist Type
@@ -168,6 +174,7 @@ Nested array type: `array`
 This is an array
 
 `numlist`
+
 * is optional
 * type: `number[]`
 * no more than `10` items in the array
@@ -180,6 +187,7 @@ Array type: `number[]`
 
 All items must be of the type:
 `number`
+
 * minimum value: `10`
 
 
@@ -194,9 +202,9 @@ All items must be of the type:
 An array of simple objects
 
 `objectlist`
+
 * is optional
 * type: `object[]`
-
 * defined in this schema
 
 ### objectlist Type
@@ -220,6 +228,7 @@ All items must be of the type:
 The a property
 
 `a`
+
 * is **required**
 * type: `string`
 
@@ -235,11 +244,13 @@ The a property
 
 
 
+
 #### b
 
 The b property
 
 `b`
+
 * is optional
 * type: `integer`
 
@@ -261,14 +272,15 @@ The b property
 
 
 
+
 ## stringlistlist
 
 This is an array of arrays of strings
 
 `stringlistlist`
+
 * is optional
 * type: `string[][]` (nested array)
-
 * defined in this schema
 
 ### stringlistlist Type
@@ -280,6 +292,7 @@ Nested array type: `string[]`
 
 All items must be of the type:
 `string`
+
 
 
 

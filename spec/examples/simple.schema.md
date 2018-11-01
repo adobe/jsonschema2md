@@ -27,6 +27,7 @@ This is a *very* simple example of a JSON schema. There is only one property.
 A unique identifier given to every addressable thing.
 
 `id`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -35,6 +36,7 @@ A unique identifier given to every addressable thing.
 
 
 `string`
+
 * format: `uri` – Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 

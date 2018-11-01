@@ -43,6 +43,7 @@ This is an example schema with examples for multiple types and their constraints
 Guess what number is valid
 
 `integer_threes`
+
 * is optional
 * type: `integer`
 * defined in this schema
@@ -51,6 +52,7 @@ Guess what number is valid
 
 
 `integer`
+
 * minimum value: `2`
 * maximum value: `4`
 * must be a multiple of `3`
@@ -64,6 +66,7 @@ Guess what number is valid
 Just a whole number. I don't like fractions. Don't get too small
 
 `interger_constrained`
+
 * is optional
 * type: `integer`
 * defined in this schema
@@ -72,6 +75,7 @@ Just a whole number. I don't like fractions. Don't get too small
 
 
 `integer`
+
 * minimum value: `10`
 
 
@@ -84,6 +88,7 @@ Just a whole number. I don't like fractions. Don't get too small
 Just a whole number. I don't like fractions.
 
 `interger_unconstrained`
+
 * is optional
 * type: `integer`
 * defined in this schema
@@ -98,11 +103,13 @@ Just a whole number. I don't like fractions.
 
 
 
+
 ## number_constrained
 
 Just a number. Don't get too big.
 
 `number_constrained`
+
 * is optional
 * type: `number`
 * defined in this schema
@@ -111,6 +118,7 @@ Just a number. Don't get too big.
 
 
 `number`
+
 * value must not be greater or equal than: `10`
 
 
@@ -122,6 +130,7 @@ Just a number. Don't get too big.
 Just a number
 
 `number_unconstrained`
+
 * is optional
 * type: `number`
 * defined in this schema
@@ -136,11 +145,13 @@ Just a number
 
 
 
+
 ## string_date
 
 A date-like string.
 
 `string_date`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -149,6 +160,7 @@ A date-like string.
 
 
 `string`
+
 * format: `date-time` – date and time (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))
 
 
@@ -161,6 +173,7 @@ A date-like string.
 An email-like string.
 
 `string_email`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -169,6 +182,7 @@ An email-like string.
 
 
 `string`
+
 * format: `email` – email address (according to [RFC 5322, section 3.4.1](https://tools.ietf.org/html/rfc5322))
 
 
@@ -181,6 +195,7 @@ An email-like string.
 A hostname-like string.
 
 `string_hostname`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -189,6 +204,7 @@ A hostname-like string.
 
 
 `string`
+
 * format: `hostname` – Domain Name (according to [RFC 1034, section 3.1](https://tools.ietf.org/html/rfc1034))
 
 
@@ -201,6 +217,7 @@ A hostname-like string.
 An IPv4-like string.
 
 `string_ipv4`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -209,6 +226,7 @@ An IPv4-like string.
 
 
 `string`
+
 * format: `ipv4` – IP (v4) address (according to [RFC 2673, section 3.2](https://tools.ietf.org/html/rfc2673))
 
 
@@ -221,6 +239,7 @@ An IPv4-like string.
 An IPv6-like string.
 
 `string_ipv6`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -229,6 +248,7 @@ An IPv6-like string.
 
 
 `string`
+
 * format: `ipv6` – IP (v6) address (according to [RFC 4291, section 2.2](https://tools.ietf.org/html/rfc4291))
 
 
@@ -241,6 +261,7 @@ An IPv6-like string.
 A string with minumum and maximum length
 
 `string_length`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -249,6 +270,7 @@ A string with minumum and maximum length
 
 
 `string`
+
 * minimum length: 3 characters
 * maximum length: 3 characters
 
@@ -271,6 +293,7 @@ A string with minumum and maximum length
 A string following a regular expression
 
 `string_pattern`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -279,6 +302,7 @@ A string following a regular expression
 
 
 `string`
+
 
 
 All instances must conform to this regular expression 
@@ -328,6 +352,7 @@ All instances must conform to this regular expression
 A string following a regular expression
 
 `string_pattern_noexample`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -336,6 +361,7 @@ A string following a regular expression
 
 
 `string`
+
 
 
 All instances must conform to this regular expression 
@@ -354,6 +380,7 @@ All instances must conform to this regular expression
 A string following a regular expression
 
 `string_pattern_singleexample`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -362,6 +389,7 @@ A string following a regular expression
 
 
 `string`
+
 
 
 All instances must conform to this regular expression 
@@ -386,6 +414,7 @@ All instances must conform to this regular expression
 A simple string, without any constraints.
 
 `string_unconstrained`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -394,6 +423,7 @@ A simple string, without any constraints.
 
 
 `string`
+
 
 
 
@@ -411,6 +441,7 @@ A simple string, without any constraints.
 A URI.
 
 `string_uri`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -419,6 +450,7 @@ A URI.
 
 
 `string`
+
 * format: `uri` – Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 
@@ -430,6 +462,7 @@ A URI.
 
 
 `yesno`
+
 * is **required**
 * type: `boolean`
 * defined in this schema
