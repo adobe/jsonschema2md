@@ -1,0 +1,29 @@
+{
+    "$id": "test.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "test",
+    "type": "object",
+    "properties": {
+        "settings": {
+            "description": "settings",
+            "type": "object",
+            "properties": {
+                "collaborators": {
+                    "description": "collaborators",
+                    "type": "object",
+                    "patternProperties": {
+                        ".*": {
+                            "type": "string"
+                        }
+                    },
+                    "properties": {
+                        "id": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "additionalProperties": false
+}
