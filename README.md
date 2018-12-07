@@ -28,7 +28,8 @@ $ cd jsonschema2md && npm install
 $ node cli.js
 
 # run task
-$ node cli.js -d examples/schemas -o examples/docs
+# leave out the -v '06', when you have draft-07 schemas
+$ node cli.js -d examples/schemas -o examples/docs -v '06'
 # generated output for whole folder is written to ./examples/docs
 ```
 ## JSON Schema Draft Versions
