@@ -12,31 +12,31 @@
   "description": "This is an example schema with examples for multiple array types and their constraints.",
   "properties": {
     "list": {
-      "type":"array",
+      "type": "array",
       "description": "This is an array",
       "items": {
         "type": "string"
       }
     },
     "listlist": {
-      "type":"array",
+      "type": "array",
       "description": "This is an array of arrays",
       "items": {
         "type": "array"
       }
     },
     "stringlistlist": {
-      "type":"array",
+      "type": "array",
       "description": "This is an array of arrays of strings",
       "items": {
         "type": "array",
         "items": {
-          "type":"string"
+          "type": "string"
         }
       }
     },
     "intlist": {
-      "type":"array",
+      "type": "array",
       "description": "This is an array",
       "items": {
         "type": "integer"
@@ -45,7 +45,7 @@
       "minItems": 1
     },
     "boollist": {
-      "type":"array",
+      "type": "array",
       "description": "This is an array",
       "items": {
         "type": "boolean"
@@ -53,7 +53,7 @@
       "minItems": 1
     },
     "numlist": {
-      "type":"array",
+      "type": "array",
       "description": "This is an array",
       "items": {
         "type": "number",
@@ -62,7 +62,7 @@
       "maxItems": 10
     },
     "coordinatelist": {
-      "type":"array",
+      "type": "array",
       "description": "This is an array of coordinates in three-dimensional space.",
       "items": {
         "type": "array",
@@ -70,7 +70,7 @@
         "maxItems": 3,
         "description": "A coordinate, specified by `x`, `y`, and `z` values",
         "items": {
-          "type":"number",
+          "type": "number",
           "minimum": 0,
           "maximum": 10
         }
@@ -91,10 +91,44 @@
             "description": "The a property"
           },
           "b": {
-            "type":"integer",
+            "type": "integer",
             "description": "The b property"
           }
         }
+      }
+    },
+    "JoinTypelist": {
+      "type": "array",
+      "description": "An array of simple objects",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "description": "A simple string.",
+            "properties": {
+              "foo": {
+                "type": "string",
+                "description": "A simple string.",
+                "examples": [
+                  "hello"
+                ]
+              }
+            }
+          },
+          {
+            "type": "object",
+            "description": "Another simple string.",
+            "properties": {
+              "bar": {
+                "type": "string",
+                "description": "A simple string.",
+                "examples": [
+                  "world"
+                ]
+              }
+            }
+          }
+        ]
       }
     }
   }
