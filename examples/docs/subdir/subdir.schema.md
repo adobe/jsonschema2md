@@ -15,6 +15,16 @@ A schema in a sub directory
 |-------------------------------|------------|---------------------------|--------------|-------------------|-----------------------|------------|
 | Cannot be instantiated | Yes | Experimental | No | Forbidden | Permitted | [subdir/subdir.schema.json](subdir/subdir.schema.json) |
 
+
+**All** of the following *requirements* need to be fulfilled.
+
+
+#### Requirement 1
+
+
+* []() – `#/definitions/id`
+
+
 # Subdir Definitions
 
 | Property | Type | Group |

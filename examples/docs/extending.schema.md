@@ -157,3 +157,25 @@ An about ids. It is meta. If you are confused, send an email to the address spec
 
 
 
+
+
+**All** of the following *requirements* need to be fulfilled.
+
+
+#### Requirement 1
+
+
+* []() – `https://example.com/schemas/extensible#/definitions/second`
+
+
+#### Requirement 2
+
+
+* []() – `https://example.com/schemas/definitions#/definitions/myid`
+
+
+#### Requirement 3
+
+
+* []() – `#/definitions/third`
+
