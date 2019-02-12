@@ -43,3 +43,13 @@ A unique identifier given to every addressable thing.
 
 
 
+
+
+**All** of the following *requirements* need to be fulfilled.
+
+
+#### Requirement 1
+
+
+* []() – `#/definitions/id`
+

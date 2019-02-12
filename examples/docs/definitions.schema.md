@@ -106,3 +106,13 @@ An about ids. It is meta. If you are confused, send an email to the address spec
 
 
 
+
+
+**All** of the following *requirements* need to be fulfilled.
+
+
+#### Requirement 1
+
+
+* []() – `#/definitions/myid`
+

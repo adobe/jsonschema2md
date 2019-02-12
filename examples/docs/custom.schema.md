@@ -64,3 +64,25 @@ A unique identifier given to every addressable thing.
 
 
 
+
+
+**All** of the following *requirements* need to be fulfilled.
+
+
+#### Requirement 1
+
+
+* []() – `https://ns.adobe.com/xdm/common/extensible.schema.json#/definitions/@context`
+
+
+#### Requirement 2
+
+
+* []() – `#/definitions/first`
+
+
+#### Requirement 3
+
+
+* []() – `#/definitions/second`
+
