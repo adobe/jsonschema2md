@@ -19,6 +19,7 @@ This is an example schema with examples for multiple array types and their const
 
 | Property | Type | Required | Defined by |
 |----------|------|----------|------------|
+| [JoinTypelist](#jointypelist) | `array` | Optional | Arrays (this schema) |
 | [boollist](#boollist) | `boolean[]` | Optional | Arrays (this schema) |
 | [coordinatelist](#coordinatelist) | `number[][]` | Optional | Arrays (this schema) |
 | [intlist](#intlist) | `integer[]` | Optional | Arrays (this schema) |
@@ -28,6 +29,114 @@ This is an example schema with examples for multiple array types and their const
 | [objectlist](#objectlist) | `object[]` | Optional | Arrays (this schema) |
 | [stringlistlist](#stringlistlist) | `string[][]` | Optional | Arrays (this schema) |
 | `*` | any | Additional | this schema *allows* additional properties |
+
+## JoinTypelist
+
+An array of simple objects
+
+`JoinTypelist`
+
+* is optional
+* type: `array`
+* defined in this schema
+
+### JoinTypelist Type
+
+
+Array type: `array`
+
+All items must be of the type:
+
+**One** of the following *conditions* need to be fulfilled.
+
+
+#### Condition 1
+
+
+`object` with following properties:
+
+
+| Property | Type | Required |
+|----------|------|----------|
+| `foo`| string | Optional |
+
+
+
+#### foo
+
+A simple string.
+
+`foo`
+
+* is optional
+* type: `string`
+
+##### foo Type
+
+
+`string`
+
+
+
+
+
+
+##### foo Example
+
+```json
+hello
+```
+
+
+
+
+#### Condition 2
+
+
+`object` with following properties:
+
+
+| Property | Type | Required |
+|----------|------|----------|
+| `bar`| string | Optional |
+
+
+
+#### bar
+
+A simple string.
+
+`bar`
+
+* is optional
+* type: `string`
+
+##### bar Type
+
+
+`string`
+
+
+
+
+
+
+##### bar Example
+
+```json
+world
+```
+
+
+
+
+  
+
+
+
+
+
+
 
 ## boollist
 

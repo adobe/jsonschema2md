@@ -11,9 +11,19 @@ https://example.com/schemas/subdir/subdir
 
 A schema in a sub directory
 
-| [Abstract](../../abstract.md) | Extensible | [Status](../../status.md) | Custom Properties | Additional Properties | Defined In |
-|-------------------------------|------------|---------------------------|-------------------|-----------------------|------------|
-| Cannot be instantiated | Yes | Experimental | Forbidden | Permitted | [subdir/subdir.schema.json](subdir/subdir.schema.json) |
+| [Abstract](../../abstract.md) | Extensible | [Status](../../status.md) | Identifiable | Custom Properties | Additional Properties | Defined In |
+|-------------------------------|------------|---------------------------|--------------|-------------------|-----------------------|------------|
+| Cannot be instantiated | Yes | Experimental | No | Forbidden | Permitted | [subdir/subdir.schema.json](subdir/subdir.schema.json) |
+
+
+**All** of the following *requirements* need to be fulfilled.
+
+
+#### Requirement 1
+
+
+* []() – `#/definitions/id`
+
 
 # Subdir Definitions
 
@@ -26,6 +36,7 @@ A schema in a sub directory
 A unique identifier given to every addressable thing.
 
 `id`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -34,6 +45,7 @@ A unique identifier given to every addressable thing.
 
 
 `string`
+
 * format: `uri` – Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 

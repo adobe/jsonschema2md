@@ -96,6 +96,40 @@
                     }
                 }
             }
+        },
+        "JoinTypelist": {
+            "type": "array",
+            "description": "An array of simple objects",
+            "items": {
+                "oneOf": [
+                    {
+                        "type": "object",
+                        "description": "A simple string.",
+                        "properties": {
+                            "foo": {
+                                "type": "string",
+                                "description": "A simple string.",
+                                "examples": [
+                                    "hello"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "type": "object",
+                        "description": "Another simple string.",
+                        "properties": {
+                            "bar": {
+                                "type": "string",
+                                "description": "A simple string.",
+                                "examples": [
+                                    "world"
+                                ]
+                            }
+                        }
+                    }
+                ]
+            }
         }
     }
 }
