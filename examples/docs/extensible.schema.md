@@ -41,6 +41,7 @@ A horse walks into it.
 
 
 
+
 ### bar Examples
 
 ```json
@@ -67,6 +68,7 @@ A unique identifier given to every addressable thing.
 
 
 `string`
+
 
 
 

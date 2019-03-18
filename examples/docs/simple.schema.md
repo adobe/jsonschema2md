@@ -36,6 +36,7 @@ A unique identifier given to every addressable thing.
 
 
 `string`
+
 * format: `uri` – Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 

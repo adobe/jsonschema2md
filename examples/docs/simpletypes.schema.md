@@ -160,6 +160,7 @@ A date-like string.
 
 
 `string`
+
 * format: `date-time` – date and time (according to [RFC 3339, section 5.6](http://tools.ietf.org/html/rfc3339))
 
 
@@ -181,6 +182,7 @@ An email-like string.
 
 
 `string`
+
 * format: `email` – email address (according to [RFC 5322, section 3.4.1](https://tools.ietf.org/html/rfc5322))
 
 
@@ -202,6 +204,7 @@ A hostname-like string.
 
 
 `string`
+
 * format: `hostname` – Domain Name (according to [RFC 1034, section 3.1](https://tools.ietf.org/html/rfc1034))
 
 
@@ -223,6 +226,7 @@ An IPv4-like string.
 
 
 `string`
+
 * format: `ipv4` – IP (v4) address (according to [RFC 2673, section 3.2](https://tools.ietf.org/html/rfc2673))
 
 
@@ -244,6 +248,7 @@ An IPv6-like string.
 
 
 `string`
+
 * format: `ipv6` – IP (v6) address (according to [RFC 4291, section 2.2](https://tools.ietf.org/html/rfc4291))
 
 
@@ -297,6 +302,7 @@ A string following a regular expression
 
 
 `string`
+
 
 
 All instances must conform to this regular expression 
@@ -357,6 +363,7 @@ A string following a regular expression
 `string`
 
 
+
 All instances must conform to this regular expression 
 (test examples [here](https://regexr.com/?expression=%5Eba.%24)):
 ```regex
@@ -382,6 +389,7 @@ A string following a regular expression
 
 
 `string`
+
 
 
 All instances must conform to this regular expression 
@@ -420,6 +428,7 @@ A simple string, without any constraints.
 
 
 
+
 ### string_unconstrained Example
 
 ```json
@@ -441,6 +450,7 @@ A URI.
 
 
 `string`
+
 * format: `uri` – Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 

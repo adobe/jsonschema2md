@@ -19,7 +19,7 @@ This is an example schema with examples for multiple array types and their const
 
 | Property | Type | Required | Nullable | Defined by |
 |----------|------|----------|----------|------------|
-| [JoinTypelist](#jointypelist) | `array` | Optional | No | Arrays (this schema) |
+| [JoinTypelist](#jointypelist) | `array` | Optional  | No | Arrays (this schema) |
 | [boollist](#boollist) | `boolean[]` | Optional  | No | Arrays (this schema) |
 | [coordinatelist](#coordinatelist) | `number[][]` | Optional  | No | Arrays (this schema) |
 | [intlist](#intlist) | `integer[]` | Optional  | No | Arrays (this schema) |
@@ -80,7 +80,6 @@ A simple string.
 
 
 
-
 ##### foo Example
 
 ```json
@@ -115,7 +114,6 @@ A simple string.
 
 
 `string`
-
 
 
 
@@ -244,7 +242,6 @@ Array type: `string[]`
 
 All items must be of the type:
 `string`
-
 
 
 
