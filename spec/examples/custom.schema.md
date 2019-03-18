@@ -17,11 +17,11 @@ This is an extensible schema. It has `definitions`, that can be used in other sc
 
 # Custom Properties
 
-| Property | Type | Required | Defined by |
-|----------|------|----------|------------|
-| [bar](#bar) | `string` | Optional | Custom (this schema) |
-| [foo](#foo) | `string` | Optional | Custom (this schema) |
-| `*` | any | Additional | this schema *allows* additional properties |
+| Property | Type | Required | Nullable | Defined by |
+|----------|------|----------|----------|------------|
+| [bar](#bar) | `string` | Optional  | No | Custom (this schema) |
+| [foo](#foo) | `string` | Optional  | No | Custom (this schema) |
+| `*` | any | Additional | Yes | this schema *allows* additional properties |
 
 ## bar
 
@@ -63,4 +63,26 @@ A unique identifier given to every addressable thing.
 
 
 
+
+
+
+**All** of the following *requirements* need to be fulfilled.
+
+
+#### Requirement 1
+
+
+* []() – `https://ns.adobe.com/xdm/common/extensible.schema.json#/definitions/@context`
+
+
+#### Requirement 2
+
+
+* []() – `#/definitions/first`
+
+
+#### Requirement 3
+
+
+* []() – `#/definitions/second`
 

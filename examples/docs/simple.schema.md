@@ -17,10 +17,10 @@ This is a *very* simple example of a JSON schema. There is only one property.
 
 # Simple Properties
 
-| Property | Type | Required | Defined by |
-|----------|------|----------|------------|
-| [id](#id) | `string` | Optional | Simple (this schema) |
-| `*` | any | Additional | this schema *allows* additional properties |
+| Property | Type | Required | Nullable | Defined by |
+|----------|------|----------|----------|------------|
+| [id](#id) | `string` | Optional  | No | Simple (this schema) |
+| `*` | any | Additional | Yes | this schema *allows* additional properties |
 
 ## id
 
@@ -42,4 +42,14 @@ A unique identifier given to every addressable thing.
 
 
 
+
+
+
+**All** of the following *requirements* need to be fulfilled.
+
+
+#### Requirement 1
+
+
+* []() – `#/definitions/id`
 

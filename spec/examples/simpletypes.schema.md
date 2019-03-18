@@ -17,26 +17,26 @@ This is an example schema with examples for multiple types and their constraints
 
 # Simple Types Properties
 
-| Property | Type | Required | Defined by |
-|----------|------|----------|------------|
-| [integer_threes](#integer_threes) | `integer` | Optional | Simple Types (this schema) |
-| [interger_constrained](#interger_constrained) | `integer` | Optional | Simple Types (this schema) |
-| [interger_unconstrained](#interger_unconstrained) | `integer` | Optional | Simple Types (this schema) |
-| [number_constrained](#number_constrained) | `number` | Optional | Simple Types (this schema) |
-| [number_unconstrained](#number_unconstrained) | `number` | Optional | Simple Types (this schema) |
-| [string_date](#string_date) | `string` | Optional | Simple Types (this schema) |
-| [string_email](#string_email) | `string` | Optional | Simple Types (this schema) |
-| [string_hostname](#string_hostname) | `string` | Optional | Simple Types (this schema) |
-| [string_ipv4](#string_ipv4) | `string` | Optional | Simple Types (this schema) |
-| [string_ipv6](#string_ipv6) | `string` | Optional | Simple Types (this schema) |
-| [string_length](#string_length) | `string` | Optional | Simple Types (this schema) |
-| [string_pattern](#string_pattern) | `string` | Optional | Simple Types (this schema) |
-| [string_pattern_noexample](#string_pattern_noexample) | `string` | Optional | Simple Types (this schema) |
-| [string_pattern_singleexample](#string_pattern_singleexample) | `string` | Optional | Simple Types (this schema) |
-| [string_unconstrained](#string_unconstrained) | `string` | Optional | Simple Types (this schema) |
-| [string_uri](#string_uri) | `string` | Optional | Simple Types (this schema) |
-| [yesno](#yesno) | `boolean` | **Required** | Simple Types (this schema) |
-| `*` | any | Additional | this schema *allows* additional properties |
+| Property | Type | Required | Nullable | Defined by |
+|----------|------|----------|----------|------------|
+| [integer_threes](#integer_threes) | `integer` | Optional  | No | Simple Types (this schema) |
+| [interger_constrained](#interger_constrained) | `integer` | Optional  | No | Simple Types (this schema) |
+| [interger_unconstrained](#interger_unconstrained) | `integer` | Optional  | No | Simple Types (this schema) |
+| [number_constrained](#number_constrained) | `number` | Optional  | No | Simple Types (this schema) |
+| [number_unconstrained](#number_unconstrained) | `number` | Optional  | No | Simple Types (this schema) |
+| [string_date](#string_date) | `string` | Optional  | No | Simple Types (this schema) |
+| [string_email](#string_email) | `string` | Optional  | No | Simple Types (this schema) |
+| [string_hostname](#string_hostname) | `string` | Optional  | No | Simple Types (this schema) |
+| [string_ipv4](#string_ipv4) | `string` | Optional  | No | Simple Types (this schema) |
+| [string_ipv6](#string_ipv6) | `string` | Optional  | No | Simple Types (this schema) |
+| [string_length](#string_length) | `string` | Optional  | No | Simple Types (this schema) |
+| [string_pattern](#string_pattern) | `string` | Optional  | No | Simple Types (this schema) |
+| [string_pattern_noexample](#string_pattern_noexample) | `string` | Optional  | No | Simple Types (this schema) |
+| [string_pattern_singleexample](#string_pattern_singleexample) | `string` | Optional  | No | Simple Types (this schema) |
+| [string_unconstrained](#string_unconstrained) | `string` | Optional  | No | Simple Types (this schema) |
+| [string_uri](#string_uri) | `string` | Optional  | No | Simple Types (this schema) |
+| [yesno](#yesno) | `boolean` | **Required**  | No | Simple Types (this schema) |
+| `*` | any | Additional | Yes | this schema *allows* additional properties |
 
 ## integer_threes
 

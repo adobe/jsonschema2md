@@ -19,9 +19,12 @@
 * [Extending](./extending.schema.md) – `https://example.com/schemas/extending` (Unknown)
 * [Extensible](./extensible.schema.md) – `https://example.com/schemas/extensible` (Unknown)
 * [Identifiable](./identifiable.schema.md) – `https://example.com/schemas/identifiable` (Unknown)
+* [Join Types](./join.schema.md) – `https://example.com/schemas/join` (Unknown)
+* [Pattern Properties](./pattern.schema.md) – `https://example.com/schemas/pattern` (Unknown)
 * [Simple](./simple.schema.md) – `https://example.com/schemas/simple` (Unknown)
 * [Simple Types](./simpletypes.schema.md) – `https://example.com/schemas/simpletypes` (Unknown)
 * [Stabilizing](./stabilizing.schema.md) – `https://example.com/schemas/stabilizing` (Stabilizing)
+* [Type Arrays](./typearrays.schema.md) – `https://example.com/schemas/typearrays` (Unknown)
 
 ## /subdir/
 

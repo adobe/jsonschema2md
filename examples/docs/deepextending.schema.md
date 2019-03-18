@@ -24,15 +24,15 @@ This is an extending schema. It is extending another extending schema. It pulls 
 
 # Deeply Extending Properties
 
-| Property | Type | Required | Defined by |
-|----------|------|----------|------------|
-| [@id](#id) | `string` | Optional | [Definitions](definitions.schema.md#id) |
-| [bar](#bar) | `string` | Optional | [Extensible](extensible.schema.md#bar) |
-| [baz](#baz) | `string` | Optional | [Extending](extending.schema.md#baz) |
-| [hey](#hey) | `string` | Optional | Deeply Extending (this schema) |
-| [id](#id-1) | `string` | Optional | [Definitions](definitions.schema.md#id-1) |
-| [meta:id](#metaid) | `string` | Optional | [Definitions](definitions.schema.md#metaid) |
-| `*` | any | Additional | this schema *allows* additional properties |
+| Property | Type | Required | Nullable | Defined by |
+|----------|------|----------|----------|------------|
+| [@id](#id) | `string` | Optional  | No | [Definitions](definitions.schema.md#id) |
+| [bar](#bar) | `string` | Optional  | No | [Extensible](extensible.schema.md#bar) |
+| [baz](#baz) | `string` | Optional  | No | [Extending](extending.schema.md#baz) |
+| [hey](#hey) | `string` | Optional  | No | Deeply Extending (this schema) |
+| [id](#id-1) | `string` | Optional  | No | [Definitions](definitions.schema.md#id-1) |
+| [meta:id](#metaid) | `string` | Optional  | No | [Definitions](definitions.schema.md#metaid) |
+| `*` | any | Additional | Yes | this schema *allows* additional properties |
 
 ## @id
 
@@ -179,4 +179,32 @@ An about ids. It is meta. If you are confused, send an email to the address spec
 
 
 
+
+
+
+**All** of the following *requirements* need to be fulfilled.
+
+
+#### Requirement 1
+
+
+* []() – `https://example.com/schemas/extensible#/definitions/second`
+
+
+#### Requirement 2
+
+
+* []() – `https://example.com/schemas/definitions#/definitions/myid`
+
+
+#### Requirement 3
+
+
+* []() – `https://example.com/schemas/extending#/definitions/third`
+
+
+#### Requirement 4
+
+
+* []() – `#/definitions/fourth`
 
