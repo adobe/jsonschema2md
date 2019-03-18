@@ -39,6 +39,7 @@ This is an extending schema. It is extending another extending schema. It pulls 
 An `id` with an `@` in front of it. The `@` stands for "dot com"
 
 `@id`
+
 * is optional
 * type: `string`
 * defined in [Definitions](definitions.schema.md#id)
@@ -47,6 +48,7 @@ An `id` with an `@` in front of it. The `@` stands for "dot com"
 
 
 `string`
+
 * format: `uri` – Uniformous Resource Identifier (according to [RFC3986](http://tools.ietf.org/html/rfc3986))
 
 
@@ -59,6 +61,7 @@ An `id` with an `@` in front of it. The `@` stands for "dot com"
 A horse walks into it.
 
 `bar`
+
 * is optional
 * type: `string`
 * defined in [Extensible](extensible.schema.md#bar)
@@ -67,6 +70,7 @@ A horse walks into it.
 
 
 `string`
+
 
 
 
@@ -90,6 +94,7 @@ A horse walks into it.
 This property has a unique name to demonstrate it's uniqueness.
 
 `baz`
+
 * is optional
 * type: `string`
 * defined in [Extending](extending.schema.md#baz)
@@ -98,6 +103,7 @@ This property has a unique name to demonstrate it's uniqueness.
 
 
 `string`
+
 
 
 
@@ -115,6 +121,7 @@ This property has a unique name to demonstrate it's uniqueness.
 A unique identifier given to every addressable thing.
 
 `hey`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -129,11 +136,13 @@ A unique identifier given to every addressable thing.
 
 
 
+
 ## id
 
 A unique identifier given to every addressable thing.
 
 `id`
+
 * is optional
 * type: `string`
 * defined in [Definitions](definitions.schema.md#id-1)
@@ -142,6 +151,7 @@ A unique identifier given to every addressable thing.
 
 
 `string`
+
 * format: `uri-reference` – URI Reference (according to [RFC3986](https://tools.ietf.org/html/rfc3986))
 
 
@@ -154,6 +164,7 @@ A unique identifier given to every addressable thing.
 An about ids. It is meta. If you are confused, send an email to the address specified in this property value.
 
 `meta:id`
+
 * is optional
 * type: `string`
 * defined in [Definitions](definitions.schema.md#metaid)
@@ -162,9 +173,38 @@ An about ids. It is meta. If you are confused, send an email to the address spec
 
 
 `string`
+
 * format: `email` – email address (according to [RFC 5322, section 3.4.1](https://tools.ietf.org/html/rfc5322))
 
 
 
 
+
+
+
+**All** of the following *requirements* need to be fulfilled.
+
+
+#### Requirement 1
+
+
+* []() – `https://example.com/schemas/extensible#/definitions/second`
+
+
+#### Requirement 2
+
+
+* []() – `https://example.com/schemas/definitions#/definitions/myid`
+
+
+#### Requirement 3
+
+
+* []() – `https://example.com/schemas/extending#/definitions/third`
+
+
+#### Requirement 4
+
+
+* []() – `#/definitions/fourth`
 

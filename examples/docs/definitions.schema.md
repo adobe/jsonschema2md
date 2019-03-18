@@ -46,6 +46,7 @@ aks.
 An `id` with an `@` in front of it. The `@` stands for "dot com"
 
 `@id`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -66,6 +67,7 @@ An `id` with an `@` in front of it. The `@` stands for "dot com"
 A unique identifier given to every addressable thing.
 
 `id`
+
 * is **required**
 * type: `string`
 * defined in this schema
@@ -86,6 +88,7 @@ A unique identifier given to every addressable thing.
 An about ids. It is meta. If you are confused, send an email to the address specified in this property value.
 
 `meta:id`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -99,4 +102,14 @@ An about ids. It is meta. If you are confused, send an email to the address spec
 
 
 
+
+
+
+**All** of the following *requirements* need to be fulfilled.
+
+
+#### Requirement 1
+
+
+* []() – `#/definitions/myid`
 

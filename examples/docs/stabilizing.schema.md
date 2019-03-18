@@ -27,6 +27,7 @@ This is a schema which is currently in the `stabilizing` status.
 A unique identifier given to every addressable thing.
 
 `id`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -40,4 +41,14 @@ A unique identifier given to every addressable thing.
 
 
 
+
+
+
+**All** of the following *requirements* need to be fulfilled.
+
+
+#### Requirement 1
+
+
+* []() – `#/definitions/id`
 

@@ -36,6 +36,7 @@ This is an example schema with examples. Too many examples? There can never be t
 A simple string.
 
 `bar`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -66,6 +67,7 @@ A simple string.
 A simple string.
 
 `foo`
+
 * is optional
 * type: `string`
 * defined in this schema

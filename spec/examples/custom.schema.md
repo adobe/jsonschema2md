@@ -28,6 +28,7 @@ This is an extensible schema. It has `definitions`, that can be used in other sc
 A unique identifier given to every addressable thing.
 
 `bar`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -42,11 +43,13 @@ A unique identifier given to every addressable thing.
 
 
 
+
 ## foo
 
 A unique identifier given to every addressable thing.
 
 `foo`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -59,4 +62,27 @@ A unique identifier given to every addressable thing.
 
 
 
+
+
+
+
+**All** of the following *requirements* need to be fulfilled.
+
+
+#### Requirement 1
+
+
+* []() – `https://ns.adobe.com/xdm/common/extensible.schema.json#/definitions/@context`
+
+
+#### Requirement 2
+
+
+* []() – `#/definitions/first`
+
+
+#### Requirement 3
+
+
+* []() – `#/definitions/second`
 

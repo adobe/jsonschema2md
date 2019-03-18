@@ -27,6 +27,7 @@ This is a *very* simple example of a JSON schema. There is only one property.
 A unique identifier given to every addressable thing.
 
 `id`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -40,4 +41,14 @@ A unique identifier given to every addressable thing.
 
 
 
+
+
+
+**All** of the following *requirements* need to be fulfilled.
+
+
+#### Requirement 1
+
+
+* []() – `#/definitions/id`
 

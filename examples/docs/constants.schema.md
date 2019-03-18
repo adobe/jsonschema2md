@@ -27,6 +27,7 @@ This is an example schema with examples for properties with constant values
 A simple string, without strong constraints.
 
 `hello`
+
 * is **required**
 * type: `const`
 * defined in this schema

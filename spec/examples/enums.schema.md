@@ -28,6 +28,7 @@ This is an example schema with examples for properties with enum values
 A simple string. Pick a value.
 
 `hello`
+
 * is **required**
 * type: `enum`
 * defined in this schema
@@ -49,6 +50,7 @@ The value of this property **must** be equal to one of the [known values below](
 This is an example schema with examples for properties of nested objects with enum values
 
 `nested`
+
 * is optional
 * type: `object`
 * defined in this schema
@@ -70,6 +72,7 @@ This is an example schema with examples for properties of nested objects with en
 A simple string. Pick a value.
 
 `test`
+
 * is optional
 * type: `enum`
 
