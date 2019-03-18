@@ -17,18 +17,18 @@ This is an example schema with examples for multiple array types and their const
 
 # Arrays Properties
 
-| Property | Type | Required | Defined by |
-|----------|------|----------|------------|
-| [JoinTypelist](#jointypelist) | `array` | Optional | Arrays (this schema) |
-| [boollist](#boollist) | `boolean[]` | Optional | Arrays (this schema) |
-| [coordinatelist](#coordinatelist) | `number[][]` | Optional | Arrays (this schema) |
-| [intlist](#intlist) | `integer[]` | Optional | Arrays (this schema) |
-| [list](#list) | `string[]` | Optional | Arrays (this schema) |
-| [listlist](#listlist) | `array[]` | Optional | Arrays (this schema) |
-| [numlist](#numlist) | `number[]` | Optional | Arrays (this schema) |
-| [objectlist](#objectlist) | `object[]` | Optional | Arrays (this schema) |
-| [stringlistlist](#stringlistlist) | `string[][]` | Optional | Arrays (this schema) |
-| `*` | any | Additional | this schema *allows* additional properties |
+| Property | Type | Required | Nullable | Defined by |
+|----------|------|----------|----------|------------|
+| [JoinTypelist](#jointypelist) | `array` | Optional  | No | Arrays (this schema) |
+| [boollist](#boollist) | `boolean[]` | Optional  | No | Arrays (this schema) |
+| [coordinatelist](#coordinatelist) | `number[][]` | Optional  | No | Arrays (this schema) |
+| [intlist](#intlist) | `integer[]` | Optional  | No | Arrays (this schema) |
+| [list](#list) | `string[]` | Optional  | No | Arrays (this schema) |
+| [listlist](#listlist) | `array[]` | Optional  | No | Arrays (this schema) |
+| [numlist](#numlist) | `number[]` | Optional  | No | Arrays (this schema) |
+| [objectlist](#objectlist) | `object[]` | Optional  | No | Arrays (this schema) |
+| [stringlistlist](#stringlistlist) | `string[][]` | Optional  | No | Arrays (this schema) |
+| `*` | any | Additional | Yes | this schema *allows* additional properties |
 
 ## JoinTypelist
 

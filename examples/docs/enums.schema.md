@@ -17,11 +17,11 @@ This is an example schema with examples for properties with enum values
 
 # Enumerated  Properties
 
-| Property | Type | Required | Defined by |
-|----------|------|----------|------------|
-| [hello](#hello) | `enum` | **Required** | Enumerated  (this schema) |
-| [nested](#nested) | `object` | Optional | Enumerated  (this schema) |
-| `*` | any | Additional | this schema *allows* additional properties |
+| Property | Type | Required | Nullable | Defined by |
+|----------|------|----------|----------|------------|
+| [hello](#hello) | `enum` | **Required**  | No | Enumerated  (this schema) |
+| [nested](#nested) | `object` | Optional  | No | Enumerated  (this schema) |
+| `*` | any | Additional | Yes | this schema *allows* additional properties |
 
 ## hello
 
