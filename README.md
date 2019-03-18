@@ -9,7 +9,7 @@ These tools have been introduced by Adobe to document Adobe's Experience Data Mo
 ## Requirements
 
 - `npm` version 3.10.8 or up
-- `node` v6 or up
+- `node` v8 or up
 
 ## Example Output
 
