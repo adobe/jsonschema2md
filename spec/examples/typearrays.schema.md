@@ -30,6 +30,7 @@ This schema test type arrays and nullable types
 This is just nothing
 
 `null`
+
 * is optional
 * type: `null`
 * defined in this schema
@@ -48,6 +49,7 @@ This property can only have the value `null`.
 Nullable string
 
 `string-or-null`
+
 * is optional
 * type: `string`
 * defined in this schema
@@ -62,11 +64,13 @@ Nullable string
 
 
 
+
 ## string-or-number
 
 Types can be many things
 
 `string-or-number`
+
 * is optional
 * type: multiple
 * defined in this schema
@@ -87,6 +91,7 @@ Either one of:
 Types can be many things, even nothing at all.
 
 `string-or-number-null`
+
 * is optional
 * type: multiple
 * defined in this schema
@@ -101,4 +106,14 @@ Either one of:
 
 
 
+
+
+
+**All** of the following *requirements* need to be fulfilled.
+
+
+#### Requirement 1
+
+
+* []() – `#/definitions/id`
 

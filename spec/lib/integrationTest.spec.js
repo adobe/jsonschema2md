@@ -1,11 +1,12 @@
 const { spawn } = require('child_process');
-const { readFile, readdirSync, statSync } = require('fs');
+const path = require('path');
+const { readFileSync, readdirSync, statSync } = require('fs');
 
 beforeEach(function() {
   jasmine.addMatchers(
     require('jasmine-diff')(jasmine, {
       colors: true,
-      inline: true
+      inline: false
     })
   );
 });
@@ -64,14 +65,10 @@ describe('Compare results', () => {
     if (statSync('./spec/examples/' + file).isFile()) {
       it('Comparing ' + file, indone => {
         console.log('file ' + file);
-        readFile('./spec/examples/' + file, (err, expectedbuf) => {
-          expect(err).toBeNull();
-          readFile('./examples/docs/' + file, (err, actualbuf) => {
-            expect(err).toBeNull();
-            expect(actualbuf.toString()).toEqual(expectedbuf.toString());
-            indone();
-          });
-        });
+        const expectedstr = readFileSync(path.resolve('./spec/examples/', file)).toString();
+        const actualstr = readFileSync(path.resolve('./examples/docs/', file)).toString();
+        expect(actualstr).toEqual(expectedstr);
+        indone();
       });
     }
   });
