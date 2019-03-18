@@ -21,7 +21,7 @@
 });
 %><% _.keys(pprops).forEach(property => {
   const schema = pprops[property]; %>
-| `<%= property.replace(':', '') %>` | <%= schema.simpletype %> | Pattern  <%= schema.nullable === true ? "Yes" : "No" %> |<% if(hasDefault) { %> <% if (schema.default!==undefined) { %>`<%- JSON.stringify(schema.default) %>`<% } %> |<% } %> <%
+| `<%= property.replace(':', '') %>` | <%= schema.simpletype %> | Pattern | <%= schema.nullable === true ? "Yes" : "No" %> |<% if(hasDefault) { %> <% if (schema.default!==undefined) { %>`<%- JSON.stringify(schema.default) %>`<% } %> |<% } %> <%
     if (schema.$oSchema) { 
       %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= property.replace(':', '').toLowerCase() %>)<% 
     } else { 

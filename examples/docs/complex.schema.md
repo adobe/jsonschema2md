@@ -31,8 +31,8 @@ This is an example schema that uses types defined in other schemas.
 | [reflist](#reflist) | Simple | Optional  | No | Complex References  (this schema) |
 | [refnamed](#refnamed) | Simple | Optional  | No | Complex References  (this schema) |
 | [xor](#xor) | complex | Optional  | No | Complex References  (this schema) |
-| `int.*` | `integer` | Pattern  No | Complex References  (this schema) |
-| `str.*` | `string` | Pattern  No | Complex References  (this schema) |
+| `int.*` | `integer` | Pattern | No | Complex References  (this schema) |
+| `str.*` | `string` | Pattern | No | Complex References  (this schema) |
 | `*` | any | Additional | Yes | this schema *allows* additional properties |
 
 ## and
