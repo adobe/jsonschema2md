@@ -53,15 +53,23 @@ One of the maintainers will look at the pull request within one week. If you hav
 
 Feedback on the pull request will be given in writing, in GitHub.
 
+## Commit Message Format
+
+This project uses a structured commit changelog format that should be used for every commit. Use npm run commit instead of your usual git commit to generate commit messages using a wizard.
+
+```bash
+# either add all changed files
+$ git add -A
+# or selectively add files
+$ git add package.json
+# then commit using the wizard
+$ npm run commit
+```
+
 # Release Management
 
 The project's committers will release to the [Adobe organization on npmjs.org](https://www.npmjs.com/org/adobe).
 Please contact the [Adobe Open Source Advisory Board](https://git.corp.adobe.com/OpenSourceAdvisoryBoard/discuss/issues) to get access to the npmjs organization.
 Then, you can release using:
 
-```bash
-$ npm login
-$ npm publish --access public
-```
-
-Do not forget to add a `git tag` corresponding to the released version number
+The release process is fully automated using `semantic-release`, increasing the version numbers, etc. based on the contents of the commit messages found.
