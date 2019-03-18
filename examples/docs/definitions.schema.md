@@ -34,12 +34,12 @@ aks.
 
 # Definitions Properties
 
-| Property | Type | Required | Defined by |
-|----------|------|----------|------------|
-| [@id](#id) | `string` | Optional | Definitions (this schema) |
-| [id](#id-1) | `string` | **Required** | Definitions (this schema) |
-| [meta:id](#metaid) | `string` | Optional | Definitions (this schema) |
-| `*` | any | Additional | this schema *allows* additional properties |
+| Property | Type | Required | Nullable | Defined by |
+|----------|------|----------|----------|------------|
+| [@id](#id) | `string` | Optional  | No | Definitions (this schema) |
+| [id](#id-1) | `string` | **Required**  | No | Definitions (this schema) |
+| [meta:id](#metaid) | `string` | Optional  | No | Definitions (this schema) |
+| `*` | any | Additional | Yes | this schema *allows* additional properties |
 
 ## @id
 

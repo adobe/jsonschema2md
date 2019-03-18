@@ -5,7 +5,7 @@
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
  */ %>
 
-`<%=schema.type %>`
+`<%=schema.type %>`<%=schema.nullable ? ", nullable" : "" %>
 
 
 <% if(schema.exclusiveMinumum!==undefined) {

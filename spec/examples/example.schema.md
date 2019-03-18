@@ -25,11 +25,11 @@ This is an example schema with examples. Too many examples? There can never be t
 
 # Example Properties
 
-| Property | Type | Required | Defined by |
-|----------|------|----------|------------|
-| [bar](#bar) | `string` | Optional | Example (this schema) |
-| [foo](#foo) | `string` | Optional | Example (this schema) |
-| `*` | any | Additional | this schema *allows* additional properties |
+| Property | Type | Required | Nullable | Defined by |
+|----------|------|----------|----------|------------|
+| [bar](#bar) | `string` | Optional  | No | Example (this schema) |
+| [foo](#foo) | `string` | Optional  | No | Example (this schema) |
+| `*` | any | Additional | Yes | this schema *allows* additional properties |
 
 ## bar
 
