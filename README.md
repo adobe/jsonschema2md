@@ -9,7 +9,7 @@ These tools have been introduced by Adobe to document Adobe's Experience Data Mo
 ## Requirements
 
 - `npm` version 3.10.8 or up
-- `node` v6 or up
+- `node` v8 or up
 
 ## Example Output
 
@@ -62,7 +62,7 @@ You can conveniently use the JSON Schema Markdown Tools from `npm`. This makes i
 
 ```json
   "devDependencies": {
-    "jsonschema2md": "^1.0.6"
+    "@adobe/jsonschema2md": "^1.0.6"
   }
 ```
 
@@ -74,7 +74,7 @@ Then add the following to the `"scripts"` section of your `package.json` and ada
 }
 ```
 
-If you run `npm install` before running `npm run prepare`, `npm` will install the `jsonschema2md` in a `node_modules/.bin` path, even if you did not install the JSON Schema Markdown beforehand.
+If you run `npm install` before running `npm run prepare`, `npm` will install the `@adobe/jsonschema2md` in a `node_modules/.bin` path, even if you did not install the JSON Schema Markdown beforehand.
 
 ## Tests
 

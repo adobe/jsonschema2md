@@ -44,7 +44,7 @@ jobs:
   publish:
     docker:
       # specify the version you desire here
-      - image: circleci/node:7.10
+      - image: circleci/node:8
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -72,10 +72,9 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: BUILD_TAG=$(./node_modules/.bin/npm-snapshot $CIRCLE_BUILD_NUM) echo 'export BUILD_TAG=$BUILD_TAG' >> $BASH_ENV
       - run: 
-          name: Publish Snapshot
-          command: npm publish --access public
+          name: Publish Release
+          command: npm run semantic-release
 
 workflows:
   version: 2
