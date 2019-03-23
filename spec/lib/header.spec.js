@@ -45,4 +45,19 @@ describe('Headers Integration Test', () => {
     expect(h.render()).toEqual(result);
   });
 
+  it('Markdown links should be correct when schema is in a subdir.', () => {
+    const schema = {
+      additionalProperties: true,
+      'meta:extensible': false,
+      properties: { 'foo':'bar', 'bar': 'baz' }
+    };
+
+    const h = headers(schema, '/home/lars', '/home/lars/some/deep/path/complex.schema.json');
+
+    const result = `| Abstract | Extensible | Status | Identifiable | Custom Properties | Additional Properties | Defined In |
+|----------|------------|--------|--------------|-------------------|-----------------------|------------|
+| Can be instantiated | No | Experimental | No | Forbidden | Permitted | [some/deep/path/complex.schema.json](complex.schema.json) |`;
+    expect(h.render()).toEqual(result);
+  });
+
 });
