@@ -13,7 +13,7 @@ A schema in a sub directory
 
 | [Abstract](../../abstract.md) | Extensible | [Status](../../status.md) | Identifiable | Custom Properties | Additional Properties | Defined In |
 |-------------------------------|------------|---------------------------|--------------|-------------------|-----------------------|------------|
-| Cannot be instantiated | Yes | Experimental | No | Forbidden | Permitted | [subdir/subdir.schema.json](subdir/subdir.schema.json) |
+| Cannot be instantiated | Yes | Experimental | No | Forbidden | Permitted | [subdir/subdir.schema.json](subdir.schema.json) |
 
 
 **All** of the following *requirements* need to be fulfilled.
