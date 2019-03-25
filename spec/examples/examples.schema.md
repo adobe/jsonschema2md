@@ -34,11 +34,11 @@ This is an example schema with *multiple* examples. Too many examples? There can
 
 # Examples Properties
 
-| Property | Type | Required | Defined by |
-|----------|------|----------|------------|
-| [bar](#bar) | `string` | **Required** | Examples (this schema) |
-| [foo](#foo) | `string` | Optional | Examples (this schema) |
-| `*` | any | Additional | this schema *allows* additional properties |
+| Property | Type | Required | Nullable | Defined by |
+|----------|------|----------|----------|------------|
+| [bar](#bar) | `string` | **Required**  | No | Examples (this schema) |
+| [foo](#foo) | `string` | Optional  | No | Examples (this schema) |
+| `*` | any | Additional | Yes | this schema *allows* additional properties |
 
 ## bar
 

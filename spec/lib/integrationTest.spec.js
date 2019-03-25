@@ -1,5 +1,6 @@
 const { spawn } = require('child_process');
-const { readFile, readdirSync, statSync } = require('fs');
+const path = require('path');
+const { readFileSync, readdirSync, statSync } = require('fs');
 
 beforeEach(function() {
   jasmine.addMatchers(
@@ -54,25 +55,17 @@ describe('Compare results', () => {
     ls.on('close', code => {
       expect(code).toEqual(0);
       const files = readdirSync('./spec/examples').filter(item => !(/(^|\/)\.[^\/\.]/g).test(item));
-      expect(files.length).toEqual(20);
+      expect(files.length).toEqual(21);
+
+      files.forEach(file => {
+        if (statSync('./spec/examples/' + file).isFile()) {
+          const expectedstr = readFileSync(path.resolve('./spec/examples/', file)).toString();
+          const actualstr = readFileSync(path.resolve('./examples/docs/', file)).toString();
+          expect(actualstr).toEqual(expectedstr, file + ' does not match');
+        }
+      });
+
       done();
     });
-  });
-
-  const files = readdirSync('./spec/examples').filter(item => !(/(^|\/)\.[^\/\.]/g).test(item));
-  files.forEach(file => {
-    if (statSync('./spec/examples/' + file).isFile()) {
-      it('Comparing ' + file, indone => {
-        console.log('file ' + file);
-        readFile('./spec/examples/' + file, (err, expectedbuf) => {
-          expect(err).toBeNull();
-          readFile('./examples/docs/' + file, (err, actualbuf) => {
-            expect(err).toBeNull();
-            expect(actualbuf.toString()).toEqual(expectedbuf.toString());
-            indone();
-          });
-        });
-      });
-    }
   });
 });
