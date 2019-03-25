@@ -20,6 +20,7 @@
 * [Extensible](./extensible.schema.md) – `https://example.com/schemas/extensible` (Unknown)
 * [Identifiable](./identifiable.schema.md) – `https://example.com/schemas/identifiable` (Unknown)
 * [Join Types](./join.schema.md) – `https://example.com/schemas/join` (Unknown)
+* [Nested Object](./nestedobj.schema.md) – `https://example.com/schemas/nestedobject` (Unknown)
 * [Pattern Properties](./pattern.schema.md) – `https://example.com/schemas/pattern` (Unknown)
 * [Simple](./simple.schema.md) – `https://example.com/schemas/simple` (Unknown)
 * [Simple Types](./simpletypes.schema.md) – `https://example.com/schemas/simpletypes` (Unknown)

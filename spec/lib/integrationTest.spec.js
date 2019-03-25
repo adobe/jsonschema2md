@@ -55,7 +55,7 @@ describe('Compare results', () => {
     ls.on('close', code => {
       expect(code).toEqual(0);
       const files = readdirSync('./spec/examples').filter(item => !(/(^|\/)\.[^\/\.]/g).test(item));
-      expect(files.length).toEqual(21);
+      expect(files.length).toEqual(22);
 
       files.forEach(file => {
         if (statSync('./spec/examples/' + file).isFile()) {
