@@ -8,8 +8,9 @@
 #### <%=name %>
 <% if (schema.title) { %>##### <%= schema.title %><% } %>
 
-
+<% if (schema.description) { %>
 <%- (""+schema.description).replace(/\n/g, '\n\n') %>
+<% } %>
 
 
 `<%=name %>`
@@ -44,6 +45,8 @@ The value of this property **must** be equal to one of the [known values below](
 <%- include("number-type",{schema:schema,_:_}) %>
 <% } else if (schema.type==="boolean") { %>
 <%- include("boolean-type",{schema:schema,_:_}) %>
+<% } else if (schema.type==="object") { %>
+<%- include("object-type",{schema:schema,_:_})  %>
 <% } else if (schema.type==="array") { %>
 <%- include("array-type",{schema:schema,_:_,nested:false,ejs:ejs}) %>
 <% } else if (schema.$ref!==undefined) { %>
