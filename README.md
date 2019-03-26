@@ -19,42 +19,30 @@ Using the schemas in [`examples/schemas`](examples/schemas), the output in [`exa
 
 ```bash
 # clone this project
-$ git clone git@github.com:adobe/jsonschema2md.git
-
-# install dependencies
-$ cd jsonschema2md && npm install
+$ npm install -g @adobe/jsonschema2md
 
 # show usage information
-$ node cli.js
+$ jsonschema2md
 
 # run task
 # leave out the -v '06', when you have draft-07 schemas
-$ node cli.js -d examples/schemas -o examples/docs -v '06'
+$ jsonschema2md -d examples/schemas -o examples/docs -v '06'
 # generated output for whole folder is written to ./examples/docs
 ```
+
 ## JSON Schema Draft Versions
 
 `jsonschema2md` assumes `draft-07` by default. If your schemas are not on `draft-07`, you can specify the draft version using the `-v` or `--draft` flag.
 
 ```bash
 # run against JSON Schema Draft 04
-$ node cli.js -d examples/schemas -o examples/docs -v 04
+$ jsonschema2md -d examples/schemas -o examples/docs -v 04
 ```
 
 ```bash
 # run against JSON Schema Draft 06
-$ node cli.js -d examples/schemas -o examples/docs -v 06
+$ jsonschema2md -d examples/schemas -o examples/docs -v 06
 ```
-
-### Installing the `jsonschema2md` Command Line Tools
-
-The JSON Schema Markdown tools also includes a convenient `jsonschema2md` command line tool that can be installed using:
-
-```bash
-$ npm link
-```
-
-The command line arguments are identical between the `jsonschema2md` binary and the `cli.js` node script.
 
 ## Using JSON Schema Markdown Tools from `npm`
 
