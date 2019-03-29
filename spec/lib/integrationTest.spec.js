@@ -57,6 +57,7 @@ describe('Compare results', () => {
       const files = readdirSync('./spec/examples').filter(item => !(/(^|\/)\.[^\/\.]/g).test(item));
       expect(files.length).toEqual(22);
 
+      //console.log(readFileSync(path.resolve('./examples/schemas/', 'definitions.schema.json')).toString());
       files.forEach(file => {
         if (statSync('./spec/examples/' + file).isFile()) {
           const expectedstr = readFileSync(path.resolve('./spec/examples/', file)).toString();

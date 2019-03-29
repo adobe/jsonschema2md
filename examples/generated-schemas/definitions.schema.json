@@ -27,7 +27,10 @@
                     "format": "email",
                     "description": "An about ids. It is meta. If you are confused, send an email to the address specified in this property value."
                 }
-            }
+            },
+            "required": [
+                "@id"
+            ]
         }
     },
     "allOf": [
