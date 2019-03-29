@@ -13,23 +13,14 @@ A schema in a sub directory
 
 | [Abstract](../../abstract.md) | Extensible | [Status](../../status.md) | Identifiable | Custom Properties | Additional Properties | Defined In |
 |-------------------------------|------------|---------------------------|--------------|-------------------|-----------------------|------------|
-| Cannot be instantiated | Yes | Experimental | No | Forbidden | Permitted | [subdir/subdir.schema.json](subdir.schema.json) |
+| Can be instantiated | Yes | Experimental | No | Forbidden | Permitted | [subdir/subdir.schema.json](subdir.schema.json) |
 
+# Subdir Properties
 
-**All** of the following *requirements* need to be fulfilled.
-
-
-#### Requirement 1
-
-
-* []() – `#/definitions/id`
-
-
-# Subdir Definitions
-
-| Property | Type | Group |
-|----------|------|-------|
-| [id](#id) | `string` | `https://example.com/schemas/subdir/subdir#/definitions/content` |
+| Property | Type | Required | Nullable | Defined by |
+|----------|------|----------|----------|------------|
+| [id](#id) | `string` | Optional  | No | Subdir (this schema) |
+| `*` | any | Additional | Yes | this schema *allows* additional properties |
 
 ## id
 
@@ -51,4 +42,14 @@ A unique identifier given to every addressable thing.
 
 
 
+
+
+
+**All** of the following *requirements* need to be fulfilled.
+
+
+#### Requirement 1
+
+
+* []() – `#/definitions/content`
 

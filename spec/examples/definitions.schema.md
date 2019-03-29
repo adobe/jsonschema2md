@@ -36,7 +36,7 @@ aks.
 
 | Property | Type | Required | Nullable | Defined by |
 |----------|------|----------|----------|------------|
-| [@id](#id) | `string` | Optional  | No | Definitions (this schema) |
+| [@id](#id) | `string` | **Required**  | No | Definitions (this schema) |
 | [id](#id-1) | `string` | **Required**  | No | Definitions (this schema) |
 | [meta:id](#metaid) | `string` | Optional  | No | Definitions (this schema) |
 | `*` | any | Additional | Yes | this schema *allows* additional properties |
@@ -47,7 +47,7 @@ An `id` with an `@` in front of it. The `@` stands for "dot com"
 
 `@id`
 
-* is optional
+* is **required**
 * type: `string`
 * defined in this schema
 
