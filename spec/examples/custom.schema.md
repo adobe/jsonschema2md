@@ -25,6 +25,7 @@ This is an extensible schema. It has `definitions`, that can be used in other sc
 
 ## bar
 
+
 A unique identifier given to every addressable thing.
 
 `bar`
@@ -45,6 +46,7 @@ A unique identifier given to every addressable thing.
 
 
 ## foo
+
 
 A unique identifier given to every addressable thing.
 

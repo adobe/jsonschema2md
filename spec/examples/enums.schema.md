@@ -25,6 +25,7 @@ This is an example schema with examples for properties with enum values
 
 ## hello
 
+
 A simple string. Pick a value.
 
 `hello`
@@ -45,7 +46,9 @@ The value of this property **must** be equal to one of the [known values below](
 
 
 ## nested
+
 ### Enumerated (Nested)
+
 
 This is an example schema with examples for properties of nested objects with enum values
 
@@ -69,6 +72,7 @@ This is an example schema with examples for properties of nested objects with en
 
 #### test
 
+    
 A simple string. Pick a value.
 
 `test`
