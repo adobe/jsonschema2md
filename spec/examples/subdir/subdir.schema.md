@@ -24,6 +24,7 @@ A schema in a sub directory
 
 ## id
 
+
 A unique identifier given to every addressable thing.
 
 `id`
