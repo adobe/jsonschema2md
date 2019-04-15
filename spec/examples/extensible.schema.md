@@ -24,6 +24,7 @@ This is an extensible schema. It has `definitions`, that can be used in other sc
 
 ## bar
 
+
 A horse walks into it.
 
 `bar`
@@ -55,6 +56,7 @@ A horse walks into it.
 
 
 ## foo
+
 
 A unique identifier given to every addressable thing.
 

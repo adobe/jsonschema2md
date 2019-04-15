@@ -43,6 +43,7 @@ aks.
 
 ## @id
 
+
 An `id` with an `@` in front of it. The `@` stands for "dot com"
 
 `@id`
@@ -65,6 +66,7 @@ An `id` with an `@` in front of it. The `@` stands for "dot com"
 
 ## id
 
+
 A unique identifier given to every addressable thing.
 
 `id`
@@ -86,6 +88,7 @@ A unique identifier given to every addressable thing.
 
 
 ## meta:id
+
 
 An about ids. It is meta. If you are confused, send an email to the address specified in this property value.
 

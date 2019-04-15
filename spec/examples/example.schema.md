@@ -33,6 +33,7 @@ This is an example schema with examples. Too many examples? There can never be t
 
 ## bar
 
+
 A simple string.
 
 `bar`
@@ -64,6 +65,7 @@ A simple string.
 
 
 ## foo
+
 
 A simple string.
 
