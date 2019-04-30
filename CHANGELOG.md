@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/adobe/jsonschema2md/compare/v2.0.0...v2.1.0) (2019-04-30)
+
+
+### Features
+
+* Apply prettier to generated markdown files for improved formatting ([0e8bde4](https://github.com/adobe/jsonschema2md/commit/0e8bde4))
+
 # [2.0.0](https://github.com/adobe/jsonschema2md/compare/v1.0.0...v2.0.0) (2019-03-26)
 
 
