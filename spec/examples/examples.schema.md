@@ -9,11 +9,11 @@ foo: bar
 https://example.com/schemas/examples
 ```
 
-This is an example schema with *multiple* examples. Too many examples? There can never be too many examples!
+This is an example schema with _multiple_ examples. Too many examples? There can never be too many examples!
 
-| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Identifiable | Custom Properties | Additional Properties | Defined In |
-|----------------------------|------------|------------------------|--------------|-------------------|-----------------------|------------|
-| Can be instantiated | No | Experimental | No | Forbidden | Permitted | [examples.schema.json](examples.schema.json) |
+| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Identifiable | Custom Properties | Additional Properties | Defined In                                   |
+| -------------------------- | ---------- | ---------------------- | ------------ | ----------------- | --------------------- | -------------------------------------------- |
+| Can be instantiated        | No         | Experimental           | No           | Forbidden         | Permitted             | [examples.schema.json](examples.schema.json) |
 
 ## Examples Examples
 
@@ -31,35 +31,27 @@ This is an example schema with *multiple* examples. Too many examples? There can
 }
 ```
 
-
 # Examples Properties
 
-| Property | Type | Required | Nullable | Defined by |
-|----------|------|----------|----------|------------|
-| [bar](#bar) | `string` | **Required**  | No | Examples (this schema) |
-| [foo](#foo) | `string` | Optional  | No | Examples (this schema) |
-| `*` | any | Additional | Yes | this schema *allows* additional properties |
+| Property    | Type     | Required     | Nullable | Defined by                                 |
+| ----------- | -------- | ------------ | -------- | ------------------------------------------ |
+| [bar](#bar) | `string` | **Required** | No       | Examples (this schema)                     |
+| [foo](#foo) | `string` | Optional     | No       | Examples (this schema)                     |
+| `*`         | any      | Additional   | Yes      | this schema _allows_ additional properties |
 
 ## bar
-
 
 A simple string.
 
 `bar`
 
-* is **required**
-* type: `string`
-* defined in this schema
+- is **required**
+- type: `string`
+- defined in this schema
 
 ### bar Type
 
-
 `string`
-
-
-
-
-
 
 ### bar Examples
 
@@ -71,32 +63,22 @@ A simple string.
 "baz"
 ```
 
-
-
 ## foo
-
 
 A simple string.
 
 `foo`
 
-* is optional
-* type: `string`
-* defined in this schema
+- is optional
+- type: `string`
+- defined in this schema
 
 ### foo Type
 
-
 `string`
-
-
-
-
-
 
 ### foo Example
 
 ```json
 "bar"
 ```
-

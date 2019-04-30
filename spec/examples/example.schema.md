@@ -11,11 +11,12 @@ https://example.com/schemas/example
 
 This is an example schema with examples. Too many examples? There can never be too many examples!
 
-| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Identifiable | Custom Properties | Additional Properties | Defined In |
-|----------------------------|------------|------------------------|--------------|-------------------|-----------------------|------------|
-| Can be instantiated | No | Experimental | No | Forbidden | Permitted | [example.schema.json](example.schema.json) |
+| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Identifiable | Custom Properties | Additional Properties | Defined In                                 |
+| -------------------------- | ---------- | ---------------------- | ------------ | ----------------- | --------------------- | ------------------------------------------ |
+| Can be instantiated        | No         | Experimental           | No           | Forbidden         | Permitted             | [example.schema.json](example.schema.json) |
 
 ## Example Example
+
 ```json
 {
   "foo": "bar",
@@ -25,32 +26,25 @@ This is an example schema with examples. Too many examples? There can never be t
 
 # Example Properties
 
-| Property | Type | Required | Nullable | Defined by |
-|----------|------|----------|----------|------------|
-| [bar](#bar) | `string` | Optional  | No | Example (this schema) |
-| [foo](#foo) | `string` | Optional  | No | Example (this schema) |
-| `*` | any | Additional | Yes | this schema *allows* additional properties |
+| Property    | Type     | Required   | Nullable | Defined by                                 |
+| ----------- | -------- | ---------- | -------- | ------------------------------------------ |
+| [bar](#bar) | `string` | Optional   | No       | Example (this schema)                      |
+| [foo](#foo) | `string` | Optional   | No       | Example (this schema)                      |
+| `*`         | any      | Additional | Yes      | this schema _allows_ additional properties |
 
 ## bar
-
 
 A simple string.
 
 `bar`
 
-* is optional
-* type: `string`
-* defined in this schema
+- is optional
+- type: `string`
+- defined in this schema
 
 ### bar Type
 
-
 `string`
-
-
-
-
-
 
 ### bar Examples
 
@@ -62,32 +56,22 @@ A simple string.
 "baz"
 ```
 
-
-
 ## foo
-
 
 A simple string.
 
 `foo`
 
-* is optional
-* type: `string`
-* defined in this schema
+- is optional
+- type: `string`
+- defined in this schema
 
 ### foo Type
 
-
 `string`
-
-
-
-
-
 
 ### foo Example
 
 ```json
 "bar"
 ```
-
