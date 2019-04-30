@@ -9,88 +9,58 @@ foo: bar
 https://example.com/schemas/nestedobject
 ```
 
-
-| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Identifiable | Custom Properties | Additional Properties | Defined In |
-|----------------------------|------------|------------------------|--------------|-------------------|-----------------------|------------|
-| Can be instantiated | No | Experimental | No | Forbidden | Forbidden | [nestedobj.schema.json](nestedobj.schema.json) |
+| [Abstract](../abstract.md) | Extensible | [Status](../status.md) | Identifiable | Custom Properties | Additional Properties | Defined In                                     |
+| -------------------------- | ---------- | ---------------------- | ------------ | ----------------- | --------------------- | ---------------------------------------------- |
+| Can be instantiated        | No         | Experimental           | No           | Forbidden         | Forbidden             | [nestedobj.schema.json](nestedobj.schema.json) |
 
 # Nested Object Properties
 
-| Property | Type | Required | Nullable | Defined by |
-|----------|------|----------|----------|------------|
-| [settings](#settings) | `object` | Optional  | No | Nested Object (this schema) |
+| Property              | Type     | Required | Nullable | Defined by                  |
+| --------------------- | -------- | -------- | -------- | --------------------------- |
+| [settings](#settings) | `object` | Optional | No       | Nested Object (this schema) |
 
 ## settings
-
 
 settings
 
 `settings`
 
-* is optional
-* type: `object`
-* defined in this schema
+- is optional
+- type: `object`
+- defined in this schema
 
 ### settings Type
 
-
 `object` with following properties:
 
-
-| Property | Type | Required |
-|----------|------|----------|
-| `collaborators`| object | Optional |
-
-
+| Property        | Type   | Required |
+| --------------- | ------ | -------- |
+| `collaborators` | object | Optional |
 
 #### collaborators
 
-    
 collaborators
 
 `collaborators`
 
-* is optional
-* type: `object`
+- is optional
+- type: `object`
 
 ##### collaborators Type
 
-
 `object` with following properties:
 
-
-| Property | Type | Required |
-|----------|------|----------|
-| `id`| string | Optional |
-
-
+| Property | Type   | Required |
+| -------- | ------ | -------- |
+| `id`     | string | Optional |
 
 #### id
 
-    
-
 `id`
 
-* is optional
-* type: `string`
+- is optional
+- type: `string`
 
 ##### id Type
 
-
 `string`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
