@@ -25,8 +25,8 @@ $ npm install -g @adobe/jsonschema2md
 $ jsonschema2md
 
 # run task
-# leave out the -v '06', when you have draft-07 schemas
-$ jsonschema2md -d examples/schemas -o examples/docs -v '06'
+# leave out the -v "06", when you have draft-07 schemas
+$ jsonschema2md -d examples/schemas -o examples/docs -v "06"
 # generated output for whole folder is written to ./examples/docs
 ```
 
