@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/adobe/jsonschema2md/compare/v2.1.0...v2.1.1) (2019-05-29)
+
+
+### Bug Fixes
+
+* **package:** update async to version 3.0.1 ([4ffa21e](https://github.com/adobe/jsonschema2md/commit/4ffa21e))
+
 # [2.1.0](https://github.com/adobe/jsonschema2md/compare/v2.0.0...v2.1.0) (2019-04-30)
 
 
