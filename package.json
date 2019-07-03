@@ -13,7 +13,9 @@
     "lint-fix": "eslint . --fix",
     "start": "node cli.js",
     "test": "npm run lint && jasmine",
-    "cover": "istanbul cover --root lib --print detail jasmine"
+    "cover": "istanbul cover --root lib --print detail jasmine",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "ajv": "^6.5.4",
@@ -29,7 +31,8 @@
     "prettier": "^1.17.0",
     "readdirp": "^2.1.0",
     "valid-url": "1.0.9",
-    "winston": "^3.1.0"
+    "winston": "^3.1.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^3.0.2",
@@ -68,5 +71,6 @@
     "ghooks": {
       "pre-commit": "npx lint-staged"
     }
-  }
+  },
+  "snyk": true
 }
