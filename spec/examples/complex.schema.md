@@ -30,6 +30,7 @@ This is an example schema that uses types defined in other schemas.
 | [refabstract](#refabstract) | `object`  | **Required** | No       | Complex References (this schema)           |
 | [reflist](#reflist)         | Simple    | Optional     | No       | Complex References (this schema)           |
 | [refnamed](#refnamed)       | Simple    | Optional     | No       | Complex References (this schema)           |
+| [refobj](#refobj)           | `object`  | Optional     | No       | Complex References (this schema)           |
 | [xor](#xor)                 | complex   | Optional     | No       | Complex References (this schema)           |
 | `int.*`                     | `integer` | Pattern      | No       | Complex References (this schema)           |
 | `str.*`                     | `string`  | Pattern      | No       | Complex References (this schema)           |
@@ -155,6 +156,33 @@ All items must be of the type:
 - defined in this schema
 
 ### refnamed Type
+
+- [Simple](simple.schema.md) – `https://example.com/schemas/simple`
+
+## refobj
+
+`refobj`
+
+- is optional
+- type: `object`
+- defined in this schema
+
+### refobj Type
+
+`object` with following properties:
+
+| Property | Type   | Required |
+| -------- | ------ | -------- |
+| `foo`    | Simple | Optional |
+
+#### foo
+
+`foo`
+
+- is optional
+- type: Simple
+
+##### foo Type
 
 - [Simple](simple.schema.md) – `https://example.com/schemas/simple`
 
