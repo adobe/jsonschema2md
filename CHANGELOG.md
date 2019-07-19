@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/adobe/jsonschema2md/compare/v2.1.1...v2.1.2) (2019-07-19)
+
+
+### Bug Fixes
+
+* Fix `$ref` within nested objects not generating correct markdown ([b8c9a49](https://github.com/adobe/jsonschema2md/commit/b8c9a49)), closes [#136](https://github.com/adobe/jsonschema2md/issues/136)
+
 ## [2.1.1](https://github.com/adobe/jsonschema2md/compare/v2.1.0...v2.1.1) (2019-05-29)
 
 
