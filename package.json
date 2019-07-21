@@ -37,7 +37,7 @@
     "@semantic-release/github": "^5.2.10",
     "commitizen": "^3.0.7",
     "cz-conventional-changelog": "^2.1.0",
-    "eslint": "^5.6.1",
+    "eslint": "^6.1.0",
     "ghooks": "^2.0.4",
     "istanbul": "^0.4.5",
     "jasmine": "~3.4.0",
