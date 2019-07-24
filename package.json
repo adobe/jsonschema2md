@@ -27,7 +27,7 @@
     "mkdirp": "^0.5.1",
     "optimist": "^0.6.1",
     "prettier": "^1.17.0",
-    "readdirp": "^2.1.0",
+    "readdirp": "^3.1.1",
     "valid-url": "1.0.9",
     "winston": "^3.1.0"
   },
@@ -47,7 +47,7 @@
     "semantic-release": "^15.13.3"
   },
   "engines": {
-    "node": ">= 6.0.0"
+    "node": ">= 8.0.0"
   },
   "repository": {
     "type": "git",
