@@ -42,7 +42,7 @@
     "istanbul": "^0.4.5",
     "jasmine": "~3.4.0",
     "jasmine-diff": "^0.1.3",
-    "lint-staged": "^8.1.5",
+    "lint-staged": "^9.1.0",
     "npm-snapshot": "^1.0.3",
     "semantic-release": "^15.13.3"
   },
