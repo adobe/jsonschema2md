@@ -5,9 +5,9 @@
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
  */ %>
 
-Either one of:
+<%=i18n.__('multitpleType.types')%>
 <%  _.forEach(schema.type, (t) => { %>
  * `<%= t %>`
 <% }); %><% if (schema.nullable) { %>
- * or `null`
+ * <%=i18n.__('multitpleType.none')%>
 <% } %>

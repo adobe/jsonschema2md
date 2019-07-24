@@ -49,6 +49,8 @@ var argv = require('optimist')
       throw 'Meta schema file "' + args.s + '" does not exist!';
     }
   })
+  .alias('i', 'i18n')
+  .describe('i', 'path to a locales folder with an en.json file in it. This file will be used for all text parts in all templates')
   .argv;
 
 const docs = _.fromPairs(_.toPairs(argv).filter(([ key, value ]) => { return key.startsWith('link-'); }).map(([ key, value ]) => { return [ key.substr(5), value ];}));
@@ -122,7 +124,7 @@ if (target.isDirectory()) {
       return Promise.reduce(files, readSchemaFile, schemaPathMap)
         .then(schemaMap => {
           logger.info('finished reading all *.%s files in %s, beginning processing….', schemaExtension, schemaPath);
-          return Schema.process(schemaMap, schemaPath, outDir, schemaDir, metaElements, readme, docs);
+          return Schema.process(schemaMap, schemaPath, outDir, schemaDir, metaElements, readme, docs, argv);
         })
         .then(() => {
           logger.info('Processing complete.');
@@ -143,7 +145,7 @@ if (target.isDirectory()) {
       Schema.setAjv(ajv);
       Schema.setSchemaPathMap(schemaPathMap);
       logger.info('finished reading %s, beginning processing....', schemaPath);
-      return Schema.process(schemaMap, schemaPath, outDir, schemaDir, metaElements, false, docs);
+      return Schema.process(schemaMap, schemaPath, outDir, schemaDir, metaElements, false, docs, argv);
     })
     .then(() => {
       logger.info('Processing complete.');
