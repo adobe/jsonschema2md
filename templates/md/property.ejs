@@ -32,6 +32,8 @@
 * default: `<%- JSON.stringify(schema.default) %>`
 <% } -%>
 * defined in <% if (schema.$oSchema) { %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= nameSlug %>)<% } else { %>this schema<% } %>
+<% costumElements.forEach(property => { %> * <%=property%>: <%=schema[property] %> 
+<% });%>
 
 <% if (schema.const!==undefined) { %>
 The value of this property **must** be equal to:
