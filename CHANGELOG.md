@@ -1,3 +1,21 @@
+# [3.0.0](https://github.com/adobe/jsonschema2md/compare/v2.1.2...v3.0.0) (2019-07-24)
+
+
+### Bug Fixes
+
+* **cli:** fix breaking changes to readdirp API ([5150f3f](https://github.com/adobe/jsonschema2md/commit/5150f3f))
+* **package:** update readdirp to version 3.1.1 ([05cd51e](https://github.com/adobe/jsonschema2md/commit/05cd51e)), closes [#127](https://github.com/adobe/jsonschema2md/issues/127)
+
+
+### Build System
+
+* **package:** require minimum node version: 8 ([a9ec935](https://github.com/adobe/jsonschema2md/commit/a9ec935))
+
+
+### BREAKING CHANGES
+
+* **package:** Node 7 and lower are no longer supported, Node 8 is now the minimum version
+
 ## [2.1.2](https://github.com/adobe/jsonschema2md/compare/v2.1.1...v2.1.2) (2019-07-19)
 
 
