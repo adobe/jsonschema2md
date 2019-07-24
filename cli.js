@@ -105,7 +105,7 @@ logger.info('output directory: %s', outDir);
 if (target.isDirectory()) {
   // the ajv json validator will be passed into the main module to help with processing
   var files=[];
-  readdirp({ root: schemaPath, fileFilter: `*.${schemaExtension}` })
+  readdirp(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtension}` })
     .on('data', entry => {
       files.push(entry.fullPath);
       try {
