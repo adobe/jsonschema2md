@@ -4,11 +4,11 @@
  * you may not use this file except in compliance with the License. You may obtain a copy
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
  */ %>
-# <%=title %> Definitions
+# <%=title %> <%=i18n.__('definitions.definitions')%>
 
 
 
-| Property | Type | Group |
+| <%=i18n.__('definitions.tabel.property')%> | <%=i18n.__('definitions.tabel.type')%> | <%=i18n.__('definitions.tabel.group')%> |
 |----------|------|-------|
 <% _.keys(props).sort().forEach(property => {
   const schema = props[property]; %>
