@@ -26,7 +26,7 @@ else if (schema.minItems!==undefined                             ) { %>* <%=i18n
 <% } %><% if (schema.default!==undefined) { %>
 * <%=i18n.__('patternPropertySchemaDefault')%> `<%- JSON.stringify(schema.default) %>`
 <% } %>
-* <%=i18n.__('patternPropertySchemaDefinedIn')%> <% if (schema.$oSchema) { %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= name %>)<% } else { %><%=i18n.__('patternPropertySchemaDefinedIn')%><% } %>
+* <%=i18n.__('patternPropertySchemaDefinedIn')%> <% if (schema.$oSchema) { %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= name %>)<% } else { %><%=i18n.__('patternPropertySchemaDefinedSelf')%><% } %>
 
 <% if (schema.const!==undefined) { %>
 <%=i18n.__('patternPropertySchemaConst')%>
