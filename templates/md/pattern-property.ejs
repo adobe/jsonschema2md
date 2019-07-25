@@ -27,7 +27,8 @@ else if (schema.minItems!==undefined                             ) { %>* at leas
 * default: `<%- JSON.stringify(schema.default) %>`
 <% } %>
 * defined in <% if (schema.$oSchema) { %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= name %>)<% } else { %>this schema<% } %>
-
+<% customElements.forEach(property => { %> * <%=property%>: <%=schema[property] %> 
+<% });%>
 <% if (schema.const!==undefined) { %>
 The value of this property **must** be equal to:
 
@@ -49,11 +50,11 @@ The value of this properties with this pattern **must** be equal to one of the [
 <% } else if (schema.type==="boolean") { %>
 <%- include("boolean-type",{schema:schema,_:_}) %>
 <% } else if (schema.type==="array") { %>
-<%- include("array-type",{schema:schema,_:_,nested:false,ejs:ejs}) %>
+<%- include("array-type",{schema:schema,_:_,nested:false,ejs:ejs,customElements}) %>
 <% } else if (schema.$ref!==undefined) { %>
 <%- include("referenced-type",{schema:schema,_:_}) %>
 <% } else if (schema.anyOf!==undefined || schema.allOf!==undefined || schema.oneOf!==undefined) { %>
-<%- include("join-type",{schema:schema,_:_,schemas:schema.anyOf || schema.allOf || schema.oneOf,ejs:ejs}) %>
+<%- include("join-type",{schema:schema,_:_,schemas:schema.anyOf || schema.allOf || schema.oneOf,ejs:ejs,customElements}) %>
 <% } else { %>
 Unknown type `<%= schema.type %>`.
 
