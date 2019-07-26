@@ -45,6 +45,8 @@ Number in a range
 - is optional
 - type: complex
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### and Type
 
@@ -71,6 +73,8 @@ String or number…
 - is optional
 - type: complex
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### or Type
 
@@ -93,6 +97,8 @@ String or number…
 - is **required**
 - type: `object`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### refabstract Type
 
@@ -111,6 +117,8 @@ A unique identifier given to every addressable thing.
 
 - is optional
 - type: `string`
+- version: 1.0.0
+- testProperty: test
 
 ##### foo Type
 
@@ -124,6 +132,8 @@ This is not foo.
 
 - is optional
 - type: `const`
+- version: 1.0.0
+- testProperty: test
 
 The value of this property **must** be equal to:
 
@@ -138,6 +148,8 @@ false
 - is optional
 - type: Simple
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### reflist Type
 
@@ -154,6 +166,8 @@ All items must be of the type:
 - is optional
 - type: Simple
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### refnamed Type
 
@@ -166,6 +180,8 @@ All items must be of the type:
 - is optional
 - type: `object`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### refobj Type
 
@@ -181,6 +197,8 @@ All items must be of the type:
 
 - is optional
 - type: Simple
+- version: 1.0.0
+- testProperty: test
 
 ##### foo Type
 
@@ -195,6 +213,8 @@ Exclusive choice.
 - is optional
 - type: complex
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### xor Type
 
@@ -221,8 +241,10 @@ Applies to all properties that match the regular expression `int.*`
 - is a property pattern
 - type: `integer`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
-### Pattern int.\* Type
+### Pattern int./* Type
 
 `integer`
 
@@ -235,7 +257,9 @@ Applies to all properties that match the regular expression `str.*`
 - is a property pattern
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
-### Pattern str.\* Type
+### Pattern str./* Type
 
 `string`

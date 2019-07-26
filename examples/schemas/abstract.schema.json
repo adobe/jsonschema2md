@@ -16,12 +16,16 @@
       "properties": {
         "foo": {
           "type": "string",
-          "description": "A unique identifier given to every addressable thing."
+          "description": "A unique identifier given to every addressable thing.",
+          "version": "1.0.0",
+          "testProperty": "test"
         },
         "nonfoo": {
           "type": "boolean",
           "const": false,
-          "description": "This is not foo."
+          "description": "This is not foo.",
+          "version": "1.0.0",
+          "testProperty": "test"
         }
       }
     },
@@ -30,7 +34,9 @@
       "properties": {
         "bar": {
           "type": "string",
-          "description": "A unique identifier given to every addressable thing."
+          "description": "A unique identifier given to every addressable thing.",
+          "version": "1.0.0",
+          "testProperty": "test"
         }
       }
     }

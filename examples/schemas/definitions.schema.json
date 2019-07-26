@@ -15,17 +15,23 @@
         "id": {
           "type": "string",
           "format": "uri-reference",
-          "description": "A unique identifier given to every addressable thing."
+          "description": "A unique identifier given to every addressable thing.",
+          "version": "1.0.0",
+          "testProperty": "test"
         },
         "@id": {
           "type": "string",
           "format": "uri",
-          "description": "An `id` with an `@` in front of it. The `@` stands for \"dot com\""
+          "description": "An `id` with an `@` in front of it. The `@` stands for \"dot com\"",
+          "version": "1.0.0",
+          "testProperty": "test"
         },
         "meta:id": {
           "type": "string",
           "format": "email",
-          "description": "An about ids. It is meta. If you are confused, send an email to the address specified in this property value."
+          "description": "An about ids. It is meta. If you are confused, send an email to the address specified in this property value.",
+          "version": "1.0.0",
+          "testProperty": "test"
         }
       },
       "required": ["@id"]

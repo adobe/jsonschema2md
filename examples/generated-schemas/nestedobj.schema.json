@@ -18,11 +18,17 @@
                     },
                     "properties": {
                         "id": {
-                            "type": "string"
+                            "type": "string",
+                            "version": "1.0.0",
+                            "testProperty": "test"
                         }
-                    }
+                    },
+                    "version": "1.0.0",
+                    "testProperty": "test"
                 }
-            }
+            },
+            "version": "1.0.0",
+            "testProperty": "test"
         }
     },
     "additionalProperties": false

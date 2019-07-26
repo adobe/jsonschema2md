@@ -28,6 +28,8 @@ settings
 - is optional
 - type: `object`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### settings Type
 
@@ -45,6 +47,8 @@ collaborators
 
 - is optional
 - type: `object`
+- version: 1.0.0
+- testProperty: test
 
 ##### collaborators Type
 
@@ -60,6 +64,8 @@ collaborators
 
 - is optional
 - type: `string`
+- version: 1.0.0
+- testProperty: test
 
 ##### id Type
 

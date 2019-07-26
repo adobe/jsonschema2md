@@ -17,7 +17,9 @@
                 "foo": {
                     "type": "string",
                     "examples": ["bar"],
-                    "description": "A unique identifier given to every addressable thing."
+                    "description": "A unique identifier given to every addressable thing.",
+                    "version": "1.0.0",
+                    "testProperty": "test"
                 }
             }
         },
@@ -26,7 +28,9 @@
                 "bar": {
                     "type": "string",
                     "examples": [ "whoo", "hoo"],
-                    "description": "A horse walks into it."
+                    "description": "A horse walks into it.",
+                    "version": "1.0.0",
+                    "testProperty": "test"
                 }
             }
         }

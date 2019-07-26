@@ -32,6 +32,8 @@ A unique identifier given to every addressable thing.
 - is optional
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### bar Type
 
@@ -46,6 +48,8 @@ A unique identifier given to every addressable thing.
 - is optional
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### foo Type
 
@@ -60,6 +64,8 @@ This is not foo.
 - is optional
 - type: `const`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 The value of this property **must** be equal to:
 

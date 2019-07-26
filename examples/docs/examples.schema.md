@@ -48,6 +48,8 @@ A simple string.
 - is **required**
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### bar Type
 
@@ -72,6 +74,8 @@ A simple string.
 - is optional
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### foo Type
 

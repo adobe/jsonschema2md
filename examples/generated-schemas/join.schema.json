@@ -19,7 +19,9 @@
                     "description": "A simple string.",
                     "examples": [
                         "hello"
-                    ]
+                    ],
+                    "version": "1.0.0",
+                    "testProperty": "test"
                 }
             }
         },
@@ -32,7 +34,9 @@
                     "description": "A simple string.",
                     "examples": [
                         "world"
-                    ]
+                    ],
+                    "version": "1.0.0",
+                    "testProperty": "test"
                 }
             }
         }

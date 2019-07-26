@@ -50,7 +50,8 @@ describe('Compare results', () => {
       'abstract.md',
       '--link-status',
       'status.md',
-      '-v', '06'
+      '-v', '06',
+      '-p', 'version,testProperty',
     ]);
     ls.on('close', code => {
       expect(code).toEqual(0);

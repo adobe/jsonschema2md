@@ -22,7 +22,9 @@
                     "type": "string",
                     "title": "BAAAZ!",
                     "examples": ["I'm just a humble example"],
-                    "description": "This property has a unique name to demonstrate it's uniqueness."
+                    "description": "This property has a unique name to demonstrate it's uniqueness.",
+                    "version": "1.0.0",
+                    "testProperty": "test"
                 }
             }
         }

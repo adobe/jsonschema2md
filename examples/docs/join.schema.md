@@ -33,6 +33,8 @@ A simple string.
 
 - is optional
 - type: `string`
+- version: 1.0.0
+- testProperty: test
 
 ##### foo Type
 
@@ -60,6 +62,8 @@ A simple string.
 
 - is optional
 - type: `string`
+- version: 1.0.0
+- testProperty: test
 
 ##### bar Type
 

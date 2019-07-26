@@ -15,7 +15,9 @@
             "description": "A simple string.",
             "examples": [
                 "bar"
-            ]
+            ],
+            "version": "1.0.0",
+            "testProperty": "test"
         }
     }
 }

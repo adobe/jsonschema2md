@@ -17,7 +17,9 @@
                 "World",
                 "Welt"
             ],
-            "description": "A simple string. Pick a value."
+            "description": "A simple string. Pick a value.",
+            "version": "1.0.0",
+            "testProperty": "test"
         },
         "nested": {
             "title": "Enumerated (Nested)",
@@ -31,9 +33,13 @@
                         "object",
                         "works"
                     ],
-                    "description": "A simple string. Pick a value."
+                    "description": "A simple string. Pick a value.",
+                    "version": "1.0.0",
+                    "testProperty": "test"
                 }
-            }
+            },
+            "version": "1.0.0",
+            "testProperty": "test"
         }
     },
     "required": [

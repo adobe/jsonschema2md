@@ -14,12 +14,16 @@
     "foo": {
       "type": "string",
       "description": "A simple string.",
-      "examples": ["bar"]
+      "examples": ["bar"],
+      "version": "1.0.0",
+      "testProperty": "test"
     },
     "bar": {
       "type": "string",
       "description": "A simple string.",
-      "examples": ["bar", "baz"]
+      "examples": ["bar", "baz"],
+      "version": "1.0.0",
+      "testProperty": "test"
     }
   },
   "required": [

@@ -34,6 +34,8 @@ This is just nothing
 - is optional
 - type: `null`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### null Type
 
@@ -48,6 +50,8 @@ Nullable string
 - is optional
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### string-or-null Type
 
@@ -62,6 +66,8 @@ Types can be many things
 - is optional
 - type: multiple
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### string-or-number Type
 
@@ -79,6 +85,8 @@ Types can be many things, even nothing at all.
 - is optional
 - type: multiple
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### string-or-number-null Type
 

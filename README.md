@@ -44,6 +44,14 @@ $ jsonschema2md -d examples/schemas -o examples/docs -v 04
 $ jsonschema2md -d examples/schemas -o examples/docs -v 06
 ```
 
+## Display costum Attributes in the property description
+`jsonschema2md` display only the attributes of an propety which are defined by  JSON Schema. If you want to display costum attributes in the property description you could provide a comma separated list with your custom attributes.
+
+```bash
+$ jsonschema2md -d examples/schemas -o examples/docs -p version,test
+```
+
+
 ## Using JSON Schema Markdown Tools from `npm`
 
 You can conveniently use the JSON Schema Markdown Tools from `npm`. This makes it possible to set up a conversion toolchain for your JSON Schema project that is driven entirely by `npm`. To do so, first define the dependency by adding this to your `"devDependencies"` section of `package.json`
