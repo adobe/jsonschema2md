@@ -1,28 +1,17 @@
 # Arrays Properties
 
-| Property | Type | Required | Nullable | Defined by |
-| -------- | ---- | -------- | -------- | ---------- |
-
-
-| [JoinTypelist](#jointypelist) | `array` | Optional | No | Arrays (this schema) |
-
-| [boollist](#boollist) | `boolean[]` | Optional | No | Arrays (this schema) |
-
-| [coordinatelist](#coordinatelist) | `number[][]` | Optional | No | Arrays (this schema) |
-
-| [intlist](#intlist) | `integer[]` | Optional | No | Arrays (this schema) |
-
-| [list](#list) | `string[]` | Optional | No | Arrays (this schema) |
-
-| [listlist](#listlist) | `array[]` | Optional | No | Arrays (this schema) |
-
-| [numlist](#numlist) | `number[]` | Optional | No | Arrays (this schema) |
-
-| [objectlist](#objectlist) | `object[]` | Optional | No | Arrays (this schema) |
-
-| [stringlistlist](#stringlistlist) | `string[][]` | Optional | No | Arrays (this schema) |
-
-| `*` | any | Additional | Yes | this schema _allows_ additional properties |
+| Property                          | Type         | Required   | Nullable | Defined by                                 |
+| --------------------------------- | ------------ | ---------- | -------- | ------------------------------------------ |
+| [JoinTypelist](#jointypelist)     | `array`      | Optional   | No       | Arrays (this schema)                       |
+| [boollist](#boollist)             | `boolean[]`  | Optional   | No       | Arrays (this schema)                       |
+| [coordinatelist](#coordinatelist) | `number[][]` | Optional   | No       | Arrays (this schema)                       |
+| [intlist](#intlist)               | `integer[]`  | Optional   | No       | Arrays (this schema)                       |
+| [list](#list)                     | `string[]`   | Optional   | No       | Arrays (this schema)                       |
+| [listlist](#listlist)             | `array[]`    | Optional   | No       | Arrays (this schema)                       |
+| [numlist](#numlist)               | `number[]`   | Optional   | No       | Arrays (this schema)                       |
+| [objectlist](#objectlist)         | `object[]`   | Optional   | No       | Arrays (this schema)                       |
+| [stringlistlist](#stringlistlist) | `string[][]` | Optional   | No       | Arrays (this schema)                       |
+| `*`                               | any          | Additional | Yes      | this schema _allows_ additional properties |
 
 ## JoinTypelist
 
@@ -46,11 +35,9 @@ All items must be of the type:
 
 `object` with following properties:
 
-| Property | Type | Required |
-| -------- | ---- | -------- |
-
-
-| `foo`| string | Optional |
+| Property | Type   | Required |
+| -------- | ------ | -------- |
+| `foo`    | string | Optional |
 
 #### foo
 
@@ -75,11 +62,9 @@ hello
 
 `object` with following properties:
 
-| Property | Type | Required |
-| -------- | ---- | -------- |
-
-
-| `bar`| string | Optional |
+| Property | Type   | Required |
+| -------- | ------ | -------- |
+| `bar`    | string | Optional |
 
 #### bar
 
@@ -115,9 +100,7 @@ This is an array
 
 Array type: `boolean[]`
 
-All items must be of the type:
-
-`boolean`
+All items must be of the type: `boolean`
 
 ## coordinatelist
 
@@ -134,9 +117,7 @@ This is an array of coordinates in three-dimensional space.
 
 Nested array type: `number[]`
 
-All items must be of the type:
-
-`number`
+All items must be of the type: `number`
 
 - minimum value: `0`
 - maximum value: `10`
@@ -158,9 +139,7 @@ This is an array
 
 Array type: `integer[]`
 
-All items must be of the type:
-
-`integer`
+All items must be of the type: `integer`
 
 ## list
 
@@ -176,9 +155,7 @@ This is an array
 
 Array type: `string[]`
 
-All items must be of the type:
-
-`string`
+All items must be of the type: `string`
 
 ## listlist
 
@@ -209,9 +186,7 @@ This is an array
 
 Array type: `number[]`
 
-All items must be of the type:
-
-`number`
+All items must be of the type: `number`
 
 - minimum value: `10`
 
@@ -231,13 +206,10 @@ Array type: `object[]`
 
 All items must be of the type: `object` with following properties:
 
-| Property | Type | Required |
-| -------- | ---- | -------- |
-
-
-| `a`| string | **Required** |
-
-| `b`| integer | Optional |
+| Property | Type    | Required     |
+| -------- | ------- | ------------ |
+| `a`      | string  | **Required** |
+| `b`      | integer | Optional     |
 
 #### a
 
@@ -279,6 +251,4 @@ This is an array of arrays of strings
 
 Nested array type: `string[]`
 
-All items must be of the type:
-
-`string`
+All items must be of the type: `string`
