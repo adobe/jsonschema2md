@@ -76,7 +76,7 @@ describe('Compare results', () => {
       '-d',
       'examples/schemas/arrays.schema.json',
       '-o',
-      'examples/docs/withoutHeader',
+      'examples/docsWithoutHeader',
       '-x',
       'examples/generated-schemas',
       '-h',
@@ -91,7 +91,7 @@ describe('Compare results', () => {
       files.forEach(file => {
         if (statSync('./spec/examples/withoutHeader/' + file).isFile()) {
           const expectedstr = readFileSync(path.resolve('./spec/examples/withoutHeader/', file)).toString();
-          let actualstr = readFileSync(path.resolve('./examples/docs/withoutHeader/', file)).toString();
+          let actualstr = readFileSync(path.resolve('./examples/docsWithoutHeader/', file)).toString();
           expect(actualstr).toEqual(expectedstr, file + ' does not match');
         }
       });
