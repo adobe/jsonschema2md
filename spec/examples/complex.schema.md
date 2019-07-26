@@ -244,7 +244,7 @@ Applies to all properties that match the regular expression `int.*`
 - version: 1.0.0
 - testProperty: test
 
-### Pattern int./* Type
+### Pattern int.\* Type
 
 `integer`
 
@@ -260,6 +260,6 @@ Applies to all properties that match the regular expression `str.*`
 - version: 1.0.0
 - testProperty: test
 
-### Pattern str./* Type
+### Pattern str.\* Type
 
 `string`
