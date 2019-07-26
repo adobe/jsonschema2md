@@ -44,6 +44,17 @@ $ jsonschema2md -d examples/schemas -o examples/docs -v 04
 $ jsonschema2md -d examples/schemas -o examples/docs -v 06
 ```
 
+## Text in Templates
+Each text which is not provided by the JSON Schema is loaded from an i18n file. With i18n parameter you can change the location of the i18n folder and load your own text file. The folder must contain an locales folder and in this folder there should be an en.json file.
+
+```bash
+# run against JSON Schema Draft 06
+$ jsonschema2md -d examples/schemas -o examples/docs -v 06 -i temp/myFiles
+```
+
+
+
+
 ## Using JSON Schema Markdown Tools from `npm`
 
 You can conveniently use the JSON Schema Markdown Tools from `npm`. This makes it possible to set up a conversion toolchain for your JSON Schema project that is driven entirely by `npm`. To do so, first define the dependency by adding this to your `"devDependencies"` section of `package.json`

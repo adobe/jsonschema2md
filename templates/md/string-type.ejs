@@ -31,7 +31,7 @@ else if (schema.format==="hostname") {              %>* <%=i18n.__('stringTypeHo
 <% if(schema.pattern) { %>
 <%=i18n.__('stringTypePattern')%>
 <% if(schema['examples']===undefined) { %>
-<%=i18n.__('stringTypePatternExample',{pattern:encodeURIComponent(schema.pattern)})%>
+<%=i18n.__('stringTypePatternExampleUndefined',{pattern:encodeURIComponent(schema.pattern)})%>
 <% } else if((typeof schema['examples'])==="string") { %>
 <%=i18n.__('stringTypePatternExampleString',{example:schema['examples'],pattern:encodeURIComponent(schema.pattern),text:encodeURIComponent(schema['examples'])})%>
 <% } %>
@@ -41,7 +41,7 @@ else if (schema.format==="hostname") {              %>* <%=i18n.__('stringTypeHo
 
 <% if (schema['examples']!==undefined&&(typeof schema['examples'])!=="string") {
     for (let i=0;i<schema['examples'].length;i++) { %>
-<%=i18n.__('stringTypePatternExampleNotString',{example:schema['examples'],pattern:encodeURIComponent(schema.pattern),text:encodeURIComponent(schema['examples'][i])})%>
+<%=i18n.__('stringTypePatternExampleNotString',{example:schema['examples'][i],pattern:encodeURIComponent(schema.pattern),text:encodeURIComponent(schema['examples'][i])})%>
 <% }
 } %>
 
