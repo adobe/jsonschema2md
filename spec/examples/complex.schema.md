@@ -181,6 +181,8 @@ All items must be of the type:
 - is optional
 - type: `object`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### refnestedobj Type
 
@@ -196,6 +198,8 @@ All items must be of the type:
 
 - is optional
 - type: `object`
+- version: 1.0.0
+- testProperty: test
 
 ##### refobj Type
 
@@ -211,6 +215,8 @@ All items must be of the type:
 
 - is optional
 - type: Simple
+- version: 1.0.0
+- testProperty: test
 
 ##### foo Type
 
