@@ -44,7 +44,7 @@ $ jsonschema2md -d examples/schemas -o examples/docs -v 04
 $ jsonschema2md -d examples/schemas -o examples/docs -v 06
 ```
 
-## Disabel header template
+## Disable header template
 In some cases you do not need a header cause it did not provide any usefull information. With the header parameter you could disabel the header template for the generation.
 
 ```bash
