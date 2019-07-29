@@ -45,7 +45,7 @@ $ jsonschema2md -d examples/schemas -o examples/docs -v 06
 ```
 
 ## Disable header template
-In some cases you do not need a header cause it did not provide any usefull information. With the header parameter you could disabel the header template for the generation.
+In some cases you do not need a header because it does not provide any useful information. With the `--header` (or `-h`) parameter you can disable the inclusion of headers.
 
 ```bash
 # run against JSON Schema Draft 06
