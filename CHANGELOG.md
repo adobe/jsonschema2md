@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/adobe/jsonschema2md/compare/v3.0.0...v3.0.1) (2019-07-29)
+
+
+### Bug Fixes
+
+* **schema.js:** fix $ref not being resolved when nested deeper than once within an object ([6eb73c3](https://github.com/adobe/jsonschema2md/commit/6eb73c3)), closes [#155](https://github.com/adobe/jsonschema2md/issues/155)
+
 # [3.0.0](https://github.com/adobe/jsonschema2md/compare/v2.1.2...v3.0.0) (2019-07-24)
 
 
