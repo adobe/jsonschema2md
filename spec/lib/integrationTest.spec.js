@@ -79,8 +79,7 @@ describe('Compare results', () => {
       'examples/docsWithoutHeader',
       '-x',
       'examples/generated-schemas',
-      '-h',
-      'false',
+      '--no-header',
       '-v',
       '06'
     ]);
