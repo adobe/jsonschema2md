@@ -31,6 +31,19 @@
         }
       }
     },
+    "refnestedobj": {
+      "type": "object",
+      "properties": {
+        "refobj": {
+          "type": "object",
+          "properties": {
+            "foo": {
+              "$ref": "https://example.com/schemas/simple"
+            }
+          }
+        }
+      }
+    },
     "or": {
       "description": "String or number…",
       "anyOf": [
