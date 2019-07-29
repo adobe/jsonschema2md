@@ -51,6 +51,7 @@ var argv = require('optimist')
   })
   .alias('h', 'header')
   .describe('h', 'if the value is false the header will be skipped')
+  .default('h', true)
   .argv;
 
 const docs = _.fromPairs(_.toPairs(argv).filter(([ key, value ]) => { return key.startsWith('link-'); }).map(([ key, value ]) => { return [ key.substr(5), value ];}));
