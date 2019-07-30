@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/adobe/jsonschema2md/compare/v3.0.1...v3.1.0) (2019-07-30)
+
+
+### Features
+
+* **i18n:** enable localization of all strings, provide en as default language ([daa58a2](https://github.com/adobe/jsonschema2md/commit/daa58a2)), closes [#143](https://github.com/adobe/jsonschema2md/issues/143)
+
 ## [3.0.1](https://github.com/adobe/jsonschema2md/compare/v3.0.0...v3.0.1) (2019-07-29)
 
 
