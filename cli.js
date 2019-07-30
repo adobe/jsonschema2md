@@ -54,6 +54,7 @@ var argv = require('optimist')
   .argv;
 
 const docs = _.fromPairs(_.toPairs(argv).filter(([ key, value ]) => { return key.startsWith('link-'); }).map(([ key, value ]) => { return [ key.substr(5), value ];}));
+const i18n = require('i18n');
 
 const logger = winston.createLogger({
   level: 'info',
@@ -82,7 +83,6 @@ var schemaDir = argv.x === '-' ? '' : argv.x ? path.resolve(argv.x) : outDir;
 var target = fs.statSync(schemaPath);
 const readme = argv.n !== true;
 const schemaExtension = argv.e || 'schema.json';
-
 if (argv.s){
   ajv.addMetaSchema(require(path.resolve(argv.s)));
 }
@@ -102,6 +102,19 @@ if (argv.m) {
     }
   }
 }
+let i18nPath;
+if (argv !== undefined && argv.i !== undefined){
+  i18nPath=path.resolve(argv.i) ;
+} else {
+  i18nPath=path.resolve(path.join(__dirname, 'lib/locales'));
+}
+i18n.configure({
+  // setup some locales - other locales default to en silently
+  locales:[ 'en' ],
+  // where to store json files - defaults to './locales' relative to modules directory
+  directory: i18nPath,
+  defaultLocale: 'en'
+});
 
 logger.info('output directory: %s', outDir);
 if (target.isDirectory()) {
