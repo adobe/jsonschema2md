@@ -45,7 +45,7 @@ $ jsonschema2md -d examples/schemas -o examples/docs -v 06
 ```
 
 ## Display custom attributes in the property description
-`jsonschema2md` display only the attributes of an propety which are defined by  JSON Schema. If you want to display costum attributes in the property description you could provide a comma separated list with your custom attributes.
+`jsonschema2md` displays only the attributes of an property which are defined by the JSON Schema standard. If you want to display additional attributes in the property description you could provide a comma separated list with your custom attributes.
 
 ```bash
 $ jsonschema2md -d examples/schemas -o examples/docs -p version,test
