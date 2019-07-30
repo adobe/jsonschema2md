@@ -21,6 +21,7 @@
     "bluebird": "^3.5.5",
     "ejs": "^2.4.2",
     "github-slugger": "^1.2.1",
+    "i18n": "^0.8.3",
     "jasmine-xml-reporter": "^1.2.1",
     "json-pointer": "^0.6.0",
     "lodash": "^4.5.0",
