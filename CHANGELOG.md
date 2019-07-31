@@ -1,3 +1,11 @@
+## [3.1.1](https://github.com/adobe/jsonschema2md/compare/v3.1.0...v3.1.1) (2019-07-31)
+
+
+### Bug Fixes
+
+* **i18n init:** moved the i18n init part to the cli.js ([5e37d2d](https://github.com/adobe/jsonschema2md/commit/5e37d2d)), closes [#157](https://github.com/adobe/jsonschema2md/issues/157)
+* **markdownwriter.js:** use path function to resolve the path ([5fe7db2](https://github.com/adobe/jsonschema2md/commit/5fe7db2)), closes [#157](https://github.com/adobe/jsonschema2md/issues/157)
+
 # [3.1.0](https://github.com/adobe/jsonschema2md/compare/v3.0.1...v3.1.0) (2019-07-30)
 
 
