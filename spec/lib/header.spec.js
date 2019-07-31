@@ -7,7 +7,7 @@ beforeEach(function() {
     colors: true,
     inline: true
   }));
-  let i18nPath=path.resolve('./lib/locales');
+  let i18nPath=path.resolve(path.join(__dirname, '../../lib/locales'));
   i18n.configure({
     // setup some locales - other locales default to en silently
     locales:[ 'en' ],
