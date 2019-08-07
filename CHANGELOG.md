@@ -1,3 +1,11 @@
+## [3.1.2](https://github.com/adobe/jsonschema2md/compare/v3.1.1...v3.1.2) (2019-08-07)
+
+
+### Bug Fixes
+
+* always output POSIX paths ([3c1c42c](https://github.com/adobe/jsonschema2md/commit/3c1c42c))
+* fix error logging from submodules ([dc634b2](https://github.com/adobe/jsonschema2md/commit/dc634b2))
+
 ## [3.1.1](https://github.com/adobe/jsonschema2md/compare/v3.1.0...v3.1.1) (2019-07-31)
 
 
