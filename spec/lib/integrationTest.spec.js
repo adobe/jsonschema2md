@@ -15,11 +15,12 @@
 const { spawn } = require('child_process');
 const path = require('path');
 const { readFileSync, readdirSync, statSync } = require('fs');
+const diff = require('jasmine-diff');
 
 beforeEach(() => {
   jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
   jasmine.addMatchers(
-    require('jasmine-diff')(jasmine, {
+    diff(jasmine, {
       colors: true,
       inline: true,
     }),
@@ -68,22 +69,22 @@ describe('Compare results', () => {
     ]);
     ls.on('close', (code) => {
       expect(code).toEqual(0);
-      const files = readdirSync('./spec/examples').filter(item => !(/(^|\/)\.[^\/\.]/g).test(item));
+      const files = readdirSync('./spec/examples').filter(item => !(/(^|\/)\.[^/.]/g).test(item));
       expect(files.length).toEqual(23);
 
       files.forEach((file) => {
         if (statSync(`./spec/examples/${file}`).isFile()) {
           const expectedstr = readFileSync(path.resolve('./spec/examples/', file)).toString();
           let actualstr = readFileSync(path.resolve('./examples/docs/', file)).toString();
-          actualstr=actualstr.replace(/\r\n/g, '\n');
-          expect(actualstr).toEqual(expectedstr, file + ' does not match');
+          actualstr = actualstr.replace(/\r\n/g, '\n');
+          expect(actualstr).toEqual(expectedstr, `${file} does not match`);
         }
       });
 
       done();
     });
   });
-  it('Run jsonschema2md for a file and do not generate a header', done => {
+  it('Run jsonschema2md for a file and do not generate a header', (done) => {
     const ls = spawn('node', [
       'cli.js',
       '-d',
@@ -94,17 +95,17 @@ describe('Compare results', () => {
       'examples/generated-schemas',
       '--no-header',
       '-v',
-      '06'
+      '06',
     ]);
 
-    ls.on('close', code => {
+    ls.on('close', (code) => {
       expect(code).toEqual(0);
-      const files = readdirSync('./spec/examples/withoutHeader').filter(item => !(/(^|\/)\.[^\/\.]/g).test(item));
-      files.forEach(file => {
-        if (statSync('./spec/examples/withoutHeader/' + file).isFile()) {
+      const files = readdirSync('./spec/examples/withoutHeader').filter(item => !(/(^|\/)\.[^/.]/g).test(item));
+      files.forEach((file) => {
+        if (statSync(`./spec/examples/withoutHeader/${file}`).isFile()) {
           const expectedstr = readFileSync(path.resolve('./spec/examples/withoutHeader/', file)).toString();
-          let actualstr = readFileSync(path.resolve('./examples/docsWithoutHeader/', file)).toString();
-          expect(actualstr).toEqual(expectedstr, file + ' does not match');
+          const actualstr = readFileSync(path.resolve('./examples/docsWithoutHeader/', file)).toString();
+          expect(actualstr).toEqual(expectedstr, `${file} does not match`);
         }
       });
       done();
