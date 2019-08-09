@@ -12,7 +12,7 @@ var _ = require('lodash');
 var fs = Promise.promisifyAll(require('fs'));
 var readdirp = require('readdirp');
 var Ajv = require('ajv');
-var winston = require('winston');
+var logger = require('winston');
 
 var Schema = require('./lib/schema');
 var readSchemaFile = require('./lib/readSchemaFile');
@@ -56,14 +56,14 @@ var argv = require('optimist')
 const docs = _.fromPairs(_.toPairs(argv).filter(([ key, value ]) => { return key.startsWith('link-'); }).map(([ key, value ]) => { return [ key.substr(5), value ];}));
 const i18n = require('i18n');
 
-const logger = winston.createLogger({
+logger.configure({
   level: 'info',
-  format: winston.format.combine(
-    winston.format.splat(),
-    winston.format.simple()
+  format: logger.format.combine(
+    logger.format.splat(),
+    logger.format.simple()
   ),
   transports: [
-    new winston.transports.Console({})
+    new logger.transports.Console({})
   ]
 });
 
