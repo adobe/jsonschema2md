@@ -1,25 +1,32 @@
-/**
- * Copyright 2017 Adobe Systems Incorporated. All rights reserved.
+/*
+ * Copyright 2019 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License. You may obtain a copy
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
+ * OF ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
  */
 
-var Promise = require('bluebird');
-var fs = Promise.promisifyAll(require('fs'));
-var schema = require('../../lib/schema');
+/* eslint-env jasmine */
+
+const Promise = require('bluebird');
+const fs = Promise.promisifyAll(require('fs'));
+const schema = require('../../lib/schema');
 
 describe('schema module', () => {
   describe('getDescription method', () => {
     beforeEach(() => {
       spyOn(fs, 'readFileAsync');
     });
-    it('should read a description.md file based on provided file path and tack it onto a provided schema', done => {
-      var fakeContents = 'IMPORTANT CONTENTS!';
+    it('should read a description.md file based on provided file path and tack it onto a provided schema', (done) => {
+      const fakeContents = 'IMPORTANT CONTENTS!';
       fs.readFileAsync.and.returnValue(Promise.resolve(fakeContents));
-      var skeem = {};
+      const skeem = {};
       schema.getDescription('/some/path', skeem)
-        .then(returnedSchema => {
+        .then((returnedSchema) => {
           expect(returnedSchema.description).toEqual(fakeContents);
           expect(skeem.description).toEqual(fakeContents);
         }).catch(() => {
