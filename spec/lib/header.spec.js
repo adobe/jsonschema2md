@@ -14,10 +14,11 @@
 
 const i18n = require('i18n');
 const path = require('path');
+const diff = require('jasmine-diff');
 const { Header, headers } = require('../../lib/header');
 
 beforeEach(() => {
-  jasmine.addMatchers(require('jasmine-diff')(jasmine, {
+  jasmine.addMatchers(diff(jasmine, {
     colors: true,
     inline: true,
   }));

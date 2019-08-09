@@ -39,7 +39,15 @@ module.exports = {
     'no-else-return': 'off',
 
     // allow dangling underscores for 'fields'
-    'no-underscore-dangle': ['error', {'allowAfterThis': true}],
+    'no-underscore-dangle': 'off',
+
+    // Allow marking variables unused using a underscore at the start
+    'no-unused-vars': ["error", {
+      "varsIgnorePattern": "^_.*$",
+      "argsIgnorePattern": "^_.*$",
+      "caughtErrorsIgnorePattern": "^_.*$"
+    }],
+
 
     // enforce license header (todo: improve plugin to support patterns for multi-lines)
     'header/header': [2, 'block', ['',

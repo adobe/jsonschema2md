@@ -11,6 +11,7 @@
  * governing permissions and limitations under the License.
  */
 
+const Optimist = require('optimist');
 const Promise = require('bluebird');
 const path = require('path');
 const _ = require('lodash');
@@ -18,12 +19,13 @@ const fs = Promise.promisifyAll(require('fs'));
 const readdirp = require('readdirp');
 const Ajv = require('ajv');
 const logger = require('winston');
+const i18n = require('i18n');
 
 const Schema = require('./lib/schema');
 const readSchemaFile = require('./lib/readSchemaFile');
 
 // parse/process command line arguments
-const { argv } = require('optimist')
+const { argv } = Optimist
   .usage('Generate Markdown documentation from JSON Schema.\n\nUsage: $0')
   .demand('d')
   .alias('d', 'input')
@@ -48,21 +50,23 @@ const { argv } = require('optimist')
   .describe('link-*', 'Add this file as a link the explain the * attribute, e.g. --link-abstract=abstract.md')
   .check((args) => {
     if (!fs.existsSync(args.input)) {
-      throw `Input file "${args.input}" does not exist!`;
+      throw new Error(`Input file "${args.input}" does not exist!`);
     }
     if (args.s && !fs.existsSync(args.s)) {
-      throw `Meta schema file "${args.s}" does not exist!`;
+      throw new Error(`Meta schema file "${args.s}" does not exist!`);
     }
   })
   .alias('i', 'i18n')
   .describe('i', 'path to a locales folder with an en.json file in it. This file will be used for all text parts in all templates')
   .alias('h', 'header')
   .describe('h', 'if the value is false the header will be skipped')
-  .default('h', true)
-  .argv;
+  .default('h', true);
 
-const docs = _.fromPairs(_.toPairs(argv).filter(([key, value]) => key.startsWith('link-')).map(([key, value]) => [key.substr(5), value]));
-const i18n = require('i18n');
+const docs = _.fromPairs(
+  _.toPairs(argv)
+    .filter(([key, _value]) => key.startsWith('link-'))
+    .map(([key, value]) => [key.substr(5), value]),
+);
 
 logger.configure({
   level: 'info',
@@ -78,37 +82,41 @@ logger.configure({
 const ajv = new Ajv({
   allErrors: true, messages: true, schemaId: 'auto', logger,
 });
-console.log(argv.v);
+logger.info(argv.v);
 if (argv.v === '06' || argv.v === 6) {
-  console.log('enabling draft-06 support');
+  logger.info('enabling draft-06 support');
+  // eslint-disable-next-line global-require
   ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
 } else if (argv.v === '04' || argv.v === 4) {
+  // eslint-disable-next-line global-require
   ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'));
 }
 const schemaPathMap = {};
 const metaElements = {};
 const schemaPath = path.resolve(argv.d);
 const outDir = path.resolve(argv.o);
-const schemaDir = argv.x === '-' ? '' : argv.x ? path.resolve(argv.x) : outDir;
+// eslint-disable-next-line no-nested-ternary
+const schemaDir = argv.x === '-' ? '' : (argv.x ? path.resolve(argv.x) : outDir);
 const target = fs.statSync(schemaPath);
 const readme = argv.n !== true;
 const schemaExtension = argv.e || 'schema.json';
 if (argv.s) {
+  // eslint-disable-next-line import/no-dynamic-require, global-require
   ajv.addMetaSchema(require(path.resolve(argv.s)));
 }
 
 if (argv.m) {
   if (_.isArray(argv.m)) {
     _.each(argv.m, (item) => {
-      const meta = item.split('=');
-      if (meta.length === 2) {
-        metaElements[meta[0]] = meta[1];
+      const [key, val] = item.split('=');
+      if (val !== undefined) {
+        metaElements[key] = val;
       }
     });
   } else {
-    const meta = (argv.m).split('=');
-    if (meta.length === 2) {
-      metaElements[meta[0]] = meta[1];
+    const [key, val] = (argv.m).split('=');
+    if (val !== undefined) {
+      metaElements[key] = val;
     }
   }
 }
@@ -134,6 +142,7 @@ if (target.isDirectory()) {
     .on('data', (entry) => {
       files.push(entry.fullPath);
       try {
+        // eslint-disable-next-line import/no-dynamic-require, global-require
         ajv.addSchema(require(entry.fullPath), entry.fullPath);
       } catch (e) {
         logger.error('Ajv processing error for schema at path %s', entry.fullPath);
@@ -146,8 +155,14 @@ if (target.isDirectory()) {
       Schema.setSchemaPathMap(schemaPathMap);
       return Promise.reduce(files, readSchemaFile, schemaPathMap)
         .then((schemaMap) => {
-          logger.info('finished reading all *.%s files in %s, beginning processing….', schemaExtension, schemaPath);
-          return Schema.process(schemaMap, schemaPath, outDir, schemaDir, metaElements, readme, docs, argv);
+          logger.info(
+            'finished reading all *.%s files in %s, beginning processing….',
+            schemaExtension, schemaPath,
+          );
+          return Schema.process(
+            schemaMap, schemaPath, outDir, schemaDir, metaElements,
+            readme, docs, argv,
+          );
         })
         .then(() => {
           logger.info('Processing complete.');
@@ -164,11 +179,13 @@ if (target.isDirectory()) {
 } else {
   readSchemaFile(schemaPathMap, schemaPath)
     .then((schemaMap) => {
+      // eslint-disable-next-line import/no-dynamic-require, global-require
       ajv.addSchema(require(schemaPath), schemaPath);
       Schema.setAjv(ajv);
       Schema.setSchemaPathMap(schemaPathMap);
       logger.info('finished reading %s, beginning processing....', schemaPath);
-      return Schema.process(schemaMap, schemaPath, outDir, schemaDir, metaElements, false, docs, argv);
+      return Schema.process(schemaMap, schemaPath, outDir, schemaDir,
+        metaElements, false, docs, argv);
     })
     .then(() => {
       logger.info('Processing complete.');
