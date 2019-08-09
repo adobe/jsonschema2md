@@ -23,18 +23,19 @@ This is an example schema that uses types defined in other schemas.
 
 # Complex References Properties
 
-| Property                    | Type      | Required     | Nullable | Defined by                                 |
-| --------------------------- | --------- | ------------ | -------- | ------------------------------------------ |
-| [and](#and)                 | complex   | Optional     | No       | Complex References (this schema)           |
-| [or](#or)                   | complex   | Optional     | No       | Complex References (this schema)           |
-| [refabstract](#refabstract) | `object`  | **Required** | No       | Complex References (this schema)           |
-| [reflist](#reflist)         | Simple    | Optional     | No       | Complex References (this schema)           |
-| [refnamed](#refnamed)       | Simple    | Optional     | No       | Complex References (this schema)           |
-| [refobj](#refobj)           | `object`  | Optional     | No       | Complex References (this schema)           |
-| [xor](#xor)                 | complex   | Optional     | No       | Complex References (this schema)           |
-| `int.*`                     | `integer` | Pattern      | No       | Complex References (this schema)           |
-| `str.*`                     | `string`  | Pattern      | No       | Complex References (this schema)           |
-| `*`                         | any       | Additional   | Yes      | this schema _allows_ additional properties |
+| Property                      | Type      | Required     | Nullable | Defined by                                 |
+| ----------------------------- | --------- | ------------ | -------- | ------------------------------------------ |
+| [and](#and)                   | complex   | Optional     | No       | Complex References (this schema)           |
+| [or](#or)                     | complex   | Optional     | No       | Complex References (this schema)           |
+| [refabstract](#refabstract)   | `object`  | **Required** | No       | Complex References (this schema)           |
+| [reflist](#reflist)           | Simple    | Optional     | No       | Complex References (this schema)           |
+| [refnamed](#refnamed)         | Simple    | Optional     | No       | Complex References (this schema)           |
+| [refnestedobj](#refnestedobj) | `object`  | Optional     | No       | Complex References (this schema)           |
+| [refobj](#refobj)             | `object`  | Optional     | No       | Complex References (this schema)           |
+| [xor](#xor)                   | complex   | Optional     | No       | Complex References (this schema)           |
+| `int.*`                       | `integer` | Pattern      | No       | Complex References (this schema)           |
+| `str.*`                       | `string`  | Pattern      | No       | Complex References (this schema)           |
+| `*`                           | any       | Additional   | Yes      | this schema _allows_ additional properties |
 
 ## and
 
@@ -156,6 +157,48 @@ All items must be of the type:
 - defined in this schema
 
 ### refnamed Type
+
+- [Simple](simple.schema.md) – `https://example.com/schemas/simple`
+
+## refnestedobj
+
+`refnestedobj`
+
+- is optional
+- type: `object`
+- defined in this schema
+
+### refnestedobj Type
+
+`object` with following properties:
+
+| Property | Type   | Required |
+| -------- | ------ | -------- |
+| `refobj` | object | Optional |
+
+#### refobj
+
+`refobj`
+
+- is optional
+- type: `object`
+
+##### refobj Type
+
+`object` with following properties:
+
+| Property | Type   | Required |
+| -------- | ------ | -------- |
+| `foo`    | Simple | Optional |
+
+#### foo
+
+`foo`
+
+- is optional
+- type: Simple
+
+##### foo Type
 
 - [Simple](simple.schema.md) – `https://example.com/schemas/simple`
 

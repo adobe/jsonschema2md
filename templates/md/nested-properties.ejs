@@ -7,11 +7,11 @@
 
 <% const hasDefault = _.keys(props).filter(property => _.has(props, property + '.default')).length > 0; %>
 
-| Property | Type | Required |<% if(hasDefault) { %> Default |<% } %>
+| <%=i18n.__('nestedProperties.tabel.property')%> | <%=i18n.__('nestedProperties.tabel.type')%> | <%=i18n.__('nestedProperties.tabel.required')%> |<% if(hasDefault) { %> <%=i18n.__('nestedProperties.tabel.default')%> |<% } %>
 |----------|------|----------|<% if(hasDefault) { %>---------|<% } %>
 <% _.keys(props).sort().forEach(property => {
   const schema = props[property]; %>
-| `<%= property %>`| <%= schema.type %> | <%= (Array.isArray(outer.required)&&outer.required.indexOf(property)>=0) ? "**Required**" : "Optional" %> |<% if(hasDefault) { %> <% if (schema.default!==undefined) { %>`<%- JSON.stringify(schema.default) %>`<% } %> |<% } %>
+| `<%= property %>`| <%= schema.type %> | <% if(Array.isArray(outer.required)&&outer.required.indexOf(property)>=0) { %>  <%=i18n.__('nestedProperties.tabel.requiredYes')%> <% } else { %> <%=i18n.__('nestedProperties.tabel.requiredNo')%> <% } %> |<% if(hasDefault) { %> <% if (schema.default!==undefined) { %>`<%- JSON.stringify(schema.default) %>`<% } %> |<% } %>
 <%
 });
 %>

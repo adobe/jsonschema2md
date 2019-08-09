@@ -5,9 +5,9 @@
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
  */ %>
 
-## Pattern: `<%=name %>`
+## <%=i18n.__('patternPropertyPattern')%> `<%=name %>`
 
-Applies to all properties that match the regular expression `<%=name %>`
+<%=i18n.__('patternPropertyExpression')%> `<%=name %>`
 
 <% if (schema.title) { %>### <%= schema.title %><% } %>
 
@@ -18,18 +18,18 @@ Applies to all properties that match the regular expression `<%=name %>`
 `<%=name %>`
 
 
-* is a property pattern
-* type: <%=schema.simpletype %><% if (schema.simpletype.match(/\[\]\[\]/)||schema.simpletype==="`array[]`") { %> (nested array)<% } %><% if (schema.type==='array') { -%>
-<%   if (schema.maxItems!==undefined&&schema.minItems!==undefined) { %>* between `<%=schema.minItems %>` and `<%=schema.maxItems %>` items in the array<% }
-else if (schema.maxItems!==undefined                             ) { %>* no more than `<%=schema.maxItems %>` items in the array<% }
-else if (schema.minItems!==undefined                             ) { %>* at least `<%=schema.minItems %>` items in the array<% } %>
+* <%=i18n.__('patternPropertyIsPropertyPattern')%>
+* <%=i18n.__('patternPropertyType')%> <%=schema.simpletype %><% if (schema.simpletype.match(/\[\]\[\]/)||schema.simpletype==="`array[]`") { %> <%=i18n.__('patternPropertyNestedArray')%><% } %><% if (schema.type==='array') { -%>
+<%   if (schema.maxItems!==undefined&&schema.minItems!==undefined) { %>* <%=i18n.__('patternPropertyBetween')%> `<%=schema.minItems %>` <%=i18n.__('patternPropertyBetweenAnd')%> `<%=schema.maxItems %>` <%=i18n.__('nestedPropertyEnumKnownVaules')%><% }
+else if (schema.maxItems!==undefined                             ) { %>* <%=i18n.__('patternPropertyMaxItemsPrefix')%> `<%=schema.maxItems %>` <%=i18n.__('patternPropertyMaxItemsSuffix')%><% }
+else if (schema.minItems!==undefined                             ) { %>* <%=i18n.__('patternPropertyMinItemsPrefix')%> `<%=schema.minItems %>` <%=i18n.__('patternPropertyMinItemsSuffix')%><% } %>
 <% } %><% if (schema.default!==undefined) { %>
-* default: `<%- JSON.stringify(schema.default) %>`
+* <%=i18n.__('patternPropertySchemaDefault')%> `<%- JSON.stringify(schema.default) %>`
 <% } %>
-* defined in <% if (schema.$oSchema) { %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= name %>)<% } else { %>this schema<% } %>
+* <%=i18n.__('patternPropertySchemaDefinedIn')%> <% if (schema.$oSchema) { %>[<%= schema.$oSchema.$linkVal %>](<%= schema.$oSchema.$linkPath %>#<%= name %>)<% } else { %><%=i18n.__('patternPropertySchemaDefinedSelf')%><% } %>
 
 <% if (schema.const!==undefined) { %>
-The value of this property **must** be equal to:
+<%=i18n.__('patternPropertySchemaConst')%>
 
 
 ```json
@@ -37,25 +37,25 @@ The value of this property **must** be equal to:
 ```
 
 <% } else if (schema.enum!==undefined) { %>
-The value of this properties with this pattern **must** be equal to one of the [known values below](#<%=name %>-known-values).
+<%=i18n.__('propertySchemaEnum',{enum:name})%>
 <% } else { %>
 
-### Pattern <%=name %> Type
+### <%=i18n.__('patternPropertyHeaderPattern')%> <%=name %> <%=i18n.__('patternPropertyHeaderType')%>
 
 <% if (schema.type==="string") { %>
-<%- include("string-type",{schema:schema,_:_}) %>
+<%- include("string-type",{schema:schema,_:_,i18n:i18n}) %>
 <% } else if (schema.type==="number"||schema.type==="integer") { %>
-<%- include("number-type",{schema:schema,_:_}) %>
+<%- include("number-type",{schema:schema,_:_,i18n:i18n}) %>
 <% } else if (schema.type==="boolean") { %>
-<%- include("boolean-type",{schema:schema,_:_}) %>
+<%- include("boolean-type",{schema:schema,_:_,i18n:i18n}) %>
 <% } else if (schema.type==="array") { %>
-<%- include("array-type",{schema:schema,_:_,nested:false,ejs:ejs}) %>
+<%- include("array-type",{schema:schema,_:_,nested:false,ejs:ejs,i18n:i18n}) %>
 <% } else if (schema.$ref!==undefined) { %>
-<%- include("referenced-type",{schema:schema,_:_}) %>
+<%- include("referenced-type",{schema:schema,_:_,i18n:i18n}) %>
 <% } else if (schema.anyOf!==undefined || schema.allOf!==undefined || schema.oneOf!==undefined) { %>
-<%- include("join-type",{schema:schema,_:_,schemas:schema.anyOf || schema.allOf || schema.oneOf,ejs:ejs}) %>
+<%- include("join-type",{schema:schema,_:_,schemas:schema.anyOf || schema.allOf || schema.oneOf,ejs:ejs,i18n:i18n}) %>
 <% } else { %>
-Unknown type `<%= schema.type %>`.
+<%=i18n.__('patternPropertyUnknownType')%> `<%= schema.type %>`.
 
 
 ```json
@@ -65,9 +65,9 @@ Unknown type `<%= schema.type %>`.
 <% }} %>
 
 <% if (schema.enum!==undefined||schema["meta:enum"]!==undefined) { %>
-### Pattern <%=name %> Known Values
+### <%=i18n.__('patternPropertyEnumPattern')%> <%=name %> <%=i18n.__('patternPropertyEnumKnownVaules')%>
 
-| Value | Description |
+| <%=i18n.__('patternPropertyEnum.tabel.value')%> | <%=i18n.__('patternPropertyEnum.tabel.description')%> |
 |-------|-------------|
 <%  _.forIn(schema["meta:enum"], (value, key, object) => { %>
 | `<%= key %>` | <%= value %> |
@@ -77,14 +77,14 @@ Unknown type `<%= schema.type %>`.
 
 
 <% if (examples && examples.length == 1) { %>
-### <%=name %> Example
+### <%=name %> <%=i18n.__('patternPropertyExample')%>
 
 
 ```json
 <%- examples[0] %>
 ```
 <% } else if (examples && examples.length > 1) { %>
-### Pattern <%=name %> Examples
+### <%=i18n.__('patternPropertyPatternExamples')%> <%=name %> <%=i18n.__('patternPropertyExamples')%>
 <%  _.forEach(examples, example => { %>
 
 ```json
