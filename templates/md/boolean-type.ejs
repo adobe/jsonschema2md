@@ -5,4 +5,4 @@
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
  */ %>
 
-`<%=schema.type %>`<%=schema.nullable ? ", nullable" : "" %>
+`<%=schema.type %>` <% if (schema.nullable) { %> <%=i18n.__('booleanTypeNullabel')%> <% }else{%> <%=i18n.__('booleanTypeEmpty')%> <% } %>

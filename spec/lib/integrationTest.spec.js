@@ -3,6 +3,7 @@ const path = require('path');
 const { readFileSync, readdirSync, statSync } = require('fs');
 
 beforeEach(function() {
+  jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
   jasmine.addMatchers(
     require('jasmine-diff')(jasmine, {
       colors: true,

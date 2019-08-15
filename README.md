@@ -44,6 +44,17 @@ $ jsonschema2md -d examples/schemas -o examples/docs -v 04
 $ jsonschema2md -d examples/schemas -o examples/docs -v 06
 ```
 
+## Text in Templates
+Each text which is not provided by the JSON Schema is loaded from an i18n file. With i18n parameter you can change the location of the i18n folder and load your own text file. The folder must contain an locales folder and in this folder there should be an en.json file.
+
+```bash
+# run against JSON Schema Draft 06
+$ jsonschema2md -d examples/schemas -o examples/docs -v 06 -i temp/myFiles
+```
+
+
+
+
 ## Disable header template
 In some cases you do not need a header because it does not provide any useful information. With the `--header` (or `-h`) parameter you can disable the inclusion of headers.
 

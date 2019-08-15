@@ -1,3 +1,26 @@
+## [3.1.2](https://github.com/adobe/jsonschema2md/compare/v3.1.1...v3.1.2) (2019-08-07)
+
+
+### Bug Fixes
+
+* always output POSIX paths ([3c1c42c](https://github.com/adobe/jsonschema2md/commit/3c1c42c))
+* fix error logging from submodules ([dc634b2](https://github.com/adobe/jsonschema2md/commit/dc634b2))
+
+## [3.1.1](https://github.com/adobe/jsonschema2md/compare/v3.1.0...v3.1.1) (2019-07-31)
+
+
+### Bug Fixes
+
+* **i18n init:** moved the i18n init part to the cli.js ([5e37d2d](https://github.com/adobe/jsonschema2md/commit/5e37d2d)), closes [#157](https://github.com/adobe/jsonschema2md/issues/157)
+* **markdownwriter.js:** use path function to resolve the path ([5fe7db2](https://github.com/adobe/jsonschema2md/commit/5fe7db2)), closes [#157](https://github.com/adobe/jsonschema2md/issues/157)
+
+# [3.1.0](https://github.com/adobe/jsonschema2md/compare/v3.0.1...v3.1.0) (2019-07-30)
+
+
+### Features
+
+* **i18n:** enable localization of all strings, provide en as default language ([daa58a2](https://github.com/adobe/jsonschema2md/commit/daa58a2)), closes [#143](https://github.com/adobe/jsonschema2md/issues/143)
+
 ## [3.0.1](https://github.com/adobe/jsonschema2md/compare/v3.0.0...v3.0.1) (2019-07-29)
 
 
