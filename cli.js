@@ -12,7 +12,7 @@ var _ = require('lodash');
 var fs = Promise.promisifyAll(require('fs'));
 var readdirp = require('readdirp');
 var Ajv = require('ajv');
-var winston = require('winston');
+var logger = require('winston');
 
 var Schema = require('./lib/schema');
 var readSchemaFile = require('./lib/readSchemaFile');
@@ -49,20 +49,23 @@ var argv = require('optimist')
       throw 'Meta schema file "' + args.s + '" does not exist!';
     }
   })
+  .alias('i', 'i18n')
+  .describe('i', 'path to a locales folder with an en.json file in it. This file will be used for all text parts in all templates')
   .alias('p', 'properties')
   .describe('p', 'A comma separated list with custom properties which should be also in the description of an element.')
   .argv;
 
 const docs = _.fromPairs(_.toPairs(argv).filter(([ key, value ]) => { return key.startsWith('link-'); }).map(([ key, value ]) => { return [ key.substr(5), value ];}));
+const i18n = require('i18n');
 
-const logger = winston.createLogger({
+logger.configure({
   level: 'info',
-  format: winston.format.combine(
-    winston.format.splat(),
-    winston.format.simple()
+  format: logger.format.combine(
+    logger.format.splat(),
+    logger.format.simple()
   ),
   transports: [
-    new winston.transports.Console({})
+    new logger.transports.Console({})
   ]
 });
 
@@ -82,7 +85,6 @@ var schemaDir = argv.x === '-' ? '' : argv.x ? path.resolve(argv.x) : outDir;
 var target = fs.statSync(schemaPath);
 const readme = argv.n !== true;
 const schemaExtension = argv.e || 'schema.json';
-
 if (argv.s){
   ajv.addMetaSchema(require(path.resolve(argv.s)));
 }
@@ -102,6 +104,19 @@ if (argv.m) {
     }
   }
 }
+let i18nPath;
+if (argv !== undefined && argv.i !== undefined){
+  i18nPath=path.resolve(argv.i) ;
+} else {
+  i18nPath=path.resolve(path.join(__dirname, 'lib/locales'));
+}
+i18n.configure({
+  // setup some locales - other locales default to en silently
+  locales:[ 'en' ],
+  // where to store json files - defaults to './locales' relative to modules directory
+  directory: i18nPath,
+  defaultLocale: 'en'
+});
 
 logger.info('output directory: %s', outDir);
 if (target.isDirectory()) {

@@ -5,29 +5,29 @@
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
  */ %>
 <% if (schema.items!==undefined&&schema.items.type==="array") { %>
-Nested array type: <%=schema.items.simpletype %>
+<%=i18n.__('arrayTypeNested')%> <%=schema.items.simpletype %>
 <% } else if (nested===undefined||nested===false) { %>
-Array type: <%=schema.simpletype %>
+<%=i18n.__('arrayTypeArray')%> <%=schema.simpletype %>
 <% } %>
 <% if (schema.items!==undefined) { %>
 <% if (!(schema.items!==undefined&&schema.items.type==="array")) { %>
-All items must be of the type:<% }
+<%=i18n.__('arrayTypeList')%><% }
 if (schema.items.type==="string") { 
-  %><%- include("string-type",{schema:schema.items,_:_}) 
+  %><%- include("string-type",{schema:schema.items,_:_, i18n:i18n}) 
   %><% } else if (schema.items.type==="number"||schema.items.type==="integer") { 
-  %><%- include("number-type",{schema:schema.items,_:_})
+  %><%- include("number-type",{schema:schema.items,_:_, i18n:i18n})
   %><% } else if (schema.items.type==="boolean") {
-  %><%- include("boolean-type",{schema:schema.items,_:_})
+  %><%- include("boolean-type",{schema:schema.items,_:_, i18n:i18n})
   %><% } else if (schema.items.type==="object") {
-  %><%- include("object-type",{schema:schema.items,_:_,customElements:customElements}) 
+  %><%- include("object-type",{schema:schema.items,_:_, i18n:i18n, customElements:customElements}) 
   %><% } else if (schema.items.type==="array") { 
-  %><%- include("array-type",{schema:schema.items,_:_, nested:true,customElements:customElements}) 
+  %><%- include("array-type",{schema:schema.items,_:_, nested:true, i18n:i18n, customElements:customElements}) 
   %><% } else if (schema.items.anyOf!==undefined || schema.items.allOf!==undefined || schema.items.oneOf!==undefined) {
-  %><%- include("join-type",{schema:schema.items,_:_,schemas:schema.items.anyOf || schema.items.allOf || schema.items.oneOf, ejs:ejs,customElements:customElements}) %>
+  %><%- include("join-type",{schema:schema.items,_:_,schemas:schema.items.anyOf || schema.items.allOf || schema.items.oneOf, ejs:ejs, i18n:i18n, customElements:customElements}) %>
   %><% } else if (schema.items.$ref!==undefined) { 
-  %><%- include("referenced-type",{schema:schema.items,_:_}) %>
+  %><%- include("referenced-type",{schema:schema.items,_:_, i18n:i18n}) %>
 <% } else { %>
-Unknown type `<%= schema.items.type %>`.
+<%=i18n.__('arrayTypeUnknownType')%> `<%= schema.items.type %>`.
 
 
 ```json

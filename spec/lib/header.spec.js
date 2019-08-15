@@ -1,10 +1,20 @@
 const { Header, headers } = require('../../lib/header');
+const i18n = require('i18n');
+var path = require('path');
 
 beforeEach(function() {
   jasmine.addMatchers(require('jasmine-diff')(jasmine, {
     colors: true,
     inline: true
   }));
+  let i18nPath=path.resolve(path.join(__dirname, '../../lib/locales'));
+  i18n.configure({
+    // setup some locales - other locales default to en silently
+    locales:[ 'en' ],
+    // where to store json files - defaults to './locales' relative to modules directory
+    directory: i18nPath,
+    defaultLocale: 'en'
+  });
 });
 
 describe('Header Integration Test', () => {

@@ -6,37 +6,37 @@
  */ %>
 
 <% if (schema.anyOf!==undefined) { %>
-**Any** following *options* needs to be fulfilled.
+<%=i18n.__('joinTypeAny')%>
 <% } else if (schema.allOf!==undefined) { %>
-**All** of the following *requirements* need to be fulfilled.
+<%=i18n.__('joinTypeAll')%>
 <% } else if (schema.oneOf!==undefined) { %>
-**One** of the following *conditions* need to be fulfilled.
+<%=i18n.__('joinTypeOne')%>
 <% } %>
 
 <% for (let i=0;i<schemas.length;i++) { -%>
 
 <% if (schema.anyOf!==undefined) { %>
-#### Option <%= i+1 %>
+#### <%=i18n.__('joinTypeOption')%> <%= i+1 %>
 <% } else if (schema.allOf!==undefined) { %>
-#### Requirement <%= i+1 %>
+#### <%=i18n.__('joinTypeRequirement')%> <%= i+1 %>
 <% } else if (schema.oneOf!==undefined) { %>
-#### Condition <%= i+1 %>
+#### <%=i18n.__('joinTypeCondition')%> <%= i+1 %>
 <% } %>
 
 <% if (schemas[i].type==="string") { %>
-<%- include("string-type",{schema:schemas[i],_:_}) %>
+<%- include("string-type",{schema:schemas[i],_:_,i18n:i18n}) %>
 <% } else if (schemas[i].type==="number"||schemas[i].type==="integer") { %>
-<%- include("number-type",{schema:schemas[i],_:_}) %>
+<%- include("number-type",{schema:schemas[i],_:_,i18n:i18n}) %>
 <% } else if (schemas[i].type==="boolean") { %>
-<%- include("boolean-type",{schema:schemas[i],_:_}) %>
+<%- include("boolean-type",{schema:schemas[i],_:_,i18n:i18n}) %>
 <% } else if (schemas[i].type==="array") { %>
-<%- include("array-type",{schema:schemas[i],_:_,nested:false,ejs:ejs,customElements:customElements}) %>
+<%- include("array-type",{schema:schemas[i],_:_,nested:false,ejs:ejs,i18n:i18n, customElements:customElements}) %>
 <% } else if (schemas[i].type==="object") { %>
-<%- include("object-type",{schema:schemas[i],_:_, nameSlug:_,customElements:customElements}) %>
+<%- include("object-type",{schema:schemas[i],_:_, nameSlug:_,i18n:i18n, customElements:customElements}) %>
 <% } else if (schemas[i].$ref!==undefined) { %>
-<%- include("referenced-type",{schema:schemas[i],_:_}) %>
+<%- include("referenced-type",{schema:schemas[i],_:_,i18n:i18n}) %>
 <% } else if (schemas[i].anyOf!==undefined||schemas[i].allOf!==undefined) { %>
-<%- include("join-type",{schema:schemas[i],_:_,schemas:schemas[i].anyOf || schemas[i].allOf ,ejs:ejs,customElements:customElements}) %>
+<%- include("join-type",{schema:schemas[i],_:_,schemas:schemas[i].anyOf || schemas[i].allOf ,ejs:ejs,i18n:i18n, customElements:customElements}) %>
 <% } else { %>
 <% } %>
 <% } %>

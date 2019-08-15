@@ -5,9 +5,9 @@
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
  */ %>
 
-`object`<%=schema.nullable ? ", nullable," : "" %> with following properties:
+`<%=i18n.__('objectTypeObject')%>`<%=schema.nullable ? ", nullable," : "" %> <%=i18n.__('objectTypeObjectFollowing')%>
 
-<%- include("nested-properties",{outer:schema,props: schema.properties,_:_, nested:true}) %>
+<%- include("nested-properties",{outer:schema,props: schema.properties,_:_, nested:true,i18n:i18n}) %>
 
 <% _.keys(schema.properties).sort().forEach(property => {
   const inner = schema.properties[property];
@@ -21,7 +21,8 @@
     schema: inner,
     required: required,
     examples: inner.examples,
-	nameSlug:nameSlug,
+    nameSlug:nameSlug,
+    i18n:i18n,
 	customElements:customElements
   }) %>
 

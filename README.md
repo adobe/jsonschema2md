@@ -44,6 +44,17 @@ $ jsonschema2md -d examples/schemas -o examples/docs -v 04
 $ jsonschema2md -d examples/schemas -o examples/docs -v 06
 ```
 
+## Text in Templates
+Each text which is not provided by the JSON Schema is loaded from an i18n file. With i18n parameter you can change the location of the i18n folder and load your own text file. The folder must contain an locales folder and in this folder there should be an en.json file.
+
+```bash
+# run against JSON Schema Draft 06
+$ jsonschema2md -d examples/schemas -o examples/docs -v 06 -i temp/myFiles
+```
+
+
+
+
 ## Display custom attributes in the property description
 `jsonschema2md` displays only the attributes of an property which are defined by the JSON Schema standard. If you want to display additional attributes in the property description you could provide a comma separated list with your custom attributes.
 

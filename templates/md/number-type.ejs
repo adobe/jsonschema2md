@@ -9,12 +9,12 @@
 
 
 <% if(schema.exclusiveMinumum!==undefined) {
-  %>* value must not be smaller or equal than: `<%=schema.exclusiveMinumum %>`<%
+  %>* <%=i18n.__('numberTypeExclusiveMinumum')%> `<%=schema.exclusiveMinumum %>`<%
   } else if(schema.minimum!==undefined) {
-  %>* minimum value: `<%=schema.minimum %>`<% } %>
+  %>* <%=i18n.__('numberTypeMinimum')%> `<%=schema.minimum %>`<% } %>
 <% if(schema.exclusiveMaximum!==undefined) {
-  %>* value must not be greater or equal than: `<%=schema.exclusiveMaximum %>`<%
+  %>* <%=i18n.__('numberTypeExclusiveMaximum')%> `<%=schema.exclusiveMaximum %>`<%
   }  if(schema.maximum!==undefined) {
-  %>* maximum value: `<%=schema.maximum %>`<% } %>
+  %>* <%=i18n.__('numberTypeMaximum')%> `<%=schema.maximum %>`<% } %>
 <% if(schema.multipleOf!==undefined) {
-  %>* must be a multiple of `<%=schema.multipleOf %>`<% } %>
+  %>* <%=i18n.__('numberTypeMultipleOf')%> `<%=schema.multipleOf %>`<% } %>
