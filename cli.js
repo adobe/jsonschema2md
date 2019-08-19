@@ -18,8 +18,10 @@ const _ = require('lodash');
 const fs = Promise.promisifyAll(require('fs'));
 const readdirp = require('readdirp');
 const Ajv = require('ajv');
-const logger = require('winston');
 const i18n = require('i18n');
+const logger = require('@adobe/helix-log');
+
+const { error, info } = logger;
 
 const Schema = require('./lib/schema');
 const readSchemaFile = require('./lib/readSchemaFile');
@@ -69,23 +71,12 @@ const docs = _.fromPairs(
     .map(([key, value]) => [key.substr(5), value]),
 );
 
-logger.configure({
-  level: 'info',
-  format: logger.format.combine(
-    logger.format.splat(),
-    logger.format.simple(),
-  ),
-  transports: [
-    new logger.transports.Console({}),
-  ],
-});
-
 const ajv = new Ajv({
   allErrors: true, messages: true, schemaId: 'auto', logger,
 });
-logger.info(argv.v);
+info(argv.v);
 if (argv.v === '06' || argv.v === 6) {
-  logger.info('enabling draft-06 support');
+  info('enabling draft-06 support');
   // eslint-disable-next-line global-require
   ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
 } else if (argv.v === '04' || argv.v === 4) {
@@ -135,7 +126,7 @@ i18n.configure({
   defaultLocale: 'en',
 });
 
-logger.info('output directory: %s', outDir);
+info('output directory', outDir);
 if (target.isDirectory()) {
   // the ajv json validator will be passed into the main module to help with processing
   const files = [];
@@ -146,8 +137,8 @@ if (target.isDirectory()) {
         // eslint-disable-next-line import/no-dynamic-require, global-require
         ajv.addSchema(require(entry.fullPath), entry.fullPath);
       } catch (e) {
-        logger.error('Ajv processing error for schema at path %s', entry.fullPath);
-        logger.error(e);
+        error('Ajv processing error for schema at path', entry.fullPath);
+        error(e);
         process.exit(1);
       }
     })
@@ -156,25 +147,22 @@ if (target.isDirectory()) {
       Schema.setSchemaPathMap(schemaPathMap);
       return Promise.reduce(files, readSchemaFile, schemaPathMap)
         .then((schemaMap) => {
-          logger.info(
-            'finished reading all *.%s files in %s, beginning processing….',
-            schemaExtension, schemaPath,
-          );
+          info(`finished reading all *.${schemaExtension} files in ${schemaPath}, beginning processing….`);
           return Schema.process(
             schemaMap, schemaPath, outDir, schemaDir, metaElements,
             readme, docs, argv,
           );
         })
         .then(() => {
-          logger.info('Processing complete.');
+          info('Processing complete.');
         })
         .catch((err) => {
-          logger.error(err);
+          error(err);
           process.exit(1);
         });
     })
     .on('error', (err) => {
-      logger.error(err);
+      error(err);
       process.exit(1);
     });
 } else {
@@ -184,15 +172,15 @@ if (target.isDirectory()) {
       ajv.addSchema(require(schemaPath), schemaPath);
       Schema.setAjv(ajv);
       Schema.setSchemaPathMap(schemaPathMap);
-      logger.info('finished reading %s, beginning processing....', schemaPath);
+      info(`finished reading ${schemaPath}, beginning processing...`);
       return Schema.process(schemaMap, schemaPath, outDir, schemaDir,
         metaElements, false, docs, argv);
     })
     .then(() => {
-      logger.info('Processing complete.');
+      info('Processing complete.');
     })
     .catch((err) => {
-      logger.error(err);
+      error(err);
       process.exit(1);
     });
 }
