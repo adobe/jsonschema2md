@@ -56,17 +56,45 @@ describe('Compare results', () => {
     ls.on('close', code => {
       expect(code).toEqual(0);
       const files = readdirSync('./spec/examples').filter(item => !(/(^|\/)\.[^\/\.]/g).test(item));
-      expect(files.length).toEqual(22);
+      expect(files.length).toEqual(23);
 
       //console.log(readFileSync(path.resolve('./examples/schemas/', 'definitions.schema.json')).toString());
       files.forEach(file => {
         if (statSync('./spec/examples/' + file).isFile()) {
           const expectedstr = readFileSync(path.resolve('./spec/examples/', file)).toString();
-          const actualstr = readFileSync(path.resolve('./examples/docs/', file)).toString();
+          let actualstr = readFileSync(path.resolve('./examples/docs/', file)).toString();
+          actualstr=actualstr.replace(/\r\n/g, '\n');
           expect(actualstr).toEqual(expectedstr, file + ' does not match');
         }
       });
 
+      done();
+    });
+  });
+  it('Run jsonschema2md for a file and do not generate a header', done => {
+    const ls = spawn('node', [
+      'cli.js',
+      '-d',
+      'examples/schemas/arrays.schema.json',
+      '-o',
+      'examples/docsWithoutHeader',
+      '-x',
+      'examples/generated-schemas',
+      '--no-header',
+      '-v',
+      '06'
+    ]);
+
+    ls.on('close', code => {
+      expect(code).toEqual(0);
+      const files = readdirSync('./spec/examples/withoutHeader').filter(item => !(/(^|\/)\.[^\/\.]/g).test(item));
+      files.forEach(file => {
+        if (statSync('./spec/examples/withoutHeader/' + file).isFile()) {
+          const expectedstr = readFileSync(path.resolve('./spec/examples/withoutHeader/', file)).toString();
+          let actualstr = readFileSync(path.resolve('./examples/docsWithoutHeader/', file)).toString();
+          expect(actualstr).toEqual(expectedstr, file + ' does not match');
+        }
+      });
       done();
     });
   });

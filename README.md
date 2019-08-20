@@ -55,6 +55,14 @@ $ jsonschema2md -d examples/schemas -o examples/docs -v 06 -i temp/myFiles
 
 
 
+## Disable header template
+In some cases you do not need a header because it does not provide any useful information. With the `--header` (or `-h`) parameter you can disable the inclusion of headers.
+
+```bash
+# run against JSON Schema Draft 06
+$ jsonschema2md -d examples/schemas -o examples/docs -v 06 -h false
+```
+
 ## Using JSON Schema Markdown Tools from `npm`
 
 You can conveniently use the JSON Schema Markdown Tools from `npm`. This makes it possible to set up a conversion toolchain for your JSON Schema project that is driven entirely by `npm`. To do so, first define the dependency by adding this to your `"devDependencies"` section of `package.json`

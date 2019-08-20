@@ -51,6 +51,9 @@ var argv = require('optimist')
   })
   .alias('i', 'i18n')
   .describe('i', 'path to a locales folder with an en.json file in it. This file will be used for all text parts in all templates')
+  .alias('h', 'header')
+  .describe('h', 'if the value is false the header will be skipped')
+  .default('h', true)
   .argv;
 
 const docs = _.fromPairs(_.toPairs(argv).filter(([ key, value ]) => { return key.startsWith('link-'); }).map(([ key, value ]) => { return [ key.substr(5), value ];}));
