@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/adobe/jsonschema2md/compare/v3.1.2...v3.2.0) (2019-08-20)
+
+
+### Features
+
+* disable header.ejs using console args ([104452f](https://github.com/adobe/jsonschema2md/commit/104452f)), closes [#153](https://github.com/adobe/jsonschema2md/issues/153) [#153](https://github.com/adobe/jsonschema2md/issues/153) [#153](https://github.com/adobe/jsonschema2md/issues/153) [#153](https://github.com/adobe/jsonschema2md/issues/153) [#153](https://github.com/adobe/jsonschema2md/issues/153) [#153](https://github.com/adobe/jsonschema2md/issues/153) [#153](https://github.com/adobe/jsonschema2md/issues/153)
+
 ## [3.1.2](https://github.com/adobe/jsonschema2md/compare/v3.1.1...v3.1.2) (2019-08-07)
 
 
