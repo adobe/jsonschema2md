@@ -52,9 +52,6 @@ Each text which is not provided by the JSON Schema is loaded from an i18n file. 
 $ jsonschema2md -d examples/schemas -o examples/docs -v 06 -i temp/myFiles
 ```
 
-
-
-
 ## Display custom attributes in the property description
 `jsonschema2md` displays only the attributes of an property which are defined by the JSON Schema standard. If you want to display additional attributes in the property description you could provide a comma separated list with your custom attributes.
 
@@ -62,6 +59,13 @@ $ jsonschema2md -d examples/schemas -o examples/docs -v 06 -i temp/myFiles
 $ jsonschema2md -d examples/schemas -o examples/docs -p version,test
 ```
 
+## Disable header template
+In some cases you do not need a header because it does not provide any useful information. With the `--header` (or `-h`) parameter you can disable the inclusion of headers.
+
+```bash
+# run against JSON Schema Draft 06
+$ jsonschema2md -d examples/schemas -o examples/docs -v 06 -h false
+```
 
 ## Using JSON Schema Markdown Tools from `npm`
 
