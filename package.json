@@ -16,8 +16,7 @@
     "cover": "istanbul cover --root lib --print detail jasmine"
   },
   "dependencies": {
-    "ajv": "^6.10.2",
-    "async": "^3.1.0",
+    "@adobe/helix-log": "^1.2.0",
     "bluebird": "^3.5.5",
     "ejs": "^2.6.2",
     "github-slugger": "^1.2.1",
@@ -29,8 +28,7 @@
     "optimist": "^0.6.1",
     "prettier": "^1.18.2",
     "readdirp": "^3.1.1",
-    "valid-url": "1.0.9",
-    "winston": "^3.2.1"
+    "valid-url": "1.0.9"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^3.0.4",
@@ -38,7 +36,12 @@
     "@semantic-release/github": "^5.4.2",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
-    "eslint": "^6.1.0",
+    "eslint": "6.0.1",
+    "eslint-config-airbnb": "17.1.1",
+    "eslint-plugin-header": "3.0.0",
+    "eslint-plugin-import": "2.18.0",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.14.2",
     "ghooks": "^2.0.4",
     "istanbul": "^0.4.5",
     "jasmine": "~3.4.0",
