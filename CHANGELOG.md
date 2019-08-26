@@ -1,3 +1,10 @@
+# [3.3.0](https://github.com/adobe/jsonschema2md/compare/v3.2.0...v3.3.0) (2019-08-26)
+
+
+### Features
+
+* allow display of custom attributes in the property description ([0634309](https://github.com/adobe/jsonschema2md/commit/0634309)), closes [#151](https://github.com/adobe/jsonschema2md/issues/151)
+
 # [3.2.0](https://github.com/adobe/jsonschema2md/compare/v3.1.2...v3.2.0) (2019-08-20)
 
 
