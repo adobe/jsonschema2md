@@ -28,7 +28,8 @@ else if (schema.minItems!==undefined                             ) { %>* <%=i18n
 <% } %><% if (schema.default!==undefined) { %>
 * <%=i18n.__('nestedPropertySchemaDefault')%> `<%- JSON.stringify(schema.default) %>`
 <% } %>
-
+<% customElements.forEach(property => { %> * <%=property%>: <%=schema[property] %> 
+<% });%>
 <% if (schema.const!==undefined) { %>
 <%=i18n.__('nestedPropertySchemaConst')%>
 
@@ -50,13 +51,13 @@ else if (schema.minItems!==undefined                             ) { %>* <%=i18n
 <% } else if (schema.type==="boolean") { %>
 <%- include("boolean-type",{schema:schema,_:_,i18n:i18n}) %>
 <% } else if (schema.type==="object") { %>
-<%- include("object-type",{schema:schema,_:_,i18n:i18n})  %>
+<%- include("object-type",{schema:schema,_:_,i18n:i18n, customElements:customElements})  %>
 <% } else if (schema.type==="array") { %>
-<%- include("array-type",{schema:schema,_:_,nested:false,ejs:ejs,i18n:i18n}) %>
+<%- include("array-type",{schema:schema,_:_,nested:false,ejs:ejs,i18n:i18n, customElements:customElements}) %>
 <% } else if (schema.$ref!==undefined) { %>
 <%- include("referenced-type",{schema:schema,_:_}) %>
 <% } else if (schema.anyOf!==undefined || schema.allOf!==undefined || schema.oneOf!==undefined) { %>
-<%- include("join-type",{schema:schema,_:_,schemas:schema.anyOf || schema.allOf || schema.oneOf,ejs:ejs,i18n:i18n}) %>
+<%- include("join-type",{schema:schema,_:_,schemas:schema.anyOf || schema.allOf || schema.oneOf,ejs:ejs,i18n:i18n, customElements:customElements}) %>
 <% } else { %>
 <%=i18n.__('nestedPropertyUnknownType')%> `<%= schema.type %>`.
 

@@ -26,6 +26,8 @@ A simple string.
 - is a property pattern
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### Pattern [0-9] Type
 

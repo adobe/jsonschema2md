@@ -19,11 +19,11 @@ if (schema.items.type==="string") {
   %><% } else if (schema.items.type==="boolean") {
   %><%- include("boolean-type",{schema:schema.items,_:_, i18n:i18n})
   %><% } else if (schema.items.type==="object") {
-  %><%- include("object-type",{schema:schema.items,_:_, i18n:i18n}) 
+  %><%- include("object-type",{schema:schema.items,_:_, i18n:i18n, customElements:customElements}) 
   %><% } else if (schema.items.type==="array") { 
-  %><%- include("array-type",{schema:schema.items,_:_, nested:true, i18n:i18n}) 
+  %><%- include("array-type",{schema:schema.items,_:_, nested:true, i18n:i18n, customElements:customElements}) 
   %><% } else if (schema.items.anyOf!==undefined || schema.items.allOf!==undefined || schema.items.oneOf!==undefined) {
-  %><%- include("join-type",{schema:schema.items,_:_,schemas:schema.items.anyOf || schema.items.allOf || schema.items.oneOf, ejs:ejs, i18n:i18n}) %>
+  %><%- include("join-type",{schema:schema.items,_:_,schemas:schema.items.anyOf || schema.items.allOf || schema.items.oneOf, ejs:ejs, i18n:i18n, customElements:customElements}) %>
   %><% } else if (schema.items.$ref!==undefined) { 
   %><%- include("referenced-type",{schema:schema.items,_:_, i18n:i18n}) %>
 <% } else { %>

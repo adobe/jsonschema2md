@@ -14,7 +14,9 @@
     "hello": {
       "type": "string",
       "const": "World",
-      "description": "A simple string, without strong constraints."
+      "description": "A simple string, without strong constraints.",
+      "version": "1.0.0",
+      "testProperty": "test"
     }
   },
   "required": [

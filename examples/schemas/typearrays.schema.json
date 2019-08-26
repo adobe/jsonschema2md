@@ -18,19 +18,27 @@
     "properties": {
       "null": {
         "type": "null",
-        "description": "This is just nothing"
+        "description": "This is just nothing",
+        "version": "1.0.0",
+        "testProperty": "test"
       },
       "string-or-null": {
         "type": ["string", "null"],
-        "description": "Nullable string"
+        "description": "Nullable string",
+        "version": "1.0.0",
+        "testProperty": "test"
       },
       "string-or-number": {
           "type": ["string", "number"],
-          "description": "Types can be many things"
+          "description": "Types can be many things",
+          "version": "1.0.0",
+          "testProperty": "test"
       },
       "string-or-number-null": {
           "type": ["string", "number", "null"],
-          "description": "Types can be many things, even nothing at all."
+          "description": "Types can be many things, even nothing at all.",
+          "version": "1.0.0",
+          "testProperty": "test"
       }
   }
 }

@@ -21,7 +21,9 @@
             "properties": {
                 "hey": {
                     "type": "string",
-                    "description": "A unique identifier given to every addressable thing."
+                    "description": "A unique identifier given to every addressable thing.",
+                    "version": "1.0.0",
+                    "testProperty": "test"
                 }
             }
         }

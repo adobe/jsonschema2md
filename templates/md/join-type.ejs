@@ -30,13 +30,13 @@
 <% } else if (schemas[i].type==="boolean") { %>
 <%- include("boolean-type",{schema:schemas[i],_:_,i18n:i18n}) %>
 <% } else if (schemas[i].type==="array") { %>
-<%- include("array-type",{schema:schemas[i],_:_,nested:false,ejs:ejs,i18n:i18n}) %>
+<%- include("array-type",{schema:schemas[i],_:_,nested:false,ejs:ejs,i18n:i18n, customElements:customElements}) %>
 <% } else if (schemas[i].type==="object") { %>
-<%- include("object-type",{schema:schemas[i],_:_, nameSlug:_,i18n:i18n}) %>
+<%- include("object-type",{schema:schemas[i],_:_, nameSlug:_,i18n:i18n, customElements:customElements}) %>
 <% } else if (schemas[i].$ref!==undefined) { %>
 <%- include("referenced-type",{schema:schemas[i],_:_,i18n:i18n}) %>
 <% } else if (schemas[i].anyOf!==undefined||schemas[i].allOf!==undefined) { %>
-<%- include("join-type",{schema:schemas[i],_:_,schemas:schemas[i].anyOf || schemas[i].allOf ,ejs:ejs,i18n:i18n}) %>
+<%- include("join-type",{schema:schemas[i],_:_,schemas:schemas[i].anyOf || schemas[i].allOf ,ejs:ejs,i18n:i18n, customElements:customElements}) %>
 <% } else { %>
 <% } %>
 <% } %>

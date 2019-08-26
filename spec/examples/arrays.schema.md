@@ -39,6 +39,8 @@ An array of simple objects
 - is optional
 - type: `array`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### JoinTypelist Type
 
@@ -64,6 +66,8 @@ A simple string.
 
 - is optional
 - type: `string`
+- version: 1.0.0
+- testProperty: test
 
 ##### foo Type
 
@@ -91,6 +95,8 @@ A simple string.
 
 - is optional
 - type: `string`
+- version: 1.0.0
+- testProperty: test
 
 ##### bar Type
 
@@ -112,6 +118,8 @@ This is an array
 - type: `boolean[]`
 - at least `1` items in the array
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### boollist Type
 
@@ -129,6 +137,8 @@ This is an array of coordinates in three-dimensional space.
 - type: `number[][]` (nested array)
 - no more than `10` items in the array
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### coordinatelist Type
 
@@ -151,6 +161,8 @@ This is an array
 - type: `integer[]`
 - between `1` and `10` items in the array
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### intlist Type
 
@@ -167,6 +179,8 @@ This is an array
 - is optional
 - type: `string[]`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### list Type
 
@@ -183,6 +197,8 @@ This is an array of arrays
 - is optional
 - type: `array[]` (nested array)
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### listlist Type
 
@@ -198,6 +214,8 @@ This is an array
 - type: `number[]`
 - no more than `10` items in the array
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### numlist Type
 
@@ -216,6 +234,8 @@ An array of simple objects
 - is optional
 - type: `object[]`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### objectlist Type
 
@@ -236,6 +256,8 @@ The a property
 
 - is **required**
 - type: `string`
+- version: 1.0.0
+- testProperty: test
 
 ##### a Type
 
@@ -249,6 +271,8 @@ The b property
 
 - is optional
 - type: `integer`
+- version: 1.0.0
+- testProperty: test
 
 ##### b Type
 
@@ -263,6 +287,8 @@ This is an array of arrays of strings
 - is optional
 - type: `string[][]` (nested array)
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### stringlistlist Type
 

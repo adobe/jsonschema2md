@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@adobe/helix-log": "^1.2.0",
+    "ajv": "^6.10.2",
     "bluebird": "^3.5.5",
     "ejs": "^2.6.2",
     "github-slugger": "^1.2.1",

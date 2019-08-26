@@ -43,6 +43,8 @@ An `id` with an `@` in front of it. The `@` stands for "dot com"
 - is optional
 - type: `string`
 - defined in [Definitions](definitions.schema.md#id)
+- version: 1.0.0
+- testProperty: test
 
 ### @id Type
 
@@ -59,6 +61,8 @@ A horse walks into it.
 - is optional
 - type: `string`
 - defined in [Extensible](extensible.schema.md#bar)
+- version: 1.0.0
+- testProperty: test
 
 ### bar Type
 
@@ -85,6 +89,8 @@ This property has a unique name to demonstrate it's uniqueness.
 - is optional
 - type: `string`
 - defined in [Extending](extending.schema.md#baz)
+- version: 1.0.0
+- testProperty: test
 
 ### baz Type
 
@@ -105,6 +111,8 @@ A unique identifier given to every addressable thing.
 - is optional
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### hey Type
 
@@ -119,6 +127,8 @@ A unique identifier given to every addressable thing.
 - is optional
 - type: `string`
 - defined in [Definitions](definitions.schema.md#id-1)
+- version: 1.0.0
+- testProperty: test
 
 ### id Type
 
@@ -135,6 +145,8 @@ An about ids. It is meta. If you are confused, send an email to the address spec
 - is optional
 - type: `string`
 - defined in [Definitions](definitions.schema.md#metaid)
+- version: 1.0.0
+- testProperty: test
 
 ### meta:id Type
 

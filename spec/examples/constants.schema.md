@@ -31,6 +31,8 @@ A simple string, without strong constraints.
 - is **required**
 - type: `const`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 The value of this property **must** be equal to:
 

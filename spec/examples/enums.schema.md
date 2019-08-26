@@ -32,6 +32,8 @@ A simple string. Pick a value.
 - is **required**
 - type: `enum`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 The value of this property **must** be equal to one of the [known values below](#hello-known-values).
 
@@ -53,6 +55,8 @@ This is an example schema with examples for properties of nested objects with en
 - is optional
 - type: `object`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### nested Type
 
@@ -70,6 +74,8 @@ A simple string. Pick a value.
 
 - is optional
 - type: `enum`
+- version: 1.0.0
+- testProperty: test
 
 The value of this property **must** be equal to one of the [known values below](#nested-known-values).
 

@@ -47,6 +47,8 @@ Guess what number is valid
 - is optional
 - type: `integer`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### integer_threes Type
 
@@ -65,6 +67,8 @@ Just a whole number. I don't like fractions. Don't get too small
 - is optional
 - type: `integer`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### interger_constrained Type
 
@@ -81,6 +85,8 @@ Just a whole number. I don't like fractions.
 - is optional
 - type: `integer`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### interger_unconstrained Type
 
@@ -95,6 +101,8 @@ Just a number. Don't get too big.
 - is optional
 - type: `number`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### number_constrained Type
 
@@ -111,6 +119,8 @@ Just a number
 - is optional
 - type: `number`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### number_unconstrained Type
 
@@ -125,6 +135,8 @@ A date-like string.
 - is optional
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### string_date Type
 
@@ -141,6 +153,8 @@ An email-like string.
 - is optional
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### string_email Type
 
@@ -157,6 +171,8 @@ A hostname-like string.
 - is optional
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### string_hostname Type
 
@@ -173,6 +189,8 @@ An IPv4-like string.
 - is optional
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### string_ipv4 Type
 
@@ -189,6 +207,8 @@ An IPv6-like string.
 - is optional
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### string_ipv6 Type
 
@@ -205,6 +225,8 @@ A string with minumum and maximum length
 - is optional
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### string_length Type
 
@@ -232,6 +254,8 @@ A string following a regular expression
 - is optional
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### string_pattern Type
 
@@ -285,6 +309,8 @@ A string following a regular expression
 - is optional
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### string_pattern_noexample Type
 
@@ -305,6 +331,8 @@ A string following a regular expression
 - is optional
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### string_pattern_singleexample Type
 
@@ -333,6 +361,8 @@ A simple string, without any constraints.
 - is optional
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### string_unconstrained Type
 
@@ -353,6 +383,8 @@ A URI.
 - is optional
 - type: `string`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### string_uri Type
 
@@ -367,6 +399,8 @@ A URI.
 - is **required**
 - type: `boolean`
 - defined in this schema
+- version: 1.0.0
+- testProperty: test
 
 ### yesno Type
 

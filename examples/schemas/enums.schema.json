@@ -14,7 +14,9 @@
     "hello": {
       "type": "string",
       "enum": ["World", "Welt"],
-      "description": "A simple string. Pick a value."
+      "description": "A simple string. Pick a value.",
+      "version": "1.0.0",
+      "testProperty": "test"
     },
 
     "nested": {
@@ -25,9 +27,13 @@
         "test": {
           "type": "string",
           "enum": ["nested", "object", "works"],
-          "description": "A simple string. Pick a value."
+          "description": "A simple string. Pick a value.",
+          "version": "1.0.0",
+          "testProperty": "test"
         }
-      }
+      },
+      "version": "1.0.0",
+      "testProperty": "test"
     }
   },
   "required": [

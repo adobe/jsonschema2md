@@ -12,58 +12,82 @@
   "description": "This is an example schema that uses types defined in other schemas.",
   "properties": {
     "refabstract": {
-      "$ref": "https://example.com/schemas/abstract#/definitions/first"
+      "$ref": "https://example.com/schemas/abstract#/definitions/first",
+      "version": "1.0.0",
+      "testProperty": "test"
     },
     "refnamed": {
-      "$ref": "https://example.com/schemas/simple"
+      "$ref": "https://example.com/schemas/simple",
+      "version": "1.0.0",
+      "testProperty": "test"
     },
     "reflist": {
       "type": "array",
       "items": {
-        "$ref": "https://example.com/schemas/simple"
-      }
+        "$ref": "https://example.com/schemas/simple",
+        "version": "1.0.0",
+        "testProperty": "test"
+      },
+      "version": "1.0.0",
+      "testProperty": "test"
     },
     "refobj": {
       "type": "object",
       "properties": {
         "foo": {
-          "$ref": "https://example.com/schemas/simple"
+          "$ref": "https://example.com/schemas/simple",
+          "version": "1.0.0",
+          "testProperty": "test"
         }
-      }
+      },
+      "version": "1.0.0",
+      "testProperty": "test"
     },
     "refnestedobj": {
       "type": "object",
       "properties": {
         "refobj": {
           "type": "object",
+          "version": "1.0.0",
+          "testProperty": "test",
           "properties": {
             "foo": {
-              "$ref": "https://example.com/schemas/simple"
+              "$ref": "https://example.com/schemas/simple",
+              "version": "1.0.0",
+              "testProperty": "test"
             }
           }
         }
-      }
+      },
+      "version": "1.0.0",
+      "testProperty": "test"
     },
     "or": {
       "description": "String or number…",
       "anyOf": [
         { "type":"string" },
         { "type":"number", "minimum": 0}
-      ]
+      ],
+      "version": "1.0.0",
+      "testProperty": "test"
     },
     "and": {
       "description": "Number in a range",
       "allOf": [
         { "type":"number", "maximum": 10 },
         { "type":"number", "minimum": 0}
-      ]
+      ],
+      "version": "1.0.0",
+      "testProperty": "test"
     },
     "xor": {
       "description": "Exclusive choice.",
       "oneOf": [
         { "type":"number", "maximum": 0 },
         { "type":"number", "minimum": 10}
-      ]
+      ],
+      "version": "1.0.0",
+      "testProperty": "test"
     }
   },
   "required": [
@@ -72,10 +96,14 @@
   "additionalProperties": true,
   "patternProperties": {
     "int.*": {
-      "type": "integer"
+      "type": "integer",
+      "version": "1.0.0",
+      "testProperty": "test"
     },
     "str.*": {
-      "type":"string"
+      "type":"string",
+      "version": "1.0.0",
+      "testProperty": "test"
     }
   }
 }
