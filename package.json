@@ -16,7 +16,7 @@
     "cover": "istanbul cover --root lib --print detail jasmine"
   },
   "dependencies": {
-    "@adobe/helix-log": "^1.2.0",
+    "@adobe/helix-log": "^2.0.0",
     "ajv": "^6.10.2",
     "bluebird": "^3.5.5",
     "ejs": "^2.6.2",
