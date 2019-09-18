@@ -1,3 +1,10 @@
+## [3.3.1](https://github.com/adobe/jsonschema2md/compare/v3.3.0...v3.3.1) (2019-09-18)
+
+
+### Bug Fixes
+
+* **package:** update @adobe/helix-log to version 2.0.0 ([33792f6](https://github.com/adobe/jsonschema2md/commit/33792f6))
+
 # [3.3.0](https://github.com/adobe/jsonschema2md/compare/v3.2.0...v3.3.0) (2019-08-26)
 
 
