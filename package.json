@@ -42,7 +42,7 @@
     "eslint-plugin-header": "3.0.0",
     "eslint-plugin-import": "2.18.0",
     "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-react": "7.14.2",
+    "eslint-plugin-react": "7.15.0",
     "ghooks": "^2.0.4",
     "istanbul": "^0.4.5",
     "jasmine": "~3.5.0",
