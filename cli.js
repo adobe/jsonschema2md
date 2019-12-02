@@ -19,7 +19,7 @@ const readdirp = require('readdirp');
 const Ajv = require('ajv');
 const logger = require('@adobe/helix-log');
 const {
-  iter, pipe, filter, map, obj, flat, list, flattenTree,
+  iter, pipe, filter, map, obj, flat, next, list, flattenTree,
 } = require('ferrum');
 const traverse = require('./lib/traverseSchema');
 
@@ -154,10 +154,9 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
         id: schema.schema.$id,
       })),
       map((schema) => {
-        const flat = flattenTree(schema, traverse);
-        console.log(list(flat, Array));
-        return schema.path;
+        return flattenTree(schema, traverse);
       }),
+      flat
     );
 
     return rootschemas;
