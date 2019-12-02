@@ -22,14 +22,12 @@
     "ejs": "^2.6.2",
     "github-slugger": "^1.2.1",
     "i18n": "^0.8.3",
-    "jasmine-xml-reporter": "^1.2.1",
     "json-pointer": "^0.6.0",
     "lodash": "^4.17.15",
     "mkdirp": "^0.5.1",
-    "optimist": "^0.6.1",
-    "prettier": "^1.18.2",
     "readdirp": "^3.1.1",
-    "valid-url": "1.0.9"
+    "valid-url": "1.0.9",
+    "yargs": "^15.0.2"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^3.0.4",
@@ -37,6 +35,8 @@
     "@semantic-release/github": "^5.4.2",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
+    "prettier": "^1.18.2",
+    "jasmine-xml-reporter": "^1.2.1",
     "eslint": "6.5.0",
     "eslint-config-airbnb": "17.1.1",
     "eslint-plugin-header": "3.0.0",

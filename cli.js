@@ -11,7 +11,7 @@
  * governing permissions and limitations under the License.
  */
 
-const Optimist = require('optimist');
+const yargs = require('yargs');
 const Promise = require('bluebird');
 const path = require('path');
 const _ = require('lodash');
@@ -27,7 +27,7 @@ const Schema = require('./lib/schema');
 const readSchemaFile = require('./lib/readSchemaFile');
 
 // parse/process command line arguments
-const { argv } = Optimist
+const { argv } = yargs
   .usage('Generate Markdown documentation from JSON Schema.\n\nUsage: $0')
   .demand('d')
   .alias('d', 'input')
