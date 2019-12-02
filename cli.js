@@ -19,13 +19,14 @@ const readdirp = require('readdirp');
 const Ajv = require('ajv');
 const logger = require('@adobe/helix-log');
 const {
-  iter, pipe, filter, map, obj,
+  iter, pipe, filter, map, obj, flat, list, flattenTree,
 } = require('ferrum');
+const traverse = require('./lib/traverseSchema');
 
 const { error, info } = logger;
 
-const Schema = require('./lib/schema');
-const readSchemaFile = require('./lib/readSchemaFile');
+// const Schema = require('./lib/schema');
+// const readSchemaFile = require('./lib/readSchemaFile');
 
 // init JSON Schema validator
 const ajv = new Ajv({
@@ -35,6 +36,7 @@ const ajv = new Ajv({
 // parse/process command line arguments
 const { argv } = yargs
   .usage('Generate Markdown documentation from JSON Schema.\n\nUsage: $0')
+
   .demand('d')
   .alias('d', 'input')
   .describe('d', 'path to directory containing all JSON Schemas or a single JSON Schema file. This will be considered as the baseURL. By default only files ending in .schema.json will be processed, unless the schema-extension is set with the -e flag.')
@@ -65,15 +67,15 @@ const { argv } = yargs
 
   .alias('s', 'metaSchema')
   .describe('s', 'Custom meta schema path to validate schemas')
-  .coerce((s) => {
+  .coerce('s', (s) => {
     // eslint-disable-next-line import/no-dynamic-require, global-require
     ajv.addMetaSchema(require(path.resolve(s)));
   })
 
   .alias('x', 'schema-out')
   .describe('x', 'output JSON Schema files including description and validated examples in the specified folder, or suppress with -')
-  .default('o', path.resolve(path.join('.', 'out')))
-  .coerce(x => (x === '-' ? '' : path.resolve(x)))
+  .default('x', path.resolve(path.join('.', 'out')))
+  .coerce('x', x => (x === '-' ? '' : path.resolve(x)))
 
   .alias('e', 'schema-extension')
   .describe('e', 'JSON Schema file extension eg. schema.json or json')
@@ -81,7 +83,7 @@ const { argv } = yargs
 
   .alias('n', 'no-readme')
   .describe('n', 'Do not generate a README.md file in the output directory')
-  .default(false)
+  .default('n', false)
 
   .describe('v', 'JSON Schema Draft version to use. Supported: 04, 06, 07 (default)')
   .alias('v', 'draft')
@@ -126,6 +128,45 @@ const target = fs.statSync(schemaPath);
 const readme = !!argv.n;
 const schemaExtension = argv.e;
 
+readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtension}` })
+  .then((schemas) => {
+    const rootschemas = pipe(
+      schemas,
+      map(schema => schema.fullPath),
+      map(schemaPath => ({
+        path: schemaPath,
+        schema: require(schemaPath),
+        direct: true,
+      })),
+      map((schema) => {
+        try {
+          ajv.addSchema(schema.schema, schema.path);
+          return schema;
+        } catch (e) {
+          error('Ajv processing error for schema at path', schema.path);
+          error(e);
+          process.exit(1);
+        }
+      }),
+      // read the ID
+      map(schema => ({
+        ...schema,
+        id: schema.schema.$id,
+      })),
+      map((schema) => {
+        const flat = flattenTree(schema, traverse);
+        console.log(list(flat, Array));
+        return schema.path;
+      }),
+    );
+
+    return rootschemas;
+  }).then((schemas) => {
+    info('Schemas have been validated');
+    console.log(list(schemas, Array));
+  });
+
+/*
 info('output directory', outDir);
 if (target.isDirectory()) {
   // the ajv json validator will be passed into the main module to help with processing
@@ -185,3 +226,4 @@ if (target.isDirectory()) {
       process.exit(1);
     });
 }
+*/
