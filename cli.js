@@ -128,7 +128,6 @@ const docs = pipe(
 );
 
 const schemaPathMap = {};
-const metaElements = argv.m;
 const schemaPath = argv.d;
 const schemaDir = argv.x;
 const target = fs.statSync(schemaPath);
@@ -163,7 +162,9 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
     generate,
 
     // generate Markdown ASTs
-    build({}),
+    build({
+      header: argv.h
+    }),
 
     // build readme
     readme({
