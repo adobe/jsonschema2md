@@ -28,6 +28,8 @@ const filterRefs = require('./lib/filterRefs');
 const validate = require('./lib/validateSchemas');
 const build = require('./lib/markdownBuilder');
 const write = require('./lib/writeMarkdown');
+const readme = require('./lib/readmeBuilder');
+const formatInfo = require('./lib/formatInfo');
 
 const { info, error, debug } = logger;
 
@@ -130,7 +132,6 @@ const metaElements = argv.m;
 const schemaPath = argv.d;
 const schemaDir = argv.x;
 const target = fs.statSync(schemaPath);
-const readme = !!argv.n;
 const schemaExtension = argv.e;
 
 // list all schema files in the specified directory
@@ -151,13 +152,23 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
     // find contained schemas
     map(traverse),
     flat,
+
+    // remove pure ref schemas
     filterRefs,
+
+    // format titles and descriptions
+    formatInfo({ extension: schemaExtension }),
 
     // make a nice object
     generate,
 
     // generate Markdown ASTs
     build,
+
+    // build readme
+    readme({
+      readme: !argv.n,
+    }),
 
     // write to files
 
@@ -170,5 +181,5 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
   ))
 
   .then((schemas) => {
-    console.log('allschemas', schemas);
+    // console.log('allschemas', schemas);
   });
