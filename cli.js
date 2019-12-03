@@ -163,7 +163,7 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
     generate,
 
     // generate Markdown ASTs
-    build,
+    build({}),
 
     // build readme
     readme({
@@ -177,6 +177,7 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
       info,
       error,
       debug,
+      meta: argv.m
     }),
   ))
 
