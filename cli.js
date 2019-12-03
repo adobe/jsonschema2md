@@ -24,6 +24,7 @@ const {
 const traverse = require('./lib/traverseSchema');
 const extract = require('./lib/extractID');
 const generate = require('./lib/generateName');
+const filterRefs = require('./lib/filterRefs');
 
 const { error, info } = logger;
 
@@ -156,6 +157,7 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
       // find contained schemas
       map(traverse),
       flat,
+      filterRefs,
       generate,
     );
 
