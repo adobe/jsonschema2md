@@ -19,9 +19,11 @@ const readdirp = require('readdirp');
 const Ajv = require('ajv');
 const logger = require('@adobe/helix-log');
 const {
-  iter, pipe, filter, map, obj, flat, next, list, flattenTree,
+  iter, pipe, filter, map, obj, flat, list,
 } = require('ferrum');
 const traverse = require('./lib/traverseSchema');
+const extract = require('./lib/extractID');
+const generate = require('./lib/generateName');
 
 const { error, info } = logger;
 
@@ -135,6 +137,7 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
       map(schema => schema.fullPath),
       map(schemaPath => ({
         path: schemaPath,
+        // eslint-disable-next-line global-require
         schema: require(schemaPath),
         direct: true,
       })),
@@ -149,20 +152,17 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
         }
       }),
       // read the ID
-      map(schema => ({
-        ...schema,
-        id: schema.schema.$id,
-      })),
-      map((schema) => {
-        return flattenTree(schema, traverse);
-      }),
-      flat
+      map(extract),
+      // find contained schemas
+      map(traverse),
+      flat,
+      generate,
     );
 
     return rootschemas;
   }).then((schemas) => {
     info('Schemas have been validated');
-    console.log(list(schemas, Array));
+    console.log('allschemas', schemas);
   });
 
 /*
