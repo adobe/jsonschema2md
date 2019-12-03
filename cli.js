@@ -12,21 +12,24 @@
  */
 
 const yargs = require('yargs');
-const path = require('path');
+const nodepath = require('path');
 
 const fs = require('fs');
 const readdirp = require('readdirp');
 const Ajv = require('ajv');
 const logger = require('@adobe/helix-log');
 const {
-  iter, pipe, filter, map, obj, flat, list,
+  iter, pipe, filter, map, obj, flat,
 } = require('ferrum');
 const traverse = require('./lib/traverseSchema');
 const extract = require('./lib/extractID');
 const generate = require('./lib/generateName');
 const filterRefs = require('./lib/filterRefs');
+const validate = require('./lib/validateSchemas');
+const build = require('./lib/markdownBuilder');
+const write = require('./lib/writeMarkdown');
 
-const { error, info } = logger;
+const { info, error, debug } = logger;
 
 // const Schema = require('./lib/schema');
 // const readSchemaFile = require('./lib/readSchemaFile');
@@ -44,7 +47,7 @@ const { argv } = yargs
   .alias('d', 'input')
   .describe('d', 'path to directory containing all JSON Schemas or a single JSON Schema file. This will be considered as the baseURL. By default only files ending in .schema.json will be processed, unless the schema-extension is set with the -e flag.')
   .coerce('d', (d) => {
-    const resolved = path.resolve(d);
+    const resolved = nodepath.resolve(d);
     if (fs.existsSync(resolved) && fs.lstatSync(d).isDirectory()) {
       return resolved;
     }
@@ -53,8 +56,8 @@ const { argv } = yargs
 
   .alias('o', 'out')
   .describe('o', 'path to output directory')
-  .default('o', path.resolve(path.join('.', 'out')))
-  .coerce('o', o => path.resolve(o))
+  .default('o', nodepath.resolve(nodepath.join('.', 'out')))
+  .coerce('o', o => nodepath.resolve(o))
 
   .option('m', {
     type: 'array',
@@ -72,13 +75,13 @@ const { argv } = yargs
   .describe('s', 'Custom meta schema path to validate schemas')
   .coerce('s', (s) => {
     // eslint-disable-next-line import/no-dynamic-require, global-require
-    ajv.addMetaSchema(require(path.resolve(s)));
+    ajv.addMetaSchema(require(nodepath.resolve(s)));
   })
 
   .alias('x', 'schema-out')
   .describe('x', 'output JSON Schema files including description and validated examples in the specified folder, or suppress with -')
-  .default('x', path.resolve(path.join('.', 'out')))
-  .coerce('x', x => (x === '-' ? '' : path.resolve(x)))
+  .default('x', nodepath.resolve(nodepath.join('.', 'out')))
+  .coerce('x', x => (x === '-' ? '' : nodepath.resolve(x)))
 
   .alias('e', 'schema-extension')
   .describe('e', 'JSON Schema file extension eg. schema.json or json')
@@ -106,8 +109,8 @@ const { argv } = yargs
 
   .alias('i', 'i18n')
   .describe('i', 'path to a locales folder with an en.json file in it. This file will be used for all text parts in all templates')
-  .default('i', path.resolve(__dirname, 'lib', 'locales'))
-  .coerce('i', i => path.resolve(i))
+  .default('i', nodepath.resolve(__dirname, 'lib', 'locales'))
+  .coerce('i', i => nodepath.resolve(i))
 
   .alias('p', 'properties')
   .describe('p', 'A comma separated list with custom properties which should be also in the description of an element.')
@@ -125,106 +128,47 @@ const docs = pipe(
 const schemaPathMap = {};
 const metaElements = argv.m;
 const schemaPath = argv.d;
-const outDir = argv.o;
 const schemaDir = argv.x;
 const target = fs.statSync(schemaPath);
 const readme = !!argv.n;
 const schemaExtension = argv.e;
 
+// list all schema files in the specified directory
 readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtension}` })
-  .then((schemas) => {
-    const rootschemas = pipe(
-      schemas,
-      map(schema => schema.fullPath),
-      map(schemaPath => ({
-        path: schemaPath,
-        // eslint-disable-next-line global-require
-        schema: require(schemaPath),
-        direct: true,
-      })),
-      map((schema) => {
-        try {
-          ajv.addSchema(schema.schema, schema.path);
-          return schema;
-        } catch (e) {
-          error('Ajv processing error for schema at path', schema.path);
-          error(e);
-          process.exit(1);
-        }
-      }),
-      // read the ID
-      map(extract),
-      // find contained schemas
-      map(traverse),
-      flat,
-      filterRefs,
-      generate,
-    );
+  // then collect data about the schemas and turn everything into a big object
+  .then(schemas => pipe(
+    schemas,
+    map(schema => schema.fullPath),
+    map(path => ({
+      path,
+      // eslint-disable-next-line global-require, import/no-dynamic-require
+      schema: require(path),
+      direct: true,
+    })),
+    validate(ajv, logger),
+    // read the ID
+    map(extract),
+    // find contained schemas
+    map(traverse),
+    flat,
+    filterRefs,
 
-    return rootschemas;
-  }).then((schemas) => {
-    info('Schemas have been validated');
+    // make a nice object
+    generate,
+
+    // generate Markdown ASTs
+    build,
+
+    // write to files
+
+    write({
+      out: argv.o,
+      info,
+      error,
+      debug,
+    }),
+  ))
+
+  .then((schemas) => {
     console.log('allschemas', schemas);
   });
-
-/*
-info('output directory', outDir);
-if (target.isDirectory()) {
-  // the ajv json validator will be passed into the main module to help with processing
-  const files = [];
-
-  readdirp(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtension}` })
-    .on('data', (entry) => {
-      files.push(entry.fullPath);
-      try {
-        // eslint-disable-next-line import/no-dynamic-require, global-require
-        ajv.addSchema(require(entry.fullPath), entry.fullPath);
-      } catch (e) {
-        error('Ajv processing error for schema at path', entry.fullPath);
-        error(e);
-        process.exit(1);
-      }
-    })
-    .on('end', () => {
-      Schema.setAjv(ajv);
-      Schema.setSchemaPathMap(schemaPathMap);
-      return Promise.reduce(files, readSchemaFile, schemaPathMap)
-        .then((schemaMap) => {
-          info(`finished reading all *.${schemaExtension} files in ${schemaPath}, beginning processing….`);
-          return Schema.process(
-            schemaMap, schemaPath, outDir, schemaDir, metaElements,
-            readme, docs, argv,
-          );
-        })
-        .then(() => {
-          info('Processing complete.');
-        })
-        .catch((err) => {
-          error(err);
-          process.exit(1);
-        });
-    })
-    .on('error', (err) => {
-      error(err);
-      process.exit(1);
-    });
-} else {
-  readSchemaFile(schemaPathMap, schemaPath)
-    .then((schemaMap) => {
-      // eslint-disable-next-line import/no-dynamic-require, global-require
-      ajv.addSchema(require(schemaPath), schemaPath);
-      Schema.setAjv(ajv);
-      Schema.setSchemaPathMap(schemaPathMap);
-      info(`finished reading ${schemaPath}, beginning processing...`);
-      return Schema.process(schemaMap, schemaPath, outDir, schemaDir,
-        metaElements, false, docs, argv);
-    })
-    .then(() => {
-      info('Processing complete.');
-    })
-    .catch((err) => {
-      error(err);
-      process.exit(1);
-    });
-}
-*/

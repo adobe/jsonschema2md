@@ -23,8 +23,13 @@
     "github-slugger": "^1.2.1",
     "i18next": "^19.0.1",
     "json-pointer": "^0.6.0",
+    "mdast-builder": "^1.1.1",
     "mkdirp": "^0.5.1",
     "readdirp": "^3.1.1",
+    "remark-stringify": "^7.0.4",
+    "unified": "^8.4.2",
+    "unist-builder": "^2.0.2",
+    "unist-util-inspect": "^5.0.0",
     "valid-url": "1.0.9",
     "yargs": "^15.0.2"
   },
