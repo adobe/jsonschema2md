@@ -19,7 +19,7 @@ const readdirp = require('readdirp');
 const Ajv = require('ajv');
 const logger = require('@adobe/helix-log');
 const {
-  iter, pipe, filter, map, obj, flat,
+  iter, pipe, filter, map, obj, flat, list
 } = require('ferrum');
 const traverse = require('./lib/traverseSchema');
 const extract = require('./lib/extractID');
@@ -154,6 +154,12 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
 
     // remove pure ref schemas
     filterRefs,
+
+    x => {
+      const y = list(x);
+      console.log(JSON.stringify(y, undefined,  ' '));
+      return y;
+    },
 
     // format titles and descriptions
     formatInfo({ extension: schemaExtension }),
