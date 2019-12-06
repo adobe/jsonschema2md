@@ -13,7 +13,7 @@
 
 const assert = require('assert');
 const {
-  loader, pointer, filename, id, titles, resolve,
+  loader, pointer, filename, id, titles, resolve, slug,
 } = require('../lib/schemaProxy');
 
 const example = {
@@ -48,6 +48,10 @@ const example = {
       type: 'object',
       title: 'An object',
     },
+    zup: {
+      type: 'object',
+      title: 'An object',
+    },
     baz: {
       anyOf: [
         { $ref: '#/properties/foo' },
@@ -60,6 +64,7 @@ const example = {
 const referencing = {
   $schema: 'http://json-schema.org/draft-06/schema#',
   $id: 'https://example.com/schemas/referencing',
+  title: 'Referencing',
   properties: {
     $ref: 'https://example.com/schemas/example#/properties',
     zap: {
@@ -142,7 +147,25 @@ describe('Testing Schema Proxy', () => {
 
     assert.deepStrictEqual(new Set(Object.keys(proxied2.properties)), new Set([
       '$ref', 'zap', // the two properties from the original declaration
-      'foo', 'bar', 'zip', 'baz', // plus all the referenced properties
+      'foo', 'bar', 'zip', 'zup', 'baz', // plus all the referenced properties
     ]));
+  });
+
+  it('Schema proxy generates unique names', () => {
+    const myloader = loader();
+    const proxied1 = myloader(example, 'example.schema.json');
+    const proxied2 = myloader(referencing, 'referencing.schema.json');
+    const proxied3 = myloader({
+      title: 'Referencing'
+    }, 'anotherreference.schema.json');
+
+    assert.equal(proxied1[slug], 'example');
+
+    assert.equal(proxied1.properties.zip[slug], 'example-properties-an-object');
+    assert.equal(proxied1.properties.zup[slug], 'example-properties-an-object-1'); //avoid duplicates
+
+    assert.equal(proxied2[slug], 'referencing');
+    assert.equal(proxied2[slug], 'referencing'); // make sure the slug stays stable
+    assert.equal(proxied3[slug], 'anotherreference'); 
   });
 });
