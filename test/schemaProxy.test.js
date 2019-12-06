@@ -14,7 +14,7 @@
 const assert = require('assert');
 const path = require('path');
 const {
-  loader, pointer, filename, id, titles, resolve, slug, meta
+  loader, pointer, filename, id, titles, resolve, slug, meta,
 } = require('../lib/schemaProxy');
 
 const example = {
@@ -157,17 +157,17 @@ describe('Testing Schema Proxy', () => {
     const proxied1 = myloader(example, 'example.schema.json');
     const proxied2 = myloader(referencing, 'referencing.schema.json');
     const proxied3 = myloader({
-      title: 'Referencing'
+      title: 'Referencing',
     }, 'anotherreference.schema.json');
 
     assert.equal(proxied1[slug], 'example');
 
     assert.equal(proxied1.properties.zip[slug], 'example-properties-an-object');
-    assert.equal(proxied1.properties.zup[slug], 'example-properties-an-object-1'); //avoid duplicates
+    assert.equal(proxied1.properties.zup[slug], 'example-properties-an-object-1'); // avoid duplicates
 
     assert.equal(proxied2[slug], 'referencing');
     assert.equal(proxied2[slug], 'referencing'); // make sure the slug stays stable
-    assert.equal(proxied3[slug], 'anotherreference'); 
+    assert.equal(proxied3[slug], 'anotherreference');
   });
 
   it('Schema proxy loads actual schemas with meta information', () => {
