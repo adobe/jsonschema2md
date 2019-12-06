@@ -12,8 +12,9 @@
 /* eslint-env mocha */
 
 const assert = require('assert');
+const path = require('path');
 const {
-  loader, pointer, filename, id, titles, resolve, slug,
+  loader, pointer, filename, id, titles, resolve, slug, meta
 } = require('../lib/schemaProxy');
 
 const example = {
@@ -167,5 +168,14 @@ describe('Testing Schema Proxy', () => {
     assert.equal(proxied2[slug], 'referencing');
     assert.equal(proxied2[slug], 'referencing'); // make sure the slug stays stable
     assert.equal(proxied3[slug], 'anotherreference'); 
+  });
+
+  it('Schema proxy loads actual schemas with meta information', () => {
+    const myloader = loader();
+
+    const examplefile = path.resolve(__dirname, '..', 'examples', 'schemas', 'definitions.schema.json');
+    const example = myloader(require(examplefile), examplefile);
+
+    assert.equal(example[meta].shortdescription, 'This is an example of using a definitions object within a schema');
   });
 });
