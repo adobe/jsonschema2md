@@ -11,11 +11,6 @@
     "description": "This is a schema which is currently in the `stabilizing` status.",
     "meta:status": "stabilizing",
     "type": "object",
-    "allOf": [
-        {
-            "$ref": "#/definitions/id"
-        }
-    ],
     "properties": {
       "id": {
           "type": "string",

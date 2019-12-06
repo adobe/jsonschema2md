@@ -10,11 +10,6 @@
     "title": "Simple",
     "description": "This is a *very* simple example of a JSON schema. There is only one property.",
     "type": "object",
-    "allOf": [
-        {
-            "$ref": "#/definitions/id"
-        }
-    ],
     "properties": {
       "id": {
           "type": "string",

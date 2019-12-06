@@ -10,11 +10,6 @@
     "title": "Type Arrays",
     "description": "This schema test type arrays and nullable types",
     "type": "object",
-    "allOf": [
-        {
-            "$ref": "#/definitions/id"
-        }
-    ],
     "properties": {
       "null": {
         "type": "null",

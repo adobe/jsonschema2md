@@ -30,6 +30,7 @@ const build = require('./lib/markdownBuilder');
 const write = require('./lib/writeMarkdown');
 const readme = require('./lib/readmeBuilder');
 const formatInfo = require('./lib/formatInfo');
+const { loader } = require('./lib/schemaProxy');
 
 const { info, error, debug } = logger;
 
@@ -133,27 +134,22 @@ const schemaDir = argv.x;
 const target = fs.statSync(schemaPath);
 const schemaExtension = argv.e;
 
+const schemaloader = loader();
+
 // list all schema files in the specified directory
 readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtension}` })
   // then collect data about the schemas and turn everything into a big object
   .then(schemas => pipe(
     schemas,
     map(schema => schema.fullPath),
-    map(path => ({
-      path,
-      // eslint-disable-next-line global-require, import/no-dynamic-require
-      schema: require(path),
-      direct: true,
-    })),
-    validate(ajv, logger),
-    // read the ID
-    map(extract),
+    map(path => schemaloader(require(path), path)),
+    // validate
+    // validate(ajv, logger),
     // find contained schemas
-    map(traverse),
-    flat,
+    traverse,
 
     // remove pure ref schemas
-    filterRefs,
+    //filterRefs,
 
     (x) => {
       const y = list(x);
@@ -161,12 +157,7 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
       return y;
     },
 
-    // format titles and descriptions
-    formatInfo({ extension: schemaExtension }),
-
-    // make a nice object
-    generate,
-
+    /* skip for now
     // generate Markdown ASTs
     build({
       header: argv.h,
@@ -187,6 +178,7 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
       debug,
       meta: argv.m,
     }),
+    */
   ))
 
   .then((schemas) => {
