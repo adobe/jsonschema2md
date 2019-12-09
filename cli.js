@@ -27,7 +27,7 @@ const generate = require('./lib/generateName');
 const filterRefs = require('./lib/filterRefs');
 const validate = require('./lib/validateSchemas');
 const build = require('./lib/markdownBuilder');
-const write = require('./lib/writeMarkdown');
+const { writereadme } = require('./lib/writeMarkdown');
 const readme = require('./lib/readmeBuilder');
 const formatInfo = require('./lib/formatInfo');
 const { loader } = require('./lib/schemaProxy');
@@ -149,13 +149,28 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
     traverse,
 
     // remove pure ref schemas
-    //filterRefs,
+    // filterRefs,
 
     (x) => {
+      console.log('emitting');
       const y = list(x);
-      console.log(JSON.stringify(y, undefined, ' '));
+      console.log(y);
       return y;
     },
+
+    // build readme
+    readme({
+      readme: !argv.n,
+    }),
+
+    writereadme({
+      readme: !argv.n,
+      out: argv.o,
+      info,
+      error,
+      debug,
+      meta: argv.m,
+    }),
 
     /* skip for now
     // generate Markdown ASTs
@@ -164,10 +179,6 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
       links: docs,
     }),
 
-    // build readme
-    readme({
-      readme: !argv.n,
-    }),
 
     // write to files
 

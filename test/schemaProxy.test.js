@@ -189,10 +189,12 @@ describe('Testing Schema Proxy', () => {
       'custom.schema.json',
     ];
 
-    const schemas = files.map(file => {
+    const schemas = files.map((file) => {
       const fname = path.resolve(__dirname, '..', 'examples', 'schemas', file);
       return myloader(require(fname), fname);
     });
+
+    assert.equal(schemas[0][slug], 'abstract');
 
     assert.deepEqual(schemas[2].title, 'Complex References');
     assert.equal(schemas[2].properties.refnamed.title, 'Simple');
