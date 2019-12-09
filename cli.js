@@ -27,7 +27,7 @@ const generate = require('./lib/generateName');
 const filterRefs = require('./lib/filterRefs');
 const validate = require('./lib/validateSchemas');
 const build = require('./lib/markdownBuilder');
-const { writereadme } = require('./lib/writeMarkdown');
+const { writereadme, writemarkdown } = require('./lib/writeMarkdown');
 const readme = require('./lib/readmeBuilder');
 const formatInfo = require('./lib/formatInfo');
 const { loader } = require('./lib/schemaProxy');
@@ -139,58 +139,70 @@ const schemaloader = loader();
 // list all schema files in the specified directory
 readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtension}` })
   // then collect data about the schemas and turn everything into a big object
-  .then(schemas => pipe(
-    schemas,
-    map(schema => schema.fullPath),
-    map(path => schemaloader(require(path), path)),
-    // validate
-    // validate(ajv, logger),
-    // find contained schemas
-    traverse,
+  .then((schemas) => {
+    pipe(
+      schemas,
+      map(schema => schema.fullPath),
+      map(path => schemaloader(require(path), path)),
+      // find contained schemas
+      traverse,
+      // build readme
+      readme({
+        readme: !argv.n,
+      }),
 
-    // remove pure ref schemas
-    // filterRefs,
+      writereadme({
+        readme: !argv.n,
+        out: argv.o,
+        info,
+        error,
+        debug,
+        meta: argv.m,
+      }),
+    );
 
+    // generate Markdown
+    return pipe(
+      schemas,
+      map(schema => schema.fullPath),
+      map(path => schemaloader(require(path), path)),
+      // validate
+      // validate(ajv, logger),
+      // find contained schemas
+      traverse,
+
+      // remove pure ref schemas
+      // filterRefs,
+
+      /*
     (x) => {
       console.log('emitting');
       const y = list(x);
       console.log(y);
       return y;
     },
+    */
 
-    // build readme
-    readme({
-      readme: !argv.n,
-    }),
 
-    writereadme({
-      readme: !argv.n,
-      out: argv.o,
-      info,
-      error,
-      debug,
-      meta: argv.m,
-    }),
+      // generate Markdown ASTs
+      build({
+        header: argv.h,
+        links: docs,
+      }),
 
-    /* skip for now
-    // generate Markdown ASTs
-    build({
-      header: argv.h,
-      links: docs,
-    }),
 
 
     // write to files
 
-    write({
+    writemarkdown({
       out: argv.o,
       info,
       error,
       debug,
       meta: argv.m,
     }),
-    */
-  ))
+    );
+  })
 
   .then((schemas) => {
     // console.log('allschemas', schemas);
