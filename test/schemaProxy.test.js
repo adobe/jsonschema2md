@@ -179,13 +179,14 @@ describe('Testing Schema Proxy', () => {
     assert.equal(example[meta].shortdescription, 'This is an example of using a definitions object within a schema');
   });
 
-  it.only('Schema proxy loads complex schemas with meta information', () => {
+  it('Schema proxy loads complex schemas with meta information', () => {
     const myloader = loader();
 
     const files = [
       'abstract.schema.json',
       'simple.schema.json',
       'complex.schema.json',
+      'custom.schema.json',
     ];
 
     const schemas = files.map(file => {
@@ -196,5 +197,8 @@ describe('Testing Schema Proxy', () => {
     assert.deepEqual(schemas[2].title, 'Complex References');
     assert.equal(schemas[2].properties.refnamed.title, 'Simple');
     assert.equal(schemas[2].properties.refrefed.title, 'Simple');
+
+    assert.equal(schemas[3].allOf[2].properties.bar.type, 'string');
+    console.log(schemas[3].allOf[0]);
   });
 });
