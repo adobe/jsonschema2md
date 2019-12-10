@@ -19,17 +19,12 @@ const readdirp = require('readdirp');
 const Ajv = require('ajv');
 const logger = require('@adobe/helix-log');
 const {
-  iter, pipe, filter, map, obj, flat, list,
+  iter, pipe, filter, map, obj,
 } = require('ferrum');
 const traverse = require('./lib/traverseSchema');
-const extract = require('./lib/extractID');
-const generate = require('./lib/generateName');
-const filterRefs = require('./lib/filterRefs');
-const validate = require('./lib/validateSchemas');
 const build = require('./lib/markdownBuilder');
 const { writereadme, writemarkdown } = require('./lib/writeMarkdown');
 const readme = require('./lib/readmeBuilder');
-const formatInfo = require('./lib/formatInfo');
 const { loader } = require('./lib/schemaProxy');
 
 const { info, error, debug } = logger;
