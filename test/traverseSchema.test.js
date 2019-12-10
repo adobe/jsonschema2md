@@ -13,7 +13,7 @@
 
 const assert = require('assert');
 const {
-  loader, pointer, filename, id, titles, resolve, slug,
+  loader, filename,
 } = require('../lib/schemaProxy');
 
 const { traverseSchema } = require('../lib/traverseSchema');
@@ -59,18 +59,6 @@ const example = {
         { $ref: '#/properties/foo' },
         { $ref: '#/properties/bar' },
       ],
-    },
-  },
-};
-
-const referencing = {
-  $schema: 'http://json-schema.org/draft-06/schema#',
-  $id: 'https://example.com/schemas/referencing',
-  title: 'Referencing',
-  properties: {
-    $ref: 'https://example.com/schemas/example#/properties',
-    zap: {
-      type: 'boolean',
     },
   },
 };

@@ -174,9 +174,10 @@ describe('Testing Schema Proxy', () => {
     const myloader = loader();
 
     const examplefile = path.resolve(__dirname, '..', 'examples', 'schemas', 'definitions.schema.json');
-    const example = myloader(require(examplefile), examplefile);
+    // eslint-disable-next-line import/no-dynamic-require, global-require
+    const exampleschema = myloader(require(examplefile), examplefile);
 
-    assert.equal(example[meta].shortdescription, 'This is an example of using a definitions object within a schema');
+    assert.equal(exampleschema[meta].shortdescription, 'This is an example of using a definitions object within a schema');
   });
 
   it('Schema proxy loads complex schemas with meta information', () => {
@@ -191,6 +192,7 @@ describe('Testing Schema Proxy', () => {
 
     const schemas = files.map((file) => {
       const fname = path.resolve(__dirname, '..', 'examples', 'schemas', file);
+      // eslint-disable-next-line import/no-dynamic-require, global-require
       return myloader(require(fname), fname);
     });
 
@@ -201,6 +203,5 @@ describe('Testing Schema Proxy', () => {
     assert.equal(schemas[2].properties.refrefed.title, 'Simple');
 
     assert.equal(schemas[3].allOf[2].properties.bar.type, 'string');
-    console.log(schemas[3].allOf[0]);
   });
 });
