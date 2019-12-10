@@ -125,10 +125,7 @@ const docs = pipe(
   obj,
 );
 
-const schemaPathMap = {};
 const schemaPath = argv.d;
-const schemaDir = argv.x;
-const target = fs.statSync(schemaPath);
 const schemaExtension = argv.e;
 
 const schemaloader = loader();
@@ -140,6 +137,7 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
     pipe(
       schemas,
       map(schema => schema.fullPath),
+      // eslint-disable-next-line import/no-dynamic-require, global-require
       map(path => schemaloader(require(path), path)),
       // find contained schemas
       traverse,
@@ -162,6 +160,7 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
     return pipe(
       schemas,
       map(schema => schema.fullPath),
+      // eslint-disable-next-line import/no-dynamic-require, global-require
       map(path => schemaloader(require(path), path)),
       // validate
       // validate(ajv, logger),
@@ -201,6 +200,6 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
     );
   })
 
-  .then((schemas) => {
+  .then(() => {
     // console.log('allschemas', schemas);
   });
