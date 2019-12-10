@@ -190,20 +190,19 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
       build({
         header: argv.h,
         links: docs,
-        includeproperties: argv.p
+        includeproperties: argv.p,
       }),
 
 
+      // write to files
 
-    // write to files
-
-    writemarkdown({
-      out: argv.o,
-      info,
-      error,
-      debug,
-      meta: argv.m,
-    }),
+      writemarkdown({
+        out: argv.o,
+        info,
+        error,
+        debug,
+        meta: argv.m,
+      }),
     );
   })
 
