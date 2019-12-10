@@ -116,7 +116,9 @@ const { argv } = yargs
   .coerce('i', i => nodepath.resolve(i))
 
   .alias('p', 'properties')
-  .describe('p', 'A comma separated list with custom properties which should be also in the description of an element.')
+  .array('p')
+  .describe('p', 'name of a custom property which should be also in the description of an element (may be used multiple times)')
+  .default('p', [])
   .alias('h', 'header')
   .describe('h', 'if the value is false the header will be skipped')
   .default('h', true);
@@ -188,6 +190,7 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
       build({
         header: argv.h,
         links: docs,
+        includeproperties: argv.p
       }),
 
 
