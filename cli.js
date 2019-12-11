@@ -88,7 +88,7 @@ const { argv } = yargs
 
   .alias('l', 'language')
   .describe('l', 'the selected language')
-  .choices('l', ['en_US', 'de_DE'])
+  .choices('l', ['en_US', 'de'])
   .default('l', 'en_US')
 
   .alias('p', 'properties')
