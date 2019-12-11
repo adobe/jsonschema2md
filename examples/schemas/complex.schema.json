@@ -98,7 +98,9 @@
   "required": [
     "refabstract"
   ],
-  "additionalProperties": true,
+  "additionalProperties": {
+    "type":"boolean"
+  },
   "patternProperties": {
     "int.*": {
       "type": "integer",
