@@ -6,10 +6,14 @@ Documenting and validating complex JSON Schemas can be hard. This tool makes it 
 
 These tools have been introduced by Adobe to document Adobe's Experience Data Models (XDM), but can be used for other JSON Schema documents, too.
 
+## JSON Schema Support
+
+`jsonschema2md` is developed against JSON Schema `2019-09`, but not the full vocabulary is supported. Please check the [detailed list of JSON Schema keywords supported by `jsonschema2md`](schemasupport.md). This list is updated by our tests.
+
 ## Requirements
 
 - `npm` version 3.10.8 or up
-- `node` v8 or up
+- `node` v10 or up
 
 ## Example Output
 
