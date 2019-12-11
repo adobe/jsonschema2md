@@ -141,6 +141,9 @@
     "try regular expression with regexr.com": "Regulären Ausdruck mit regexr.com ausprobieren",
     "unique items": "einzigartige Bestandteile",
     "unknown": "Unbekannt",
-    "unknown format": "Unbekanntes Format"
+    "unknown format": "Unbekanntes Format",
+    "Unknown definition": "Unbekannte Definition",
+    "Unknown extensibility": "Unbekannte Erweiterbarkeit",
+    "is required": "ist erforderlich"
   }
 }
