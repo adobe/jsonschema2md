@@ -11,6 +11,26 @@
   "type": "object",
   "description": "This is an example schema with examples for multiple array types and their constraints.",
   "properties": {
+    "tuple": {
+      "type": "array",
+      "description": "This is an array of two values, one positive, one negative. All additional values must be 0.",
+      "items": [
+        {
+          "title": "Positive Integer",
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "title": "Negative Integer",
+          "type": "integer",
+          "maximum": 0
+        }
+      ],
+      "additionalItems": {
+        "title": "Zero",
+        "const": 0
+      }
+    },
     "list": {
       "type": "array",
       "description": "This is an array",
