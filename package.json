@@ -24,7 +24,6 @@
     "js-yaml": "^3.13.1",
     "mdast-builder": "^1.1.1",
     "mdast-util-to-string": "^1.0.7",
-    "mkdirp": "^0.5.1",
     "mocha": "^6.2.2",
     "readdirp": "^3.3.0",
     "remark-parse": "^7.0.2",

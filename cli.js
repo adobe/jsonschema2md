@@ -20,11 +20,13 @@ const logger = require('@adobe/helix-log');
 const {
   iter, pipe, filter, map, obj,
 } = require('ferrum');
+const npath = require('path');
 const traverse = require('./lib/traverseSchema');
 const build = require('./lib/markdownBuilder');
 const { writereadme, writemarkdown } = require('./lib/writeMarkdown');
 const readme = require('./lib/readmeBuilder');
 const { loader } = require('./lib/schemaProxy');
+const { writeSchema } = require('./lib/writeSchema');
 
 const { info, error, debug } = logger;
 
@@ -115,11 +117,19 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
       map(path => schemaloader(require(path), path)),
       // find contained schemas
       traverse,
-      // build readme
     );
   })
 
   .then(schemas => Promise.all([
+    (() => {
+      if (argv.x !== '-') {
+        writeSchema({
+          schemadir: argv.x,
+          origindir: argv.d,
+        })(schemas);
+      }
+    })(),
+
     (() => {
       if (argv.n) {
         return pipe(
@@ -148,6 +158,17 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
         header: argv.h,
         links: docs,
         includeproperties: argv.p,
+        rewritelinks: (origin) => {
+          const mddir = argv.o;
+          const srcdir = argv.d;
+          const schemadir = argv.x !== '-' ? argv.x : argv.d;
+
+          const target = npath.relative(
+            mddir,
+            npath.resolve(schemadir, npath.relative(srcdir, origin)),
+          );
+          return target;
+        },
       }),
 
 

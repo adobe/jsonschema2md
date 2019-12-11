@@ -26,16 +26,6 @@
       "version": "1.0.0",
       "testProperty": "test"
     },
-    "reflist": {
-      "type": "array",
-      "items": {
-        "$ref": "https://example.com/schemas/simple",
-        "version": "1.0.0",
-        "testProperty": "test"
-      },
-      "version": "1.0.0",
-      "testProperty": "test"
-    },
     "refobj": {
       "type": "object",
       "properties": {
