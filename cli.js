@@ -107,29 +107,7 @@ const schemaloader = loader();
 readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtension}` })
   // then collect data about the schemas and turn everything into a big object
   .then((schemas) => {
-    pipe(
-      schemas,
-      map(schema => schema.fullPath),
-      // eslint-disable-next-line import/no-dynamic-require, global-require
-      map(path => schemaloader(require(path), path)),
-      // find contained schemas
-      traverse,
-      // build readme
-      readme({
-        readme: !argv.n,
-      }),
-
-      writereadme({
-        readme: !argv.n,
-        out: argv.o,
-        info,
-        error,
-        debug,
-        meta: argv.m,
-      }),
-    );
-
-    // generate Markdown
+    console.log('loading schemas');
     return pipe(
       schemas,
       map(schema => schema.fullPath),
@@ -137,20 +115,34 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
       map(path => schemaloader(require(path), path)),
       // find contained schemas
       traverse,
+      // build readme
+    );
+  })
 
-      // remove pure ref schemas
-      // filterRefs,
+  .then(schemas => Promise.all([
+    (() => {
+      if (argv.n) {
+        return pipe(
+          schemas,
+          // build readme
+          readme({
+            readme: !argv.n,
+          }),
 
-      /*
-    (x) => {
-      console.log('emitting');
-      const y = list(x);
-      console.log(y);
-      return y;
-    },
-    */
-
-
+          writereadme({
+            readme: !argv.n,
+            out: argv.o,
+            info,
+            error,
+            debug,
+            meta: argv.m,
+          }),
+        );
+      }
+      return null;
+    })(),
+    (() => pipe(
+      schemas,
       // generate Markdown ASTs
       build({
         header: argv.h,
@@ -168,9 +160,5 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
         debug,
         meta: argv.m,
       }),
-    );
-  })
-
-  .then(() => {
-    // console.log('allschemas', schemas);
-  });
+    ))(),
+  ]));
