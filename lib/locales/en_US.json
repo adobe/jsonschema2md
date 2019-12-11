@@ -1,0 +1,6 @@
+{
+  "locales": "en_US", 
+  "translations": {
+      "${0} Schema": "Schema: ${0}"
+  }
+}

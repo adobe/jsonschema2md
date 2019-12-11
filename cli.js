@@ -21,6 +21,7 @@ const {
   iter, pipe, filter, map, obj,
 } = require('ferrum');
 const npath = require('path');
+const { i18nConfig } = require('es2015-i18n-tag');
 const traverse = require('./lib/traverseSchema');
 const build = require('./lib/markdownBuilder');
 const { writereadme, writemarkdown } = require('./lib/writeMarkdown');
@@ -81,9 +82,14 @@ const { argv } = yargs
   .describe('link-*', 'Add this file as a link the explain the * attribute, e.g. --link-abstract=abstract.md')
 
   .alias('i', 'i18n')
-  .describe('i', 'path to a locales folder with an en.json file in it. This file will be used for all text parts in all templates')
+  .describe('i', 'path to a locales folder with JSON files')
   .default('i', nodepath.resolve(__dirname, 'lib', 'locales'))
   .coerce('i', i => nodepath.resolve(i))
+
+  .alias('l', 'language')
+  .describe('l', 'the selected language')
+  .choices('l', ['en_US', 'de_DE'])
+  .default('l', 'en_US')
 
   .alias('p', 'properties')
   .array('p')
@@ -102,6 +108,9 @@ const docs = pipe(
 
 const schemaPath = argv.d;
 const schemaExtension = argv.e;
+
+// eslint-disable-next-line import/no-dynamic-require
+i18nConfig(require(nodepath.resolve(argv.i, `${argv.l}.json`)));
 
 const schemaloader = loader();
 
