@@ -16,7 +16,6 @@ const nodepath = require('path');
 
 const fs = require('fs');
 const readdirp = require('readdirp');
-const Ajv = require('ajv');
 const logger = require('@adobe/helix-log');
 const {
   iter, pipe, filter, map, obj,
@@ -31,11 +30,6 @@ const { info, error, debug } = logger;
 
 // const Schema = require('./lib/schema');
 // const readSchemaFile = require('./lib/readSchemaFile');
-
-// init JSON Schema validator
-const ajv = new Ajv({
-  allErrors: true, messages: true, schemaId: 'auto', logger,
-});
 
 // parse/process command line arguments
 const { argv } = yargs
@@ -69,13 +63,6 @@ const { argv } = yargs
     obj,
   ))
 
-  .alias('s', 'metaSchema')
-  .describe('s', 'Custom meta schema path to validate schemas')
-  .coerce('s', (s) => {
-    // eslint-disable-next-line import/no-dynamic-require, global-require
-    ajv.addMetaSchema(require(nodepath.resolve(s)));
-  })
-
   .alias('x', 'schema-out')
   .describe('x', 'output JSON Schema files including description and validated examples in the specified folder, or suppress with -')
   .default('x', nodepath.resolve(nodepath.join('.', 'out')))
@@ -88,20 +75,6 @@ const { argv } = yargs
   .alias('n', 'no-readme')
   .describe('n', 'Do not generate a README.md file in the output directory')
   .default('n', false)
-
-  .describe('v', 'JSON Schema Draft version to use. Supported: 04, 06, 07 (default)')
-  .alias('v', 'draft')
-  .default('v', '07')
-  .coerce('v', (v) => {
-    if (v === '06' || v === 6) {
-      info('enabling draft-06 support');
-      // eslint-disable-next-line global-require
-      ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
-    } else if (v === '04' || v === 4) {
-      // eslint-disable-next-line global-require
-      ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'));
-    }
-  })
 
   .describe('link-*', 'Add this file as a link the explain the * attribute, e.g. --link-abstract=abstract.md')
 
@@ -162,8 +135,6 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
       map(schema => schema.fullPath),
       // eslint-disable-next-line import/no-dynamic-require, global-require
       map(path => schemaloader(require(path), path)),
-      // validate
-      // validate(ajv, logger),
       // find contained schemas
       traverse,
 
