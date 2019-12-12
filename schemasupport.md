@@ -1,17 +1,17 @@
 # JSON Schema Spec Coverage Report
 
-This report lists the keywords of the JSON Schema spec that are covered in the tests. The overall coverage is 1%
+This report lists the keywords of the JSON Schema spec that are covered in the tests. The overall coverage is 9%
 
 ## The JSON Schema Core Vocabulary
 
-Coverage for [The JSON Schema Core Vocabulary](https://json-schema.org/draft/2019-09/json-schema-core.html#rfc.section.8.1) is 0%.
+Coverage for [The JSON Schema Core Vocabulary](https://json-schema.org/draft/2019-09/json-schema-core.html#rfc.section.8.1) is 11%.
 
 | Keyword            | Supported |
 | :----------------- | --------- |
 | `$anchor`          | No        |
 | `$comment`         | No        |
 | `$defs`            | No        |
-| `$id`              | No        |
+| `$id`              | Yes       |
 | `$recursiveAnchor` | No        |
 | `$recursiveRef`    | No        |
 | `$ref`             | No        |
@@ -20,13 +20,13 @@ Coverage for [The JSON Schema Core Vocabulary](https://json-schema.org/draft/201
 
 ## A Vocabulary for Applying Subschemas
 
-Coverage for [A Vocabulary for Applying Subschemas](https://json-schema.org/draft/2019-09/json-schema-core.html#rfc.section.9) is 0%.
+Coverage for [A Vocabulary for Applying Subschemas](https://json-schema.org/draft/2019-09/json-schema-core.html#rfc.section.9) is 17%.
 
 | Keyword                 | Supported |
 | :---------------------- | --------- |
 | `additionalItems`       | No        |
-| `additionalProperties`  | No        |
-| `allOf`                 | No        |
+| `additionalProperties`  | Yes       |
+| `allOf`                 | Yes       |
 | `anyOf`                 | No        |
 | `contains`              | No        |
 | `dependentSchemas`      | No        |
@@ -36,7 +36,7 @@ Coverage for [A Vocabulary for Applying Subschemas](https://json-schema.org/draf
 | `not`                   | No        |
 | `oneOf`                 | No        |
 | `patternProperties`     | No        |
-| `properties`            | No        |
+| `properties`            | Yes       |
 | `propertyNames`         | No        |
 | `then`                  | No        |
 | `unevaluatedItems`      | No        |
@@ -44,13 +44,13 @@ Coverage for [A Vocabulary for Applying Subschemas](https://json-schema.org/draf
 
 ## Validation Keywords for Any Instance Type
 
-Coverage for [Validation Keywords for Any Instance Type](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.1) is 0%.
+Coverage for [Validation Keywords for Any Instance Type](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.1) is 33%.
 
 | Keyword | Supported |
 | :------ | --------- |
 | `const` | No        |
 | `enum`  | No        |
-| `type`  | No        |
+| `type`  | Yes       |
 
 ## Validation Keywords for Numeric Instances
 
@@ -135,7 +135,7 @@ Coverage for [A Vocabulary for the Contents of String-Encoded Data](https://json
 
 ## A Vocabulary for Basic Meta-Data Annotations
 
-Coverage for [A Vocabulary for Basic Meta-Data Annotations](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.9) is 14%.
+Coverage for [A Vocabulary for Basic Meta-Data Annotations](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.9) is 28%.
 
 | Keyword       | Supported |
 | :------------ | --------- |
@@ -144,5 +144,5 @@ Coverage for [A Vocabulary for Basic Meta-Data Annotations](https://json-schema.
 | `description` | No        |
 | `examples`    | Yes       |
 | `readOnly`    | No        |
-| `title`       | No        |
+| `title`       | Yes       |
 | `writeOnly`   | No        |
