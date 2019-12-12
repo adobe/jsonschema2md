@@ -1,6 +1,6 @@
 # JSON Schema Spec Coverage Report
 
-This report lists the keywords of the JSON Schema spec that are covered in the tests. The overall coverage is 9%
+This report lists the keywords of the JSON Schema spec that are covered in the tests. The overall coverage is 10%
 
 ## The JSON Schema Core Vocabulary
 
@@ -135,13 +135,13 @@ Coverage for [A Vocabulary for the Contents of String-Encoded Data](https://json
 
 ## A Vocabulary for Basic Meta-Data Annotations
 
-Coverage for [A Vocabulary for Basic Meta-Data Annotations](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.9) is 28%.
+Coverage for [A Vocabulary for Basic Meta-Data Annotations](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.9) is 42%.
 
 | Keyword       | Supported |
 | :------------ | --------- |
 | `default`     | No        |
 | `deprecated`  | No        |
-| `description` | No        |
+| `description` | Yes       |
 | `examples`    | Yes       |
 | `readOnly`    | No        |
 | `title`       | Yes       |
