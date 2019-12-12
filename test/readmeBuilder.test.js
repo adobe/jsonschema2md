@@ -10,8 +10,9 @@
  * governing permissions and limitations under the License.
  */
 /* eslint-env mocha */
+/* eslint-disable no-unused-expressions */
 const assert = require('assert');
-const { assertMarkdown } = require('./assertMarkdown');
+const { assertMarkdown, loadschemas } = require('./testUtils');
 
 const build = require('../lib/readmeBuilder');
 const { loader } = require('../lib/schemaProxy');
@@ -25,6 +26,22 @@ describe('Testing Readme Builder', () => {
   it('Readme Builder does nothing when not required', () => {
     const builder = build({ readme: false });
     assert.equal(builder(), null);
+  });
+
+  it('Readme Builder builds a medium README for multiple Schemas', async () => {
+    const schemas = await loadschemas('readme-1');
+    const builder = build({ readme: true });
+    const result = builder(schemas);
+
+    assertMarkdown(result)
+      .contains('# README')
+      .fuzzy`
+## Top-level Schemas
+
+-   [Abstract](./abstract.md "This is an abstract schema") – ${null}
+-   [Complex References](./complex.md "This is an example schema that uses types defined in other schemas") – ${null}
+-   [Simple](./simple.md "This is a very simple example of a JSON schema") – ${null}
+`;
   });
 
   it('Readme Builder builds a small README for a single Schema', () => {

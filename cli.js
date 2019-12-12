@@ -140,7 +140,7 @@ readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtensio
     })(),
 
     (() => {
-      if (argv.n) {
+      if (!argv.n) {
         return pipe(
           schemas,
           // build readme

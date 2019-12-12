@@ -14,6 +14,9 @@ const unified = require('unified');
 const stringify = require('remark-stringify');
 const inspect = require('unist-util-inspect');
 const select = require('unist-util-select');
+const path = require('path');
+const readdirp = require('readdirp');
+const { loader } = require('../lib/schemaProxy');
 
 function assertMarkdown(node) {
   const processor = unified().use(stringify);
@@ -60,4 +63,14 @@ ${inspect(node)}`);
   }
   return null;
 }
-exports.assertMarkdown = assertMarkdown;
+
+async function loadschemas(dir) {
+  const schemaloader = loader();
+  const schemadir = path.resolve(__dirname, 'fixtures', dir);
+  const schemas = await readdirp.promise(schemadir, { fileFilter: '*.schema.json' });
+
+  // eslint-disable-next-line global-require, import/no-dynamic-require
+  return schemas.map(({ fullPath }) => schemaloader(require(fullPath), fullPath));
+}
+
+module.exports = { assertMarkdown, loadschemas };

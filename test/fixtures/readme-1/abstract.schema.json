@@ -1,0 +1,44 @@
+{
+  "meta:license": [
+    "Copyright 2017 Adobe Systems Incorporated. All rights reserved.",
+    "This file is licensed to you under the Apache License, Version 2.0 (the 'License');",
+    "you may not use this file except in compliance with the License. You may obtain a copy",
+    "of the License at http://www.apache.org/licenses/LICENSE-2.0"
+  ],
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "https://example.com/schemas/abstract",
+  "title": "Abstract",
+  "description": "This is an abstract schema. It has `definitions`, but does not declare any properties",
+  "type": "object",
+  "definitions": {
+    "first": {
+      "type": "object",
+      "properties": {
+        "foo": {
+          "type": "string",
+          "description": "A unique identifier given to every addressable thing.",
+          "version": "1.0.0",
+          "testProperty": "test"
+        },
+        "nonfoo": {
+          "type": "boolean",
+          "const": false,
+          "description": "This is not foo.",
+          "version": "1.0.0",
+          "testProperty": "test"
+        }
+      }
+    },
+    "second": {
+      "type":"object",
+      "properties": {
+        "bar": {
+          "type": "string",
+          "description": "A unique identifier given to every addressable thing.",
+          "version": "1.0.0",
+          "testProperty": "test"
+        }
+      }
+    }
+  }
+}
