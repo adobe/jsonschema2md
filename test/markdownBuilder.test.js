@@ -15,6 +15,22 @@ const { assertMarkdown, loadschemas } = require('./testUtils');
 
 const build = require('../lib/markdownBuilder');
 
+describe('Testing Markdown Builder: identifiable', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await loadschemas('identifiable');
+    const builder = build({ header: true });
+    results = builder(schemas);
+  });
+
+  it('Identifiable Schema looks OK', () => {
+    assertMarkdown(results.identifiable)
+      .has('table > tableRow > tableCell > text[value="Identifiable"]')
+      .has('table > tableRow > tableCell > text[value="Yes"]');
+  });
+});
+
 describe('Testing Markdown Builder: arrays', () => {
   let results;
 
