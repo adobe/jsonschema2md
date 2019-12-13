@@ -15,6 +15,37 @@ const { assertMarkdown, loadschemas } = require('./testUtils');
 
 const build = require('../lib/markdownBuilder');
 
+describe('Testing Markdown Builder: arrays', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await loadschemas('arrays');
+    const builder = build({ header: true });
+    results = builder(schemas);
+  });
+
+  it('Arrays Schema looks OK', () => {
+    assertMarkdown(results.tuple)
+      .fuzzy`
+-   is optional
+-   Type: an array where each item follows the corresponding schema in the following list:
+
+    1.  [Positive Integer](tuple-properties-tuple-items-positive-integer.md "check type definition")
+    2.  [Negative Integer](tuple-properties-tuple-items-negative-integer.md "check type definition")
+    3.  and all following items must follow the schema: [Zero](tuple-properties-tuple-zero.md "check type definition")
+-   cannot be null
+-   defined in: [Arrays](tuple-properties-tuple.md "https&#x3A;//example.com/schemas/arrays#/properties/tuple")
+
+### tuple Type
+
+an array where each item follows the corresponding schema in the following list:
+
+1.  [Positive Integer](tuple-properties-tuple-items-positive-integer.md "check type definition")
+2.  [Negative Integer](tuple-properties-tuple-items-negative-integer.md "check type definition")
+3.  and all following items must follow the schema: [Zero](tuple-properties-tuple-zero.md "check type definition")`;
+  });
+});
+
 describe('Testing Markdown Builder: stringformats', () => {
   let results;
 

@@ -1,0 +1,185 @@
+{
+  "meta:license": [
+    "Copyright 2017 Adobe Systems Incorporated. All rights reserved.",
+    "This file is licensed to you under the Apache License, Version 2.0 (the 'License');",
+    "you may not use this file except in compliance with the License. You may obtain a copy",
+    "of the License at http://www.apache.org/licenses/LICENSE-2.0"
+  ],
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "https://example.com/schemas/arrays",
+  "title": "Arrays",
+  "type": "object",
+  "description": "This is an example schema with examples for multiple array types and their constraints.",
+  "properties": {
+    "tuple": {
+      "type": "array",
+      "description": "This is an array of two values, one positive, one negative. All additional values must be 0.",
+      "items": [
+        {
+          "title": "Positive Integer",
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "title": "Negative Integer",
+          "type": "integer",
+          "maximum": 0
+        }
+      ],
+      "additionalItems": {
+        "title": "Zero",
+        "const": 0
+      }
+    },
+    "list": {
+      "type": "array",
+      "description": "This is an array",
+      "items": {
+        "type": "string"
+      },
+      "version": "1.0.0",
+      "testProperty": "test"
+    },
+    "listlist": {
+      "type": "array",
+      "description": "This is an array of arrays",
+      "items": {
+        "type": "array"
+      },
+      "version": "1.0.0",
+      "testProperty": "test"
+    },
+    "stringlistlist": {
+      "type": "array",
+      "description": "This is an array of arrays of strings",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "version": "1.0.0",
+      "testProperty": "test"
+    },
+    "intlist": {
+      "type": "array",
+      "description": "This is an array",
+      "items": {
+        "type": "integer"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "version": "1.0.0",
+      "testProperty": "test"
+    },
+    "boollist": {
+      "type": "array",
+      "description": "This is an array",
+      "items": {
+        "type": "boolean"
+      },
+      "minItems": 1,
+      "version": "1.0.0",
+      "testProperty": "test"
+    },
+    "numlist": {
+      "type": "array",
+      "description": "This is an array",
+      "items": {
+        "type": "number",
+        "minimum": 10
+      },
+      "maxItems": 10,
+      "version": "1.0.0",
+      "testProperty": "test"
+    },
+    "coordinatelist": {
+      "type": "array",
+      "description": "This is an array of coordinates in three-dimensional space.",
+      "items": {
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "description": "A coordinate, specified by `x`, `y`, and `z` values",
+        "items": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        },
+        "version": "1.0.0",
+        "testProperty": "test"
+      },
+      "version": "1.0.0",
+      "testProperty": "test",
+      "maxItems": 10
+    },
+    "objectlist": {
+      "type": "array",
+      "description": "An array of simple objects",
+      "items": {
+        "type": "object",
+        "required": [
+          "a"
+        ],
+        "properties": {
+          "a": {
+            "type": "string",
+            "description": "The a property",
+            "version": "1.0.0",
+            "testProperty": "test"
+          },
+          "b": {
+            "type": "integer",
+            "description": "The b property",
+            "version": "1.0.0",
+            "testProperty": "test"
+          }
+        }
+      },
+      "version": "1.0.0",
+      "testProperty": "test"
+    },
+    "JoinTypelist": {
+      "type": "array",
+      "description": "An array of simple objects",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "description": "A simple string.",
+            "properties": {
+              "foo": {
+                "type": "string",
+                "description": "A simple string.",
+                "examples": [
+                  "hello"
+                ],
+                "version": "1.0.0",
+                "testProperty": "test"
+              }
+            },
+            "version": "1.0.0",
+            "testProperty": "test"
+          },
+          {
+            "type": "object",
+            "description": "Another simple string.",
+            "properties": {
+              "bar": {
+                "type": "string",
+                "description": "A simple string.",
+                "examples": [
+                  "world"
+                ],
+                "version": "1.0.0",
+                "testProperty": "test"
+              }
+            }
+          }
+        ]
+      },
+      "version": "1.0.0",
+      "testProperty": "test"
+    }
+  }
+}

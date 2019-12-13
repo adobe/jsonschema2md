@@ -1,0 +1,35 @@
+{
+  "meta:license": [
+    "Copyright 2017 Adobe Systems Incorporated. All rights reserved.",
+    "This file is licensed to you under the Apache License, Version 2.0 (the 'License');",
+    "you may not use this file except in compliance with the License. You may obtain a copy",
+    "of the License at http://www.apache.org/licenses/LICENSE-2.0"
+  ],
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "https://example.com/schemas/arrays",
+  "title": "Arrays",
+  "type": "object",
+  "description": "This is an example schema with examples for multiple array types and their constraints.",
+  "properties": {
+    "tuple": {
+      "type": "array",
+      "description": "This is an array of two values, one positive, one negative. All additional values must be 0.",
+      "items": [
+        {
+          "title": "Positive Integer",
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "title": "Negative Integer",
+          "type": "integer",
+          "maximum": 0
+        }
+      ],
+      "additionalItems": {
+        "title": "Zero",
+        "const": 0
+      }
+    }
+  }
+}

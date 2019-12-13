@@ -12,8 +12,8 @@
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
     "start": "node cli.js",
-    "test": " nyc --reporter=text --reporter=lcov --check-coverage --branches 100 --statements 100 --lines 100 mocha",
-    "test-ci": "nyc --reporter=text --reporter=lcov --check-coverage --branches 100 --statements 100 --lines 100 mocha --reporter xunit --reporter-options output=./junit/test-results.xml; codecov"
+    "test": " nyc --reporter=text --reporter=lcov --check-coverage --branches 80 --statements 100 --lines 100 mocha",
+    "test-ci": "nyc --reporter=text --reporter=lcov --check-coverage --branches 80 --statements 100 --lines 100 mocha --reporter xunit --reporter-options output=./junit/test-results.xml; codecov"
   },
   "dependencies": {
     "@adobe/helix-log": "^4.4.0",
