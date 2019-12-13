@@ -1,6 +1,6 @@
 # JSON Schema Spec Coverage Report
 
-This report lists the keywords of the JSON Schema spec that are covered in the tests. The overall coverage is 10%
+This report lists the keywords of the JSON Schema spec that are covered in the tests. The overall coverage is 40%
 
 ## The JSON Schema Core Vocabulary
 
@@ -20,22 +20,22 @@ Coverage for [The JSON Schema Core Vocabulary](https://json-schema.org/draft/201
 
 ## A Vocabulary for Applying Subschemas
 
-Coverage for [A Vocabulary for Applying Subschemas](https://json-schema.org/draft/2019-09/json-schema-core.html#rfc.section.9) is 17%.
+Coverage for [A Vocabulary for Applying Subschemas](https://json-schema.org/draft/2019-09/json-schema-core.html#rfc.section.9) is 41%.
 
 | Keyword                 | Supported |
 | :---------------------- | --------- |
 | `additionalItems`       | No        |
 | `additionalProperties`  | Yes       |
 | `allOf`                 | Yes       |
-| `anyOf`                 | No        |
+| `anyOf`                 | Yes       |
 | `contains`              | No        |
 | `dependentSchemas`      | No        |
 | `else`                  | No        |
 | `if`                    | No        |
 | `items`                 | No        |
-| `not`                   | No        |
-| `oneOf`                 | No        |
-| `patternProperties`     | No        |
+| `not`                   | Yes       |
+| `oneOf`                 | Yes       |
+| `patternProperties`     | Yes       |
 | `properties`            | Yes       |
 | `propertyNames`         | No        |
 | `then`                  | No        |
@@ -44,62 +44,62 @@ Coverage for [A Vocabulary for Applying Subschemas](https://json-schema.org/draf
 
 ## Validation Keywords for Any Instance Type
 
-Coverage for [Validation Keywords for Any Instance Type](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.1) is 33%.
+Coverage for [Validation Keywords for Any Instance Type](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.1) is 100%.
 
 | Keyword | Supported |
 | :------ | --------- |
-| `const` | No        |
-| `enum`  | No        |
+| `const` | Yes       |
+| `enum`  | Yes       |
 | `type`  | Yes       |
 
 ## Validation Keywords for Numeric Instances
 
-Coverage for [Validation Keywords for Numeric Instances](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.2) is 0%.
+Coverage for [Validation Keywords for Numeric Instances](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.2) is 100%.
 
 | Keyword            | Supported |
 | :----------------- | --------- |
-| `exclusiveMaximum` | No        |
-| `exclusiveMinimum` | No        |
-| `maximum`          | No        |
-| `minimum`          | No        |
-| `multipleOf`       | No        |
+| `exclusiveMaximum` | Yes       |
+| `exclusiveMinimum` | Yes       |
+| `maximum`          | Yes       |
+| `minimum`          | Yes       |
+| `multipleOf`       | Yes       |
 
 ## Validation Keywords for Strings
 
-Coverage for [Validation Keywords for Strings](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.3) is 0%.
+Coverage for [Validation Keywords for Strings](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.3) is 100%.
 
 | Keyword     | Supported |
 | :---------- | --------- |
-| `maxLength` | No        |
-| `minLength` | No        |
-| `pattern`   | No        |
+| `maxLength` | Yes       |
+| `minLength` | Yes       |
+| `pattern`   | Yes       |
 
 ## Validation Keywords for Arrays
 
-Coverage for [Validation Keywords for Arrays](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.4) is 0%.
+Coverage for [Validation Keywords for Arrays](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.4) is 80%.
 
 | Keyword       | Supported |
 | :------------ | --------- |
-| `maxContains` | No        |
+| `maxContains` | Yes       |
 | `maxItems`    | No        |
-| `minContains` | No        |
-| `minItems`    | No        |
-| `uniqueItems` | No        |
+| `minContains` | Yes       |
+| `minItems`    | Yes       |
+| `uniqueItems` | Yes       |
 
 ## Validation Keywords for Objects
 
-Coverage for [Validation Keywords for Objects](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.5) is 0%.
+Coverage for [Validation Keywords for Objects](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.5) is 75%.
 
 | Keyword             | Supported |
 | :------------------ | --------- |
 | `dependentRequired` | No        |
-| `maxProperties`     | No        |
-| `minProperties`     | No        |
-| `required`          | No        |
+| `maxProperties`     | Yes       |
+| `minProperties`     | Yes       |
+| `required`          | Yes       |
 
 ## Defined Formats
 
-Coverage for [Defined Formats](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3) is 0%.
+Coverage for [Defined Formats](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3) is 5%.
 
 | Keyword                 | Supported |
 | :---------------------- | --------- |
@@ -118,7 +118,7 @@ Coverage for [Defined Formats](https://json-schema.org/draft/2019-09/json-schema
 | `regex`                 | No        |
 | `relative-json-pointer` | No        |
 | `time`                  | No        |
-| `uri`                   | No        |
+| `uri`                   | Yes       |
 | `uri-reference`         | No        |
 | `uri-template`          | No        |
 | `uuid`                  | No        |
