@@ -1,6 +1,6 @@
 # JSON Schema Spec Coverage Report
 
-This report lists the keywords of the JSON Schema spec that are covered in the tests. The overall coverage is 61%
+This report lists the keywords of the JSON Schema spec that are covered in the tests. The overall coverage is 62%
 
 ## The JSON Schema Core Vocabulary
 
@@ -76,12 +76,12 @@ Coverage for [Validation Keywords for Strings](https://json-schema.org/draft/201
 
 ## Validation Keywords for Arrays
 
-Coverage for [Validation Keywords for Arrays](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.4) is 80%.
+Coverage for [Validation Keywords for Arrays](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.4) is 100%.
 
 | Keyword       | Supported |
 | :------------ | --------- |
 | `maxContains` | Yes       |
-| `maxItems`    | No        |
+| `maxItems`    | Yes       |
 | `minContains` | Yes       |
 | `minItems`    | Yes       |
 | `uniqueItems` | Yes       |
