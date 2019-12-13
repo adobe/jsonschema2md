@@ -189,6 +189,7 @@ describe('Testing Schema Proxy', () => {
       'complex.schema.json',
       'custom.schema.json',
       'examples.schema.json',
+      'extending.schema.json',
     ];
 
     const schemas = files.map((file) => {
@@ -206,5 +207,22 @@ describe('Testing Schema Proxy', () => {
     assert.equal(schemas[3].allOf[2].properties.bar.type, 'string');
 
     assert.equal(schemas[4].examples.length, 2);
+  });
+
+  it('Schema proxy loads complex schemas with meta information', () => {
+    const myloader = loader();
+
+    const files = [
+      'deadref.schema.json',
+    ];
+
+    const schemas = files.map((file) => {
+      const fname = path.resolve(__dirname, 'fixtures', 'deadref', file);
+      // eslint-disable-next-line import/no-dynamic-require, global-require
+      return myloader(require(fname), fname);
+    });
+
+    assert.equal(schemas[0][slug], 'deadref');
+    assert.deepEqual(schemas[0].properties.foo, { $ref: 'http://unknown-ref' });
   });
 });
