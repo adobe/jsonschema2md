@@ -166,7 +166,7 @@ after('Generating Schema Coverage Report', () => {
 
   fs.writeFileSync('schemasupport.md', output);
 
-  const lowerlimit = 10;
+  const lowerlimit = 50;
   assert.ok(overall > lowerlimit, `Expected minumum spec coverage of ${lowerlimit}%, got only ${overall}%`);
 });
 

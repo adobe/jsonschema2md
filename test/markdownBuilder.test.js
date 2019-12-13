@@ -15,6 +15,30 @@ const { assertMarkdown, loadschemas } = require('./testUtils');
 
 const build = require('../lib/markdownBuilder');
 
+describe('Testing Markdown Builder: stringformats', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await loadschemas('stringformats');
+    const builder = build({ header: true });
+    results = builder(schemas);
+  });
+
+  it('Simple Types Schema looks OK', () => {
+    assertMarkdown(results.simpletypes)
+      .fuzzy`### string_pattern Constraints
+
+**pattern**: the string must match the following regular expression: ${null}
+\`\`\`regexp
+^ba.$
+`
+      .fuzzy`### string_date Constraints
+
+**date time**: the string must be a date time string, according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339 "check the specification")
+`;
+  });
+});
+
 
 describe('Testing Markdown Builder: readme-1', () => {
   let results;

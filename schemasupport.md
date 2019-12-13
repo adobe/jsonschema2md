@@ -1,6 +1,6 @@
 # JSON Schema Spec Coverage Report
 
-This report lists the keywords of the JSON Schema spec that are covered in the tests. The overall coverage is 40%
+This report lists the keywords of the JSON Schema spec that are covered in the tests. The overall coverage is 58%
 
 ## The JSON Schema Core Vocabulary
 
@@ -99,29 +99,29 @@ Coverage for [Validation Keywords for Objects](https://json-schema.org/draft/201
 
 ## Defined Formats
 
-Coverage for [Defined Formats](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3) is 5%.
+Coverage for [Defined Formats](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3) is 78%.
 
 | Keyword                 | Supported |
 | :---------------------- | --------- |
-| `date`                  | No        |
-| `date-time`             | No        |
-| `duration`              | No        |
-| `email`                 | No        |
-| `hostname`              | No        |
-| `idn-email`             | No        |
-| `idn-hostname`          | No        |
-| `ipv4`                  | No        |
-| `ipv6`                  | No        |
-| `iri`                   | No        |
-| `iri-reference`         | No        |
+| `date`                  | Yes       |
+| `date-time`             | Yes       |
+| `duration`              | Yes       |
+| `email`                 | Yes       |
+| `hostname`              | Yes       |
+| `idn-email`             | Yes       |
+| `idn-hostname`          | Yes       |
+| `ipv4`                  | Yes       |
+| `ipv6`                  | Yes       |
+| `iri`                   | Yes       |
+| `iri-reference`         | Yes       |
 | `json-pointer`          | No        |
 | `regex`                 | No        |
 | `relative-json-pointer` | No        |
-| `time`                  | No        |
+| `time`                  | Yes       |
 | `uri`                   | Yes       |
-| `uri-reference`         | No        |
+| `uri-reference`         | Yes       |
 | `uri-template`          | No        |
-| `uuid`                  | No        |
+| `uuid`                  | Yes       |
 
 ## A Vocabulary for the Contents of String-Encoded Data
 
