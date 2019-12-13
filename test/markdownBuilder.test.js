@@ -15,6 +15,41 @@ const { assertMarkdown, loadschemas } = require('./testUtils');
 
 const build = require('../lib/markdownBuilder');
 
+describe('Testing Markdown Builder: types', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await loadschemas('types');
+    const builder = build({ header: true });
+    results = builder(schemas);
+  });
+
+  it('Object Schema looks OK', () => {
+    assertMarkdown(results.object)
+      .has('paragraph > inlineCode[value="object"]');
+  });
+
+  it('Merged Schema looks OK', () => {
+    assertMarkdown(results.merged)
+      .has('paragraph > text[value^="merged type"]');
+  });
+
+  it('Multiple Typed Schema looks OK', () => {
+    assertMarkdown(results.objectorarray)
+      .has('paragraph > text[value="any of the folllowing: "]');
+  });
+
+  it('Undefined Schema looks OKish', () => {
+    assertMarkdown(results.undefined)
+      .has('paragraph > text[value="unknown ("]');
+  });
+
+  it('Wrong Schema looks OKish', () => {
+    assertMarkdown(results.wrong)
+      .has('paragraph > text[value="unknown"]');
+  });
+});
+
 describe('Testing Markdown Builder: identifiable', () => {
   let results;
 
