@@ -188,6 +188,7 @@ describe('Testing Schema Proxy', () => {
       'simple.schema.json',
       'complex.schema.json',
       'custom.schema.json',
+      'examples.schema.json',
     ];
 
     const schemas = files.map((file) => {
@@ -203,5 +204,7 @@ describe('Testing Schema Proxy', () => {
     assert.equal(schemas[2].properties.refrefed.title, 'Simple');
 
     assert.equal(schemas[3].allOf[2].properties.bar.type, 'string');
+
+    assert.equal(schemas[4].examples.length, 2);
   });
 });
