@@ -15,6 +15,23 @@ const { assertMarkdown, loadschemas } = require('./testUtils');
 
 const build = require('../lib/markdownBuilder');
 
+describe('Testing Markdown Builder: null', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await loadschemas('null');
+    const builder = build({ header: true });
+    results = builder(schemas);
+  });
+
+  it('Null Schema looks OK', () => {
+    assertMarkdown(results.null)
+      .contains('the value must be null')
+      .contains('can be null')
+      .contains('the value of this property must be equal to:');
+  });
+});
+
 describe('Testing Markdown Builder: additionalprops', () => {
   let results;
 
