@@ -132,6 +132,8 @@ describe('Testing Markdown Builder: stringformats', () => {
 
   it('Simple Types Schema looks OK', () => {
     assertMarkdown(results.simpletypes)
+      .contains('maximum (exclusive)')
+      .contains('minimum (exclusive)')
       .fuzzy`### string_pattern Constraints
 
 **pattern**: the string must match the following regular expression: ${null}
