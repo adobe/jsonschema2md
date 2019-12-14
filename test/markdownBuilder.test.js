@@ -24,8 +24,10 @@ describe('Testing Markdown Builder: additionalprops', () => {
     results = builder(schemas);
   });
 
-  it('Object Schema looks OK', () => {
+  it('Additional Properties Schema looks OK', () => {
     assertMarkdown(results.additionalprops)
+      .contains('**maximum number of properties**: the maximum number of properties for this object is: `99`')
+      .contains('**minimum number of properties**: the minimum number of properties for this object is: `10`')
       .has('heading > text[value="Additional Properties"]');
   });
 });
