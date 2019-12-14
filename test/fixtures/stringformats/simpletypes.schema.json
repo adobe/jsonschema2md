@@ -179,6 +179,7 @@
       "type": "number",
       "description": "Just a number. Don't get too big.",
       "exclusiveMaximum": 10,
+      "exclusiveMinimum": 0,
       "version": "1.0.0",
       "testProperty": "test"
     },
