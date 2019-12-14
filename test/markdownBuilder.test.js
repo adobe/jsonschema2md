@@ -15,6 +15,25 @@ const { assertMarkdown, loadschemas } = require('./testUtils');
 
 const build = require('../lib/markdownBuilder');
 
+describe('Testing Markdown Builder: enums', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await loadschemas('enums');
+    const builder = build({ header: true, includeproperties: ['foo', 'bar'] });
+    results = builder(schemas);
+  });
+
+  it('Enums Schema looks OK', () => {
+    assertMarkdown(results.enums)
+      .contains('| `"bas"` | from ancient Egyptian religion, an aspect of the soul |')
+      .contains('| `"baa"` |             |')
+      .contains('foo: bar')
+      .contains('bar: foo')
+      .contains('**enum**: the value of this property must be equal to one of the following values:');
+  });
+});
+
 describe('Testing Markdown Builder: null', () => {
   let results;
 

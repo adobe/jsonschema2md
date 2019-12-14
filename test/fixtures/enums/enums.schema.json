@@ -1,0 +1,29 @@
+{
+  "type": "object",
+  "properties": {
+   "withmeta": {
+     "foo": "bar",
+      "enum": [
+        "baa", "bad", "bag", "bah", "bam", "ban", "bap", "bas", "bat", "bay"
+      ],
+      "meta:enum": {
+        "baa": "the sounds of sheeps",
+        "bad": "German bathroom",
+        "bag": "holding device",
+        "bah": "humbug!",
+        "bam": "a loud sound",
+        "ban": "don't do this",
+        "bap": "a British soft bread roll",
+        "bas": "from ancient Egyptian religion, an aspect of the soul",
+        "bat": "…out of hell",
+        "bay": ", sitting by the dock of the"
+      }
+    },
+    "withoutmeta": {
+      "bar": "foo",
+      "enum": [
+        "baa", "bad", "bag", "bah", "bam", "ban", "bap", "bas", "bat", "bay"
+      ]
+    }
+  }
+}
