@@ -1,6 +1,6 @@
 # JSON Schema Spec Coverage Report
 
-This report lists the keywords of the JSON Schema spec that are covered in the tests. The overall coverage is 62%
+This report lists the keywords of the JSON Schema spec that are covered in the tests. The overall coverage is 64%
 
 ## The JSON Schema Core Vocabulary
 
@@ -20,7 +20,7 @@ Coverage for [The JSON Schema Core Vocabulary](https://json-schema.org/draft/201
 
 ## A Vocabulary for Applying Subschemas
 
-Coverage for [A Vocabulary for Applying Subschemas](https://json-schema.org/draft/2019-09/json-schema-core.html#rfc.section.9) is 52%.
+Coverage for [A Vocabulary for Applying Subschemas](https://json-schema.org/draft/2019-09/json-schema-core.html#rfc.section.9) is 58%.
 
 | Keyword                 | Supported |
 | :---------------------- | --------- |
@@ -28,7 +28,7 @@ Coverage for [A Vocabulary for Applying Subschemas](https://json-schema.org/draf
 | `additionalProperties`  | Yes       |
 | `allOf`                 | Yes       |
 | `anyOf`                 | Yes       |
-| `contains`              | No        |
+| `contains`              | Yes       |
 | `dependentSchemas`      | No        |
 | `else`                  | No        |
 | `if`                    | No        |

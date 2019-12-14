@@ -30,6 +30,13 @@ describe('Testing Markdown Builder: additionalprops', () => {
       .contains('**minimum number of properties**: the minimum number of properties for this object is: `10`')
       .has('heading > text[value="Additional Properties"]');
   });
+
+  it('Arrays Schema looks OK', () => {
+    assertMarkdown(results.arrays)
+      .contains('**minimum number of contained items**: this array may not contain fewer than 1 items that validate against the schema: [Untitled boolean in undefined](arrays-contains.md "check type definition")')
+      .contains('**maximum number of contained items**: this array may not contain more than 9 items that validate against the schema: [Untitled boolean in undefined](arrays-contains.md "check type definition")')
+      .contains('**unique items**: all items in this array must be unique. Duplicates are not allowed.');
+  });
 });
 
 describe('Testing Markdown Builder: types', () => {
