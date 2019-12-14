@@ -127,7 +127,7 @@ describe('Testing Markdown Builder: readme-1', () => {
 
   before(async () => {
     const schemas = await loadschemas('readme-1');
-    const builder = build({ header: true });
+    const builder = build({ header: true, links: { abstract: 'fooabstract.html' } });
     results = builder(schemas);
   });
 
@@ -152,7 +152,8 @@ Reference this group by using
 
 #### bar Type
 
-\`string\``;
+\`string\``
+      .contains('fooabstract.html');
     //      .inspect()
     //      .print();
   });
