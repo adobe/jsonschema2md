@@ -15,6 +15,21 @@ const { assertMarkdown, loadschemas } = require('./testUtils');
 
 const build = require('../lib/markdownBuilder');
 
+describe('Testing Markdown Builder: additionalprops', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await loadschemas('additionalprops');
+    const builder = build({ header: true });
+    results = builder(schemas);
+  });
+
+  it('Object Schema looks OK', () => {
+    assertMarkdown(results.additionalprops)
+      .has('heading > text[value="Additional Properties"]');
+  });
+});
+
 describe('Testing Markdown Builder: types', () => {
   let results;
 
