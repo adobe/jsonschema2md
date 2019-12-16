@@ -9,6 +9,7 @@
   "$id": "https://example.com/schemas/complex",
   "title": "Complex References",
   "type": "object",
+  "readOnly": true,
   "description": "This is an example schema that uses types defined in other schemas.",
   "properties": {
     "refabstract": {

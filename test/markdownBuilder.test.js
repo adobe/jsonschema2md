@@ -248,6 +248,10 @@ describe('Testing Markdown Builder: readme-1', () => {
   it('Abstract Schema looks OK', () => {
     assertMarkdown(results.abstract)
       .equals('heading > text', { type: 'text', value: 'Abstract Schema' })
+      .contains('cannot be read or written')
+      .contains('nonfoo Access Restrictions')
+      .contains('bar Access Restrictions')
+      .contains('### foo Access Restrictions')
       .fuzzy`
 ## Definitions group second
 
@@ -274,6 +278,7 @@ Reference this group by using
 
   it('Complex Schema looks OK', () => {
     assertMarkdown(results.complex)
+      .contains('Read only')
       .contains('# Complex References Schema');
   });
 
@@ -281,6 +286,7 @@ Reference this group by using
     assertMarkdown(results.simple)
       .contains('Deprecated')
       .contains('"Simply Untitled"')
+      .contains('Write only')
       .contains('# Simple Schema');
   });
 });

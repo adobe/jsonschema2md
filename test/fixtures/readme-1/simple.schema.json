@@ -9,6 +9,7 @@
     "$id": "https://example.com/schemas/simple",
     "title": "Simple",
     "deprecated": true,
+    "writeOnly": true,
     "description": "This is a *very* simple example of a JSON schema. There is only one property.",
     "type": "object",
     "properties": {
