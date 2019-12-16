@@ -1,10 +1,10 @@
 # JSON Schema Spec Coverage Report
 
-This report lists the keywords of the JSON Schema spec that are covered in the tests. The overall coverage is 80%
+This report lists the keywords of the JSON Schema spec that are covered in the tests. The overall coverage is 81%
 
 ## The JSON Schema Core Vocabulary
 
-Coverage for [The JSON Schema Core Vocabulary](https://json-schema.org/draft/2019-09/json-schema-core.html#rfc.section.8.1) is 22%.
+Coverage for [The JSON Schema Core Vocabulary](https://json-schema.org/draft/2019-09/json-schema-core.html#rfc.section.8.1) is 33%.
 
 | Keyword            | Supported |
 | :----------------- | --------- |
@@ -14,7 +14,7 @@ Coverage for [The JSON Schema Core Vocabulary](https://json-schema.org/draft/201
 | `$id`              | Yes       |
 | `$recursiveAnchor` | No        |
 | `$recursiveRef`    | No        |
-| `$ref`             | No        |
+| `$ref`             | Yes       |
 | `$schema`          | No        |
 | `$vocabulary`      | No        |
 
