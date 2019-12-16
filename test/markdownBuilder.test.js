@@ -15,6 +15,27 @@ const { assertMarkdown, loadschemas } = require('./testUtils');
 
 const build = require('../lib/markdownBuilder');
 
+describe('Testing Markdown Builder: not', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await loadschemas('not');
+    const builder = build({ header: false });
+    results = builder(schemas);
+  });
+
+  it('Not Schema looks OK', () => {
+    assertMarkdown(results.not)
+      .fuzzy`## Not true Type
+
+merged type ([Not true](not.md))
+
+not
+
+-   [True](not-true.md "check type definition")`;
+  });
+});
+
 describe('Testing Markdown Builder: enums', () => {
   let results;
 
