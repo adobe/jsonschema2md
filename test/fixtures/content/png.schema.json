@@ -1,0 +1,6 @@
+{
+  "type": "string",
+  "title": "PNG",
+  "contentEncoding": "base64",
+  "contentMediaType": "image/png"
+}

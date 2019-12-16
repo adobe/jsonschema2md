@@ -15,6 +15,32 @@ const { assertMarkdown, loadschemas } = require('./testUtils');
 
 const build = require('../lib/markdownBuilder');
 
+describe('Testing Markdown Builder: content', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await loadschemas('content');
+    const builder = build({ header: false });
+    results = builder(schemas);
+  });
+
+  it('PNG Schema looks OK', () => {
+    assertMarkdown(results.png)
+      .contains('**encoding**: the string content must be using the base64 content encoding.');
+  });
+
+  it('HTML Schema looks OK', () => {
+    assertMarkdown(results.html)
+      .contains('**media type**: the media type of the contents of this string is: `text/html`');
+  });
+
+  it('JWT Schema looks OK', () => {
+    assertMarkdown(results.jwt)
+      .contains('**schema**: the contents of this string should follow this schema: [JSON Web Token](jwt-json-web-token.md "check type definition")')
+      .contains('**media type**: the media type of the contents of this string is: `application/jwt`');
+  });
+});
+
 describe('Testing Markdown Builder: not', () => {
   let results;
 
