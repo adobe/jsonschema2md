@@ -1,6 +1,6 @@
 # JSON Schema Markdown Tools
 
-[![CircleCI](https://circleci.com/gh/adobe/jsonschema2md.svg?style=svg)](https://circleci.com/gh/adobe/jsonschema2md) [![Greenkeeper badge](https://badges.greenkeeper.io/adobe/jsonschema2md.svg)](https://greenkeeper.io/)
+[![CircleCI](https://circleci.com/gh/adobe/jsonschema2md.svg?style=svg)](https://circleci.com/gh/adobe/jsonschema2md)
 
 Documenting and validating complex JSON Schemas can be hard. This tool makes it easier by providing a number of scripts that can turn JSON Schema files into readable Markdown documentation that is ready for consumption on GitHub or processed using Jekyll or other static site generators.
 
@@ -22,39 +22,25 @@ Using the schemas in [`examples/schemas`](examples/schemas), the output in [`exa
 ## Installing and running
 
 ```bash
-# clone this project
 $ npm install -g @adobe/jsonschema2md
 
 # show usage information
 $ jsonschema2md
 
 # run task
-# leave out the -v "06", when you have draft-07 schemas
-$ jsonschema2md -d examples/schemas -o examples/docs -v "06"
+$ jsonschema2md -d examples/schemas -o examples/docs
 # generated output for whole folder is written to ./examples/docs
 ```
 
-## JSON Schema Draft Versions
+## Internationalization
 
-`jsonschema2md` assumes `draft-07` by default. If your schemas are not on `draft-07`, you can specify the draft version using the `-v` or `--draft` flag.
+The generated documentation can be internationalized. Select the language you want to use for the output using the `-l` parameter.
 
-```bash
-# run against JSON Schema Draft 04
-$ jsonschema2md -d examples/schemas -o examples/docs -v 04
-```
+Supported languages are:
+- English
+- German
 
-```bash
-# run against JSON Schema Draft 06
-$ jsonschema2md -d examples/schemas -o examples/docs -v 06
-```
-
-## Text in Templates
-Each text which is not provided by the JSON Schema is loaded from an i18n file. With i18n parameter you can change the location of the i18n folder and load your own text file. The folder must contain an locales folder and in this folder there should be an en.json file.
-
-```bash
-# run against JSON Schema Draft 06
-$ jsonschema2md -d examples/schemas -o examples/docs -v 06 -i temp/myFiles
-```
+If you want to provide a translation of your own, [please use GitLocalize](https://gitlocalize.com/repo/3622)
 
 ## Display custom attributes in the property description
 `jsonschema2md` displays only the attributes of an property which are defined by the JSON Schema standard. If you want to display additional attributes in the property description you could provide a comma separated list with your custom attributes.
@@ -77,7 +63,7 @@ You can conveniently use the JSON Schema Markdown Tools from `npm`. This makes i
 
 ```json
   "devDependencies": {
-    "@adobe/jsonschema2md": "^1.0.6"
+    "@adobe/jsonschema2md": "^4.0.0"
   }
 ```
 
@@ -108,7 +94,7 @@ All pull requests automatically trigger a job that runs the [tests](#tests) by e
 
 ### Code Coverage
 
-You can run `npm run cover` to get a code coverage report, that is, a sense of how much of the project's code is "covered" by the test suite.
+`npm run test` will generate a code coverage report at the end of the test run. Anything below 100% coverage counts as a test failure.
 
 ## Style Guide / Linting
 
@@ -120,9 +106,7 @@ npm run lint
 
 ## TODOs
 
-* JSON Schema validation:
-  * property naming convention
-  * vocabulary spellchecking
+Add support for [missing keywords](schemasupport.md)
 
 ## Contributing
 
