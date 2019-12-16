@@ -1,6 +1,6 @@
 # JSON Schema Spec Coverage Report
 
-This report lists the keywords of the JSON Schema spec that are covered in the tests. The overall coverage is 64%
+This report lists the keywords of the JSON Schema spec that are covered in the tests. The overall coverage is 69%
 
 ## The JSON Schema Core Vocabulary
 
@@ -99,7 +99,7 @@ Coverage for [Validation Keywords for Objects](https://json-schema.org/draft/201
 
 ## Defined Formats
 
-Coverage for [Defined Formats](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3) is 78%.
+Coverage for [Defined Formats](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3) is 100%.
 
 | Keyword                 | Supported |
 | :---------------------- | --------- |
@@ -114,13 +114,13 @@ Coverage for [Defined Formats](https://json-schema.org/draft/2019-09/json-schema
 | `ipv6`                  | Yes       |
 | `iri`                   | Yes       |
 | `iri-reference`         | Yes       |
-| `json-pointer`          | No        |
-| `regex`                 | No        |
-| `relative-json-pointer` | No        |
+| `json-pointer`          | Yes       |
+| `regex`                 | Yes       |
+| `relative-json-pointer` | Yes       |
 | `time`                  | Yes       |
 | `uri`                   | Yes       |
 | `uri-reference`         | Yes       |
-| `uri-template`          | No        |
+| `uri-template`          | Yes       |
 | `uuid`                  | Yes       |
 
 ## A Vocabulary for the Contents of String-Encoded Data

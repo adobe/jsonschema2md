@@ -156,6 +156,13 @@
       "version": "1.0.0",
       "testProperty": "test"
     },
+    "string_other": {
+      "type": "string",
+      "description": "A URI.",
+      "format": "unknown",
+      "version": "1.0.0",
+      "testProperty": "test"
+    },
     "number_unconstrained": {
       "type": "number",
       "description": "Just a number",

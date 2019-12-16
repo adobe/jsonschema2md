@@ -21,6 +21,10 @@ const { report } = require('../lib/keywords');
 const expected = [
   'examples',
   'allOf',
+  'json-pointer',
+  'relative-json-pointer',
+  'regex',
+  'uri-template',
 ];
 
 const allkeywords = {
