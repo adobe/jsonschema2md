@@ -35,6 +35,7 @@ describe('Testing Readme Builder', () => {
 
     assertMarkdown(result)
       .contains('# README')
+      .contains('The schemas linked above')
       .fuzzy`
 ## Top-level Schemas
 
