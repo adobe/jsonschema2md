@@ -82,6 +82,22 @@
       "version": "1.0.0",
       "testProperty": "test"
     },
+    "truefalseanylist": {
+      "type": "array",
+      "items": [
+        { "const": true, "title": "True"},
+        { "const": false, "title": "False"}
+      ],
+      "additionalItems": true
+    },
+    "truefalsewronglist": {
+      "type": "array",
+      "items": [
+        { "const": true, "title": "True"},
+        { "const": false, "title": "False"}
+      ],
+      "additionalItems": "this should not work"
+    },
     "numlist": {
       "type": "array",
       "description": "This is an array",

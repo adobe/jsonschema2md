@@ -157,6 +157,11 @@ describe('Testing Markdown Builder: arrays', () => {
   });
 
   it('Arrays Schema looks OK', () => {
+    assertMarkdown(results.arrays)
+      .contains('and all following items may follow any schema');
+  });
+
+  it('Tuple Schema looks OK', () => {
     assertMarkdown(results.tuple)
       .fuzzy`
 -   is optional
