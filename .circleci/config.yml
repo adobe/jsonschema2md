@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:8
+      - image: circleci/node:10
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -26,7 +26,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: npm install && npm i jasmine-xml-reporter
+      - run: npm install
 
       - save_cache:
           paths:
@@ -34,7 +34,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: ./node_modules/jasmine-xml-reporter/bin/jasmine.js --junitreport --output=junit
+      - run: npm run test-ci
 
       - store_test_results:
           path: junit
@@ -44,7 +44,7 @@ jobs:
   publish:
     docker:
       # specify the version you desire here
-      - image: circleci/node:8
+      - image: circleci/node:10
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -65,7 +65,7 @@ jobs:
 
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
 
-      - run: npm install && npm i jasmine-xml-reporter
+      - run: npm install
 
       - save_cache:
           paths:

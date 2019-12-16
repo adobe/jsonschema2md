@@ -7,7 +7,7 @@
   ],
   "$schema": "http://json-schema.org/draft-06/schema#",
   "$id": "https://example.com/schemas/complex",
-  "title": "Complex References ",
+  "title": "Complex References",
   "type": "object",
   "description": "This is an example schema that uses types defined in other schemas.",
   "properties": {
@@ -21,13 +21,8 @@
       "version": "1.0.0",
       "testProperty": "test"
     },
-    "reflist": {
-      "type": "array",
-      "items": {
-        "$ref": "https://example.com/schemas/simple",
-        "version": "1.0.0",
-        "testProperty": "test"
-      },
+    "refrefed": {
+      "$ref": "#/properties/refnamed",
       "version": "1.0.0",
       "testProperty": "test"
     },
@@ -93,7 +88,9 @@
   "required": [
     "refabstract"
   ],
-  "additionalProperties": true,
+  "additionalProperties": {
+    "type":"boolean"
+  },
   "patternProperties": {
     "int.*": {
       "type": "integer",

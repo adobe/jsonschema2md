@@ -1,3 +1,14 @@
+
+---
+
+# Note about Version 4.0
+
+`jsonschema2md` v4.0.0 has been a major rewrite that changes output format, command line parameters, i18n templates in order to increase the [coverage of the JSON Schema specification](schemasupport.md) and to make the project more maintainable.
+
+The JSON Schema validation functionality has been dropped entirely, as it is easier to just use `ajv` for that directly.
+
+---
+
 ## [3.3.1](https://github.com/adobe/jsonschema2md/compare/v3.3.0...v3.3.1) (2019-09-18)
 
 

@@ -1,0 +1,107 @@
+{
+  "meta:license": [
+    "Copyright 2017 Adobe Systems Incorporated. All rights reserved.",
+    "This file is licensed to you under the Apache License, Version 2.0 (the 'License');",
+    "you may not use this file except in compliance with the License. You may obtain a copy",
+    "of the License at http://www.apache.org/licenses/LICENSE-2.0"
+  ],
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "https://example.com/schemas/complex",
+  "title": "Complex References",
+  "type": "object",
+  "readOnly": true,
+  "description": "This is an example schema that uses types defined in other schemas.",
+  "properties": {
+    "refabstract": {
+      "$ref": "https://example.com/schemas/abstract#/definitions/first",
+      "version": "1.0.0",
+      "testProperty": "test"
+    },
+    "refnamed": {
+      "$ref": "https://example.com/schemas/simple",
+      "version": "1.0.0",
+      "testProperty": "test"
+    },
+    "refrefed": {
+      "$ref": "#/properties/refnamed",
+      "version": "1.0.0",
+      "testProperty": "test"
+    },
+    "refobj": {
+      "type": "object",
+      "properties": {
+        "foo": {
+          "$ref": "https://example.com/schemas/simple",
+          "version": "1.0.0",
+          "testProperty": "test"
+        }
+      },
+      "version": "1.0.0",
+      "testProperty": "test"
+    },
+    "refnestedobj": {
+      "type": "object",
+      "properties": {
+        "refobj": {
+          "type": "object",
+          "version": "1.0.0",
+          "testProperty": "test",
+          "properties": {
+            "foo": {
+              "$ref": "https://example.com/schemas/simple",
+              "version": "1.0.0",
+              "testProperty": "test"
+            }
+          }
+        }
+      },
+      "version": "1.0.0",
+      "testProperty": "test"
+    },
+    "or": {
+      "description": "String or number…",
+      "anyOf": [
+        { "type":"string" },
+        { "type":"number", "minimum": 0}
+      ],
+      "version": "1.0.0",
+      "testProperty": "test"
+    },
+    "and": {
+      "description": "Number in a range",
+      "allOf": [
+        { "type":"number", "maximum": 10 },
+        { "type":"number", "minimum": 0}
+      ],
+      "version": "1.0.0",
+      "testProperty": "test"
+    },
+    "xor": {
+      "description": "Exclusive choice.",
+      "oneOf": [
+        { "type":"number", "maximum": 0 },
+        { "type":"number", "minimum": 10}
+      ],
+      "version": "1.0.0",
+      "testProperty": "test"
+    }
+  },
+  "required": [
+    "refabstract"
+  ],
+  "additionalProperties": {
+    "type":"boolean"
+  },
+  "patternProperties": {
+    "int.*": {
+      "type": "integer",
+      "version": "1.0.0",
+      "testProperty": "test"
+    },
+    "str.*": {
+      "type":"string",
+      "version": "1.0.0",
+      "testProperty": "test"
+    }
+  }
+}

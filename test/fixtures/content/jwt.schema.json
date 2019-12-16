@@ -1,0 +1,26 @@
+{
+  "type": "string",
+  "title": "JWT",
+  "contentMediaType": "application/jwt",
+  "contentSchema": {
+      "title": "JSON Web Token",
+      "type": "array",
+      "minItems": 2,
+      "items": [
+          {
+              "const": {
+                  "typ": "JWT",
+                  "alg": "HS256"
+              }
+          },
+          {
+              "type": "object",
+              "required": ["iss", "exp"],
+              "properties": {
+                  "iss": {"type": "string"},
+                  "exp": {"type": "integer"}
+              }
+          }
+      ]
+  }
+}

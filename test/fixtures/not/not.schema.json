@@ -1,0 +1,7 @@
+{
+  "title": "Not true",
+  "not": {
+    "const": true,
+    "title": "True"
+  }
+}

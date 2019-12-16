@@ -1,0 +1,30 @@
+{
+    "meta:license": [
+        "Copyright 2017 Adobe Systems Incorporated. All rights reserved.",
+        "This file is licensed to you under the Apache License, Version 2.0 (the 'License');",
+        "you may not use this file except in compliance with the License. You may obtain a copy",
+        "of the License at http://www.apache.org/licenses/LICENSE-2.0"
+    ],
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$id": "https://example.com/schemas/simple",
+    "title": "Simple",
+    "$comment": "I'm just a simple schema, living a simple life.",
+    "deprecated": true,
+    "writeOnly": true,
+    "description": "This is a *very* simple example of a JSON schema. There is only one property.",
+    "type": "object",
+    "properties": {
+      "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "A unique identifier given to every addressable thing.",
+          "version": "1.0.0",
+          "testProperty": "test"
+      },
+      "name": {
+          "type": "string",
+          "default": "Simply Untitled",
+          "$comment": "This should be here"
+      }
+  }
+}

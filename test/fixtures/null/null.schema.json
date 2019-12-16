@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "may": {
+      "type": ["null", "boolean"]
+    },
+    "must": {
+      "type": "null"
+    },
+    "constant": {
+      "const": null
+    }
+  }
+}

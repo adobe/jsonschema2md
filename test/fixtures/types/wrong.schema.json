@@ -1,0 +1,6 @@
+{
+  "$id": "https://example.com/ns/wrong",
+  "type": {
+    "this": "is wrong"
+  }
+}

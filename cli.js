@@ -11,177 +11,184 @@
  * governing permissions and limitations under the License.
  */
 
-const Optimist = require('optimist');
-const Promise = require('bluebird');
-const path = require('path');
-const _ = require('lodash');
-const fs = Promise.promisifyAll(require('fs'));
+const yargs = require('yargs');
+const nodepath = require('path');
+
+const fs = require('fs');
 const readdirp = require('readdirp');
-const Ajv = require('ajv');
-const i18n = require('i18n');
 const logger = require('@adobe/helix-log');
+const {
+  iter, pipe, filter, map, obj,
+} = require('ferrum');
+const npath = require('path');
+const { i18nConfig } = require('es2015-i18n-tag');
+const traverse = require('./lib/traverseSchema');
+const build = require('./lib/markdownBuilder');
+const { writereadme, writemarkdown } = require('./lib/writeMarkdown');
+const readme = require('./lib/readmeBuilder');
+const { loader } = require('./lib/schemaProxy');
+const { writeSchema } = require('./lib/writeSchema');
 
-const { error, info } = logger;
+const { info, error, debug } = logger;
 
-const Schema = require('./lib/schema');
-const readSchemaFile = require('./lib/readSchemaFile');
+// const Schema = require('./lib/schema');
+// const readSchemaFile = require('./lib/readSchemaFile');
 
 // parse/process command line arguments
-const { argv } = Optimist
+const { argv } = yargs
   .usage('Generate Markdown documentation from JSON Schema.\n\nUsage: $0')
+
   .demand('d')
   .alias('d', 'input')
-  // TODO: is baseURL still a valid parameter?
   .describe('d', 'path to directory containing all JSON Schemas or a single JSON Schema file. This will be considered as the baseURL. By default only files ending in .schema.json will be processed, unless the schema-extension is set with the -e flag.')
+  .coerce('d', (d) => {
+    const resolved = nodepath.resolve(d);
+    if (fs.existsSync(resolved) && fs.lstatSync(d).isDirectory()) {
+      return resolved;
+    }
+    throw new Error(`Input file "${d}" is not a directory!`);
+  })
+
   .alias('o', 'out')
   .describe('o', 'path to output directory')
-  .default('o', path.resolve(path.join('.', 'out')))
+  .default('o', nodepath.resolve(nodepath.join('.', 'out')))
+  .coerce('o', o => nodepath.resolve(o))
+
+  .option('m', {
+    type: 'array',
+  })
   .alias('m', 'meta')
   .describe('m', 'add metadata elements to .md files Eg -m template=reference. Multiple values can be added by repeating the flag Eg: -m template=reference -m hide-nav=true')
-  .alias('s', 'metaSchema')
-  .describe('s', 'Custom meta schema path to validate schemas')
+  .coerce('m', m => pipe(
+    // turn this into an object of key value pairs
+    iter(m),
+    map(i => i.split('=')),
+    obj,
+  ))
+
   .alias('x', 'schema-out')
-  .describe('x', 'output JSON Schema files including description and validated examples in the _new folder at output directory, or suppress with -')
+  .describe('x', 'output JSON Schema files including description and validated examples in the specified folder, or suppress with -')
+  .default('x', nodepath.resolve(nodepath.join('.', 'out')))
+  .coerce('x', x => (x === '-' ? '' : nodepath.resolve(x)))
+
   .alias('e', 'schema-extension')
   .describe('e', 'JSON Schema file extension eg. schema.json or json')
+  .default('e', 'schema.json')
+
   .alias('n', 'no-readme')
-  .describe('v', 'JSON Schema Draft version to use. Supported: 04, 06, 07 (default)')
-  .alias('v', 'draft')
-  .default('v', '07')
   .describe('n', 'Do not generate a README.md file in the output directory')
+  .default('n', false)
+
   .describe('link-*', 'Add this file as a link the explain the * attribute, e.g. --link-abstract=abstract.md')
-  .check((args) => {
-    if (!fs.existsSync(args.input)) {
-      throw new Error(`Input file "${args.input}" does not exist!`);
-    }
-    if (args.s && !fs.existsSync(args.s)) {
-      throw new Error(`Meta schema file "${args.s}" does not exist!`);
-    }
-  })
+
   .alias('i', 'i18n')
-  .describe('i', 'path to a locales folder with an en.json file in it. This file will be used for all text parts in all templates')
+  .describe('i', 'path to a locales folder with JSON files')
+  .default('i', nodepath.resolve(__dirname, 'lib', 'locales'))
+  .coerce('i', i => nodepath.resolve(i))
+
+  .alias('l', 'language')
+  .describe('l', 'the selected language')
+  .choices('l', ['en_US', 'de'])
+  .default('l', 'en_US')
+
   .alias('p', 'properties')
-  .describe('p', 'A comma separated list with custom properties which should be also in the description of an element.')
+  .array('p')
+  .describe('p', 'name of a custom property which should be also in the description of an element (may be used multiple times)')
+  .default('p', [])
   .alias('h', 'header')
   .describe('h', 'if the value is false the header will be skipped')
   .default('h', true);
 
-const docs = _.fromPairs(
-  _.toPairs(argv)
-    .filter(([key, _value]) => key.startsWith('link-'))
-    .map(([key, value]) => [key.substr(5), value]),
+const docs = pipe(
+  iter(argv),
+  filter(([key, _value]) => key.startsWith('link-')),
+  map(([key, value]) => [key.substr(5), value]),
+  obj,
 );
 
-const ajv = new Ajv({
-  allErrors: true, messages: true, schemaId: 'auto', logger,
-});
-info(argv.v);
-if (argv.v === '06' || argv.v === 6) {
-  info('enabling draft-06 support');
-  // eslint-disable-next-line global-require
-  ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-06.json'));
-} else if (argv.v === '04' || argv.v === 4) {
-  // eslint-disable-next-line global-require
-  ajv.addMetaSchema(require('ajv/lib/refs/json-schema-draft-04.json'));
-}
-const schemaPathMap = {};
-const metaElements = {};
-const schemaPath = path.resolve(argv.d);
-const outDir = path.resolve(argv.o);
-// eslint-disable-next-line no-nested-ternary
-const schemaDir = argv.x === '-' ? '' : (argv.x ? path.resolve(argv.x) : outDir);
-const target = fs.statSync(schemaPath);
-const readme = argv.n !== true;
-const schemaExtension = argv.e || 'schema.json';
-if (argv.s) {
-  // eslint-disable-next-line import/no-dynamic-require, global-require
-  ajv.addMetaSchema(require(path.resolve(argv.s)));
-}
+const schemaPath = argv.d;
+const schemaExtension = argv.e;
 
-if (argv.m) {
-  if (_.isArray(argv.m)) {
-    _.each(argv.m, (item) => {
-      const [key, val] = item.split('=');
-      if (val !== undefined) {
-        metaElements[key] = val;
-      }
-    });
-  } else {
-    const [key, val] = (argv.m).split('=');
-    if (val !== undefined) {
-      metaElements[key] = val;
-    }
-  }
-}
-let i18nPath;
-if (argv !== undefined && argv.i !== undefined) {
-  i18nPath = path.resolve(argv.i);
-} else {
-  i18nPath = path.resolve(path.join(__dirname, 'lib/locales'));
-}
-i18n.configure({
-  // setup some locales - other locales default to en silently
-  locales: ['en'],
-  // where to store json files - defaults to './locales' relative to modules directory
-  directory: i18nPath,
-  defaultLocale: 'en',
-});
+// eslint-disable-next-line import/no-dynamic-require
+i18nConfig(require(nodepath.resolve(argv.i, `${argv.l}.json`)));
 
-info('output directory', outDir);
-if (target.isDirectory()) {
-  // the ajv json validator will be passed into the main module to help with processing
-  const files = [];
-  readdirp(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtension}` })
-    .on('data', (entry) => {
-      files.push(entry.fullPath);
-      try {
-        // eslint-disable-next-line import/no-dynamic-require, global-require
-        ajv.addSchema(require(entry.fullPath), entry.fullPath);
-      } catch (e) {
-        error('Ajv processing error for schema at path', entry.fullPath);
-        error(e);
-        process.exit(1);
-      }
-    })
-    .on('end', () => {
-      Schema.setAjv(ajv);
-      Schema.setSchemaPathMap(schemaPathMap);
-      return Promise.reduce(files, readSchemaFile, schemaPathMap)
-        .then((schemaMap) => {
-          info(`finished reading all *.${schemaExtension} files in ${schemaPath}, beginning processing….`);
-          return Schema.process(
-            schemaMap, schemaPath, outDir, schemaDir, metaElements,
-            readme, docs, argv,
-          );
-        })
-        .then(() => {
-          info('Processing complete.');
-        })
-        .catch((err) => {
-          error(err);
-          process.exit(1);
-        });
-    })
-    .on('error', (err) => {
-      error(err);
-      process.exit(1);
-    });
-} else {
-  readSchemaFile(schemaPathMap, schemaPath)
-    .then((schemaMap) => {
+const schemaloader = loader();
+
+// list all schema files in the specified directory
+readdirp.promise(schemaPath, { root: schemaPath, fileFilter: `*.${schemaExtension}` })
+  // then collect data about the schemas and turn everything into a big object
+  .then((schemas) => {
+    console.log('loading schemas');
+    return pipe(
+      schemas,
+      map(schema => schema.fullPath),
       // eslint-disable-next-line import/no-dynamic-require, global-require
-      ajv.addSchema(require(schemaPath), schemaPath);
-      Schema.setAjv(ajv);
-      Schema.setSchemaPathMap(schemaPathMap);
-      info(`finished reading ${schemaPath}, beginning processing...`);
-      return Schema.process(schemaMap, schemaPath, outDir, schemaDir,
-        metaElements, false, docs, argv);
-    })
-    .then(() => {
-      info('Processing complete.');
-    })
-    .catch((err) => {
-      error(err);
-      process.exit(1);
-    });
-}
+      map(path => schemaloader(require(path), path)),
+      // find contained schemas
+      traverse,
+    );
+  })
+
+  .then(schemas => Promise.all([
+    (() => {
+      if (argv.x !== '-') {
+        writeSchema({
+          schemadir: argv.x,
+          origindir: argv.d,
+        })(schemas);
+      }
+    })(),
+
+    (() => {
+      if (!argv.n) {
+        return pipe(
+          schemas,
+          // build readme
+          readme({
+            readme: !argv.n,
+          }),
+
+          writereadme({
+            readme: !argv.n,
+            out: argv.o,
+            info,
+            error,
+            debug,
+            meta: argv.m,
+          }),
+        );
+      }
+      return null;
+    })(),
+    (() => pipe(
+      schemas,
+      // generate Markdown ASTs
+      build({
+        header: argv.h,
+        links: docs,
+        includeproperties: argv.p,
+        rewritelinks: (origin) => {
+          const mddir = argv.o;
+          const srcdir = argv.d;
+          const schemadir = argv.x !== '-' ? argv.x : argv.d;
+
+          const target = npath.relative(
+            mddir,
+            npath.resolve(schemadir, npath.relative(srcdir, origin)),
+          );
+          return target;
+        },
+      }),
+
+
+      // write to files
+
+      writemarkdown({
+        out: argv.o,
+        info,
+        error,
+        debug,
+        meta: argv.m,
+      }),
+    ))(),
+  ]));
