@@ -258,7 +258,7 @@ describe('Testing Markdown Builder: readme-1', () => {
 Reference this group by using
 
 \`\`\`json
-{"$ref":"https://example.com/schemas/abstract#/definitions/second"}
+{"$ref":"https://example.com/schemas/abstract#/$defs/second"}
 \`\`\``
       .fuzzy`
 \`bar\`
@@ -266,7 +266,7 @@ Reference this group by using
 -   is optional
 -   Type: \`string\`
 -   cannot be null
--   defined in: [Abstract](abstract-definitions-second-properties-bar.md "https&#x3A;//example.com/schemas/abstract#/definitions/second/properties/bar")
+-   defined in: [Abstract](abstract-defs-second-properties-bar.md "https&#x3A;//example.com/schemas/abstract#/$defs/second/properties/bar")
 
 #### bar Type
 
