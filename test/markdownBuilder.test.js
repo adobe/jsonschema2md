@@ -287,6 +287,8 @@ Reference this group by using
       .contains('Deprecated')
       .contains('"Simply Untitled"')
       .contains('Write only')
+      .contains('> This should be here')
+      .contains('living a simple life')
       .contains('# Simple Schema');
   });
 });

@@ -8,6 +8,7 @@
     "$schema": "http://json-schema.org/draft-06/schema#",
     "$id": "https://example.com/schemas/simple",
     "title": "Simple",
+    "$comment": "I'm just a simple schema, living a simple life.",
     "deprecated": true,
     "writeOnly": true,
     "description": "This is a *very* simple example of a JSON schema. There is only one property.",
@@ -22,7 +23,8 @@
       },
       "name": {
           "type": "string",
-          "default": "Simply Untitled"
+          "default": "Simply Untitled",
+          "$comment": "This should be here"
       }
   }
 }
