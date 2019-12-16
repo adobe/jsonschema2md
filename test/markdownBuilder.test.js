@@ -279,6 +279,7 @@ Reference this group by using
 
   it('Simple Schema looks OK', () => {
     assertMarkdown(results.simple)
+      .contains('Deprecated')
       .contains('"Simply Untitled"')
       .contains('# Simple Schema');
   });

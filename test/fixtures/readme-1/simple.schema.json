@@ -8,6 +8,7 @@
     "$schema": "http://json-schema.org/draft-06/schema#",
     "$id": "https://example.com/schemas/simple",
     "title": "Simple",
+    "deprecated": true,
     "description": "This is a *very* simple example of a JSON schema. There is only one property.",
     "type": "object",
     "properties": {
