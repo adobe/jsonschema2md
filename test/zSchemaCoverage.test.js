@@ -25,6 +25,7 @@ const expected = [
   'relative-json-pointer',
   'regex',
   'uri-template',
+  'default',
 ];
 
 const allkeywords = {

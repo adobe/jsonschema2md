@@ -17,6 +17,10 @@
           "description": "A unique identifier given to every addressable thing.",
           "version": "1.0.0",
           "testProperty": "test"
+      },
+      "name": {
+          "type": "string",
+          "default": "Simply Untitled"
       }
   }
 }

@@ -279,6 +279,7 @@ Reference this group by using
 
   it('Simple Schema looks OK', () => {
     assertMarkdown(results.simple)
+      .contains('"Simply Untitled"')
       .contains('# Simple Schema');
   });
 });
