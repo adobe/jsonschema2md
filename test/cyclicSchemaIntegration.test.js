@@ -74,8 +74,7 @@ describe('Integration Test: Cyclic References', () => {
       .contains('http://example.com/schemas/one')
       .contains('http://example.com/schemas/two')
       .contains('http://example.com/schemas/three')
-      .contains('http://json-schema.org/draft-04/schema#')
-      .print();
+      .contains('http://json-schema.org/draft-04/schema#');
   });
 
   it('Schemas with cyclic references generate Markdown', () => {
