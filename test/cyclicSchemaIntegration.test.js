@@ -15,23 +15,30 @@ const assert = require('assert');
 const path = require('path');
 const fs = require('fs-extra');
 const { loader } = require('../lib/schemaProxy');
+const { assertMarkdown } = require('./testUtils');
+const build = require('../lib/readmeBuilder');
 
 describe('Integration Test: Cyclic References', () => {
   let one;
   let two;
   let three;
 
+  let proxiedone;
+  let proxiedtwo;
+  let proxiedthree;
+
   before('Read Schemas from disk', async () => {
     one = await fs.readJson(path.resolve(__dirname, 'fixtures', 'cyclic', 'one.schema.json'));
     two = await fs.readJson(path.resolve(__dirname, 'fixtures', 'cyclic', 'two.schema.json'));
     three = await fs.readJson(path.resolve(__dirname, 'fixtures', 'cyclic', 'three.schema.json'));
+
+    const myloader = loader();
+    proxiedone = myloader(one, 'one.schema.json');
+    proxiedtwo = myloader(two, 'two.schema.json');
+    proxiedthree = myloader(three, 'three.schema.json');
   });
 
   it('Schemas with cyclic references can be loaded', () => {
-    const myloader = loader();
-    const proxiedone = myloader(one, 'one.schema.json');
-    const proxiedtwo = myloader(two, 'two.schema.json');
-    const proxiedthree = myloader(three, 'three.schema.json');
     assert.equal(proxiedone.$id, 'http://example.com/schemas/one');
 
     assert.equal(proxiedone.properties.children.items.anyOf[0].$id,
@@ -60,7 +67,15 @@ describe('Integration Test: Cyclic References', () => {
   });
 
   it('Schemas with cyclic references generate README', () => {
+    const builder = build({ readme: true });
+    const result = builder([proxiedone, proxiedtwo, proxiedthree]);
 
+    assertMarkdown(result)
+      .contains('http://example.com/schemas/one')
+      .contains('http://example.com/schemas/two')
+      .contains('http://example.com/schemas/three')
+      .contains('http://json-schema.org/draft-04/schema#')
+      .print();
   });
 
   it('Schemas with cyclic references generate Markdown', () => {
