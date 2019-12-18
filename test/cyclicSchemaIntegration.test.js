@@ -11,12 +11,13 @@
  */
 /* eslint-env mocha */
 
-const assert = require('assert');
 const path = require('path');
 const fs = require('fs-extra');
 const { loader } = require('../lib/schemaProxy');
 const { assertMarkdown } = require('./testUtils');
-const build = require('../lib/readmeBuilder');
+const readme = require('../lib/readmeBuilder');
+const markdown = require('../lib/markdownBuilder');
+const traverse = require('../lib/traverseSchema');
 
 describe('Integration Test: Cyclic References', () => {
   let one;
@@ -27,47 +28,28 @@ describe('Integration Test: Cyclic References', () => {
   let proxiedtwo;
   let proxiedthree;
 
-  before('Read Schemas from disk', async () => {
+  let allschemas;
+
+  beforeEach('Read Schemas from disk', async () => {
+    console.log('Reading Schemas');
     one = await fs.readJson(path.resolve(__dirname, 'fixtures', 'cyclic', 'one.schema.json'));
     two = await fs.readJson(path.resolve(__dirname, 'fixtures', 'cyclic', 'two.schema.json'));
     three = await fs.readJson(path.resolve(__dirname, 'fixtures', 'cyclic', 'three.schema.json'));
 
     const myloader = loader();
-    proxiedone = myloader(one, 'one.schema.json');
-    proxiedtwo = myloader(two, 'two.schema.json');
-    proxiedthree = myloader(three, 'three.schema.json');
-  });
 
-  it('Schemas with cyclic references can be loaded', () => {
-    assert.equal(proxiedone.$id, 'http://example.com/schemas/one');
+    console.log('Loading Schemas');
+    proxiedone = myloader(one, path.resolve(__dirname, 'fixtures', 'cyclic', 'one.schema.json'));
+    proxiedtwo = myloader(two, path.resolve(__dirname, 'fixtures', 'cyclic', 'two.schema.json'));
+    proxiedthree = myloader(three, path.resolve(__dirname, 'fixtures', 'cyclic', 'three.schema.json'));
 
-    assert.equal(proxiedone.properties.children.items.anyOf[0].$id,
-      'http://example.com/schemas/three');
-    assert.equal(proxiedone.properties.children.items.anyOf[1].$id,
-      'http://example.com/schemas/two');
+    console.log('Traversing Schemas');
 
-    assert.equal(proxiedtwo.$id, 'http://example.com/schemas/two');
-    assert.equal(proxiedtwo.properties.children.items.anyOf[0].$id,
-      'http://example.com/schemas/one');
-    assert.equal(proxiedtwo.properties.children.items.anyOf[1].$id,
-      'http://example.com/schemas/three');
-
-    assert.equal(proxiedthree.$id, 'http://example.com/schemas/three');
-    assert.equal(proxiedthree.properties.children.items.anyOf[0].$id,
-      'http://example.com/schemas/one');
-    assert.equal(proxiedthree.properties.children.items.anyOf[1].$id,
-      'http://example.com/schemas/two');
-
-    // complete the cycle
-    assert.equal(proxiedone
-      .properties.children.items.anyOf[0]
-      .properties.children.items.anyOf[1]
-      .properties.children.items.anyOf[0].$id,
-    'http://example.com/schemas/one');
+    allschemas = traverse([proxiedone, proxiedtwo, proxiedthree]);
   });
 
   it('Schemas with cyclic references generate README', () => {
-    const builder = build({ readme: true });
+    const builder = readme({ readme: true });
     const result = builder([proxiedone, proxiedtwo, proxiedthree]);
 
     assertMarkdown(result)
@@ -78,6 +60,12 @@ describe('Integration Test: Cyclic References', () => {
   });
 
   it('Schemas with cyclic references generate Markdown', () => {
+    const builder = markdown();
+    const documents = builder(allschemas);
+    assertMarkdown(documents['one-properties-children-items'])
+      .contains('any of');
 
+    assertMarkdown(documents.one)
+      .contains('one-properties-children-items');
   });
 });
