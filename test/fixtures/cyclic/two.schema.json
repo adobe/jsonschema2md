@@ -1,0 +1,17 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"$id": "http://example.com/schemas/two",
+
+	"type": "object",
+	"properties": {
+		"children": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{ "$ref": "http://example.com/schemas/one" },
+					{ "$ref": "http://example.com/schemas/three" }
+				]
+			}
+		}
+	}
+}
