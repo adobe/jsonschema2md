@@ -1,3 +1,11 @@
+## [4.0.1](https://github.com/adobe/jsonschema2md/compare/v4.0.0...v4.0.1) (2019-12-20)
+
+
+### Bug Fixes
+
+* **titles:** more robust handling of title generation for untitled schemas ([c546a28](https://github.com/adobe/jsonschema2md/commit/c546a28)), closes [#185](https://github.com/adobe/jsonschema2md/issues/185)
+* **traversal:** fix endless loop in schema traversal ([af85c59](https://github.com/adobe/jsonschema2md/commit/af85c59)), closes [#185](https://github.com/adobe/jsonschema2md/issues/185)
+
 # [4.0.0](https://github.com/adobe/jsonschema2md/compare/v3.3.1...v4.0.0) (2019-12-16)
 
 
