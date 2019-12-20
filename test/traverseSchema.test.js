@@ -12,11 +12,13 @@
 /* eslint-env mocha */
 
 const assert = require('assert');
+const fs = require('fs-extra');
+const path = require('path');
 const {
   loader, filename,
 } = require('../lib/schemaProxy');
 
-const { traverseSchema } = require('../lib/traverseSchema');
+const traverse = require('../lib/traverseSchema');
 
 const example = {
   'meta:license': [
@@ -66,9 +68,27 @@ const example = {
 describe('Testing Schema Traversal', () => {
   it('Schema Traversal generates a list', () => {
     const proxied = loader()(example, 'example.schema.json');
-    const schemas = traverseSchema(proxied);
+    const schemas = traverse([proxied]);
 
     assert.equal(schemas.length, 9);
     assert.equal(schemas[8][filename], 'example.schema.json');
+  });
+
+  it('Cyclic Schema Traversal generates a list', async () => {
+    const one = await fs.readJson(path.resolve(__dirname, 'fixtures', 'cyclic', 'one.schema.json'));
+    const two = await fs.readJson(path.resolve(__dirname, 'fixtures', 'cyclic', 'two.schema.json'));
+    const three = await fs.readJson(path.resolve(__dirname, 'fixtures', 'cyclic', 'three.schema.json'));
+
+    const myloader = loader();
+    const proxiedone = myloader(one, path.resolve(__dirname, 'fixtures', 'cyclic', 'one.schema.json'));
+    const proxiedtwo = myloader(two, path.resolve(__dirname, 'fixtures', 'cyclic', 'two.schema.json'));
+    const proxiedthree = myloader(three, path.resolve(__dirname, 'fixtures', 'cyclic', 'three.schema.json'));
+
+
+    const schemas = traverse([proxiedone, proxiedtwo, proxiedthree]);
+
+    assert.equal(schemas[0].$id, 'http://example.com/schemas/one');
+    assert.equal(schemas[4].$id, 'http://example.com/schemas/three');
+    assert.equal(schemas[8].$id, 'http://example.com/schemas/two');
   });
 });
