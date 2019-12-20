@@ -1,3 +1,10 @@
+## [4.0.2](https://github.com/adobe/jsonschema2md/compare/v4.0.1...v4.0.2) (2019-12-20)
+
+
+### Bug Fixes
+
+* **cli:** fix `traverse` function when called from CLI ([f211375](https://github.com/adobe/jsonschema2md/commit/f211375))
+
 ## [4.0.1](https://github.com/adobe/jsonschema2md/compare/v4.0.0...v4.0.1) (2019-12-20)
 
 
