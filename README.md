@@ -118,3 +118,16 @@ Copyright 2017 Adobe Systems Incorporated. All rights reserved.
 This file is licensed to you under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License. You may obtain a copy
 of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+# Test
+
+-   [Address](./manifest-definitions-delivery-definitions-address.md) – `Address#/definitions/Delivery/definitions/Address`
+-   [Colour](./manifest-definitions-leaf-definitions-layer-definitions-text-definitions-colour.md) – `Colour#/definitions/Leaf/definitions/Layer/definitions/Text/definitions/Colour`
+-   [Delivery](./manifest-definitions-delivery.md) – `Delivery#/definitions/Delivery`
+-   [Image](./manifest-definitions-leaf-definitions-layer-definitions-image.md) – `Image#/definitions/Leaf/definitions/Layer/definitions/Image`
+-   [Layer](./manifest-definitions-leaf-definitions-layer.md) – `Layer#/definitions/Leaf/definitions/Layer`
+-   [Leaf](./manifest-definitions-leaf.md "A Leaf describes the contained section of the product (i") – `Leaf#/definitions/Leaf`
+-   [Order](./manifest-definitions-order.md "Order contains info about what and ahoy many of the products the user has created") – `Order#/definitions/Order`
+-   [Postage](./manifest-definitions-delivery-definitions-postage.md) – `Postage#/definitions/Delivery/definitions/Postage`
+-   [Text](./manifest-definitions-leaf-definitions-layer-definitions-text.md) – `Text#/definitions/Leaf/definitions/Layer/definitions/Text`
+-   [Transform](./manifest-definitions-leaf-definitions-layer-definitions-image-definitions-transform.md "The Transform applied to an object") – `Transform#/definitions/Leaf/definitions/Layer/definitions/Image/definitions/Transform`
