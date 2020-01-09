@@ -13,11 +13,13 @@
 
 const path = require('path');
 const fs = require('fs-extra');
+const assert = require('assert');
 const { loader } = require('../lib/schemaProxy');
 const { assertMarkdown } = require('./testUtils');
 const readme = require('../lib/readmeBuilder');
 const markdown = require('../lib/markdownBuilder');
 const traverse = require('../lib/traverseSchema');
+const { writeSchema } = require('../lib/writeSchema');
 
 describe('Integration Test: Cyclic References', () => {
   let one;
@@ -67,5 +69,19 @@ describe('Integration Test: Cyclic References', () => {
 
     assertMarkdown(documents.one)
       .contains('one-properties-children-items');
+  });
+
+  it('Schemas with cyclic references get written to disk', () => {
+    const writer = writeSchema({ origindir: path.resolve(__dirname, 'fixtures', 'cyclic'), schemadir: path.resolve(__dirname, 'fixtures', 'cyclic-out') });
+    writer(allschemas);
+    const schemaone = fs.readJsonSync(path.resolve(__dirname, 'fixtures', 'cyclic-out', 'one.schema.json'));
+    assert.deepStrictEqual(schemaone, {
+      $schema: 'http://json-schema.org/draft-04/schema#',
+      $id: 'http://example.com/schemas/one',
+      type: 'object',
+      description: 'The first schema in the cycle (or is it the last?)',
+      examples: [{}],
+      properties: { children: { type: 'array', items: { anyOf: [{ $ref: 'http://example.com/schemas/three' }, { $ref: 'http://example.com/schemas/two' }] } } },
+    });
   });
 });
