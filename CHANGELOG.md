@@ -1,3 +1,10 @@
+## [4.0.3](https://github.com/adobe/jsonschema2md/compare/v4.0.2...v4.0.3) (2020-01-09)
+
+
+### Bug Fixes
+
+* **schema:** do not recurse endlessly when writing cyclic schemas ([297f0d5](https://github.com/adobe/jsonschema2md/commit/297f0d5)), closes [#185](https://github.com/adobe/jsonschema2md/issues/185)
+
 ## [4.0.2](https://github.com/adobe/jsonschema2md/compare/v4.0.1...v4.0.2) (2019-12-20)
 
 
