@@ -32,3 +32,4 @@ coverage
 /examples/tmp-docs
 .nyc_output
 test/fixtures/cyclic-out/
+/.vscode
