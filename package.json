@@ -52,7 +52,8 @@
     "lint-staged": "^9.2.1",
     "nyc": "^14.1.1",
     "semantic-release": "^15.13.20",
-    "unist-util-select": "^3.0.0"
+    "unist-util-select": "^3.0.0",
+    "json-logic-js": "axa-ch/json-logic-js"
   },
   "engines": {
     "node": ">= 10.0.0"
