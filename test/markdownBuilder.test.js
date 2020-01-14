@@ -72,14 +72,8 @@ describe('Testing Markdown Builder: title', () => {
   });
 
   it('Meta Schema looks OK', () => {
-    assertMarkdown(results.title)
-      .fuzzy`## Not true Type
-
-merged type ([Not true](not.md))
-
-not
-
--   [True](not-true.md "check type definition")`;
+    assertMarkdown(results.meta)
+      .fuzzy`defined in: [Meta](meta-definitions-meta-properties-title.md "https&#x3A;//ns.adobe.com/helix/pipeline/meta#/definitions/meta/properties/title")`;
   });
 });
 
