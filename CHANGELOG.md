@@ -1,3 +1,10 @@
+## [4.0.5](https://github.com/adobe/jsonschema2md/compare/v4.0.4...v4.0.5) (2020-01-14)
+
+
+### Bug Fixes
+
+* **slugger:** fix slugger crash due to title property ([4f0ab31](https://github.com/adobe/jsonschema2md/commit/4f0ab31)), closes [#196](https://github.com/adobe/jsonschema2md/issues/196)
+
 ## [4.0.4](https://github.com/adobe/jsonschema2md/compare/v4.0.3...v4.0.4) (2020-01-14)
 
 
