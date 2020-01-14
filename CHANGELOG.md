@@ -1,3 +1,10 @@
+## [4.0.7](https://github.com/adobe/jsonschema2md/compare/v4.0.6...v4.0.7) (2020-01-14)
+
+
+### Bug Fixes
+
+* **markdown:** increase robustness when using format as a property name ([cda0bec](https://github.com/adobe/jsonschema2md/commit/cda0bec)), closes [#198](https://github.com/adobe/jsonschema2md/issues/198)
+
 ## [4.0.6](https://github.com/adobe/jsonschema2md/compare/v4.0.5...v4.0.6) (2020-01-14)
 
 
