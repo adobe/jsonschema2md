@@ -1,3 +1,10 @@
+## [4.0.6](https://github.com/adobe/jsonschema2md/compare/v4.0.5...v4.0.6) (2020-01-14)
+
+
+### Bug Fixes
+
+* **markdown:** catch error when using `title` as a property name ([b4b8855](https://github.com/adobe/jsonschema2md/commit/b4b8855))
+
 ## [4.0.5](https://github.com/adobe/jsonschema2md/compare/v4.0.4...v4.0.5) (2020-01-14)
 
 
