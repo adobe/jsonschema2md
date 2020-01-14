@@ -92,8 +92,8 @@ describe('Testing Markdown Builder: format', () => {
   });
 
   it('Format Schema looks OK', () => {
-    assertMarkdown(results.properties)
-      .fuzzy`defined in: [Meta](meta-definitions-meta-properties-title.md "https&#x3A;//ns.adobe.com/helix/pipeline/meta#/definitions/meta/properties/title")`;
+    assertMarkdown(results.format)
+      .fuzzy`Formatting used to display the date.`;
   });
 });
 
