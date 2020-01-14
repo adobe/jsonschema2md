@@ -82,6 +82,21 @@ describe('Testing Markdown Builder: title', () => {
   });
 });
 
+describe('Testing Markdown Builder: format', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await loadschemas('format');
+    const builder = build({ header: false });
+    results = builder(schemas);
+  });
+
+  it('Format Schema looks OK', () => {
+    assertMarkdown(results.properties)
+      .fuzzy`defined in: [Meta](meta-definitions-meta-properties-title.md "https&#x3A;//ns.adobe.com/helix/pipeline/meta#/definitions/meta/properties/title")`;
+  });
+});
+
 describe('Testing Markdown Builder: enums', () => {
   let results;
 

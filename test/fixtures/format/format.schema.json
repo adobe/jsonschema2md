@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "title": "Properties",
+  "description": "Properties of Datepicker.",
+
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "type": "string",
+      "title": "Format",
+      "description": "Formatting used to display the date."
+    },
+    "value": {
+      "type": "string",
+      "title": "Value",
+      "description": "Date to be displayed."
+    }
+  }
+}
