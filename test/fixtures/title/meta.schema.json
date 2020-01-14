@@ -1,0 +1,53 @@
+{
+  "meta:license": [
+    "Copyright 2018 Adobe. All rights reserved.",
+    "This file is licensed to you under the Apache License, Version 2.0 (the \"License\");",
+    "you may not use this file except in compliance with the License. You may obtain a copy",
+    "of the License at http://www.apache.org/licenses/LICENSE-2.0",
+    "",
+    "Unless required by applicable law or agreed to in writing, software distributed under",
+    "the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS",
+    "OF ANY KIND, either express or implied. See the License for the specific language",
+    "governing permissions and limitations under the License."
+  ],
+  "$id": "https://ns.adobe.com/helix/pipeline/meta",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Meta",
+  "meta:status": "stabilizing",
+  "description": "Content and Section Metadata Properties",
+  "definitions": {
+    "meta": {
+      "type": ["null", "object"],
+      "properties": {
+        "class": {
+          "type": "string",
+          "description": "The CSS class to use for the section instead of the default `hlx-section` one"
+        },
+        "tagname": {
+          "type": "string",
+          "description": "The element tag name to use for the section instead of the default `div` one (i.e. `section`, `main`, `aside`)"
+        },
+        "types": {
+          "type": "array",
+          "description": "The inferred class names for the section",
+          "items": {
+            "type": "string"
+          }
+        },
+        "title": {
+          "type": "string",
+          "description": "Extracted title of the document"
+        },
+        "intro": {
+          "type": "string",
+          "description": "Extracted first paragraph of the document"
+        },
+        "image": {
+          "type": "string",
+          "format": "uri-reference",
+          "description": "Path (can be relative) to the first image in the document"
+        }
+      }
+    }
+  }
+}

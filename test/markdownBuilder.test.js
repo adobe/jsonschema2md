@@ -62,6 +62,21 @@ not
   });
 });
 
+describe('Testing Markdown Builder: title', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await loadschemas('title');
+    const builder = build({ header: false });
+    results = builder(schemas);
+  });
+
+  it('Meta Schema looks OK', () => {
+    assertMarkdown(results.meta)
+      .fuzzy`defined in: [Meta](meta-definitions-meta-properties-title.md "https&#x3A;//ns.adobe.com/helix/pipeline/meta#/definitions/meta/properties/title")`;
+  });
+});
+
 describe('Testing Markdown Builder: enums', () => {
   let results;
 
