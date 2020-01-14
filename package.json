@@ -13,8 +13,8 @@
     "lint-fix": "eslint . --fix",
     "start": "node cli.js",
     "examples": "node cli.js  -d examples/schemas/ -o examples/docs/ -x examples/generated-schemas/",
-    "test": " nyc --reporter=text --reporter=lcov --check-coverage --branches 80 --statements 100 --lines 100 mocha && node lib/locales/update.js",
-    "test-ci": "nyc --reporter=text --reporter=lcov --check-coverage --branches 80 --statements 100 --lines 100 mocha --reporter xunit --reporter-options output=./junit/test-results.xml; codecov"
+    "test": " nyc --reporter=text --reporter=lcov --check-coverage --branches 80 --statements 95 --lines 95 mocha && node lib/locales/update.js",
+    "test-ci": "nyc --reporter=text --reporter=lcov --check-coverage --branches 80 --statements 95 --lines 95 mocha --reporter xunit --reporter-options output=./junit/test-results.xml; codecov"
   },
   "dependencies": {
     "@adobe/helix-log": "^4.4.0",
@@ -52,7 +52,8 @@
     "lint-staged": "^9.2.1",
     "nyc": "^14.1.1",
     "semantic-release": "^15.13.20",
-    "unist-util-select": "^3.0.0"
+    "unist-util-select": "^3.0.0",
+    "json-logic-js": "axa-ch/json-logic-js"
   },
   "engines": {
     "node": ">= 10.0.0"
