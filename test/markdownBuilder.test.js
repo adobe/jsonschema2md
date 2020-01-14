@@ -75,6 +75,11 @@ describe('Testing Markdown Builder: title', () => {
     assertMarkdown(results.meta)
       .fuzzy`defined in: [Meta](meta-definitions-meta-properties-title.md "https&#x3A;//ns.adobe.com/helix/pipeline/meta#/definitions/meta/properties/title")`;
   });
+
+  it('Title Schema looks OK', () => {
+    assertMarkdown(results['meta-definitions-meta-properties'])
+      .fuzzy`properties Type`;
+  });
 });
 
 describe('Testing Markdown Builder: enums', () => {
