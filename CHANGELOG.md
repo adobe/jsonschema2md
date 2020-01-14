@@ -1,3 +1,12 @@
+## [4.0.4](https://github.com/adobe/jsonschema2md/compare/v4.0.3...v4.0.4) (2020-01-14)
+
+
+### Bug Fixes
+
+* **cli:** do not exit after creating readme.md ([cb7d012](https://github.com/adobe/jsonschema2md/commit/cb7d012))
+* **cli:** make the -n or --no-readme option work again ([3c63c03](https://github.com/adobe/jsonschema2md/commit/3c63c03))
+* **loader:** guard against endless wrapping ([dd1f7f6](https://github.com/adobe/jsonschema2md/commit/dd1f7f6)), closes [#194](https://github.com/adobe/jsonschema2md/issues/194)
+
 ## [4.0.3](https://github.com/adobe/jsonschema2md/compare/v4.0.2...v4.0.3) (2020-01-09)
 
 
