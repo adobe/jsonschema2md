@@ -62,6 +62,27 @@ not
   });
 });
 
+describe('Testing Markdown Builder: title', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await loadschemas('title');
+    const builder = build({ header: false });
+    results = builder(schemas);
+  });
+
+  it('Meta Schema looks OK', () => {
+    assertMarkdown(results.title)
+      .fuzzy`## Not true Type
+
+merged type ([Not true](not.md))
+
+not
+
+-   [True](not-true.md "check type definition")`;
+  });
+});
+
 describe('Testing Markdown Builder: enums', () => {
   let results;
 
