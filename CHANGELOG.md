@@ -1,3 +1,10 @@
+## [4.0.8](https://github.com/adobe/jsonschema2md/compare/v4.0.7...v4.0.8) (2020-01-15)
+
+
+### Bug Fixes
+
+* **index.js:** -x flag is not working properly for the suppression case ([d929d9b](https://github.com/adobe/jsonschema2md/commit/d929d9b))
+
 ## [4.0.7](https://github.com/adobe/jsonschema2md/compare/v4.0.6...v4.0.7) (2020-01-14)
 
 
