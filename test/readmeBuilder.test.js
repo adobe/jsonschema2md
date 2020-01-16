@@ -28,6 +28,16 @@ describe('Testing Readme Builder', () => {
     assert.equal(builder(), null);
   });
 
+  it('Readme Builder builds a README for type', async () => {
+    const schemas = await loadschemas('type');
+    const builder = build({ readme: true });
+    const result = builder(schemas);
+
+    assertMarkdown(result)
+      .contains('# README')
+      .print();
+  });
+
   it('Readme Builder builds a medium README for multiple Schemas', async () => {
     const schemas = await loadschemas('readme-1');
     const builder = build({ readme: true });

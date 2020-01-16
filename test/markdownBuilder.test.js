@@ -82,7 +82,7 @@ describe('Testing Markdown Builder: title', () => {
   });
 });
 
-describe.only('Testing Markdown Builder: type', () => {
+describe('Testing Markdown Builder: type', () => {
   let results;
 
   before(async () => {
