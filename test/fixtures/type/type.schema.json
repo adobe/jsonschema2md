@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "title": "Properties",
+  "description": "Properties of Button.",
+
+  "additionalProperties": false,
+  "properties": {
+    "value": {
+      "type": "string",
+      "title": "Value",
+      "description": "The value of the Button."
+    },
+    "type": {
+      "type": "string",
+      "enum": ["button", "submit", "reset"],
+      "title": "Type",
+      "description": "The type of the Button (not used for anchors)."
+    }
+}
+}
