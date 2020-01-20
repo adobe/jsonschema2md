@@ -1,3 +1,10 @@
+## [4.0.9](https://github.com/adobe/jsonschema2md/compare/v4.0.8...v4.0.9) (2020-01-20)
+
+
+### Bug Fixes
+
+* **markdown:** prevent unescaped objects in markdown AST ([87d709a](https://github.com/adobe/jsonschema2md/commit/87d709a)), closes [#201](https://github.com/adobe/jsonschema2md/issues/201)
+
 ## [4.0.8](https://github.com/adobe/jsonschema2md/compare/v4.0.7...v4.0.8) (2020-01-15)
 
 
