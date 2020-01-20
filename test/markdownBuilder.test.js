@@ -82,6 +82,28 @@ describe('Testing Markdown Builder: title', () => {
   });
 });
 
+describe('Testing Markdown Builder: type', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await loadschemas('type');
+    const builder = build({ header: false });
+    results = builder(schemas);
+  });
+
+  it('Type Schema looks OK', () => {
+    assertMarkdown(results.type)
+      .fuzzy`The type of the Button (not used for anchors).`
+      .print();
+  });
+
+  it('Button Schema looks OK', () => {
+    assertMarkdown(results.button)
+      .fuzzy`## Button Type`
+      .print();
+  });
+});
+
 describe('Testing Markdown Builder: format', () => {
   let results;
 
