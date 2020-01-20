@@ -53,7 +53,7 @@
     "nyc": "^14.1.1",
     "semantic-release": "^15.13.20",
     "unist-util-select": "^3.0.0",
-    "json-logic-js": "axa-ch/json-logic-js"
+    "json-logic-js": "git://github.com/axa-ch/cyclic-schemas-test.git#fix/type-key-exception"
   },
   "engines": {
     "node": ">= 10.0.0"
