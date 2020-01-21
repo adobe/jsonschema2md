@@ -1,3 +1,10 @@
+## [4.0.10](https://github.com/adobe/jsonschema2md/compare/v4.0.9...v4.0.10) (2020-01-21)
+
+
+### Bug Fixes
+
+* **deps:** pin es2015-i18n-tag version ([c531b50](https://github.com/adobe/jsonschema2md/commit/c531b50)), closes [#207](https://github.com/adobe/jsonschema2md/issues/207)
+
 ## [4.0.9](https://github.com/adobe/jsonschema2md/compare/v4.0.8...v4.0.9) (2020-01-20)
 
 
