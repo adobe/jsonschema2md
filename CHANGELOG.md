@@ -1,3 +1,10 @@
+## [4.0.11](https://github.com/adobe/jsonschema2md/compare/v4.0.10...v4.0.11) (2020-01-26)
+
+
+### Bug Fixes
+
+* **package:** fix & clean up dependencies ([890e86d](https://github.com/adobe/jsonschema2md/commit/890e86d)), closes [#210](https://github.com/adobe/jsonschema2md/issues/210)
+
 ## [4.0.10](https://github.com/adobe/jsonschema2md/compare/v4.0.9...v4.0.10) (2020-01-21)
 
 
