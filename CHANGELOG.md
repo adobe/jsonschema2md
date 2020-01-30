@@ -1,3 +1,10 @@
+## [4.0.12](https://github.com/adobe/jsonschema2md/compare/v4.0.11...v4.0.12) (2020-01-30)
+
+
+### Bug Fixes
+
+* dont use backslash for URLs on windows ([5149522](https://github.com/adobe/jsonschema2md/commit/5149522)), closes [#211](https://github.com/adobe/jsonschema2md/issues/211)
+
 ## [4.0.11](https://github.com/adobe/jsonschema2md/compare/v4.0.10...v4.0.11) (2020-01-26)
 
 
