@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$id": "http://www.example.com/schemas/components/Button.json",
+  "type": "object",
+  "title": "Button",
+  "description": "Renders a Button.",
+  "additionalProperties": false,
+  "properties": {
+    "properties": {
+      "type": "object",
+      "title": "Properties",
+      "description": "Properties of Button.",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "button",
+            "submit",
+            "reset"
+          ],
+          "title": "Type",
+          "description": "The type of the Button (not used for anchors)."
+        }
+      }
+    }
+  }
+}

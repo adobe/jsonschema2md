@@ -62,6 +62,63 @@ not
   });
 });
 
+describe('Testing Markdown Builder: title', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await loadschemas('title');
+    const builder = build({ header: false });
+    results = builder(schemas);
+  });
+
+  it('Meta Schema looks OK', () => {
+    assertMarkdown(results.meta)
+      .fuzzy`defined in: [Meta](meta-definitions-meta-properties-title.md "https&#x3A;//ns.adobe.com/helix/pipeline/meta#/definitions/meta/properties/title")`;
+  });
+
+  it('Title Schema looks OK', () => {
+    assertMarkdown(results['meta-definitions-meta-properties'])
+      .fuzzy`properties Type`;
+  });
+});
+
+describe('Testing Markdown Builder: type', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await loadschemas('type');
+    const builder = build({ header: false });
+    results = builder(schemas);
+  });
+
+  it('Type Schema looks OK', () => {
+    assertMarkdown(results.type)
+      .fuzzy`The type of the Button (not used for anchors).`
+      .print();
+  });
+
+  it('Button Schema looks OK', () => {
+    assertMarkdown(results.button)
+      .fuzzy`## Button Type`
+      .print();
+  });
+});
+
+describe('Testing Markdown Builder: format', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await loadschemas('format');
+    const builder = build({ header: false });
+    results = builder(schemas);
+  });
+
+  it('Format Schema looks OK', () => {
+    assertMarkdown(results.format)
+      .fuzzy`Formatting used to display the date.`;
+  });
+});
+
 describe('Testing Markdown Builder: enums', () => {
   let results;
 

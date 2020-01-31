@@ -176,6 +176,7 @@
     "the string must be a JSON Pointer, according to ": "the string must be a JSON Pointer, according to ",
     "the string must be a URI template, according to ": "the string must be a URI template, according to ",
     "the string must be a regular expression, according to ": "the string must be a regular expression, according to ",
-    "the string must be a relative JSON Pointer, according to ": "the string must be a relative JSON Pointer, according to "
+    "the string must be a relative JSON Pointer, according to ": "the string must be a relative JSON Pointer, according to ",
+    "Unknown Type": "Unknown Type"
   }
 }

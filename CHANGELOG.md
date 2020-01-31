@@ -1,3 +1,90 @@
+## [4.0.12](https://github.com/adobe/jsonschema2md/compare/v4.0.11...v4.0.12) (2020-01-30)
+
+
+### Bug Fixes
+
+* dont use backslash for URLs on windows ([5149522](https://github.com/adobe/jsonschema2md/commit/5149522)), closes [#211](https://github.com/adobe/jsonschema2md/issues/211)
+
+## [4.0.11](https://github.com/adobe/jsonschema2md/compare/v4.0.10...v4.0.11) (2020-01-26)
+
+
+### Bug Fixes
+
+* **package:** fix & clean up dependencies ([890e86d](https://github.com/adobe/jsonschema2md/commit/890e86d)), closes [#210](https://github.com/adobe/jsonschema2md/issues/210)
+
+## [4.0.10](https://github.com/adobe/jsonschema2md/compare/v4.0.9...v4.0.10) (2020-01-21)
+
+
+### Bug Fixes
+
+* **deps:** pin es2015-i18n-tag version ([c531b50](https://github.com/adobe/jsonschema2md/commit/c531b50)), closes [#207](https://github.com/adobe/jsonschema2md/issues/207)
+
+## [4.0.9](https://github.com/adobe/jsonschema2md/compare/v4.0.8...v4.0.9) (2020-01-20)
+
+
+### Bug Fixes
+
+* **markdown:** prevent unescaped objects in markdown AST ([87d709a](https://github.com/adobe/jsonschema2md/commit/87d709a)), closes [#201](https://github.com/adobe/jsonschema2md/issues/201)
+
+## [4.0.8](https://github.com/adobe/jsonschema2md/compare/v4.0.7...v4.0.8) (2020-01-15)
+
+
+### Bug Fixes
+
+* **index.js:** -x flag is not working properly for the suppression case ([d929d9b](https://github.com/adobe/jsonschema2md/commit/d929d9b))
+
+## [4.0.7](https://github.com/adobe/jsonschema2md/compare/v4.0.6...v4.0.7) (2020-01-14)
+
+
+### Bug Fixes
+
+* **markdown:** increase robustness when using format as a property name ([cda0bec](https://github.com/adobe/jsonschema2md/commit/cda0bec)), closes [#198](https://github.com/adobe/jsonschema2md/issues/198)
+
+## [4.0.6](https://github.com/adobe/jsonschema2md/compare/v4.0.5...v4.0.6) (2020-01-14)
+
+
+### Bug Fixes
+
+* **markdown:** catch error when using `title` as a property name ([b4b8855](https://github.com/adobe/jsonschema2md/commit/b4b8855))
+
+## [4.0.5](https://github.com/adobe/jsonschema2md/compare/v4.0.4...v4.0.5) (2020-01-14)
+
+
+### Bug Fixes
+
+* **slugger:** fix slugger crash due to title property ([4f0ab31](https://github.com/adobe/jsonschema2md/commit/4f0ab31)), closes [#196](https://github.com/adobe/jsonschema2md/issues/196)
+
+## [4.0.4](https://github.com/adobe/jsonschema2md/compare/v4.0.3...v4.0.4) (2020-01-14)
+
+
+### Bug Fixes
+
+* **cli:** do not exit after creating readme.md ([cb7d012](https://github.com/adobe/jsonschema2md/commit/cb7d012))
+* **cli:** make the -n or --no-readme option work again ([3c63c03](https://github.com/adobe/jsonschema2md/commit/3c63c03))
+* **loader:** guard against endless wrapping ([dd1f7f6](https://github.com/adobe/jsonschema2md/commit/dd1f7f6)), closes [#194](https://github.com/adobe/jsonschema2md/issues/194)
+
+## [4.0.3](https://github.com/adobe/jsonschema2md/compare/v4.0.2...v4.0.3) (2020-01-09)
+
+
+### Bug Fixes
+
+* **schema:** do not recurse endlessly when writing cyclic schemas ([297f0d5](https://github.com/adobe/jsonschema2md/commit/297f0d5)), closes [#185](https://github.com/adobe/jsonschema2md/issues/185)
+
+## [4.0.2](https://github.com/adobe/jsonschema2md/compare/v4.0.1...v4.0.2) (2019-12-20)
+
+
+### Bug Fixes
+
+* **cli:** fix `traverse` function when called from CLI ([f211375](https://github.com/adobe/jsonschema2md/commit/f211375))
+
+## [4.0.1](https://github.com/adobe/jsonschema2md/compare/v4.0.0...v4.0.1) (2019-12-20)
+
+
+### Bug Fixes
+
+* **titles:** more robust handling of title generation for untitled schemas ([c546a28](https://github.com/adobe/jsonschema2md/commit/c546a28)), closes [#185](https://github.com/adobe/jsonschema2md/issues/185)
+* **traversal:** fix endless loop in schema traversal ([af85c59](https://github.com/adobe/jsonschema2md/commit/af85c59)), closes [#185](https://github.com/adobe/jsonschema2md/issues/185)
+
 # [4.0.0](https://github.com/adobe/jsonschema2md/compare/v3.3.1...v4.0.0) (2019-12-16)
 
 
