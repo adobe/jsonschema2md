@@ -1,3 +1,10 @@
+## [4.0.13](https://github.com/adobe/jsonschema2md/compare/v4.0.12...v4.0.13) (2020-01-31)
+
+
+### Bug Fixes
+
+* **i18n:** update German translations ([8cf38e4](https://github.com/adobe/jsonschema2md/commit/8cf38e4))
+
 ## [4.0.12](https://github.com/adobe/jsonschema2md/compare/v4.0.11...v4.0.12) (2020-01-30)
 
 
