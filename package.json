@@ -22,7 +22,7 @@
     "ferrum": "^1.4.1",
     "fs-extra": "^8.1.0",
     "github-slugger": "^1.2.1",
-    "js-yaml": "^3.13.1",
+    "js-yaml": "3.13.1",
     "mdast-builder": "^1.1.1",
     "mdast-util-to-string": "^1.0.7",
     "readdirp": "^3.3.0",
