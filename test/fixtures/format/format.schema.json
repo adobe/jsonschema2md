@@ -15,5 +15,11 @@
       "title": "Value",
       "description": "Date to be displayed."
     }
-  }
+  },
+  "examples": [
+    {
+      "format": "Coolness",
+      "value": "Maximum"
+    }
+  ]
 }
