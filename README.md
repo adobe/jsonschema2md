@@ -57,6 +57,10 @@ In some cases you do not need a header because it does not provide any useful in
 $ jsonschema2md -d examples/schemas -o examples/docs -v 06 -h false
 ```
 
+## Examples as YAML
+
+If you are using JSON Schema to validate YAML documents, for instance configuration files, you might wish for examples to be formatted as YAML, not JSON. Using the command line option `-f yaml` or `--example-format yaml` achieves this goal.
+
 ## Using JSON Schema Markdown Tools from `npm`
 
 You can conveniently use the JSON Schema Markdown Tools from `npm`. This makes it possible to set up a conversion toolchain for your JSON Schema project that is driven entirely by `npm`. To do so, first define the dependency by adding this to your `"devDependencies"` section of `package.json`
