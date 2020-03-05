@@ -1,3 +1,10 @@
+# [4.1.0](https://github.com/adobe/jsonschema2md/compare/v4.0.13...v4.1.0) (2020-03-05)
+
+
+### Features
+
+* **examples:** enable examples to be formatted in YAML using command line option `-f yaml` ([01119ba](https://github.com/adobe/jsonschema2md/commit/01119ba))
+
 ## [4.0.13](https://github.com/adobe/jsonschema2md/compare/v4.0.12...v4.0.13) (2020-01-31)
 
 
