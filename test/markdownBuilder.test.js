@@ -117,6 +117,39 @@ describe('Testing Markdown Builder: format', () => {
     assertMarkdown(results.format)
       .fuzzy`Formatting used to display the date.`;
   });
+
+  it('Format Schema has JSON examples', () => {
+    assertMarkdown(results.format)
+      .fuzzy`## Properties Examples
+
+\`\`\`json
+{
+  "format": "Coolness",
+  "value": "Maximum"
+}
+\`\`\``;
+  });
+});
+
+describe('Testing Markdown Builder: YAML examples', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await loadschemas('format');
+    const builder = build({ header: false, exampleformat: 'yaml' });
+    results = builder(schemas);
+  });
+
+  it('Format Schema has JSON examples', () => {
+    assertMarkdown(results.format)
+      .fuzzy`## Properties Examples
+
+\`\`\`yaml
+format: Coolness
+value: Maximum
+
+\`\`\``;
+  });
 });
 
 describe('Testing Markdown Builder: enums', () => {
