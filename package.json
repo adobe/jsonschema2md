@@ -37,7 +37,7 @@
     "@semantic-release/git": "^7.0.16",
     "@semantic-release/github": "^5.4.2",
     "codecov": "^3.6.1",
-    "commitizen": "^4.0.3",
+    "commitizen": "^4.0.4",
     "cz-conventional-changelog": "^3.0.2",
     "eslint": "6.5.0",
     "eslint-config-airbnb": "17.1.1",
