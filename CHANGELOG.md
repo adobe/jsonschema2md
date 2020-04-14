@@ -1,3 +1,11 @@
+## [4.1.1](https://github.com/adobe/jsonschema2md/compare/v4.1.0...v4.1.1) (2020-04-14)
+
+
+### Bug Fixes
+
+* **deps:** npm audit fix ([b13ab35](https://github.com/adobe/jsonschema2md/commit/b13ab35))
+* **enum:** fix doc generation for enums that contain arrays ([667a106](https://github.com/adobe/jsonschema2md/commit/667a106)), closes [#219](https://github.com/adobe/jsonschema2md/issues/219)
+
 # [4.1.0](https://github.com/adobe/jsonschema2md/compare/v4.0.13...v4.1.0) (2020-03-05)
 
 
