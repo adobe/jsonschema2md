@@ -169,6 +169,11 @@ describe('Testing Markdown Builder: enums', () => {
       .contains('bar: foo')
       .contains('**enum**: the value of this property must be equal to one of the following values:');
   });
+
+  it('Array Enums Schema looks OK', () => {
+    assertMarkdown(results.arrayenums)
+      .contains('| `["P","M"]` | Post Meridiem? |');
+  });
 });
 
 describe('Testing Markdown Builder: null', () => {
