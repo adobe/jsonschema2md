@@ -1,3 +1,10 @@
+## [4.1.2](https://github.com/adobe/jsonschema2md/compare/v4.1.1...v4.1.2) (2020-04-23)
+
+
+### Bug Fixes
+
+* **lib/index.js:** made -h/--header a boolean arg ([5ba2719](https://github.com/adobe/jsonschema2md/commit/5ba2719)), closes [#209](https://github.com/adobe/jsonschema2md/issues/209)
+
 ## [4.1.1](https://github.com/adobe/jsonschema2md/compare/v4.1.0...v4.1.1) (2020-04-14)
 
 
