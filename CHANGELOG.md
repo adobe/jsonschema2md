@@ -1,3 +1,10 @@
+## [4.1.3](https://github.com/adobe/jsonschema2md/compare/v4.1.2...v4.1.3) (2020-06-04)
+
+
+### Bug Fixes
+
+* moved definitions to bottom of output file ([1b27fff](https://github.com/adobe/jsonschema2md/commit/1b27fff)), closes [#226](https://github.com/adobe/jsonschema2md/issues/226)
+
 ## [4.1.2](https://github.com/adobe/jsonschema2md/compare/v4.1.1...v4.1.2) (2020-04-23)
 
 
