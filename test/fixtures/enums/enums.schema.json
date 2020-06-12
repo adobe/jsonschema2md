@@ -20,7 +20,7 @@
       }
     },
     "withoutmeta": {
-      "bar": "foo",
+      "bar": ["blue", "oyster"],
       "enum": [
         "baa", "bad", "bag", "bah", "bam", "ban", "bap", "bas", "bat", "bay"
       ]
