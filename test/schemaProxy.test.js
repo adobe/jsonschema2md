@@ -65,9 +65,21 @@ const example = {
 const referencing = {
   $schema: 'http://json-schema.org/draft-06/schema#',
   $id: 'https://example.com/schemas/referencing',
-  title: 'Referencing',
+  title: 'Referencing absolute path',
   properties: {
     $ref: 'https://example.com/schemas/example#/properties',
+    zap: {
+      type: 'boolean',
+    },
+  },
+};
+
+const referencingrel = {
+  $schema: 'http://json-schema.org/draft-06/schema#',
+  $id: 'https://example.com/schemas/referencing/relative',
+  title: 'Referencing relative path',
+  properties: {
+    $ref: '../example#/properties',
     zap: {
       type: 'boolean',
     },
@@ -141,10 +153,21 @@ describe('Testing Schema Proxy', () => {
     assert.deepStrictEqual(proxied1.properties.foo, proxied1.properties[resolve]('/foo'));
   });
 
-  it('Schema proxy resolves Reference Pointers', () => {
+  it('Schema proxy resolves absolute URIs with Reference Pointers', () => {
     const myloader = loader();
     myloader(example, 'example.schema.json');
     const proxied2 = myloader(referencing, 'referencing.schema.json');
+
+    assert.deepStrictEqual(new Set(Object.keys(proxied2.properties)), new Set([
+      '$ref', 'zap', // the two properties from the original declaration
+      'foo', 'bar', 'zip', 'zup', 'baz', // plus all the referenced properties
+    ]));
+  });
+
+  it('Schema proxy resolves relative paths with Reference Pointers', () => {
+    const myloader = loader();
+    myloader(example, 'example.schema.json');
+    const proxied2 = myloader(referencingrel, 'referencingrel.schema.json');
 
     assert.deepStrictEqual(new Set(Object.keys(proxied2.properties)), new Set([
       '$ref', 'zap', // the two properties from the original declaration
