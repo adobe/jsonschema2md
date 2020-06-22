@@ -1,3 +1,11 @@
+## [4.1.5](https://github.com/adobe/jsonschema2md/compare/v4.1.4...v4.1.5) (2020-06-22)
+
+
+### Bug Fixes
+
+* **deps:** npm audit fix ([2be8a58](https://github.com/adobe/jsonschema2md/commit/2be8a58))
+* **markdown:** avoid ambiguities around property names ([a4543c4](https://github.com/adobe/jsonschema2md/commit/a4543c4)), closes [#232](https://github.com/adobe/jsonschema2md/issues/232)
+
 ## [4.1.4](https://github.com/adobe/jsonschema2md/compare/v4.1.3...v4.1.4) (2020-06-22)
 
 
