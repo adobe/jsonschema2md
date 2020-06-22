@@ -30,7 +30,7 @@
     "remark-stringify": "^7.0.4",
     "unified": "^8.4.2",
     "unist-util-inspect": "^5.0.0",
-    "yargs": "^15.0.2"
+    "yargs": "^15.3.1"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^3.0.4",
