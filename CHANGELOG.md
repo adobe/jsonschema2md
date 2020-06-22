@@ -1,3 +1,10 @@
+## [4.1.4](https://github.com/adobe/jsonschema2md/compare/v4.1.3...v4.1.4) (2020-06-22)
+
+
+### Bug Fixes
+
+* definition object defintions based on proplist structure ([2fb9fc5](https://github.com/adobe/jsonschema2md/commit/2fb9fc5)), closes [#228](https://github.com/adobe/jsonschema2md/issues/228)
+
 ## [4.1.3](https://github.com/adobe/jsonschema2md/compare/v4.1.2...v4.1.3) (2020-06-04)
 
 
