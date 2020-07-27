@@ -165,8 +165,8 @@ describe('Testing Markdown Builder: enums', () => {
     assertMarkdown(results.enums)
       .contains('| `"bas"` | from ancient Egyptian religion, an aspect of the soul |')
       .contains('| `"baa"` |             |')
-      .contains('foo: bar')
-      .contains('bar: foo')
+      .contains('foo: "bar"')
+      .contains('bar: \\["blue","oyster"]')
       .contains('**enum**: the value of this property must be equal to one of the following values:');
   });
 
