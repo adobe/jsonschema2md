@@ -62,6 +62,21 @@ not
   });
 });
 
+describe('Testing Markdown Builder: nullable', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await loadschemas('nullable');
+    const builder = build({ header: false });
+    results = builder(schemas);
+  });
+
+  it('Nullable Array Type Schema looks OK', () => {
+    assertMarkdown(results.array)
+      .fuzzy`| [sampleProp](#sampleProp) | \`string\` | Required | can be null |`;
+  });
+});
+
 describe('Testing Markdown Builder: title', () => {
   let results;
 

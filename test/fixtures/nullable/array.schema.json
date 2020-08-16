@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/type-array-repro.json",
+  "type": "object",
+  "title": "Type Array Repro",
+  "description": "Type Array Issue Reproduction",
+  "required": [
+      "sampleProp"
+  ],
+  "additionalProperties": false,
+  "properties": {
+      "sampleProp": {
+          "type": ["string", "null"],
+          "title": "Sample Property"
+      }
+  }
+}

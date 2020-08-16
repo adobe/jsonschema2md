@@ -1,3 +1,10 @@
+## [4.1.6](https://github.com/adobe/jsonschema2md/compare/v4.1.5...v4.1.6) (2020-07-31)
+
+
+### Bug Fixes
+
+* **markdown:** correcly show type of nullable types in header ([53c1a0b](https://github.com/adobe/jsonschema2md/commit/53c1a0b)), closes [#237](https://github.com/adobe/jsonschema2md/issues/237)
+
 ## [4.1.5](https://github.com/adobe/jsonschema2md/compare/v4.1.4...v4.1.5) (2020-06-22)
 
 
