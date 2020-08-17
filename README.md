@@ -75,7 +75,7 @@ Then add the following to the `"scripts"` section of your `package.json` and ada
 
 ```json
 "scripts": {
-  "prepare": "mkdir -p docs/reference && jsonschema2md -o docs/reference -d schemas/draft-04
+  "prepare": "mkdir -p docs/reference && jsonschema2md -o docs/reference -d schemas/draft-04"
 }
 ```
 
