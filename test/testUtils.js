@@ -29,6 +29,11 @@ function assertMarkdown(node) {
 ${result}`);
       return tester;
     };
+    tester.doesNotContain = (str) => {
+      assert.ok(result.indexOf(str) < 0, `Markdown output contains search string "${str}"
+${result}`);
+      return tester;
+    };
     tester.matches = (re) => {
       assert.ok(result.match(re), `Markdown output does not match regex "${String(re)}"
 ${result}`);

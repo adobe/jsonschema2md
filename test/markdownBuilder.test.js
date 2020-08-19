@@ -402,3 +402,31 @@ Reference this group by using
       .contains('# Simple Schema');
   });
 });
+
+describe('Testing Markdown Builder: Skip properties', () => {
+  let schemas;
+
+  before(async () => {
+    schemas = await loadschemas('skipproperties');
+  });
+
+  it('Skipped properties exist', () => {
+    const builder = build({});
+    const results = builder(schemas);
+
+    assertMarkdown(results.complete)
+      .contains('### bar Type')
+      .contains('| Property          | Type      | Required |')
+      .contains('-   defined in: [Complete JSON Schema]');
+  });
+
+  it('Skips the expected properties', () => {
+    const builder = build({ skipproperties: ['typesection', 'definedinfact', 'proptable'] });
+    const results = builder(schemas);
+
+    assertMarkdown(results.complete)
+      .doesNotContain('### bar Type')
+      .doesNotContain('| Property          | Type      | Required |')
+      .doesNotContain('-   defined in: [Complete JSON Schema]');
+  });
+});
