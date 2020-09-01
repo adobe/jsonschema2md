@@ -1,3 +1,10 @@
+# [4.2.0](https://github.com/adobe/jsonschema2md/compare/v4.1.6...v4.2.0) (2020-09-01)
+
+
+### Features
+
+* **markdownbuilder:** create an option to skip any property in markdown [#243](https://github.com/adobe/jsonschema2md/issues/243) ([56b7a2f](https://github.com/adobe/jsonschema2md/commit/56b7a2f))
+
 ## [4.1.6](https://github.com/adobe/jsonschema2md/compare/v4.1.5...v4.1.6) (2020-07-31)
 
 
