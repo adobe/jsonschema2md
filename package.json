@@ -51,7 +51,7 @@
     "lint-staged": "^9.2.1",
     "mocha": "^6.2.2",
     "nyc": "^14.1.1",
-    "semantic-release": "^15.13.20",
+    "semantic-release": "^17.2.3",
     "unist-util-select": "^3.0.0"
   },
   "engines": {
