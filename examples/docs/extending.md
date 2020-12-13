@@ -17,9 +17,9 @@ This is an extending schema. It pulls `definitions` from other schemas.
 
 all of
 
--   [Untitled undefined type in Extending](extending-allof-0.md "check type definition")
--   [Untitled undefined type in Extending](definitions-definitions-myid.md "check type definition")
--   [Untitled undefined type in Extending](extending-allof-2.md "check type definition")
+-   [Untitled undefined type in Extending](extensible-definitions-second.md "check type definition")
+-   [MyID](definitions-definitions-myid.md "check type definition")
+-   [Untitled object in Extending](extending-definitions-third.md "check type definition")
 
 # Extending Definitions
 
@@ -31,9 +31,9 @@ Reference this group by using
 {"$ref":"https://example.com/schemas/extending#/definitions/third"}
 ```
 
-| Property    | Type     | Required | Nullable       | Defined by                                                                                                                            |
-| :---------- | -------- | -------- | -------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
-| [baz](#baz) | `string` | Optional | cannot be null | [Extending](deepextending-allof-2-properties-baaaz.md "https&#x3A;//example.com/schemas/extending#/definitions/third/properties/baz") |
+| Property    | Type     | Required | Nullable       | Defined by                                                                                                                                  |
+| :---------- | -------- | -------- | -------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| [baz](#baz) | `string` | Optional | cannot be null | [Extending](extending-definitions-third-properties-baaaz.md "https&#x3A;//example.com/schemas/extending#/definitions/third/properties/baz") |
 
 ### baz
 
@@ -43,13 +43,13 @@ This property has a unique name to demonstrate it's uniqueness.
 `baz`
 
 -   is optional
--   Type: `string` ([BAAAZ!](deepextending-allof-2-properties-baaaz.md))
+-   Type: `string` ([BAAAZ!](extending-definitions-third-properties-baaaz.md))
 -   cannot be null
--   defined in: [Extending](deepextending-allof-2-properties-baaaz.md "https&#x3A;//example.com/schemas/extending#/definitions/third/properties/baz")
+-   defined in: [Extending](extending-definitions-third-properties-baaaz.md "https&#x3A;//example.com/schemas/extending#/definitions/third/properties/baz")
 
 #### baz Type
 
-`string` ([BAAAZ!](deepextending-allof-2-properties-baaaz.md))
+`string` ([BAAAZ!](extending-definitions-third-properties-baaaz.md))
 
 #### baz Examples
 

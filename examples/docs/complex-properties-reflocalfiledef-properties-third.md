@@ -1,19 +1,19 @@
-# Untitled object in Extending Schema
+# Untitled undefined type in Complex References Schema
 
 ```txt
-https://example.com/schemas/extending#/allOf/2
+https://example.com/schemas/complex#/properties/reflocalfiledef/properties/third
 ```
 
 
 
 
-| Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                   |
-| :------------------ | ---------- | -------------- | ------------ | :---------------- | --------------------- | ------------------- | -------------------------------------------------------------------------------------------- |
-| Can be instantiated | No         | Unknown status | No           | Forbidden         | Allowed               | none                | [extending.schema.json\*](../generated-schemas/extending.schema.json "open original schema") |
+| Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                               |
+| :------------------ | ---------- | -------------- | ------------ | :---------------- | --------------------- | ------------------- | ---------------------------------------------------------------------------------------- |
+| Can be instantiated | No         | Unknown status | No           | Forbidden         | Allowed               | none                | [complex.schema.json\*](../generated-schemas/complex.schema.json "open original schema") |
 
-## 2 Type
+## third Type
 
-`object` ([Details](extending-definitions-third.md))
+unknown
 
 # undefined Properties
 

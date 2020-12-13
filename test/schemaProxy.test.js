@@ -203,6 +203,8 @@ describe('Testing Schema Proxy', () => {
     assert.deepEqual(schemas[2].title, 'Complex References');
     assert.equal(schemas[2].properties.refnamed.title, 'Simple');
     assert.equal(schemas[2].properties.refrefed.title, 'Simple');
+    assert.equal(schemas[2].properties.reflocalfile.title, 'Simple');
+    assert.equal(schemas[2].properties.reflocalfiledef.properties.third.properties.baz.title, 'BAAAZ!');
 
     assert.equal(schemas[3].allOf[2].properties.bar.type, 'string');
 

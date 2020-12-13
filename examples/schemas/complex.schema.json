@@ -57,6 +57,23 @@
       "version": "1.0.0",
       "testProperty": "test"
     },
+    "reflocalfile": {
+      "$ref": "simple.schema.json#",
+      "version": "1.0.0",
+      "testProperty": "test"
+    },
+    "reflocalfiledef": {
+      "type": "object",
+      "version": "1.0.0",
+      "testProperty": "test",
+      "properties": {
+        "third": { 
+          "$ref": "file://extending.schema.json#/definitions/third",
+          "version": "1.0.0",
+          "testProperty": "test"
+        }
+      }
+    },
     "or": {
       "description": "String or number…",
       "anyOf": [

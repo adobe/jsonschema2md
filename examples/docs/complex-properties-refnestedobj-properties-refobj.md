@@ -17,9 +17,9 @@ https://example.com/schemas/complex#/properties/refnestedobj/properties/refobj
 
 # undefined Properties
 
-| Property    | Type     | Required | Nullable       | Defined by                                                                                                                                                                                       |
-| :---------- | -------- | -------- | -------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [foo](#foo) | `object` | Optional | cannot be null | [Complex References](complex-properties-refnestedobj-properties-refobj-properties-simple.md "https&#x3A;//example.com/schemas/simple#/properties/refnestedobj/properties/refobj/properties/foo") |
+| Property    | Type     | Required | Nullable       | Defined by                                                                                                                          |
+| :---------- | -------- | -------- | -------------- | :---------------------------------------------------------------------------------------------------------------------------------- |
+| [foo](#foo) | `object` | Optional | cannot be null | [Complex References](simple.md "https&#x3A;//example.com/schemas/simple#/properties/refnestedobj/properties/refobj/properties/foo") |
 
 ## foo
 
@@ -29,10 +29,10 @@ This is a _very_ simple example of a JSON schema. There is only one property.
 `foo`
 
 -   is optional
--   Type: `object` ([Simple](complex-properties-refnestedobj-properties-refobj-properties-simple.md))
+-   Type: `object` ([Simple](simple.md))
 -   cannot be null
--   defined in: [Complex References](complex-properties-refnestedobj-properties-refobj-properties-simple.md "https&#x3A;//example.com/schemas/simple#/properties/refnestedobj/properties/refobj/properties/foo")
+-   defined in: [Complex References](simple.md "https&#x3A;//example.com/schemas/simple#/properties/refnestedobj/properties/refobj/properties/foo")
 
 ### foo Type
 
-`object` ([Simple](complex-properties-refnestedobj-properties-refobj-properties-simple.md))
+`object` ([Simple](simple.md))
