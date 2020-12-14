@@ -1,0 +1,3 @@
+{
+  "extends": ["github>adobe/helix-shared"]
+}
