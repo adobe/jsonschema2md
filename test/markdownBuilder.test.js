@@ -73,7 +73,7 @@ describe('Testing Markdown Builder: nullable', () => {
 
   it('Nullable Array Type Schema looks OK', () => {
     assertMarkdown(results.array)
-      .fuzzy`| [sampleProp](#sampleProp) | \`string\` | Required | can be null |`;
+      .fuzzy`| [sampleProp](#sampleprop) | \`string\` | Required | can be null`;
   });
 });
 
