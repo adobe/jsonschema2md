@@ -17,19 +17,21 @@ This is an example schema that uses types defined in other schemas.
 
 # Complex References Properties
 
-| Property                      | Type      | Required | Nullable       | Defined by                                                                                                                                                  |
-| :---------------------------- | --------- | -------- | -------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [refabstract](#refabstract)   | `object`  | Required | cannot be null | [Complex References](abstract-definitions-first.md "https&#x3A;//example.com/schemas/complex#/properties/refabstract")                                      |
-| [refnamed](#refnamed)         | `object`  | Optional | cannot be null | [Complex References](complex-properties-refnestedobj-properties-refobj-properties-simple.md "https&#x3A;//example.com/schemas/simple#/properties/refnamed") |
-| [refrefed](#refrefed)         | `object`  | Optional | cannot be null | [Complex References](complex-properties-refnestedobj-properties-refobj-properties-simple.md "https&#x3A;//example.com/schemas/simple#/properties/refrefed") |
-| [refobj](#refobj)             | `object`  | Optional | cannot be null | [Complex References](complex-properties-refobj.md "https&#x3A;//example.com/schemas/complex#/properties/refobj")                                            |
-| [refnestedobj](#refnestedobj) | `object`  | Optional | cannot be null | [Complex References](complex-properties-refnestedobj.md "https&#x3A;//example.com/schemas/complex#/properties/refnestedobj")                                |
-| [or](#or)                     | Merged    | Optional | cannot be null | [Complex References](complex-properties-or.md "https&#x3A;//example.com/schemas/complex#/properties/or")                                                    |
-| [and](#and)                   | Merged    | Optional | cannot be null | [Complex References](complex-properties-and.md "https&#x3A;//example.com/schemas/complex#/properties/and")                                                  |
-| [xor](#xor)                   | Merged    | Optional | cannot be null | [Complex References](complex-properties-xor.md "https&#x3A;//example.com/schemas/complex#/properties/xor")                                                  |
-| `int.*`                       | `integer` | Optional | cannot be null | [Complex References](complex-patternproperties-int.md "https&#x3A;//example.com/schemas/complex#/patternProperties/int.\*")                                 |
-| `str.*`                       | `string`  | Optional | cannot be null | [Complex References](complex-patternproperties-str.md "https&#x3A;//example.com/schemas/complex#/patternProperties/str.\*")                                 |
-| Additional Properties         | `boolean` | Optional | cannot be null | [Complex References](complex-additionalproperties.md "https&#x3A;//example.com/schemas/complex#/additionalProperties")                                      |
+| Property                            | Type      | Required | Nullable       | Defined by                                                                                                                         |
+| :---------------------------------- | --------- | -------- | -------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+| [refabstract](#refabstract)         | `object`  | Required | cannot be null | [Complex References](abstract-definitions-first.md "https&#x3A;//example.com/schemas/complex#/properties/refabstract")             |
+| [refnamed](#refnamed)               | `object`  | Optional | cannot be null | [Complex References](complex-properties-simple.md "https&#x3A;//example.com/schemas/simple#/properties/refnamed")                  |
+| [refrefed](#refrefed)               | `object`  | Optional | cannot be null | [Complex References](complex-properties-simple.md "https&#x3A;//example.com/schemas/simple#/properties/refrefed")                  |
+| [refobj](#refobj)                   | `object`  | Optional | cannot be null | [Complex References](complex-properties-refobj.md "https&#x3A;//example.com/schemas/complex#/properties/refobj")                   |
+| [refnestedobj](#refnestedobj)       | `object`  | Optional | cannot be null | [Complex References](complex-properties-refnestedobj.md "https&#x3A;//example.com/schemas/complex#/properties/refnestedobj")       |
+| [reflocalfile](#reflocalfile)       | `object`  | Optional | cannot be null | [Complex References](simple.md "https&#x3A;//example.com/schemas/simple#/properties/reflocalfile")                                 |
+| [reflocalfiledef](#reflocalfiledef) | `object`  | Optional | cannot be null | [Complex References](complex-properties-reflocalfiledef.md "https&#x3A;//example.com/schemas/complex#/properties/reflocalfiledef") |
+| [or](#or)                           | Merged    | Optional | cannot be null | [Complex References](complex-properties-or.md "https&#x3A;//example.com/schemas/complex#/properties/or")                           |
+| [and](#and)                         | Merged    | Optional | cannot be null | [Complex References](complex-properties-and.md "https&#x3A;//example.com/schemas/complex#/properties/and")                         |
+| [xor](#xor)                         | Merged    | Optional | cannot be null | [Complex References](complex-properties-xor.md "https&#x3A;//example.com/schemas/complex#/properties/xor")                         |
+| `int.*`                             | `integer` | Optional | cannot be null | [Complex References](complex-patternproperties-int.md "https&#x3A;//example.com/schemas/complex#/patternProperties/int.\*")        |
+| `str.*`                             | `string`  | Optional | cannot be null | [Complex References](complex-patternproperties-str.md "https&#x3A;//example.com/schemas/complex#/patternProperties/str.\*")        |
+| Additional Properties               | `boolean` | Optional | cannot be null | [Complex References](complex-additionalproperties.md "https&#x3A;//example.com/schemas/complex#/additionalProperties")             |
 
 ## refabstract
 
@@ -55,13 +57,13 @@ This is a _very_ simple example of a JSON schema. There is only one property.
 `refnamed`
 
 -   is optional
--   Type: `object` ([Simple](complex-properties-refnestedobj-properties-refobj-properties-simple.md))
+-   Type: `object` ([Simple](simple.md))
 -   cannot be null
--   defined in: [Complex References](complex-properties-refnestedobj-properties-refobj-properties-simple.md "https&#x3A;//example.com/schemas/simple#/properties/refnamed")
+-   defined in: [Complex References](simple.md "https&#x3A;//example.com/schemas/simple#/properties/refnamed")
 
 ### refnamed Type
 
-`object` ([Simple](complex-properties-refnestedobj-properties-refobj-properties-simple.md))
+`object` ([Simple](simple.md))
 
 ## refrefed
 
@@ -71,13 +73,13 @@ This is a _very_ simple example of a JSON schema. There is only one property.
 `refrefed`
 
 -   is optional
--   Type: `object` ([Simple](complex-properties-refnestedobj-properties-refobj-properties-simple.md))
+-   Type: `object` ([Simple](simple.md))
 -   cannot be null
--   defined in: [Complex References](complex-properties-refnestedobj-properties-refobj-properties-simple.md "https&#x3A;//example.com/schemas/simple#/properties/refrefed")
+-   defined in: [Complex References](simple.md "https&#x3A;//example.com/schemas/simple#/properties/refrefed")
 
 ### refrefed Type
 
-`object` ([Simple](complex-properties-refnestedobj-properties-refobj-properties-simple.md))
+`object` ([Simple](simple.md))
 
 ## refobj
 
@@ -110,6 +112,38 @@ This is a _very_ simple example of a JSON schema. There is only one property.
 ### refnestedobj Type
 
 `object` ([Details](complex-properties-refnestedobj.md))
+
+## reflocalfile
+
+This is a _very_ simple example of a JSON schema. There is only one property.
+
+
+`reflocalfile`
+
+-   is optional
+-   Type: `object` ([Simple](simple.md))
+-   cannot be null
+-   defined in: [Complex References](simple.md "https&#x3A;//example.com/schemas/simple#/properties/reflocalfile")
+
+### reflocalfile Type
+
+`object` ([Simple](simple.md))
+
+## reflocalfiledef
+
+
+
+
+`reflocalfiledef`
+
+-   is optional
+-   Type: `object` ([Details](complex-properties-reflocalfiledef.md))
+-   cannot be null
+-   defined in: [Complex References](complex-properties-reflocalfiledef.md "https&#x3A;//example.com/schemas/complex#/properties/reflocalfiledef")
+
+### reflocalfiledef Type
+
+`object` ([Details](complex-properties-reflocalfiledef.md))
 
 ## or
 

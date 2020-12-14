@@ -17,6 +17,7 @@
     ],
     "definitions": {
         "third": {
+            "type": "object",
             "properties": {
                 "baz": {
                     "type": "string",
