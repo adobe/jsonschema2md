@@ -81,9 +81,3 @@ workflows:
   build_test_deploy:
     jobs:
       - build
-      - publish:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
