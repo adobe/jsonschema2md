@@ -1,3 +1,10 @@
+## [4.2.2](https://github.com/adobe/jsonschema2md/compare/v4.2.1...v4.2.2) (2020-12-14)
+
+
+### Bug Fixes
+
+* **schemaproxy.js:** fix resolving $refs that are file references ([c6adf01](https://github.com/adobe/jsonschema2md/commit/c6adf012c5d17bfb5507a6345dc3153a7d588894)), closes [#92](https://github.com/adobe/jsonschema2md/issues/92)
+
 ## [4.2.1](https://github.com/adobe/jsonschema2md/compare/v4.2.0...v4.2.1) (2020-10-21)
 
 
