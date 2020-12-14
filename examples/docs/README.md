@@ -30,18 +30,20 @@
 
 -   [Enumerated (Nested)](./enums-properties-enumerated-nested.md "This is an example schema with examples for properties of nested objects with enum values") – `https://example.com/schemas/enums#/properties/nested`
 -   [Simple](./complex-properties-simple.md "This is a very simple example of a JSON schema") – `https://example.com/schemas/simple#/properties/refnamed`
--   [Simple](./complex-properties-simple-1.md "This is a very simple example of a JSON schema") – `https://example.com/schemas/simple#/properties/refrefed`
--   [Simple](./complex-properties-refobj-properties-simple.md "This is a very simple example of a JSON schema") – `https://example.com/schemas/simple#/properties/refobj/properties/foo`
--   [Simple](./complex-properties-refnestedobj-properties-refobj-properties-simple.md "This is a very simple example of a JSON schema") – `https://example.com/schemas/simple#/properties/refnestedobj/properties/refobj/properties/foo`
 -   [Untitled object in Abstract](./abstract-definitions-first.md) – `https://example.com/schemas/abstract#/definitions/first`
 -   [Untitled object in Abstract](./abstract-definitions-second.md) – `https://example.com/schemas/abstract#/definitions/second`
 -   [Untitled object in Arrays](./arrays-properties-objectlist-items.md) – `https://example.com/schemas/arrays#/properties/objectlist/items`
 -   [Untitled object in Arrays](./arrays-properties-jointypelist-items-oneof-0.md "A simple string") – `https://example.com/schemas/arrays#/properties/JoinTypelist/items/oneOf/0`
 -   [Untitled object in Arrays](./arrays-properties-jointypelist-items-oneof-1.md "Another simple string") – `https://example.com/schemas/arrays#/properties/JoinTypelist/items/oneOf/1`
--   [Untitled object in Complex References](./complex-properties-refabstract.md) – `https://example.com/schemas/complex#/properties/refabstract`
--   [Untitled object in Complex References](./complex-properties-refnestedobj-properties-refobj.md) – `https://example.com/schemas/complex#/properties/refnestedobj/properties/refobj`
 -   [Untitled object in Complex References](./complex-properties-refobj.md) – `https://example.com/schemas/complex#/properties/refobj`
 -   [Untitled object in Complex References](./complex-properties-refnestedobj.md) – `https://example.com/schemas/complex#/properties/refnestedobj`
+-   [Untitled object in Complex References](./complex-properties-refnestedobj-properties-refobj.md) – `https://example.com/schemas/complex#/properties/refnestedobj/properties/refobj`
+-   [Untitled object in Complex References](./complex-properties-reflocalfiledef.md) – `https://example.com/schemas/complex#/properties/reflocalfiledef`
+-   [Untitled object in Complex References](./complex-properties-refabstract.md) – `https://example.com/schemas/complex#/properties/refabstract`
+-   [Untitled object in Complex References](./complex-properties-reflocalfiledef-properties-third.md) – `https://example.com/schemas/complex#/properties/reflocalfiledef/properties/third`
+-   [Untitled object in Deeply Extending](./deepextending-allof-2.md) – `https://example.com/schemas/deepextending#/allOf/2`
+-   [Untitled object in Extending](./extending-definitions-third.md) – `https://example.com/schemas/extending#/definitions/third`
+-   [Untitled object in Extending](./extending-allof-2.md) – `https://example.com/schemas/extending#/allOf/2`
 -   [Untitled object in Join Types](./join-oneof-0-not-oneof-0.md "A simple string") – `https://example.com/schemas/join#/oneOf/0/not/oneOf/0`
 -   [Untitled object in Join Types](./join-oneof-0-not-oneof-1.md "Another simple string") – `https://example.com/schemas/join#/oneOf/0/not/oneOf/1`
 -   [Untitled object in Join Types](./join-oneof-1-allof-0.md "A simple string") – `https://example.com/schemas/join#/oneOf/1/allOf/0`

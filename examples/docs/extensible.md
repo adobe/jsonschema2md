@@ -59,9 +59,9 @@ Reference this group by using
 {"$ref":"https://example.com/schemas/extensible#/definitions/second"}
 ```
 
-| Property    | Type     | Required | Nullable       | Defined by                                                                                                                             |
-| :---------- | -------- | -------- | -------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
-| [bar](#bar) | `string` | Optional | cannot be null | [Extensible](deepextending-allof-0-properties-bar.md "https&#x3A;//example.com/schemas/extensible#/definitions/second/properties/bar") |
+| Property    | Type     | Required | Nullable       | Defined by                                                                                                                                     |
+| :---------- | -------- | -------- | -------------- | :--------------------------------------------------------------------------------------------------------------------------------------------- |
+| [bar](#bar) | `string` | Optional | cannot be null | [Extensible](extensible-definitions-second-properties-bar.md "https&#x3A;//example.com/schemas/extensible#/definitions/second/properties/bar") |
 
 ### bar
 
@@ -73,7 +73,7 @@ A horse walks into it.
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [Extensible](deepextending-allof-0-properties-bar.md "https&#x3A;//example.com/schemas/extensible#/definitions/second/properties/bar")
+-   defined in: [Extensible](extensible-definitions-second-properties-bar.md "https&#x3A;//example.com/schemas/extensible#/definitions/second/properties/bar")
 
 #### bar Type
 

@@ -19,7 +19,7 @@ all of
 
 -   [Untitled undefined type in Deeply Extending](deepextending-allof-0.md "check type definition")
 -   [Untitled undefined type in Deeply Extending](deepextending-allof-1.md "check type definition")
--   [Untitled undefined type in Deeply Extending](deepextending-allof-2.md "check type definition")
+-   [Untitled object in Deeply Extending](extending-definitions-third.md "check type definition")
 -   [Untitled undefined type in Deeply Extending](deepextending-allof-3.md "check type definition")
 
 # Deeply Extending Definitions

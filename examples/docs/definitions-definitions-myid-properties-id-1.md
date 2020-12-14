@@ -1,20 +1,20 @@
-# Untitled string in Simple Types Schema
+# Untitled string in Definitions Schema
 
 ```txt
-https://example.com/schemas/simpletypes#/properties/string_uri
+https://example.com/schemas/definitions#/definitions/myid/properties/@id
 ```
 
-A URI.
+An `id` with an `@` in front of it. The `@` stands for "dot com"
 
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                       |
 | :------------------ | ---------- | -------------- | ----------------------- | :---------------- | --------------------- | ------------------- | ------------------------------------------------------------------------------------------------ |
-| Can be instantiated | No         | Unknown status | Unknown identifiability | Forbidden         | Allowed               | none                | [simpletypes.schema.json\*](../generated-schemas/simpletypes.schema.json "open original schema") |
+| Can be instantiated | No         | Unknown status | Unknown identifiability | Forbidden         | Allowed               | none                | [definitions.schema.json\*](../generated-schemas/definitions.schema.json "open original schema") |
 
-## string_uri Type
+## @id Type
 
 `string`
 
-## string_uri Constraints
+## @id Constraints
 
 **URI**: the string must be a URI, according to [RFC 3986](https://tools.ietf.org/html/rfc3986 "check the specification")

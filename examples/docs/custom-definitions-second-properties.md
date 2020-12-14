@@ -1,7 +1,7 @@
 # Untitled undefined type in Custom Schema
 
 ```txt
-https://example.com/schemas/custom#/allOf/2/properties
+https://example.com/schemas/custom#/definitions/second/properties
 ```
 
 

@@ -17,10 +17,10 @@ https://example.com/schemas/complex#/properties/refabstract
 
 # undefined Properties
 
-| Property          | Type      | Required | Nullable       | Defined by                                                                                                                                                 |
-| :---------------- | --------- | -------- | -------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [foo](#foo)       | `string`  | Optional | cannot be null | [Complex References](abstract-definitions-first-properties-foo.md "https&#x3A;//example.com/schemas/complex#/properties/refabstract/properties/foo")       |
-| [nonfoo](#nonfoo) | `boolean` | Optional | cannot be null | [Complex References](abstract-definitions-first-properties-nonfoo.md "https&#x3A;//example.com/schemas/complex#/properties/refabstract/properties/nonfoo") |
+| Property          | Type      | Required | Nullable       | Defined by                                                                                                                                   |
+| :---------------- | --------- | -------- | -------------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
+| [foo](#foo)       | `string`  | Optional | cannot be null | [Abstract](abstract-definitions-first-properties-foo.md "https&#x3A;//example.com/schemas/abstract#/definitions/first/properties/foo")       |
+| [nonfoo](#nonfoo) | `boolean` | Optional | cannot be null | [Abstract](abstract-definitions-first-properties-nonfoo.md "https&#x3A;//example.com/schemas/abstract#/definitions/first/properties/nonfoo") |
 
 ## foo
 
@@ -32,7 +32,7 @@ A unique identifier given to every addressable thing.
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [Complex References](abstract-definitions-first-properties-foo.md "https&#x3A;//example.com/schemas/complex#/properties/refabstract/properties/foo")
+-   defined in: [Abstract](abstract-definitions-first-properties-foo.md "https&#x3A;//example.com/schemas/abstract#/definitions/first/properties/foo")
 
 ### foo Type
 
@@ -48,7 +48,7 @@ This is not foo.
 -   is optional
 -   Type: `boolean`
 -   cannot be null
--   defined in: [Complex References](abstract-definitions-first-properties-nonfoo.md "https&#x3A;//example.com/schemas/complex#/properties/refabstract/properties/nonfoo")
+-   defined in: [Abstract](abstract-definitions-first-properties-nonfoo.md "https&#x3A;//example.com/schemas/abstract#/definitions/first/properties/nonfoo")
 
 ### nonfoo Type
 

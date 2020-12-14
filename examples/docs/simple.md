@@ -17,9 +17,9 @@ This is a _very_ simple example of a JSON schema. There is only one property.
 
 # Simple Properties
 
-| Property  | Type     | Required | Nullable       | Defined by                                                                                                                                              |
-| :-------- | -------- | -------- | -------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [id](#id) | `string` | Optional | cannot be null | [Simple](complex-properties-refnestedobj-properties-refobj-properties-simple-properties-id.md "https&#x3A;//example.com/schemas/simple#/properties/id") |
+| Property  | Type     | Required | Nullable       | Defined by                                                                                 |
+| :-------- | -------- | -------- | -------------- | :----------------------------------------------------------------------------------------- |
+| [id](#id) | `string` | Optional | cannot be null | [Simple](simple-properties-id.md "https&#x3A;//example.com/schemas/simple#/properties/id") |
 
 ## id
 
@@ -31,7 +31,7 @@ A unique identifier given to every addressable thing.
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [Simple](complex-properties-refnestedobj-properties-refobj-properties-simple-properties-id.md "https&#x3A;//example.com/schemas/simple#/properties/id")
+-   defined in: [Simple](simple-properties-id.md "https&#x3A;//example.com/schemas/simple#/properties/id")
 
 ### id Type
 
@@ -39,4 +39,4 @@ A unique identifier given to every addressable thing.
 
 ### id Constraints
 
-**URI**: the string must be a URI, according to [RFC 3986](https://tools.ietf.org/html/rfc4291 "check the specification")
+**URI**: the string must be a URI, according to [RFC 3986](https://tools.ietf.org/html/rfc3986 "check the specification")

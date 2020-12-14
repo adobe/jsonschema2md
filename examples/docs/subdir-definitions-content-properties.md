@@ -1,7 +1,7 @@
 # Untitled undefined type in Subdir Schema
 
 ```txt
-https://example.com/schemas/subdir/subdir#/allOf/0/properties
+https://example.com/schemas/subdir/subdir#/definitions/content/properties
 ```
 
 

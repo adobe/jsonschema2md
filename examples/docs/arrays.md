@@ -28,7 +28,7 @@ This is an example schema with examples for multiple array types and their const
 | [numlist](#numlist)               | `array` | Optional | cannot be null | [Arrays](arrays-properties-numlist.md "https&#x3A;//example.com/schemas/arrays#/properties/numlist")               |
 | [coordinatelist](#coordinatelist) | `array` | Optional | cannot be null | [Arrays](arrays-properties-coordinatelist.md "https&#x3A;//example.com/schemas/arrays#/properties/coordinatelist") |
 | [objectlist](#objectlist)         | `array` | Optional | cannot be null | [Arrays](arrays-properties-objectlist.md "https&#x3A;//example.com/schemas/arrays#/properties/objectlist")         |
-| [JoinTypelist](#JoinTypelist)     | `array` | Optional | cannot be null | [Arrays](arrays-properties-jointypelist.md "https&#x3A;//example.com/schemas/arrays#/properties/JoinTypelist")     |
+| [JoinTypelist](#jointypelist)     | `array` | Optional | cannot be null | [Arrays](arrays-properties-jointypelist.md "https&#x3A;//example.com/schemas/arrays#/properties/JoinTypelist")     |
 
 ## tuple
 

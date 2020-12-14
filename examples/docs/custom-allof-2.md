@@ -17,9 +17,9 @@ unknown
 
 # undefined Properties
 
-| Property    | Type     | Required | Nullable       | Defined by                                                                                                              |
-| :---------- | -------- | -------- | -------------- | :---------------------------------------------------------------------------------------------------------------------- |
-| [bar](#bar) | `string` | Optional | cannot be null | [Custom](custom-definitions-second-properties-bar.md "https&#x3A;//example.com/schemas/custom#/allOf/2/properties/bar") |
+| Property    | Type     | Required | Nullable       | Defined by                                                                                                                         |
+| :---------- | -------- | -------- | -------------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+| [bar](#bar) | `string` | Optional | cannot be null | [Custom](custom-definitions-second-properties-bar.md "https&#x3A;//example.com/schemas/custom#/definitions/second/properties/bar") |
 
 ## bar
 
@@ -31,7 +31,7 @@ A unique identifier given to every addressable thing.
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [Custom](custom-definitions-second-properties-bar.md "https&#x3A;//example.com/schemas/custom#/allOf/2/properties/bar")
+-   defined in: [Custom](custom-definitions-second-properties-bar.md "https&#x3A;//example.com/schemas/custom#/definitions/second/properties/bar")
 
 ### bar Type
 

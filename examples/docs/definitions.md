@@ -33,7 +33,7 @@ aks.
 
 all of
 
--   [Untitled undefined type in Definitions](definitions-allof-0.md "check type definition")
+-   [Untitled undefined type in Definitions](definitions-definitions-myid.md "check type definition")
 
 # Definitions Definitions
 
@@ -45,11 +45,11 @@ Reference this group by using
 {"$ref":"https://example.com/schemas/definitions#/definitions/myid"}
 ```
 
-| Property            | Type     | Required | Nullable       | Defined by                                                                                                                                    |
-| :------------------ | -------- | -------- | -------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- |
-| [id](#id)           | `string` | Optional | cannot be null | [Definitions](deepextending-allof-1-properties-id.md "https&#x3A;//example.com/schemas/definitions#/definitions/myid/properties/id")          |
-| [@id](#@id)         | `string` | Required | cannot be null | [Definitions](deepextending-allof-1-properties-id-1.md "https&#x3A;//example.com/schemas/definitions#/definitions/myid/properties/@id")       |
-| [meta:id](#meta:id) | `string` | Optional | cannot be null | [Definitions](deepextending-allof-1-properties-metaid.md "https&#x3A;//example.com/schemas/definitions#/definitions/myid/properties/meta:id") |
+| Property           | Type     | Required | Nullable       | Defined by                                                                                                                                           |
+| :----------------- | -------- | -------- | -------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [id](#id)          | `string` | Optional | cannot be null | [Definitions](definitions-definitions-myid-properties-id.md "https&#x3A;//example.com/schemas/definitions#/definitions/myid/properties/id")          |
+| [@id](#id-1)       | `string` | Required | cannot be null | [Definitions](definitions-definitions-myid-properties-id-1.md "https&#x3A;//example.com/schemas/definitions#/definitions/myid/properties/@id")       |
+| [meta:id](#metaid) | `string` | Optional | cannot be null | [Definitions](definitions-definitions-myid-properties-metaid.md "https&#x3A;//example.com/schemas/definitions#/definitions/myid/properties/meta:id") |
 
 ### id
 
@@ -61,7 +61,7 @@ A unique identifier given to every addressable thing.
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [Definitions](deepextending-allof-1-properties-id.md "https&#x3A;//example.com/schemas/definitions#/definitions/myid/properties/id")
+-   defined in: [Definitions](definitions-definitions-myid-properties-id.md "https&#x3A;//example.com/schemas/definitions#/definitions/myid/properties/id")
 
 #### id Type
 
@@ -69,7 +69,7 @@ A unique identifier given to every addressable thing.
 
 #### id Constraints
 
-**URI reference**: the string must be a URI reference, according to [RFC 3986](https://tools.ietf.org/html/rfc4291 "check the specification")
+**URI reference**: the string must be a URI reference, according to [RFC 3986](https://tools.ietf.org/html/rfc3986 "check the specification")
 
 ### @id
 
@@ -81,7 +81,7 @@ An `id` with an `@` in front of it. The `@` stands for "dot com"
 -   is required
 -   Type: `string`
 -   cannot be null
--   defined in: [Definitions](deepextending-allof-1-properties-id-1.md "https&#x3A;//example.com/schemas/definitions#/definitions/myid/properties/@id")
+-   defined in: [Definitions](definitions-definitions-myid-properties-id-1.md "https&#x3A;//example.com/schemas/definitions#/definitions/myid/properties/@id")
 
 #### @id Type
 
@@ -89,7 +89,7 @@ An `id` with an `@` in front of it. The `@` stands for "dot com"
 
 #### @id Constraints
 
-**URI**: the string must be a URI, according to [RFC 3986](https://tools.ietf.org/html/rfc4291 "check the specification")
+**URI**: the string must be a URI, according to [RFC 3986](https://tools.ietf.org/html/rfc3986 "check the specification")
 
 ### meta:id
 
@@ -101,7 +101,7 @@ An about ids. It is meta. If you are confused, send an email to the address spec
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [Definitions](deepextending-allof-1-properties-metaid.md "https&#x3A;//example.com/schemas/definitions#/definitions/myid/properties/meta:id")
+-   defined in: [Definitions](definitions-definitions-myid-properties-metaid.md "https&#x3A;//example.com/schemas/definitions#/definitions/myid/properties/meta:id")
 
 #### meta:id Type
 

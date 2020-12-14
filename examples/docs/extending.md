@@ -18,7 +18,7 @@ This is an extending schema. It pulls `definitions` from other schemas.
 all of
 
 -   [Untitled undefined type in Extending](extensible-definitions-second.md "check type definition")
--   [MyID](definitions-definitions-myid.md "check type definition")
+-   [Untitled undefined type in Extending](definitions-definitions-myid.md "check type definition")
 -   [Untitled object in Extending](extending-definitions-third.md "check type definition")
 
 # Extending Definitions

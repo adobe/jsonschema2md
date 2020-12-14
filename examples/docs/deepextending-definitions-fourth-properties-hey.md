@@ -1,7 +1,7 @@
 # Untitled string in Deeply Extending Schema
 
 ```txt
-https://example.com/schemas/deepextending#/allOf/3/properties/hey
+https://example.com/schemas/deepextending#/definitions/fourth/properties/hey
 ```
 
 A unique identifier given to every addressable thing.

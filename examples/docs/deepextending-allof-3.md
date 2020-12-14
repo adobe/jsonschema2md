@@ -17,9 +17,9 @@ unknown
 
 # undefined Properties
 
-| Property    | Type     | Required | Nullable       | Defined by                                                                                                                                      |
-| :---------- | -------- | -------- | -------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
-| [hey](#hey) | `string` | Optional | cannot be null | [Deeply Extending](deepextending-definitions-fourth-properties-hey.md "https&#x3A;//example.com/schemas/deepextending#/allOf/3/properties/hey") |
+| Property    | Type     | Required | Nullable       | Defined by                                                                                                                                                 |
+| :---------- | -------- | -------- | -------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [hey](#hey) | `string` | Optional | cannot be null | [Deeply Extending](deepextending-definitions-fourth-properties-hey.md "https&#x3A;//example.com/schemas/deepextending#/definitions/fourth/properties/hey") |
 
 ## hey
 
@@ -31,7 +31,7 @@ A unique identifier given to every addressable thing.
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [Deeply Extending](deepextending-definitions-fourth-properties-hey.md "https&#x3A;//example.com/schemas/deepextending#/allOf/3/properties/hey")
+-   defined in: [Deeply Extending](deepextending-definitions-fourth-properties-hey.md "https&#x3A;//example.com/schemas/deepextending#/definitions/fourth/properties/hey")
 
 ### hey Type
 

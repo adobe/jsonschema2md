@@ -17,9 +17,9 @@ unknown
 
 # undefined Properties
 
-| Property    | Type     | Required | Nullable       | Defined by                                                                                                             |
-| :---------- | -------- | -------- | -------------- | :--------------------------------------------------------------------------------------------------------------------- |
-| [foo](#foo) | `string` | Optional | cannot be null | [Custom](custom-definitions-first-properties-foo.md "https&#x3A;//example.com/schemas/custom#/allOf/1/properties/foo") |
+| Property    | Type     | Required | Nullable       | Defined by                                                                                                                       |
+| :---------- | -------- | -------- | -------------- | :------------------------------------------------------------------------------------------------------------------------------- |
+| [foo](#foo) | `string` | Optional | cannot be null | [Custom](custom-definitions-first-properties-foo.md "https&#x3A;//example.com/schemas/custom#/definitions/first/properties/foo") |
 
 ## foo
 
@@ -31,7 +31,7 @@ A unique identifier given to every addressable thing.
 -   is optional
 -   Type: `string`
 -   cannot be null
--   defined in: [Custom](custom-definitions-first-properties-foo.md "https&#x3A;//example.com/schemas/custom#/allOf/1/properties/foo")
+-   defined in: [Custom](custom-definitions-first-properties-foo.md "https&#x3A;//example.com/schemas/custom#/definitions/first/properties/foo")
 
 ### foo Type
 

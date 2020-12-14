@@ -1,15 +1,15 @@
-# Untitled undefined type in Complex References Schema
+# Untitled undefined type in Abstract Schema
 
 ```txt
-https://example.com/schemas/complex#/properties/refabstract/properties
+https://example.com/schemas/abstract#/definitions/first/properties
 ```
 
 
 
 
-| Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                               |
-| :------------------ | ---------- | -------------- | ----------------------- | :---------------- | --------------------- | ------------------- | ---------------------------------------------------------------------------------------- |
-| Can be instantiated | No         | Unknown status | Unknown identifiability | Forbidden         | Allowed               | none                | [complex.schema.json\*](../generated-schemas/complex.schema.json "open original schema") |
+| Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                 |
+| :------------------ | ---------- | -------------- | ----------------------- | :---------------- | --------------------- | ------------------- | ------------------------------------------------------------------------------------------ |
+| Can be instantiated | No         | Unknown status | Unknown identifiability | Forbidden         | Allowed               | none                | [abstract.schema.json\*](../generated-schemas/abstract.schema.json "open original schema") |
 
 ## properties Type
 

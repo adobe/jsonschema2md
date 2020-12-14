@@ -1,7 +1,7 @@
 # Untitled undefined type in Deeply Extending Schema
 
 ```txt
-https://example.com/schemas/deepextending#/allOf/3/properties
+https://example.com/schemas/deepextending#/definitions/fourth/properties
 ```
 
 
