@@ -5,6 +5,16 @@
 
 * **deps:** bump semantic-release versions ([44cc702](https://github.com/adobe/jsonschema2md/commit/44cc70297ee393ead5c170b1daab7ea724cc5a2c))
 * **deps:** npm audit fix ([24a577e](https://github.com/adobe/jsonschema2md/commit/24a577ef7caa35523182710f17c7dfa9e2ccced3))
+* **deps:** update dependency @adobe/helix-log to v4.5.3 ([19f7ab4](https://github.com/adobe/jsonschema2md/commit/19f7ab42a3ca827f3627859ee675f77d80f7a092))
+* **schemaproxy.js:** fix resolving $refs that are file references ([c6adf01](https://github.com/adobe/jsonschema2md/commit/c6adf012c5d17bfb5507a6345dc3153a7d588894)), closes [#92](https://github.com/adobe/jsonschema2md/issues/92)
+
+## [4.2.2](https://github.com/adobe/jsonschema2md/compare/v4.2.1...v4.2.2) (2020-12-15)
+
+
+### Bug Fixes
+
+* **deps:** bump semantic-release versions ([44cc702](https://github.com/adobe/jsonschema2md/commit/44cc70297ee393ead5c170b1daab7ea724cc5a2c))
+* **deps:** npm audit fix ([24a577e](https://github.com/adobe/jsonschema2md/commit/24a577ef7caa35523182710f17c7dfa9e2ccced3))
 * **schemaproxy.js:** fix resolving $refs that are file references ([c6adf01](https://github.com/adobe/jsonschema2md/commit/c6adf012c5d17bfb5507a6345dc3153a7d588894)), closes [#92](https://github.com/adobe/jsonschema2md/issues/92)
 
 ## [4.2.2](https://github.com/adobe/jsonschema2md/compare/v4.2.1...v4.2.2) (2020-12-15)
