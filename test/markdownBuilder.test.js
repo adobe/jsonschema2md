@@ -73,7 +73,7 @@ describe('Testing Markdown Builder: nullable', () => {
 
   it('Nullable Array Type Schema looks OK', () => {
     assertMarkdown(results.array)
-      .fuzzy`| [sampleProp](#sampleProp) | \`string\` | Required | can be null |`;
+      .fuzzy`| [sampleProp](#sampleprop) | \`string\` | Required | can be null | [Type Array Repro](array-properties-sample-property.md "http&#x3A;//example.com/type-array-repro.json#/properties/sampleProp") |`;
   });
 });
 
@@ -92,8 +92,8 @@ describe('Testing Markdown Builder: title', () => {
   });
 
   it('Title Schema looks OK', () => {
-    assertMarkdown(results['meta-definitions-meta-properties'])
-      .fuzzy`properties Type`;
+    assertMarkdown(results['meta-definitions-meta-properties-title'])
+      .fuzzy`## title Type\n\n\`string\`\n`;
   });
 });
 
