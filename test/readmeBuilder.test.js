@@ -17,7 +17,6 @@ const { assertMarkdown, loadschemas } = require('./testUtils');
 const build = require('../lib/readmeBuilder');
 const { loader } = require('../lib/schemaProxy');
 
-
 describe('Testing Readme Builder', () => {
   it('Readme Builder is a function', () => {
     assert.equal(typeof build, 'function');

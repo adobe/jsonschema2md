@@ -57,7 +57,7 @@ ${inspect(node)}`);
       return tester;
     };
     tester.fuzzy = (expr) => {
-      const matches = expr.filter(line => result.indexOf(line) >= 0);
+      const matches = expr.filter((line) => result.indexOf(line) >= 0);
       if (matches.length < expr.length) {
         assert.equal(result, expr.join(''));
       }
@@ -74,7 +74,6 @@ async function loadschemas(dir) {
   const schemaloader = loader();
   const schemadir = path.resolve(__dirname, 'fixtures', dir);
   const schemas = await readdirp.promise(schemadir, { fileFilter: '*.schema.json' });
-
 
   return traverse(schemas
     .map(({ fullPath }) => schemaloader(

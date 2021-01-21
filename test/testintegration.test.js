@@ -49,14 +49,14 @@ describe('Integration Test', () => {
     }
   });
 
-  ['arrays', 'cyclic'].forEach(dir => it(`CLI processes ${dir} directory`, async () => {
+  ['arrays', 'cyclic'].forEach((dir) => it(`CLI processes ${dir} directory`, async () => {
     const res = await cli((`jsonschema2md -d test/fixtures/${dir} -o tmp -x tmp`).split(' '));
     console.log('done!', res);
     const readme = await fs.stat(path.resolve(__dirname, '..', 'tmp', 'README.md'));
     assert.ok(readme.isFile());
   }));
 
-  ['json-logic-js/schemas'].forEach(dir => it(`CLI processes ${dir} directory`, async () => {
+  ['json-logic-js/schemas'].forEach((dir) => it(`CLI processes ${dir} directory`, async () => {
     const res = await cli((`jsonschema2md -d node_modules/${dir} -o tmp -x tmp -e json`).split(' '));
     console.log('done!', res);
     const readme = await fs.stat(path.resolve(__dirname, '..', 'tmp', 'README.md'));
