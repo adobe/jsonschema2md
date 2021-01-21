@@ -15,6 +15,7 @@ const {
 } = require('mdast-builder');
 const unified = require('unified');
 const stringify = require('remark-stringify');
+const gfm = require('remark-gfm')
 const fs = require('fs-extra');
 const { report } = require('../lib/keywords');
 /* eslint-env mocha */
@@ -165,6 +166,7 @@ after('Generating Schema Coverage Report', () => {
   ]);
 
   const processor = unified()
+    .use(gfm)
     .use(stringify);
 
   const output = processor.stringify(mdast);
