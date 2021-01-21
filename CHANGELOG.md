@@ -1,3 +1,21 @@
+# [5.0.0](https://github.com/adobe/jsonschema2md/compare/v4.2.1...v5.0.0) (2021-01-21)
+
+
+### Bug Fixes
+
+* **deps:** bump semantic-release versions ([44cc702](https://github.com/adobe/jsonschema2md/commit/44cc70297ee393ead5c170b1daab7ea724cc5a2c))
+* **deps:** npm audit fix ([24a577e](https://github.com/adobe/jsonschema2md/commit/24a577ef7caa35523182710f17c7dfa9e2ccced3))
+* **deps:** update dependency @adobe/helix-log to v4.5.3 ([19f7ab4](https://github.com/adobe/jsonschema2md/commit/19f7ab42a3ca827f3627859ee675f77d80f7a092))
+* **deps:** update dependency js-yaml to v4 ([2dbca6f](https://github.com/adobe/jsonschema2md/commit/2dbca6ff7d29935449d237ce9e7bdbe1cb676778))
+* **schemaproxy.js:** fix resolving $refs that are file references ([c6adf01](https://github.com/adobe/jsonschema2md/commit/c6adf012c5d17bfb5507a6345dc3153a7d588894)), closes [#92](https://github.com/adobe/jsonschema2md/issues/92)
+* **traverseschema.js:** skip generating files for certain keywords in the schema ([fc50969](https://github.com/adobe/jsonschema2md/commit/fc50969426fd2ed0b55752f6c58d9246a22e309c))
+
+
+### BREAKING CHANGES
+
+* **traverseschema.js:** The extranious files, if they have some other value, will not be generated and
+there is no mechanism to continue to g
+
 ## [4.2.2](https://github.com/adobe/jsonschema2md/compare/v4.2.1...v4.2.2) (2021-01-21)
 
 
