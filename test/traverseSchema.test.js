@@ -70,8 +70,8 @@ describe('Testing Schema Traversal', () => {
     const proxied = loader()(example, 'example.schema.json');
     const schemas = traverse([proxied]);
 
-    assert.equal(schemas.length, 9);
-    assert.equal(schemas[8][filename], 'example.schema.json');
+    assert.equal(schemas.length, 8);
+    assert.equal(schemas[7][filename], 'example.schema.json');
   });
 
   it('Cyclic Schema Traversal generates a list', async () => {
@@ -87,7 +87,7 @@ describe('Testing Schema Traversal', () => {
     const schemas = traverse([proxiedone, proxiedtwo, proxiedthree]);
 
     assert.equal(schemas[0].$id, 'http://example.com/schemas/one');
-    assert.equal(schemas[4].$id, 'http://example.com/schemas/three');
-    assert.equal(schemas[8].$id, 'http://example.com/schemas/two');
+    assert.equal(schemas[3].$id, 'http://example.com/schemas/three');
+    assert.equal(schemas[6].$id, 'http://example.com/schemas/two');
   });
 });

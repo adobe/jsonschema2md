@@ -138,10 +138,11 @@ after('Generating Schema Coverage Report', () => {
 
   const sections = Object.entries(allkeywords).map(([name, keywords]) => {
     const [label, url] = name.split(', ');
-    const coverage = Math.floor((
-      100
+    const coverage = Math.floor(
+      (100
       * keywords.filter((keyword) => report().has(keyword)).length)
-      / keywords.length);
+      / keywords.length,
+    );
     return [
       heading(2, text(label)),
       paragraph([text('Coverage for '), link(url, '', text(label)), text(` is ${coverage}%.`)]),
