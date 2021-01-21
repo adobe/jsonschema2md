@@ -26,6 +26,7 @@
     "mdast-builder": "1.1.1",
     "mdast-util-to-string": "2.0.0",
     "readdirp": "3.5.0",
+    "remark-gfm": "^1.0.0",
     "remark-parse": "9.0.0",
     "remark-stringify": "9.0.1",
     "unified": "9.2.0",
