@@ -84,7 +84,6 @@ describe('Testing Schema Traversal', () => {
     const proxiedtwo = myloader(two, path.resolve(__dirname, 'fixtures', 'cyclic', 'two.schema.json'));
     const proxiedthree = myloader(three, path.resolve(__dirname, 'fixtures', 'cyclic', 'three.schema.json'));
 
-
     const schemas = traverse([proxiedone, proxiedtwo, proxiedthree]);
 
     assert.equal(schemas[0].$id, 'http://example.com/schemas/one');

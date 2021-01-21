@@ -15,7 +15,7 @@ const {
 } = require('mdast-builder');
 const unified = require('unified');
 const stringify = require('remark-stringify');
-const gfm = require('remark-gfm')
+const gfm = require('remark-gfm');
 const fs = require('fs-extra');
 const { report } = require('../lib/keywords');
 /* eslint-env mocha */
@@ -132,7 +132,7 @@ after('Generating Schema Coverage Report', () => {
     .values(allkeywords)
     .reduce((p, v) => [...p, ...v], [])));
   const allkeywordssupported = allkeywordsplain
-    .filter(keyword => report().has(keyword));
+    .filter((keyword) => report().has(keyword));
 
   const overall = Math.floor(100 * allkeywordssupported.length / allkeywordsplain.length);
 
@@ -140,7 +140,7 @@ after('Generating Schema Coverage Report', () => {
     const [label, url] = name.split(', ');
     const coverage = Math.floor(
       100
-      * keywords.filter(keyword => report().has(keyword)).length
+      * keywords.filter((keyword) => report().has(keyword)).length
       / keywords.length,
     );
     return [
@@ -151,7 +151,7 @@ after('Generating Schema Coverage Report', () => {
           tableCell(text('Keyword')),
           tableCell(text('Supported')),
         ]),
-        ...keywords.sort().map(keyword => tableRow([
+        ...keywords.sort().map((keyword) => tableRow([
           tableCell(inlineCode(keyword)),
           tableCell(text(report().has(keyword) ? 'Yes' : 'No')),
         ])),

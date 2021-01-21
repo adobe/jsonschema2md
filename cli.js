@@ -13,5 +13,4 @@
 
 const main = require('./lib/index');
 
-
 main(process.argv);

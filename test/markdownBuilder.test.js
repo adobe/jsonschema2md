@@ -345,7 +345,6 @@ describe('Testing Markdown Builder: stringformats', () => {
   });
 });
 
-
 describe('Testing Markdown Builder: readme-1', () => {
   let results;
 
