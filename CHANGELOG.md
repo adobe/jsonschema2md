@@ -1,3 +1,10 @@
+## [5.0.2](https://github.com/adobe/jsonschema2md/compare/v5.0.1...v5.0.2) (2021-01-30)
+
+
+### Bug Fixes
+
+* **lib/markdownBuilder.js:** use simpletitle for makeproperties ([d2100c6](https://github.com/adobe/jsonschema2md/commit/d2100c61ccc76307f839179a11931ca99d2e79bd))
+
 ## [5.0.1](https://github.com/adobe/jsonschema2md/compare/v5.0.0...v5.0.1) (2021-01-25)
 
 
