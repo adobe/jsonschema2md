@@ -40,7 +40,7 @@
     "codecov": "3.8.1",
     "commitizen": "4.2.3",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "7.19.0",
+    "eslint": "7.20.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-plugin-header": "3.1.1",
     "eslint-plugin-import": "2.22.1",
@@ -50,9 +50,9 @@
     "i18n-tag-schema": "2.5.0",
     "json-logic-js": "git://github.com/axa-ch/cyclic-schemas-test.git",
     "lint-staged": "10.5.4",
-    "mocha": "8.2.1",
+    "mocha": "8.3.0",
     "nyc": "15.1.0",
-    "semantic-release": "17.3.7",
+    "semantic-release": "17.3.9",
     "unist-util-select": "3.0.4"
   },
   "engines": {
