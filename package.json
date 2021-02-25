@@ -17,7 +17,7 @@
     "test-ci": "nyc --reporter=text --reporter=lcov --check-coverage --branches 80 --statements 95 --lines 95 mocha --reporter xunit --reporter-options output=./junit/test-results.xml; codecov"
   },
   "dependencies": {
-    "@adobe/helix-log": "4.5.3",
+    "@adobe/helix-log": "5.0.0",
     "es2015-i18n-tag": "1.6.1",
     "ferrum": "1.7.0",
     "fs-extra": "9.1.0",
