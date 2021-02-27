@@ -29,7 +29,7 @@
     "remark-gfm": "^1.0.0",
     "remark-parse": "9.0.0",
     "remark-stringify": "9.0.1",
-    "unified": "9.2.0",
+    "unified": "9.2.1",
     "unist-util-inspect": "6.0.1",
     "yargs": "16.2.0"
   },
@@ -52,7 +52,7 @@
     "lint-staged": "10.5.4",
     "mocha": "8.3.0",
     "nyc": "15.1.0",
-    "semantic-release": "17.3.9",
+    "semantic-release": "17.4.0",
     "unist-util-select": "3.0.4"
   },
   "engines": {
