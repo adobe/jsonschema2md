@@ -1,3 +1,10 @@
+## [5.0.4](https://github.com/adobe/jsonschema2md/compare/v5.0.3...v5.0.4) (2021-03-06)
+
+
+### Bug Fixes
+
+* **deps:** update external fixes ([d409140](https://github.com/adobe/jsonschema2md/commit/d4091408c019f40c5f40e2d46dd85aba7b6fc112))
+
 ## [5.0.3](https://github.com/adobe/jsonschema2md/compare/v5.0.2...v5.0.3) (2021-02-25)
 
 
