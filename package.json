@@ -19,7 +19,7 @@
   "dependencies": {
     "@adobe/helix-log": "5.0.0",
     "es2015-i18n-tag": "1.6.1",
-    "ferrum": "1.7.0",
+    "ferrum": "1.8.0",
     "fs-extra": "9.1.0",
     "github-slugger": "1.3.0",
     "js-yaml": "4.0.0",
@@ -50,9 +50,9 @@
     "i18n-tag-schema": "2.5.0",
     "json-logic-js": "git://github.com/axa-ch/cyclic-schemas-test.git",
     "lint-staged": "10.5.4",
-    "mocha": "8.3.0",
+    "mocha": "8.3.1",
     "nyc": "15.1.0",
-    "semantic-release": "17.4.0",
+    "semantic-release": "17.4.1",
     "unist-util-select": "3.0.4"
   },
   "engines": {
