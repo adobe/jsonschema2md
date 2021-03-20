@@ -1,3 +1,10 @@
+## [5.0.5](https://github.com/adobe/jsonschema2md/compare/v5.0.4...v5.0.5) (2021-03-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency readdirp to v3.6.0 ([47a37dc](https://github.com/adobe/jsonschema2md/commit/47a37dc96c93517262cb4e518bdfc87ce585edd6))
+
 ## [5.0.4](https://github.com/adobe/jsonschema2md/compare/v5.0.3...v5.0.4) (2021-03-06)
 
 
