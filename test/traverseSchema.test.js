@@ -62,6 +62,24 @@ const example = {
         { $ref: '#/properties/bar' },
       ],
     },
+    properties: {
+      type: 'object',
+      description: 'properties witin properties',
+    },
+    required: {
+      type: 'array',
+      examples: [
+        [
+          {
+            properies: [],
+          },
+        ],
+      ],
+    },
+    examples: {
+      type: 'number',
+      examples: [1, 2, 3],
+    },
   },
 };
 
@@ -70,7 +88,7 @@ describe('Testing Schema Traversal', () => {
     const proxied = loader()(example, 'example.schema.json');
     const schemas = traverse([proxied]);
 
-    assert.equal(schemas.length, 8);
+    assert.equal(schemas.length, 11);
     assert.equal(schemas[7][filename], 'example.schema.json');
   });
 
