@@ -1,3 +1,17 @@
+# [6.0.0](https://github.com/adobe/jsonschema2md/compare/v5.0.7...v6.0.0) (2021-04-04)
+
+
+### Bug Fixes
+
+* **lib/traverseschema.js:** filter out skippable keywords based on parent's type ([0f75837](https://github.com/adobe/jsonschema2md/commit/0f7583706f61faf4e933359d73664890779fcd80)), closes [#282](https://github.com/adobe/jsonschema2md/issues/282)
+
+
+### BREAKING CHANGES
+
+* **lib/traverseschema.js:** If schema contained 'properties', 'required' or 'examples' as a part of JSON schema
+(i.e. it was described as 'properties' within an object of 'object' type), these will be included
+into output.
+
 ## [5.0.7](https://github.com/adobe/jsonschema2md/compare/v5.0.6...v5.0.7) (2021-04-02)
 
 
