@@ -17,7 +17,7 @@ These tools have been introduced by Adobe to document Adobe's Experience Data Mo
 
 ## Example Output
 
-Using the schemas in [`examples/schemas`](examples/schemas), the output in [`examples/docs`](examples/docs) has been generated.
+Using the schemas in [`examples/schemas`](examples/schemas) (note the `*.schema.json` extension), the output in [`examples/docs`](examples/docs) has been generated.
 
 ## Installing and running
 
@@ -31,6 +31,8 @@ $ jsonschema2md
 $ jsonschema2md -d examples/schemas -o examples/docs
 # generated output for whole folder is written to ./examples/docs
 ```
+
+By default, `jsonschema2md` looks for schema files ending in `*.schema.json`. You can specify another extension by using the `--schema-extension` or `-e` command line argument.
 
 ## Internationalization
 
