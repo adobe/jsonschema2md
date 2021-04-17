@@ -19,10 +19,10 @@
   "dependencies": {
     "@adobe/helix-log": "5.0.3",
     "es2015-i18n-tag": "1.6.1",
-    "ferrum": "1.8.0",
+    "ferrum": "1.9.0",
     "fs-extra": "9.1.0",
     "github-slugger": "1.3.0",
-    "js-yaml": "4.0.0",
+    "js-yaml": "4.1.0",
     "mdast-builder": "1.1.1",
     "mdast-util-to-string": "2.0.0",
     "readdirp": "3.6.0",
