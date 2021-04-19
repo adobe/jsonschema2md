@@ -30,7 +30,7 @@
     "remark-parse": "9.0.0",
     "remark-stringify": "9.0.1",
     "unified": "9.2.1",
-    "unist-util-inspect": "6.0.1",
+    "unist-util-inspect": "7.0.0",
     "yargs": "16.2.0"
   },
   "devDependencies": {
