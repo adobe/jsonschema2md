@@ -1,3 +1,11 @@
+## [6.0.3](https://github.com/adobe/jsonschema2md/compare/v6.0.2...v6.0.3) (2021-05-04)
+
+
+### Bug Fixes
+
+* **deps:** update external major ([#305](https://github.com/adobe/jsonschema2md/issues/305)) ([5408a41](https://github.com/adobe/jsonschema2md/commit/5408a4182383b2d817e7d282e1c5d4c446a01d6c))
+* **yargs:** revert to 16.2.0 ([0638340](https://github.com/adobe/jsonschema2md/commit/0638340ceb23eb6f741cb4312b2ebb35d09ecff4))
+
 ## [6.0.2](https://github.com/adobe/jsonschema2md/compare/v6.0.1...v6.0.2) (2021-04-17)
 
 
