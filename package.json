@@ -31,7 +31,7 @@
     "remark-stringify": "9.0.1",
     "unified": "9.2.1",
     "unist-util-inspect": "6.0.1",
-    "yargs": "17.0.0"
+    "yargs": "16.2.0"
   },
   "devDependencies": {
     "@semantic-release/changelog": "5.0.1",
