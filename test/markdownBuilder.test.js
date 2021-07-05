@@ -151,7 +151,7 @@ describe('Testing Markdown Builder: YAML examples', () => {
 
   before(async () => {
     const schemas = await loadschemas('format');
-    const builder = build({ header: false, exampleformat: 'yaml' });
+    const builder = build({ header: false, exampleFormat: 'yaml' });
     results = builder(schemas);
   });
 
@@ -172,7 +172,7 @@ describe('Testing Markdown Builder: enums', () => {
 
   before(async () => {
     const schemas = await loadschemas('enums');
-    const builder = build({ header: true, includeproperties: ['foo', 'bar'] });
+    const builder = build({ header: true, includeProperties: ['foo', 'bar'] });
     results = builder(schemas);
   });
 
@@ -430,7 +430,7 @@ describe('Testing Markdown Builder: Skip properties', () => {
   });
 
   it('Skips the expected properties', () => {
-    const builder = build({ skipproperties: ['typesection', 'definedinfact', 'proptable'] });
+    const builder = build({ skipProperties: ['typesection', 'definedinfact', 'proptable'] });
     const results = builder(schemas);
 
     assertMarkdown(results.complete)
