@@ -14,7 +14,7 @@ const assert = require('assert');
 const { AssertionError } = require('assert');
 const fs = require('fs-extra');
 const path = require('path');
-const cli = require('../lib/index');
+const cli = require('../lib/main');
 
 describe('Integration Test', () => {
   let oldargs = [];
