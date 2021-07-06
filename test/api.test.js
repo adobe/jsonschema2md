@@ -16,6 +16,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const { loadschemas } = require('./testUtils');
 
+const example = require('./fixtures/example/example.schema.json');
 const { jsonschema2md } = require('../lib/index');
 
 describe('Testing Main API', () => {
@@ -35,7 +36,19 @@ describe('Testing Main API', () => {
       schemaOut: 'tmp',
       includeReadme: true,
     });
-    console.log('done!', res);
+    // console.log('done!', res);
+    assert(res === Object(res));
+    const readme = await fs.stat(path.resolve(__dirname, '..', 'tmp', 'README.md'));
+    assert.ok(readme.isFile());
+  });
+
+  it('Main API processes example schema', async () => {
+    const res = jsonschema2md(example, {
+      out: 'tmp',
+      includeReadme: true,
+    });
+    // console.log('done!', res);
+    assert(res === Object(res));
     const readme = await fs.stat(path.resolve(__dirname, '..', 'tmp', 'README.md'));
     assert.ok(readme.isFile());
   });
