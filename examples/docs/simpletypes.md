@@ -6,9 +6,8 @@ https://example.com/schemas/simpletypes
 
 This is an example schema with examples for multiple types and their constraints.
 
-
 | Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                     |
-| :------------------ | ---------- | -------------- | ------------ | :---------------- | --------------------- | ------------------- | ---------------------------------------------------------------------------------------------- |
+| :------------------ | :--------- | :------------- | :----------- | :---------------- | :-------------------- | :------------------ | :--------------------------------------------------------------------------------------------- |
 | Can be instantiated | No         | Unknown status | No           | Forbidden         | Allowed               | none                | [simpletypes.schema.json](../generated-schemas/simpletypes.schema.json "open original schema") |
 
 ## Simple Types Type
@@ -17,37 +16,39 @@ This is an example schema with examples for multiple types and their constraints
 
 # Simple Types Properties
 
-| Property                                                      | Type      | Required | Nullable       | Defined by                                                                                                                                                     |
-| :------------------------------------------------------------ | --------- | -------- | -------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [string_unconstrained](#string_unconstrained)                 | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_unconstrained.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_unconstrained")                 |
-| [string_length](#string_length)                               | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_length.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_length")                               |
-| [string_pattern](#string_pattern)                             | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_pattern.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_pattern")                             |
-| [string_pattern_noexample](#string_pattern_noexample)         | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_pattern_noexample.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_pattern_noexample")         |
-| [string_pattern_singleexample](#string_pattern_singleexample) | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_pattern_singleexample.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_pattern_singleexample") |
-| [string_date](#string_date)                                   | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_date.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_date")                                   |
-| [string_email](#string_email)                                 | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_email.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_email")                                 |
-| [string_hostname](#string_hostname)                           | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_hostname.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_hostname")                           |
-| [string_ipv4](#string_ipv4)                                   | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_ipv4.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_ipv4")                                   |
-| [string_ipv6](#string_ipv6)                                   | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_ipv6.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_ipv6")                                   |
-| [string_uri](#string_uri)                                     | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_uri.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_uri")                                     |
-| [number_unconstrained](#number_unconstrained)                 | `number`  | Optional | cannot be null | [Simple Types](simpletypes-properties-number_unconstrained.md "https&#x3A;//example.com/schemas/simpletypes#/properties/number_unconstrained")                 |
-| [interger_unconstrained](#interger_unconstrained)             | `integer` | Optional | cannot be null | [Simple Types](simpletypes-properties-interger_unconstrained.md "https&#x3A;//example.com/schemas/simpletypes#/properties/interger_unconstrained")             |
-| [interger_constrained](#interger_constrained)                 | `integer` | Optional | cannot be null | [Simple Types](simpletypes-properties-interger_constrained.md "https&#x3A;//example.com/schemas/simpletypes#/properties/interger_constrained")                 |
-| [number_constrained](#number_constrained)                     | `number`  | Optional | cannot be null | [Simple Types](simpletypes-properties-number_constrained.md "https&#x3A;//example.com/schemas/simpletypes#/properties/number_constrained")                     |
-| [integer_threes](#integer_threes)                             | `integer` | Optional | cannot be null | [Simple Types](simpletypes-properties-integer_threes.md "https&#x3A;//example.com/schemas/simpletypes#/properties/integer_threes")                             |
-| [yesno](#yesno)                                               | `boolean` | Required | cannot be null | [Simple Types](simpletypes-properties-yesno.md "https&#x3A;//example.com/schemas/simpletypes#/properties/yesno")                                               |
+| Property                                                      | Type      | Required | Nullable       | Defined by                                                                                                                                                |
+| :------------------------------------------------------------ | :-------- | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [string_unconstrained](#string_unconstrained)                 | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_unconstrained.md "https://example.com/schemas/simpletypes#/properties/string_unconstrained")                 |
+| [string_length](#string_length)                               | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_length.md "https://example.com/schemas/simpletypes#/properties/string_length")                               |
+| [string_pattern](#string_pattern)                             | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_pattern.md "https://example.com/schemas/simpletypes#/properties/string_pattern")                             |
+| [string_pattern_noexample](#string_pattern_noexample)         | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_pattern_noexample.md "https://example.com/schemas/simpletypes#/properties/string_pattern_noexample")         |
+| [string_pattern_singleexample](#string_pattern_singleexample) | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_pattern_singleexample.md "https://example.com/schemas/simpletypes#/properties/string_pattern_singleexample") |
+| [string_date](#string_date)                                   | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_date.md "https://example.com/schemas/simpletypes#/properties/string_date")                                   |
+| [string_email](#string_email)                                 | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_email.md "https://example.com/schemas/simpletypes#/properties/string_email")                                 |
+| [string_hostname](#string_hostname)                           | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_hostname.md "https://example.com/schemas/simpletypes#/properties/string_hostname")                           |
+| [string_ipv4](#string_ipv4)                                   | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_ipv4.md "https://example.com/schemas/simpletypes#/properties/string_ipv4")                                   |
+| [string_ipv6](#string_ipv6)                                   | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_ipv6.md "https://example.com/schemas/simpletypes#/properties/string_ipv6")                                   |
+| [string_uri](#string_uri)                                     | `string`  | Optional | cannot be null | [Simple Types](simpletypes-properties-string_uri.md "https://example.com/schemas/simpletypes#/properties/string_uri")                                     |
+| [number_unconstrained](#number_unconstrained)                 | `number`  | Optional | cannot be null | [Simple Types](simpletypes-properties-number_unconstrained.md "https://example.com/schemas/simpletypes#/properties/number_unconstrained")                 |
+| [interger_unconstrained](#interger_unconstrained)             | `integer` | Optional | cannot be null | [Simple Types](simpletypes-properties-interger_unconstrained.md "https://example.com/schemas/simpletypes#/properties/interger_unconstrained")             |
+| [interger_constrained](#interger_constrained)                 | `integer` | Optional | cannot be null | [Simple Types](simpletypes-properties-interger_constrained.md "https://example.com/schemas/simpletypes#/properties/interger_constrained")                 |
+| [number_constrained](#number_constrained)                     | `number`  | Optional | cannot be null | [Simple Types](simpletypes-properties-number_constrained.md "https://example.com/schemas/simpletypes#/properties/number_constrained")                     |
+| [integer_threes](#integer_threes)                             | `integer` | Optional | cannot be null | [Simple Types](simpletypes-properties-integer_threes.md "https://example.com/schemas/simpletypes#/properties/integer_threes")                             |
+| [yesno](#yesno)                                               | `boolean` | Required | cannot be null | [Simple Types](simpletypes-properties-yesno.md "https://example.com/schemas/simpletypes#/properties/yesno")                                               |
 
 ## string_unconstrained
 
 A simple string, without any constraints.
 
-
 `string_unconstrained`
 
--   is optional
--   Type: `string`
--   cannot be null
--   defined in: [Simple Types](simpletypes-properties-string_unconstrained.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_unconstrained")
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [Simple Types](simpletypes-properties-string_unconstrained.md "https://example.com/schemas/simpletypes#/properties/string_unconstrained")
 
 ### string_unconstrained Type
 
@@ -63,13 +64,15 @@ A simple string, without any constraints.
 
 A string with minumum and maximum length
 
-
 `string_length`
 
--   is optional
--   Type: `string`
--   cannot be null
--   defined in: [Simple Types](simpletypes-properties-string_length.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_length")
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [Simple Types](simpletypes-properties-string_length.md "https://example.com/schemas/simpletypes#/properties/string_length")
 
 ### string_length Type
 
@@ -95,13 +98,15 @@ A string with minumum and maximum length
 
 A string following a regular expression
 
-
 `string_pattern`
 
--   is optional
--   Type: `string`
--   cannot be null
--   defined in: [Simple Types](simpletypes-properties-string_pattern.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_pattern")
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [Simple Types](simpletypes-properties-string_pattern.md "https://example.com/schemas/simpletypes#/properties/string_pattern")
 
 ### string_pattern Type
 
@@ -135,13 +140,15 @@ A string following a regular expression
 
 A string following a regular expression
 
-
 `string_pattern_noexample`
 
--   is optional
--   Type: `string`
--   cannot be null
--   defined in: [Simple Types](simpletypes-properties-string_pattern_noexample.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_pattern_noexample")
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [Simple Types](simpletypes-properties-string_pattern_noexample.md "https://example.com/schemas/simpletypes#/properties/string_pattern_noexample")
 
 ### string_pattern_noexample Type
 
@@ -161,13 +168,15 @@ A string following a regular expression
 
 A string following a regular expression
 
-
 `string_pattern_singleexample`
 
--   is optional
--   Type: `string`
--   cannot be null
--   defined in: [Simple Types](simpletypes-properties-string_pattern_singleexample.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_pattern_singleexample")
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [Simple Types](simpletypes-properties-string_pattern_singleexample.md "https://example.com/schemas/simpletypes#/properties/string_pattern_singleexample")
 
 ### string_pattern_singleexample Type
 
@@ -193,13 +202,15 @@ A string following a regular expression
 
 A date-like string.
 
-
 `string_date`
 
--   is optional
--   Type: `string`
--   cannot be null
--   defined in: [Simple Types](simpletypes-properties-string_date.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_date")
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [Simple Types](simpletypes-properties-string_date.md "https://example.com/schemas/simpletypes#/properties/string_date")
 
 ### string_date Type
 
@@ -213,13 +224,15 @@ A date-like string.
 
 An email-like string.
 
-
 `string_email`
 
--   is optional
--   Type: `string`
--   cannot be null
--   defined in: [Simple Types](simpletypes-properties-string_email.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_email")
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [Simple Types](simpletypes-properties-string_email.md "https://example.com/schemas/simpletypes#/properties/string_email")
 
 ### string_email Type
 
@@ -233,13 +246,15 @@ An email-like string.
 
 A hostname-like string.
 
-
 `string_hostname`
 
--   is optional
--   Type: `string`
--   cannot be null
--   defined in: [Simple Types](simpletypes-properties-string_hostname.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_hostname")
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [Simple Types](simpletypes-properties-string_hostname.md "https://example.com/schemas/simpletypes#/properties/string_hostname")
 
 ### string_hostname Type
 
@@ -253,13 +268,15 @@ A hostname-like string.
 
 An IPv4-like string.
 
-
 `string_ipv4`
 
--   is optional
--   Type: `string`
--   cannot be null
--   defined in: [Simple Types](simpletypes-properties-string_ipv4.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_ipv4")
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [Simple Types](simpletypes-properties-string_ipv4.md "https://example.com/schemas/simpletypes#/properties/string_ipv4")
 
 ### string_ipv4 Type
 
@@ -273,13 +290,15 @@ An IPv4-like string.
 
 An IPv6-like string.
 
-
 `string_ipv6`
 
--   is optional
--   Type: `string`
--   cannot be null
--   defined in: [Simple Types](simpletypes-properties-string_ipv6.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_ipv6")
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [Simple Types](simpletypes-properties-string_ipv6.md "https://example.com/schemas/simpletypes#/properties/string_ipv6")
 
 ### string_ipv6 Type
 
@@ -293,13 +312,15 @@ An IPv6-like string.
 
 A URI.
 
-
 `string_uri`
 
--   is optional
--   Type: `string`
--   cannot be null
--   defined in: [Simple Types](simpletypes-properties-string_uri.md "https&#x3A;//example.com/schemas/simpletypes#/properties/string_uri")
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [Simple Types](simpletypes-properties-string_uri.md "https://example.com/schemas/simpletypes#/properties/string_uri")
 
 ### string_uri Type
 
@@ -313,13 +334,15 @@ A URI.
 
 Just a number
 
-
 `number_unconstrained`
 
--   is optional
--   Type: `number`
--   cannot be null
--   defined in: [Simple Types](simpletypes-properties-number_unconstrained.md "https&#x3A;//example.com/schemas/simpletypes#/properties/number_unconstrained")
+*   is optional
+
+*   Type: `number`
+
+*   cannot be null
+
+*   defined in: [Simple Types](simpletypes-properties-number_unconstrained.md "https://example.com/schemas/simpletypes#/properties/number_unconstrained")
 
 ### number_unconstrained Type
 
@@ -329,13 +352,15 @@ Just a number
 
 Just a whole number. I don't like fractions.
 
-
 `interger_unconstrained`
 
--   is optional
--   Type: `integer`
--   cannot be null
--   defined in: [Simple Types](simpletypes-properties-interger_unconstrained.md "https&#x3A;//example.com/schemas/simpletypes#/properties/interger_unconstrained")
+*   is optional
+
+*   Type: `integer`
+
+*   cannot be null
+
+*   defined in: [Simple Types](simpletypes-properties-interger_unconstrained.md "https://example.com/schemas/simpletypes#/properties/interger_unconstrained")
 
 ### interger_unconstrained Type
 
@@ -345,13 +370,15 @@ Just a whole number. I don't like fractions.
 
 Just a whole number. I don't like fractions. Don't get too small
 
-
 `interger_constrained`
 
--   is optional
--   Type: `integer`
--   cannot be null
--   defined in: [Simple Types](simpletypes-properties-interger_constrained.md "https&#x3A;//example.com/schemas/simpletypes#/properties/interger_constrained")
+*   is optional
+
+*   Type: `integer`
+
+*   cannot be null
+
+*   defined in: [Simple Types](simpletypes-properties-interger_constrained.md "https://example.com/schemas/simpletypes#/properties/interger_constrained")
 
 ### interger_constrained Type
 
@@ -365,13 +392,15 @@ Just a whole number. I don't like fractions. Don't get too small
 
 Just a number. Don't get too big.
 
-
 `number_constrained`
 
--   is optional
--   Type: `number`
--   cannot be null
--   defined in: [Simple Types](simpletypes-properties-number_constrained.md "https&#x3A;//example.com/schemas/simpletypes#/properties/number_constrained")
+*   is optional
+
+*   Type: `number`
+
+*   cannot be null
+
+*   defined in: [Simple Types](simpletypes-properties-number_constrained.md "https://example.com/schemas/simpletypes#/properties/number_constrained")
 
 ### number_constrained Type
 
@@ -385,13 +414,15 @@ Just a number. Don't get too big.
 
 Guess what number is valid
 
-
 `integer_threes`
 
--   is optional
--   Type: `integer`
--   cannot be null
--   defined in: [Simple Types](simpletypes-properties-integer_threes.md "https&#x3A;//example.com/schemas/simpletypes#/properties/integer_threes")
+*   is optional
+
+*   Type: `integer`
+
+*   cannot be null
+
+*   defined in: [Simple Types](simpletypes-properties-integer_threes.md "https://example.com/schemas/simpletypes#/properties/integer_threes")
 
 ### integer_threes Type
 
@@ -409,13 +440,15 @@ Guess what number is valid
 
 
 
-
 `yesno`
 
--   is required
--   Type: `boolean`
--   cannot be null
--   defined in: [Simple Types](simpletypes-properties-yesno.md "https&#x3A;//example.com/schemas/simpletypes#/properties/yesno")
+*   is required
+
+*   Type: `boolean`
+
+*   cannot be null
+
+*   defined in: [Simple Types](simpletypes-properties-yesno.md "https://example.com/schemas/simpletypes#/properties/yesno")
 
 ### yesno Type
 

@@ -6,33 +6,34 @@ https://example.com/schemas/arrays#/properties/objectlist/items
 
 
 
-
-| Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                             |
-| :------------------ | ---------- | -------------- | ------------ | :---------------- | --------------------- | ------------------- | -------------------------------------------------------------------------------------- |
-| Can be instantiated | No         | Unknown status | No           | Forbidden         | Allowed               | none                | [arrays.schema.json\*](../generated-schemas/arrays.schema.json "open original schema") |
+| Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                            |
+| :------------------ | :--------- | :------------- | :----------- | :---------------- | :-------------------- | :------------------ | :------------------------------------------------------------------------------------ |
+| Can be instantiated | No         | Unknown status | No           | Forbidden         | Allowed               | none                | [arrays.schema.json*](../generated-schemas/arrays.schema.json "open original schema") |
 
 ## items Type
 
 `object` ([Details](arrays-properties-objectlist-items.md))
 
-# undefined Properties
+# items Properties
 
-| Property | Type      | Required | Nullable       | Defined by                                                                                                                                       |
-| :------- | --------- | -------- | -------------- | :----------------------------------------------------------------------------------------------------------------------------------------------- |
-| [a](#a)  | `string`  | Required | cannot be null | [Arrays](arrays-properties-objectlist-items-properties-a.md "https&#x3A;//example.com/schemas/arrays#/properties/objectlist/items/properties/a") |
-| [b](#b)  | `integer` | Optional | cannot be null | [Arrays](arrays-properties-objectlist-items-properties-b.md "https&#x3A;//example.com/schemas/arrays#/properties/objectlist/items/properties/b") |
+| Property | Type      | Required | Nullable       | Defined by                                                                                                                                  |
+| :------- | :-------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| [a](#a)  | `string`  | Required | cannot be null | [Arrays](arrays-properties-objectlist-items-properties-a.md "https://example.com/schemas/arrays#/properties/objectlist/items/properties/a") |
+| [b](#b)  | `integer` | Optional | cannot be null | [Arrays](arrays-properties-objectlist-items-properties-b.md "https://example.com/schemas/arrays#/properties/objectlist/items/properties/b") |
 
 ## a
 
 The a property
 
-
 `a`
 
--   is required
--   Type: `string`
--   cannot be null
--   defined in: [Arrays](arrays-properties-objectlist-items-properties-a.md "https&#x3A;//example.com/schemas/arrays#/properties/objectlist/items/properties/a")
+*   is required
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [Arrays](arrays-properties-objectlist-items-properties-a.md "https://example.com/schemas/arrays#/properties/objectlist/items/properties/a")
 
 ### a Type
 
@@ -42,13 +43,15 @@ The a property
 
 The b property
 
-
 `b`
 
--   is optional
--   Type: `integer`
--   cannot be null
--   defined in: [Arrays](arrays-properties-objectlist-items-properties-b.md "https&#x3A;//example.com/schemas/arrays#/properties/objectlist/items/properties/b")
+*   is optional
+
+*   Type: `integer`
+
+*   cannot be null
+
+*   defined in: [Arrays](arrays-properties-objectlist-items-properties-b.md "https://example.com/schemas/arrays#/properties/objectlist/items/properties/b")
 
 ### b Type
 

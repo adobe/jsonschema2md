@@ -22,9 +22,8 @@ aks.
 
 > Everything is better with a quote.
 
-
 | Abstract               | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                     |
-| :--------------------- | ---------- | -------------- | ----------------------- | :---------------- | --------------------- | ------------------- | ---------------------------------------------------------------------------------------------- |
+| :--------------------- | :--------- | :------------- | :---------------------- | :---------------- | :-------------------- | :------------------ | :--------------------------------------------------------------------------------------------- |
 | Cannot be instantiated | Yes        | Unknown status | Unknown identifiability | Forbidden         | Allowed               | none                | [definitions.schema.json](../generated-schemas/definitions.schema.json "open original schema") |
 
 ## Definitions Type
@@ -33,7 +32,7 @@ aks.
 
 all of
 
--   [Untitled undefined type in Definitions](definitions-definitions-myid.md "check type definition")
+*   [Untitled undefined type in Definitions](definitions-definitions-myid.md "check type definition")
 
 # Definitions Definitions
 
@@ -45,23 +44,25 @@ Reference this group by using
 {"$ref":"https://example.com/schemas/definitions#/definitions/myid"}
 ```
 
-| Property           | Type     | Required | Nullable       | Defined by                                                                                                                                           |
-| :----------------- | -------- | -------- | -------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [id](#id)          | `string` | Optional | cannot be null | [Definitions](definitions-definitions-myid-properties-id.md "https&#x3A;//example.com/schemas/definitions#/definitions/myid/properties/id")          |
-| [@id](#id-1)       | `string` | Required | cannot be null | [Definitions](definitions-definitions-myid-properties-id-1.md "https&#x3A;//example.com/schemas/definitions#/definitions/myid/properties/@id")       |
-| [meta:id](#metaid) | `string` | Optional | cannot be null | [Definitions](definitions-definitions-myid-properties-metaid.md "https&#x3A;//example.com/schemas/definitions#/definitions/myid/properties/meta:id") |
+| Property           | Type     | Required | Nullable       | Defined by                                                                                                                                      |
+| :----------------- | :------- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
+| [id](#id)          | `string` | Optional | cannot be null | [Definitions](definitions-definitions-myid-properties-id.md "https://example.com/schemas/definitions#/definitions/myid/properties/id")          |
+| [@id](#id-1)       | `string` | Required | cannot be null | [Definitions](definitions-definitions-myid-properties-id-1.md "https://example.com/schemas/definitions#/definitions/myid/properties/@id")       |
+| [meta:id](#metaid) | `string` | Optional | cannot be null | [Definitions](definitions-definitions-myid-properties-metaid.md "https://example.com/schemas/definitions#/definitions/myid/properties/meta:id") |
 
 ### id
 
 A unique identifier given to every addressable thing.
 
-
 `id`
 
--   is optional
--   Type: `string`
--   cannot be null
--   defined in: [Definitions](definitions-definitions-myid-properties-id.md "https&#x3A;//example.com/schemas/definitions#/definitions/myid/properties/id")
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [Definitions](definitions-definitions-myid-properties-id.md "https://example.com/schemas/definitions#/definitions/myid/properties/id")
 
 #### id Type
 
@@ -75,13 +76,15 @@ A unique identifier given to every addressable thing.
 
 An `id` with an `@` in front of it. The `@` stands for "dot com"
 
-
 `@id`
 
--   is required
--   Type: `string`
--   cannot be null
--   defined in: [Definitions](definitions-definitions-myid-properties-id-1.md "https&#x3A;//example.com/schemas/definitions#/definitions/myid/properties/@id")
+*   is required
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [Definitions](definitions-definitions-myid-properties-id-1.md "https://example.com/schemas/definitions#/definitions/myid/properties/@id")
 
 #### @id Type
 
@@ -95,13 +98,15 @@ An `id` with an `@` in front of it. The `@` stands for "dot com"
 
 An about ids. It is meta. If you are confused, send an email to the address specified in this property value.
 
-
 `meta:id`
 
--   is optional
--   Type: `string`
--   cannot be null
--   defined in: [Definitions](definitions-definitions-myid-properties-metaid.md "https&#x3A;//example.com/schemas/definitions#/definitions/myid/properties/meta:id")
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [Definitions](definitions-definitions-myid-properties-metaid.md "https://example.com/schemas/definitions#/definitions/myid/properties/meta:id")
 
 #### meta:id Type
 
