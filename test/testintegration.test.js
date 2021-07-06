@@ -14,7 +14,7 @@ const assert = require('assert');
 const { AssertionError } = require('assert');
 const fs = require('fs-extra');
 const path = require('path');
-const cli = require('../lib/index');
+const { main } = require('../lib/index');
 
 describe('Integration Test', () => {
   let oldargs = [];
@@ -39,7 +39,7 @@ describe('Integration Test', () => {
     };
 
     try {
-      await cli();
+      await main();
       assert.fail('CLI called without args should exit');
     } catch (e) {
       if (e instanceof AssertionError) {
@@ -50,14 +50,14 @@ describe('Integration Test', () => {
   });
 
   ['arrays', 'cyclic'].forEach((dir) => it(`CLI processes ${dir} directory`, async () => {
-    const res = await cli((`jsonschema2md -d test/fixtures/${dir} -o tmp -x tmp`).split(' '));
+    const res = await main((`jsonschema2md -d test/fixtures/${dir} -o tmp -x tmp`).split(' '));
     console.log('done!', res);
     const readme = await fs.stat(path.resolve(__dirname, '..', 'tmp', 'README.md'));
     assert.ok(readme.isFile());
   }));
 
   ['json-logic-js/schemas'].forEach((dir) => it(`CLI processes ${dir} directory`, async () => {
-    const res = await cli((`jsonschema2md -d node_modules/${dir} -o tmp -x tmp -e json`).split(' '));
+    const res = await main((`jsonschema2md -d node_modules/${dir} -o tmp -x tmp -e json`).split(' '));
     console.log('done!', res);
     const readme = await fs.stat(path.resolve(__dirname, '..', 'tmp', 'README.md'));
     assert.ok(readme.isFile());
