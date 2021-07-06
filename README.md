@@ -69,9 +69,11 @@ You can conveniently use the JSON Schema Markdown Tools from `npm`. This makes i
 
 ```json
   "devDependencies": {
-    "@adobe/jsonschema2md": "^4.0.0"
+    "@adobe/jsonschema2md": "^6.0.0"
   }
 ```
+
+### With script
 
 Then add the following to the `"scripts"` section of your `package.json` and adapt accordingly:
 
@@ -82,6 +84,18 @@ Then add the following to the `"scripts"` section of your `package.json` and ada
 ```
 
 If you run `npm install` before running `npm run prepare`, `npm` will install the `@adobe/jsonschema2md` in a `node_modules/.bin` path, even if you did not install the JSON Schema Markdown beforehand.
+
+
+### With API for Node.js
+
+```javascript
+const jsonschema2md = require('@adobe/jsonschema2md');
+const schema = require('examples/schemas/example.schema.json');
+
+const markdown = jsonschema2md(schema, {
+  includeReadme: true,
+});
+````
 
 ## Tests
 
