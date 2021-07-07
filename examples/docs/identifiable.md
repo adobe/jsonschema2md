@@ -4,11 +4,10 @@
 https://example.com/schemas/identifiable
 ```
 
-This is a _very_ simple example of a JSON schema. There is only one property.
-
+This is a *very* simple example of a JSON schema. There is only one property.
 
 | Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                       |
-| :------------------ | ---------- | -------------- | ------------ | :---------------- | --------------------- | ------------------- | ------------------------------------------------------------------------------------------------ |
+| :------------------ | :--------- | :------------- | :----------- | :---------------- | :-------------------- | :------------------ | :----------------------------------------------------------------------------------------------- |
 | Can be instantiated | No         | Unknown status | Yes          | Forbidden         | Allowed               | none                | [identifiable.schema.json](../generated-schemas/identifiable.schema.json "open original schema") |
 
 ## Identifiable Type
@@ -17,21 +16,23 @@ This is a _very_ simple example of a JSON schema. There is only one property.
 
 # Identifiable Properties
 
-| Property   | Type     | Required | Nullable       | Defined by                                                                                                    |
-| :--------- | -------- | -------- | -------------- | :------------------------------------------------------------------------------------------------------------ |
-| [@id](#id) | `string` | Optional | cannot be null | [Identifiable](identifiable-properties-id.md "https&#x3A;//example.com/schemas/identifiable#/properties/@id") |
+| Property   | Type     | Required | Nullable       | Defined by                                                                                               |
+| :--------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------- |
+| [@id](#id) | `string` | Optional | cannot be null | [Identifiable](identifiable-properties-id.md "https://example.com/schemas/identifiable#/properties/@id") |
 
 ## @id
 
 A unique identifier given to every addressable thing.
 
-
 `@id`
 
--   is optional
--   Type: `string`
--   cannot be null
--   defined in: [Identifiable](identifiable-properties-id.md "https&#x3A;//example.com/schemas/identifiable#/properties/@id")
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [Identifiable](identifiable-properties-id.md "https://example.com/schemas/identifiable#/properties/@id")
 
 ### @id Type
 

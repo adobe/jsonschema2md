@@ -6,32 +6,33 @@ https://example.com/schemas/subdir/subdir#/definitions/content
 
 
 
-
-| Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                    |
-| :------------------ | ---------- | -------------- | ------------ | :---------------- | --------------------- | ------------------- | --------------------------------------------------------------------------------------------- |
-| Can be instantiated | No         | Unknown status | No           | Forbidden         | Allowed               | none                | [subdir.schema.json\*](../generated-schemas/subdir/subdir.schema.json "open original schema") |
+| Abstract            | Extensible | Status         | Identifiable | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                   |
+| :------------------ | :--------- | :------------- | :----------- | :---------------- | :-------------------- | :------------------ | :------------------------------------------------------------------------------------------- |
+| Can be instantiated | No         | Unknown status | No           | Forbidden         | Allowed               | none                | [subdir.schema.json*](../generated-schemas/subdir/subdir.schema.json "open original schema") |
 
 ## content Type
 
 unknown
 
-# undefined Properties
+# content Properties
 
-| Property  | Type     | Required | Nullable       | Defined by                                                                                                                                |
-| :-------- | -------- | -------- | -------------- | :---------------------------------------------------------------------------------------------------------------------------------------- |
-| [id](#id) | `string` | Optional | cannot be null | [Subdir](subdir-definitions-content-properties-id.md "https&#x3A;//example.com/schemas/subdir/subdir#/definitions/content/properties/id") |
+| Property  | Type     | Required | Nullable       | Defined by                                                                                                                           |
+| :-------- | :------- | :------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| [id](#id) | `string` | Optional | cannot be null | [Subdir](subdir-definitions-content-properties-id.md "https://example.com/schemas/subdir/subdir#/definitions/content/properties/id") |
 
 ## id
 
 A unique identifier given to every addressable thing.
 
-
 `id`
 
--   is optional
--   Type: `string`
--   cannot be null
--   defined in: [Subdir](subdir-definitions-content-properties-id.md "https&#x3A;//example.com/schemas/subdir/subdir#/definitions/content/properties/id")
+*   is optional
+
+*   Type: `string`
+
+*   cannot be null
+
+*   defined in: [Subdir](subdir-definitions-content-properties-id.md "https://example.com/schemas/subdir/subdir#/definitions/content/properties/id")
 
 ### id Type
 
