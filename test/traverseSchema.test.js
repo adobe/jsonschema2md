@@ -85,7 +85,7 @@ const example = {
 
 describe('Testing Schema Traversal', () => {
   it('Schema Traversal generates a list', () => {
-    const proxied = loader()(example, 'example.schema.json');
+    const proxied = loader()('example.schema.json', example);
     const schemas = traverse([proxied]);
 
     assert.equal(schemas.length, 11);
@@ -98,9 +98,9 @@ describe('Testing Schema Traversal', () => {
     const three = await fs.readJson(path.resolve(__dirname, 'fixtures', 'cyclic', 'three.schema.json'));
 
     const myloader = loader();
-    const proxiedone = myloader(one, path.resolve(__dirname, 'fixtures', 'cyclic', 'one.schema.json'));
-    const proxiedtwo = myloader(two, path.resolve(__dirname, 'fixtures', 'cyclic', 'two.schema.json'));
-    const proxiedthree = myloader(three, path.resolve(__dirname, 'fixtures', 'cyclic', 'three.schema.json'));
+    const proxiedone = myloader(path.resolve(__dirname, 'fixtures', 'cyclic', 'one.schema.json'), one);
+    const proxiedtwo = myloader(path.resolve(__dirname, 'fixtures', 'cyclic', 'two.schema.json'), two);
+    const proxiedthree = myloader(path.resolve(__dirname, 'fixtures', 'cyclic', 'three.schema.json'), three);
 
     const schemas = traverse([proxiedone, proxiedtwo, proxiedthree]);
 
