@@ -1,3 +1,15 @@
+# [6.1.0](https://github.com/adobe/jsonschema2md/compare/v6.0.3...v6.1.0) (2021-07-08)
+
+
+### Bug Fixes
+
+* **i18n:** avoid passing non-string parameters to i18n engine ([abec736](https://github.com/adobe/jsonschema2md/commit/abec73689c490d147d7874d9cf593af901f49b5c))
+
+
+### Features
+
+* expose nodejs api ([cd7dd63](https://github.com/adobe/jsonschema2md/commit/cd7dd63de2eef0a13859aec9c4b1ca6d5045d229))
+
 ## [6.0.3](https://github.com/adobe/jsonschema2md/compare/v6.0.2...v6.0.3) (2021-05-04)
 
 
