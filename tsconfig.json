@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outFile": "./types/index.d.ts"
+  },
+  "include": ["lib/index.js"],
+  "exclude": ["**/locales/**/*"]
+}

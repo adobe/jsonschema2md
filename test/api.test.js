@@ -14,7 +14,7 @@
 const assert = require('assert');
 const fs = require('fs-extra');
 const path = require('path');
-const { loadschemas } = require('./testUtils');
+const { loadSchemas } = require('./testUtils');
 
 const example = require('./fixtures/example/example.schema.json');
 const { jsonschema2md } = require('../lib/index');
@@ -29,10 +29,10 @@ describe('Testing Main API', () => {
   });
 
   it('Main API processes readme-1 directory', async () => {
-    const schemas = await loadschemas('readme-1');
+    const schemas = await loadSchemas('readme-1');
     const res = jsonschema2md(schemas, {
       schemaPath: path.resolve(__dirname, 'fixtures/readme-1'),
-      out: 'tmp',
+      outDir: 'tmp',
       schemaOut: 'tmp',
       includeReadme: true,
     });
@@ -43,13 +43,15 @@ describe('Testing Main API', () => {
   });
 
   it('Main API processes example schema', async () => {
-    const res = jsonschema2md(example, {
-      out: 'tmp',
+    const res = await jsonschema2md(example, {
+      // schemaPath,
+      outDir: 'tmp',
       includeReadme: true,
     });
     // console.log('done!', res);
     assert(res === Object(res));
-    const readme = await fs.stat(path.resolve(__dirname, '..', 'tmp', 'README.md'));
+    const readme = await fs.stat(path.resolve(__dirname, '..', 'tmp', 'input.md'));
     assert.ok(readme.isFile());
+    assert.notStrictEqual(readme.size, 0);
   });
 });

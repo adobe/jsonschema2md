@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Adobe. All rights reserved.
+ * Copyright 2021 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License. You may obtain a copy
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -113,9 +113,11 @@ describe('Testing Schema Proxy', () => {
     const myloader = loader();
     const proxied1 = myloader('example.schema.json', example);
     const proxied2 = myloader('referencing.schema.json', referencing);
-    const proxied3 = myloader({
+    const proxied3 = myloader('anotherreference.schema.json', {
       title: 'Referencing',
-    }, 'anotherreference.schema.json');
+    });
+
+    console.log(proxied1[slug], JSON.stringify(proxied1));
 
     assert.equal(proxied1[slug], 'example');
 

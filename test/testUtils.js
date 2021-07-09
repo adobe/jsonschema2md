@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Adobe. All rights reserved.
+ * Copyright 2021 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License. You may obtain a copy
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -74,14 +74,25 @@ ${inspect(node)}`);
 }
 
 async function loadSchemas(dir) {
-  const schemaloader = loader();
   const schemaDir = path.resolve(__dirname, 'fixtures', dir);
-  const schemas = await readdirp.promise(schemaDir, { fileFilter: '*.schema.json' });
+  const schemaFiles = await readdirp.promise(schemaDir, { fileFilter: '*.schema.json' });
 
-  return traverse(schemas.map(({ fullPath }) => schemaloader(
+  const schemas = {};
+  schemaFiles.forEach((schema) => {
+    schemas[schema.basename] = schema.fullPath;
+  });
+  return schemas;
+}
+
+async function traverseSchemas(dir) {
+  const schemas = await loadSchemas(dir);
+  const entries = Object.entries(schemas);
+  const schemaloader = loader();
+
+  return traverse(entries.map(([name, fullPath]) => schemaloader(
     // eslint-disable-next-line global-require, import/no-dynamic-require
-    fullPath, require(fullPath),
+    name, require(fullPath),
   )));
 }
 
-module.exports = { assertMarkdown, loadSchemas };
+module.exports = { assertMarkdown, loadSchemas, traverseSchemas };
