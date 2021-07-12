@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright 2021 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License. You may obtain a copy
@@ -75,23 +75,21 @@ ${inspect(node)}`);
 
 async function loadSchemas(dir) {
   const schemaDir = path.resolve(__dirname, 'fixtures', dir);
-  const schemaFiles = await readdirp.promise(schemaDir, { fileFilter: '*.schema.json' });
+  const schemas = await readdirp.promise(schemaDir, { fileFilter: '*.schema.json' });
 
-  const schemas = {};
-  schemaFiles.forEach((schema) => {
-    schemas[schema.basename] = schema.fullPath;
-  });
-  return schemas;
+  return schemas.map((schema) => ({
+    fileName: schema.basename,
+    fullPath: schema.fullPath,
+  }));
 }
 
 async function traverseSchemas(dir) {
   const schemas = await loadSchemas(dir);
-  const entries = Object.entries(schemas);
   const schemaloader = loader();
 
-  return traverse(entries.map(([name, fullPath]) => schemaloader(
+  return traverse(schemas.map(({ fullPath }) => schemaloader(
     // eslint-disable-next-line global-require, import/no-dynamic-require
-    name, require(fullPath),
+    fullPath, require(fullPath),
   )));
 }
 

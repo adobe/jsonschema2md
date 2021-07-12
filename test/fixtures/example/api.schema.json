@@ -6,8 +6,8 @@
      "of the License at http://www.apache.org/licenses/LICENSE-2.0"
   ],
   "$schema":"http://json-schema.org/draft-06/schema#",
-  "$id":"https://example.com/schemas/example",
-  "title":"Example",
+  "$id":"https://example.com/schemas/example-api",
+  "title":"Example API",
   "type":"object",
   "description":"This is an example schema with examples. Too many examples? There can never be too many examples!",
   "properties":{
@@ -30,23 +30,39 @@
         "version":"1.0.0",
         "testProperty":"test"
      },
-     "zip":{
-        "type":"object",
-        "title":"An object"
-     },
-     "zup":{
-        "type":"object",
-        "title":"An object"
-     },
      "baz":{
-        "anyOf":[
-           {
-              "$ref":"#/properties/foo"
-           },
-           {
-              "$ref":"#/properties/bar"
-           }
-        ]
-     }
+      "anyOf":[
+         {
+            "$ref":"#/properties/foo"
+         },
+         {
+            "$ref":"#/properties/bar"
+         }
+      ]
+   },
+   "properties":{
+      "type":"object",
+      "description":"properties within properties"
+   },
+   "required":{
+      "type":"array",
+      "examples":[
+         [
+            {
+               "properies":[
+                  
+               ]
+            }
+         ]
+      ]
+   },
+   "examples":{
+      "type":"number",
+      "examples":[
+         1,
+         2,
+         3
+      ]
+   }
   }
 }

@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright 2021 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License. You may obtain a copy
@@ -18,78 +18,16 @@ const {
   loader, filename,
 } = require('../lib/schemaProxy');
 
+const example = require('./fixtures/example/traverse.schema.json');
 const traverse = require('../lib/traverseSchema');
-
-const example = {
-  'meta:license': [
-    'Copyright 2017 Adobe Systems Incorporated. All rights reserved.',
-    "This file is licensed to you under the Apache License, Version 2.0 (the 'License');",
-    'you may not use this file except in compliance with the License. You may obtain a copy',
-    'of the License at http://www.apache.org/licenses/LICENSE-2.0',
-  ],
-  $schema: 'http://json-schema.org/draft-06/schema#',
-  $id: 'https://example.com/schemas/example',
-  title: 'Example',
-  type: 'object',
-  description:
-    'This is an example schema with examples. Too many examples? There can never be too many examples!',
-  properties: {
-    foo: {
-      type: 'string',
-      description: 'A simple string.',
-      examples: ['bar'],
-      version: '1.0.0',
-      testProperty: 'test',
-    },
-    bar: {
-      type: 'string',
-      description: 'A simple string.',
-      examples: ['bar', 'baz'],
-      version: '1.0.0',
-      testProperty: 'test',
-    },
-    zip: {
-      type: 'object',
-      title: 'An object',
-    },
-    zup: {
-      type: 'object',
-      title: 'An object',
-    },
-    baz: {
-      anyOf: [
-        { $ref: '#/properties/foo' },
-        { $ref: '#/properties/bar' },
-      ],
-    },
-    properties: {
-      type: 'object',
-      description: 'properties witin properties',
-    },
-    required: {
-      type: 'array',
-      examples: [
-        [
-          {
-            properies: [],
-          },
-        ],
-      ],
-    },
-    examples: {
-      type: 'number',
-      examples: [1, 2, 3],
-    },
-  },
-};
 
 describe('Testing Schema Traversal', () => {
   it('Schema Traversal generates a list', () => {
-    const proxied = loader()('example.schema.json', example);
+    const proxied = loader()('traverse.schema.json', example);
     const schemas = traverse([proxied]);
 
     assert.equal(schemas.length, 11);
-    assert.equal(schemas[7][filename], 'example.schema.json');
+    assert.equal(schemas[7][filename], 'traverse.schema.json');
   });
 
   it('Cyclic Schema Traversal generates a list', async () => {
