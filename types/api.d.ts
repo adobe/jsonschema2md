@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright 2021 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License. You may obtain a copy
@@ -9,16 +9,15 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
+
 import { JSONSchema4, JSONSchema6, JSONSchema7 } from "json-schema";
 import { Root } from "mdast";
-import { filename, inputpath, outputcontent, outputpath } from "../lib/symbols";
+import { filename, fullpath } from "../lib/symbols";
 
 export type UniqueSymbols = {
     readonly pointer: unique symbol;
     readonly filename: unique symbol;
-    readonly inputpath: unique symbol;
-    readonly outputcontent: unique symbol;
-    readonly outputpath: unique symbol;
+    readonly fullpath: unique symbol;
     readonly id: unique symbol;
     readonly titles: unique symbol;
     readonly resolve: unique symbol;
@@ -28,23 +27,30 @@ export type UniqueSymbols = {
 };
 
 export type JsonSchema = JSONSchema4 | JSONSchema6 | JSONSchema7;
-export type SchemaFiles = {
-    [name: string]: string | JsonSchema;
+export type SchemaList = {
+    fileName: string;
+    fullPath: string;
 };
+export type SchemaContent = {
+    fileName: string;
+    fullPath?: string;
+    content: JsonSchema;
+};
+export type SchemaFiles = (SchemaList | SchemaContent)[];
 export type ExtendedJsonSchema = JsonSchema & {
     [filename]: string;
-    [inputpath]?: string;
-    [outputpath]?: string;
+    [fullpath]?: string;
 };
 
 export type MarkdownAst = Root;
-export type ExtendedMarkdownAst = MarkdownAst & {
-    [filename]: string;
-    [outputcontent]: string;
-    [outputpath]?: string;
+export type MarkdownContent = {
+    fileName: string;
+    fullPath: string;
+    markdownAst?: MarkdownAst;
+    content?: string;
 };
-export type ReadmeMarkdownAst = ExtendedMarkdownAst & {
-    [filename]: "README.md";
+export type ReadmeContent = MarkdownContent & {
+    fileName: "README.md";
 };
 
 /**
@@ -54,13 +60,13 @@ export type GeneratedOutput = {
     /**
      * Input JSON schemas
      */
-    schema: ExtendedJsonSchema[];
+    schema: SchemaContent[];
     /**
      * Ouput Readme file
      */
-    readme: ReadmeMarkdownAst;
+    readme?: ReadmeContent;
     /**
      * Output markdown data
      */
-    markdown: ExtendedMarkdownAst[];
+    markdown: MarkdownContent[];
 };
