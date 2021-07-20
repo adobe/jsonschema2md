@@ -50,7 +50,7 @@ describe('Integration Test', () => {
   });
 
   ['arrays', 'cyclic'].forEach((dir) => it(`CLI processes ${dir} directory`, async () => {
-    const res = await main((`jsonschema2md -d test/fixtures/${dir} -o tmp -x tmp`).split(' '));
+    const res = await main((`jsonschema2md -d test/fixtures/${dir} -o tmp -x tmp -m input1=test1 -m input2=test2`).split(' '));
     console.log('done!', res);
     const readme = await fs.stat(path.resolve(__dirname, '..', 'tmp', 'README.md'));
     assert.ok(readme.isFile());

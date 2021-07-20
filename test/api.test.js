@@ -99,4 +99,15 @@ describe('Testing Public API', () => {
       .contains('properties within properties')
       .contains('## examples');
   });
+
+  it('Public API with invalid schema', async () => {
+    try {
+      jsonschema2md('test', {
+        outDir: 'tmp',
+        includeReadme: true,
+      });
+    } catch (e) {
+      assert.strictEqual(e.message, 'Input is not valid. Provide JSON schema either as Object or Array.');
+    }
+  });
 });
