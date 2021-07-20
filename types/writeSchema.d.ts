@@ -9,11 +9,11 @@ export type SchemaContent = import("../types/api").SchemaContent;
 /**
  * Write the JSON Schemas to filesystem or an object
  * @param {Object} options
- * @param {string} [options.schemaDir] - (optional) Directory where the files will be saved
- * @param {string} [options.originDir] - (optional) Directory where the files were loaded from
+ * @param {string} [options.schemadir] - (optional) Directory where the files will be saved
+ * @param {string} [options.origindir] - (optional) Directory where the files were loaded from
  * @returns {(schemas: ExtendedJsonSchema[]) => SchemaContent[]}
  */
-export function writeSchema({ schemaDir, originDir }: {
-    schemaDir?: string;
-    originDir?: string;
+export function writeSchema({ schemadir, origindir }: {
+    schemadir?: string;
+    origindir?: string;
 }): (schemas: ExtendedJsonSchema[]) => SchemaContent[];

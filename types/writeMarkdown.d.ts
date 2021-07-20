@@ -26,7 +26,7 @@ export type MarkdownAstFiles = {
  * @param {{ [key: string]: string }} [options.meta] - (optional) Metadata to be added to Markdown
  * @returns {(astFiles: MarkdownAstFiles) => MarkdownContent[]}
  */
-export function writeMarkdown({ out, error, meta, }: {
+export function writemarkdown({ out, error, meta, }: {
     out?: string;
     error?: Function;
     info?: Function;
@@ -45,7 +45,7 @@ export function writeMarkdown({ out, error, meta, }: {
  * @param {{ [key: string]: string }} [options.meta] - (optional) Metadata to be added to Markdown
  * @returns {(markdownAst: MarkdownAst) => ReadmeContent}
  */
-export function writeReadme({ out, error, info, meta, }: {
+export function writereadme({ out, error, info, meta, }: {
     out?: string;
     error?: Function;
     info?: Function;
