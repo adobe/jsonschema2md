@@ -80,7 +80,6 @@ describe('Testing Public API', () => {
 
   it('Public API processes from single schema', async () => {
     const result = jsonschema2md(example, {
-      outDir: 'tmp',
       includeReadme: true,
     });
     // console.log('done!', result);
