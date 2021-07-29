@@ -31,14 +31,12 @@ describe('Testing Public API', () => {
   it('Public API processes multiple schemas with full path', async () => {
     const schemasFiles = await loadSchemas('readme-1');
     const result = jsonschema2md(schemasFiles, {
-      outDir: 'tmp',
+      links: { abstract: 'fooabstract.html' },
+      header: true,
       includeReadme: true,
     });
     // console.log('done!', res);
     assert(result === Object(result));
-    const readme = await fs.stat(path.resolve(__dirname, '..', 'tmp', 'README.md'));
-    assert.ok(readme.isFile());
-    assert.notStrictEqual(readme.size, 0);
     assert.ok(result.readme.content);
     assertMarkdown(result.readme.markdownAst)
       .contains('# README')
@@ -81,6 +79,10 @@ describe('Testing Public API', () => {
   it('Public API processes from single schema', async () => {
     const result = jsonschema2md(example, {
       includeReadme: true,
+      out: 'tmp',
+      meta: {
+        key: 'value',
+      },
     });
     // console.log('done!', result);
     assert(result === Object(result));
@@ -108,5 +110,17 @@ describe('Testing Public API', () => {
     } catch (e) {
       assert.strictEqual(e.message, 'Input is not valid. Provide JSON schema either as Object or Array.');
     }
+  });
+
+  it('Public API with unsupported output directory', async () => {
+    const outDir = path.resolve(__dirname, '..', 'tmp');
+    await fs.ensureDir(outDir);
+    await fs.chmod(outDir, 0o400);
+    jsonschema2md(example, {
+      outDir,
+      includeReadme: true,
+    });
+    const files = await fs.readdir(outDir);
+    assert.strictEqual(files.length, 0);
   });
 });
