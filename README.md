@@ -89,7 +89,7 @@ If you run `npm install` before running `npm run prepare`, `npm` will install th
 ### With API for Node.js
 
 ```javascript
-const jsonschema2md = require('@adobe/jsonschema2md');
+const {jsonschema2md} = require('@adobe/jsonschema2md');
 const schema = require('examples/schemas/example.schema.json');
 
 const markdown = jsonschema2md(schema, {
