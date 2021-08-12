@@ -1,3 +1,10 @@
+## [6.1.1](https://github.com/adobe/jsonschema2md/compare/v6.1.0...v6.1.1) (2021-08-12)
+
+
+### Bug Fixes
+
+* **markdownbuilder:** guard against empty definitions object ([f1b90c2](https://github.com/adobe/jsonschema2md/commit/f1b90c268bc97d22a65252c30c9b8a652cbe7246)), closes [#334](https://github.com/adobe/jsonschema2md/issues/334)
+
 # [6.1.0](https://github.com/adobe/jsonschema2md/compare/v6.0.3...v6.1.0) (2021-07-08)
 
 
