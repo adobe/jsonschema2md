@@ -1,3 +1,10 @@
+## [6.1.2](https://github.com/adobe/jsonschema2md/compare/v6.1.1...v6.1.2) (2021-09-02)
+
+
+### Bug Fixes
+
+* **readmebuilder:** reference twice for objects ([0bc9e68](https://github.com/adobe/jsonschema2md/commit/0bc9e686d3de4a60d06eacb36413568745758c63))
+
 ## [6.1.1](https://github.com/adobe/jsonschema2md/compare/v6.1.0...v6.1.1) (2021-08-12)
 
 
