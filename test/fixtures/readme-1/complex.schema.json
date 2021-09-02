@@ -11,6 +11,14 @@
   "type": "object",
   "readOnly": true,
   "description": "This is an example schema that uses types defined in other schemas.",
+  "definitions": {
+    "definitionnamed": {
+      "title": "definitionnamed",
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {}
+    }
+  },
   "properties": {
     "refabstract": {
       "$ref": "https://example.com/schemas/abstract#/definitions/first",
@@ -26,6 +34,9 @@
       "$ref": "#/properties/refnamed",
       "version": "1.0.0",
       "testProperty": "test"
+    },
+    "refdefinition": {
+      "$ref": "#/definitions/definitionnamed"
     },
     "refobj": {
       "type": "object",
