@@ -1,3 +1,10 @@
+## [6.1.3](https://github.com/adobe/jsonschema2md/compare/v6.1.2...v6.1.3) (2021-09-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-log to v5.0.4 ([ba86b48](https://github.com/adobe/jsonschema2md/commit/ba86b48e51fec6d10ca08100417bedbd7a1758f9))
+
 ## [6.1.2](https://github.com/adobe/jsonschema2md/compare/v6.1.1...v6.1.2) (2021-09-02)
 
 
