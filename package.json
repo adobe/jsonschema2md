@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@semantic-release/changelog": "5.0.1",
-    "@semantic-release/git": "9.0.0",
+    "@semantic-release/git": "9.0.1",
     "@semantic-release/github": "7.2.3",
     "codecov": "3.8.3",
     "commitizen": "4.2.4",
@@ -45,7 +45,7 @@
     "eslint-plugin-header": "3.1.1",
     "eslint-plugin-import": "2.24.2",
     "eslint-plugin-jsx-a11y": "6.4.1",
-    "eslint-plugin-react": "7.24.0",
+    "eslint-plugin-react": "7.25.1",
     "ghooks": "2.0.4",
     "i18n-tag-schema": "2.5.0",
     "json-logic-js": "git://github.com/axa-ch/cyclic-schemas-test.git",
