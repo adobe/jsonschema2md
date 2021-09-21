@@ -47,7 +47,7 @@ export type GeneratedOutput = import("../types/api").GeneratedOutput;
  * skip in markdown.
  * @returns {GeneratedOutput} List of raw markdown that were generated from input schema.
  */
-export function jsonschema2md(schema: JsonSchema | import("../types/api").SchemaFiles, { schemaPath, outDir, metadata, schemaOut, includeReadme, links, i18n, language, exampleFormat, includeProperties, header, skipProperties, }: {
+export function jsonschema2md(schema: JsonSchema | import("../types/api").SchemaFiles, options: {
     schemaPath?: string;
     outDir?: string;
     metadata?: {
