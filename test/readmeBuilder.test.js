@@ -45,6 +45,7 @@ describe('Testing Readme Builder', () => {
     assertMarkdown(result)
       .contains('# README')
       .contains('The schemas linked above')
+      .doesNotContain('complex-properties-definitionnamed.md')
       .fuzzy`
 ## Top-level Schemas
 

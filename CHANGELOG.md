@@ -1,3 +1,31 @@
+## [6.1.4](https://github.com/adobe/jsonschema2md/compare/v6.1.3...v6.1.4) (2021-09-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-log to v5.0.5 ([#349](https://github.com/adobe/jsonschema2md/issues/349)) ([fbe1d49](https://github.com/adobe/jsonschema2md/commit/fbe1d4947f4df3030bbedf8da1577d41d24673e7))
+
+## [6.1.3](https://github.com/adobe/jsonschema2md/compare/v6.1.2...v6.1.3) (2021-09-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-log to v5.0.4 ([ba86b48](https://github.com/adobe/jsonschema2md/commit/ba86b48e51fec6d10ca08100417bedbd7a1758f9))
+
+## [6.1.2](https://github.com/adobe/jsonschema2md/compare/v6.1.1...v6.1.2) (2021-09-02)
+
+
+### Bug Fixes
+
+* **readmebuilder:** reference twice for objects ([0bc9e68](https://github.com/adobe/jsonschema2md/commit/0bc9e686d3de4a60d06eacb36413568745758c63))
+
+## [6.1.1](https://github.com/adobe/jsonschema2md/compare/v6.1.0...v6.1.1) (2021-08-12)
+
+
+### Bug Fixes
+
+* **markdownbuilder:** guard against empty definitions object ([f1b90c2](https://github.com/adobe/jsonschema2md/commit/f1b90c268bc97d22a65252c30c9b8a652cbe7246)), closes [#334](https://github.com/adobe/jsonschema2md/issues/334)
+
 # [6.1.0](https://github.com/adobe/jsonschema2md/compare/v6.0.3...v6.1.0) (2021-07-08)
 
 
