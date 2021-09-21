@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2019 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License. You may obtain a copy
@@ -49,7 +49,7 @@ module.exports = {
     }],
 
     // enforce license header (todo: improve plugin to support patterns for multi-lines)
-    'header/header': [2, 'block', ['*',
+    'header/header': [2, 'block', ['',
       { pattern: ' * Copyright \\d{4} Adobe\\. All rights reserved\\.', template: ' * Copyright 2021 Adobe. All rights reserved.' },
       ' * This file is licensed to you under the Apache License, Version 2.0 (the "License");',
       ' * you may not use this file except in compliance with the License. You may obtain a copy',
