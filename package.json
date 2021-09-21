@@ -35,8 +35,8 @@
   },
   "devDependencies": {
     "@semantic-release/changelog": "5.0.1",
-    "@semantic-release/git": "9.0.1",
-    "@semantic-release/github": "7.2.3",
+    "@semantic-release/git": "10.0.0",
+    "@semantic-release/github": "8.0.0",
     "codecov": "3.8.3",
     "commitizen": "4.2.4",
     "cz-conventional-changelog": "3.3.0",
@@ -52,7 +52,7 @@
     "lint-staged": "11.1.2",
     "mocha": "9.1.1",
     "nyc": "15.1.0",
-    "semantic-release": "17.4.7",
+    "semantic-release": "18.0.0",
     "unist-util-select": "3.0.4"
   },
   "engines": {
