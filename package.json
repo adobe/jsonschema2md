@@ -40,8 +40,8 @@
   },
   "devDependencies": {
     "@semantic-release/changelog": "5.0.1",
-    "@semantic-release/git": "9.0.1",
-    "@semantic-release/github": "7.2.3",
+    "@semantic-release/git": "10.0.0",
+    "@semantic-release/github": "8.0.0",
     "@types/fs-extra": "^9.0.12",
     "@types/github-slugger": "^1.3.0",
     "@types/js-yaml": "^4.0.2",
@@ -62,7 +62,7 @@
     "lint-staged": "11.1.2",
     "mocha": "9.1.1",
     "nyc": "15.1.0",
-    "semantic-release": "17.4.7",
+    "semantic-release": "18.0.0",
     "typescript": "^4.3.5",
     "unist-util-select": "3.0.4"
   },
