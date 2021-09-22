@@ -3,26 +3,31 @@
   "description": "Validate and document complex JSON Schemas the easy way.",
   "version": "1.1.1",
   "main": "lib/index.js",
+  "typings": "types",
   "bin": {
     "jsonschema2md": "./cli.js"
   },
   "scripts": {
-    "semantic-release": "semantic-release",
+    "semantic-release": "npm run emit-types && npx semantic-release",
     "commit": "git-cz",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
     "start": "node cli.js",
     "examples": "node cli.js  -d examples/schemas/ -o examples/docs/ -x examples/generated-schemas/",
     "test": " nyc --reporter=text --reporter=lcov --check-coverage --branches 80 --statements 95 --lines 95 mocha && node lib/locales/update.js",
-    "test-ci": "nyc --reporter=text --reporter=lcov --check-coverage --branches 80 --statements 95 --lines 95 mocha --reporter xunit --reporter-options output=./junit/test-results.xml; codecov"
+    "test-ci": "nyc --reporter=text --reporter=lcov --check-coverage --branches 80 --statements 95 --lines 95 mocha --reporter xunit --reporter-options output=./junit/test-results.xml; codecov",
+    "emit-types": "npx -p typescript tsc"
   },
   "dependencies": {
     "@adobe/helix-log": "5.0.5",
+    "@types/json-schema": "^7.0.8",
+    "@types/mdast": "^3.0.4",
     "es2015-i18n-tag": "1.6.1",
     "ferrum": "1.9.2",
     "fs-extra": "10.0.0",
     "github-slugger": "1.4.0",
     "js-yaml": "4.1.0",
+    "json-schema": "^0.2.5",
     "mdast-builder": "1.1.1",
     "mdast-util-to-string": "2.0.0",
     "readdirp": "3.6.0",
@@ -37,6 +42,11 @@
     "@semantic-release/changelog": "5.0.1",
     "@semantic-release/git": "10.0.0",
     "@semantic-release/github": "8.0.0",
+    "@types/fs-extra": "^9.0.12",
+    "@types/github-slugger": "^1.3.0",
+    "@types/js-yaml": "^4.0.2",
+    "@types/node": "^16.0.1",
+    "@types/yargs": "^17.0.2",
     "codecov": "3.8.3",
     "commitizen": "4.2.4",
     "cz-conventional-changelog": "3.3.0",
@@ -53,6 +63,7 @@
     "mocha": "9.1.1",
     "nyc": "15.1.0",
     "semantic-release": "18.0.0",
+    "typescript": "^4.3.5",
     "unist-util-select": "3.0.4"
   },
   "engines": {

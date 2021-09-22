@@ -1,7 +1,13 @@
+out/
+tmp/
+*.tgz
+*.zip
+
 # ide files
 .project
 .settings
 .idea/
+.vscode/
 *.iml
 
 # node specific files
@@ -21,3 +27,20 @@ npm-debug.log
 
 # mac files
 .DS_Store
+
+.tool-versions
+
+# instanbul code coverage…
+.nyc_output/
+coverage/
+/examples/
+junit/
+test/
+tsconfig.json
+
+# CI/CD
+.circleci/
+.github/
+.renovaterc.json
+.tidelift.yml
+crowdin.yml

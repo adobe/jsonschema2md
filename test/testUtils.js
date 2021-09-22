@@ -73,16 +73,24 @@ ${inspect(node)}`);
   return null;
 }
 
-async function loadschemas(dir) {
-  const schemaloader = loader();
-  const schemadir = path.resolve(__dirname, 'fixtures', dir);
-  const schemas = await readdirp.promise(schemadir, { fileFilter: '*.schema.json' });
+async function loadSchemas(dir) {
+  const schemaDir = path.resolve(__dirname, 'fixtures', dir);
+  const schemas = await readdirp.promise(schemaDir, { fileFilter: '*.schema.json' });
 
-  return traverse(schemas
-    .map(({ fullPath }) => schemaloader(
-      // eslint-disable-next-line global-require, import/no-dynamic-require
-      require(fullPath), fullPath,
-    )));
+  return schemas.map((schema) => ({
+    fileName: schema.basename,
+    fullPath: schema.fullPath,
+  }));
 }
 
-module.exports = { assertMarkdown, loadschemas };
+async function traverseSchemas(dir) {
+  const schemas = await loadSchemas(dir);
+  const schemaloader = loader();
+
+  return traverse(schemas.map(({ fullPath }) => schemaloader(
+    // eslint-disable-next-line global-require, import/no-dynamic-require
+    fullPath, require(fullPath),
+  )));
+}
+
+module.exports = { assertMarkdown, loadSchemas, traverseSchemas };

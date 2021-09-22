@@ -17,14 +17,14 @@ const {
   loader, pointer, filename, id, titles, resolve, slug, meta,
 } = require('../lib/schemaProxy');
 
-const example = require('./fixtures/example/example.schema.json');
+const example = require('./fixtures/example/proxy.schema.json');
 
 const referencing = {
   $schema: 'http://json-schema.org/draft-06/schema#',
   $id: 'https://example.com/schemas/referencing',
   title: 'Referencing',
   properties: {
-    $ref: 'https://example.com/schemas/example#/properties',
+    $ref: 'https://example.com/schemas/example-proxy#/properties',
     zap: {
       type: 'boolean',
     },
@@ -33,23 +33,23 @@ const referencing = {
 
 describe('Testing Schema Proxy', () => {
   it('Schema Proxy creates a JSON schema', () => {
-    const proxied = loader()(example, 'example.schema.json');
+    const proxied = loader()('proxy.schema.json`', example);
 
-    assert.equal(proxied.title, 'Example');
+    assert.equal(proxied.title, 'Example Proxy');
     assert.equal(proxied.properties.foo.type, 'string');
   });
 
   it('Schema Proxy loads multiple JSON schemas', () => {
     const myloader = loader();
-    const proxied1 = myloader(example, 'example.schema.json');
-    const proxied2 = myloader(referencing, 'referencing.schema.json');
+    const proxied1 = myloader('proxy.schema.json', example);
+    const proxied2 = myloader('referencing.schema.json', referencing);
 
-    assert.equal(proxied1.title, 'Example');
+    assert.equal(proxied1.title, 'Example Proxy');
     assert.equal(proxied2.$id, 'https://example.com/schemas/referencing');
   });
 
   it('Schema Proxy creates a JSON schema with Pointers', () => {
-    const proxied = loader()(example, 'example.schema.json');
+    const proxied = loader()('proxy.schema.json', example);
 
     assert.equal(proxied[pointer], '');
     assert.equal(proxied.properties[pointer], '/properties');
@@ -59,39 +59,39 @@ describe('Testing Schema Proxy', () => {
   });
 
   it('Schema Proxy creates a JSON schema with ID References', () => {
-    const proxied = loader()(example, 'example.schema.json');
+    const proxied = loader()('proxy.schema.json', example);
 
-    assert.equal(proxied[id], 'https://example.com/schemas/example');
+    assert.equal(proxied[id], 'https://example.com/schemas/example-proxy');
     assert.equal(proxied.properties[pointer], '/properties');
 
-    assert.equal(proxied.properties[id], 'https://example.com/schemas/example');
+    assert.equal(proxied.properties[id], 'https://example.com/schemas/example-proxy');
     assert.equal(proxied.properties[pointer], '/properties');
 
-    assert.equal(proxied.properties.foo[id], 'https://example.com/schemas/example');
-    assert.equal(proxied['meta:license'][id], 'https://example.com/schemas/example');
-    assert.equal(proxied.properties.baz.anyOf[0][id], 'https://example.com/schemas/example');
+    assert.equal(proxied.properties.foo[id], 'https://example.com/schemas/example-proxy');
+    assert.equal(proxied['meta:license'][id], 'https://example.com/schemas/example-proxy');
+    assert.equal(proxied.properties.baz.anyOf[0][id], 'https://example.com/schemas/example-proxy');
   });
 
   it('Schema Proxy creates a JSON schema with Filename References', () => {
-    const proxied = loader()(example, 'example.schema.json');
+    const proxied = loader()('proxy.schema.json', example);
 
-    assert.equal(proxied[filename], 'example.schema.json');
-    assert.equal(proxied.properties[filename], 'example.schema.json');
-    assert.equal(proxied.properties.foo[filename], 'example.schema.json');
-    assert.equal(proxied['meta:license'][filename], 'example.schema.json');
-    assert.equal(proxied.properties.baz.anyOf[0][filename], 'example.schema.json');
+    assert.equal(proxied[filename], 'proxy.schema.json');
+    assert.equal(proxied.properties[filename], 'proxy.schema.json');
+    assert.equal(proxied.properties.foo[filename], 'proxy.schema.json');
+    assert.equal(proxied['meta:license'][filename], 'proxy.schema.json');
+    assert.equal(proxied.properties.baz.anyOf[0][filename], 'proxy.schema.json');
   });
 
   it('Schema Proxy creates a JSON schema with title References', () => {
-    const proxied = loader()(example, 'example.schema.json');
+    const proxied = loader()('proxy.schema.json', example);
 
-    assert.deepStrictEqual(proxied[titles], ['Example']);
-    assert.deepStrictEqual(proxied.properties.zip[titles], ['Example', undefined, 'An object']);
+    assert.deepStrictEqual(proxied[titles], ['Example Proxy']);
+    assert.deepStrictEqual(proxied.properties.zip[titles], ['Example Proxy', undefined, 'An object']);
   });
 
   it('Schema proxy resolves JSON Pointers', () => {
     const myloader = loader();
-    const proxied1 = myloader(example, 'example.schema.json');
+    const proxied1 = myloader('proxy.schema.json', example);
 
     assert.deepStrictEqual(proxied1.properties, proxied1[resolve]('/properties'));
     assert.deepStrictEqual(proxied1.properties.foo, proxied1[resolve]('/properties/foo'));
@@ -100,8 +100,8 @@ describe('Testing Schema Proxy', () => {
 
   it('Schema proxy resolves Reference Pointers', () => {
     const myloader = loader();
-    myloader(example, 'example.schema.json');
-    const proxied2 = myloader(referencing, 'referencing.schema.json');
+    myloader('proxy.schema.json', example);
+    const proxied2 = myloader('referencing.schema.json', referencing);
 
     assert.deepStrictEqual(new Set(Object.keys(proxied2.properties)), new Set([
       '$ref', 'zap', // the two properties from the original declaration
@@ -111,16 +111,16 @@ describe('Testing Schema Proxy', () => {
 
   it('Schema proxy generates unique names', () => {
     const myloader = loader();
-    const proxied1 = myloader(example, 'example.schema.json');
-    const proxied2 = myloader(referencing, 'referencing.schema.json');
-    const proxied3 = myloader({
+    const proxied1 = myloader('proxy.schema.json', example);
+    const proxied2 = myloader('referencing.schema.json', referencing);
+    const proxied3 = myloader('anotherreference.schema.json', {
       title: 'Referencing',
-    }, 'anotherreference.schema.json');
+    });
 
-    assert.equal(proxied1[slug], 'example');
+    assert.equal(proxied1[slug], 'proxy');
 
-    assert.equal(proxied1.properties.zip[slug], 'example-properties-an-object');
-    assert.equal(proxied1.properties.zup[slug], 'example-properties-an-object-1'); // avoid duplicates
+    assert.equal(proxied1.properties.zip[slug], 'proxy-properties-an-object');
+    assert.equal(proxied1.properties.zup[slug], 'proxy-properties-an-object-1'); // avoid duplicates
 
     assert.equal(proxied2[slug], 'referencing');
     assert.equal(proxied2[slug], 'referencing'); // make sure the slug stays stable
@@ -132,7 +132,7 @@ describe('Testing Schema Proxy', () => {
 
     const examplefile = path.resolve(__dirname, '..', 'examples', 'schemas', 'definitions.schema.json');
     // eslint-disable-next-line import/no-dynamic-require, global-require
-    const exampleschema = myloader(require(examplefile), examplefile);
+    const exampleschema = myloader(examplefile, require(examplefile));
 
     assert.equal(exampleschema[meta].shortdescription, 'This is an example of using a definitions object within a schema');
   });
@@ -152,7 +152,7 @@ describe('Testing Schema Proxy', () => {
     const schemas = files.map((file) => {
       const fname = path.resolve(__dirname, '..', 'examples', 'schemas', file);
       // eslint-disable-next-line import/no-dynamic-require, global-require
-      return myloader(require(fname), fname);
+      return myloader(fname, require(fname));
     });
 
     assert.equal(schemas[0][slug], 'abstract');
@@ -178,7 +178,7 @@ describe('Testing Schema Proxy', () => {
     const schemas = files.map((file) => {
       const fname = path.resolve(__dirname, 'fixtures', 'deadref', file);
       // eslint-disable-next-line import/no-dynamic-require, global-require
-      return myloader(require(fname), fname);
+      return myloader(fname, require(fname));
     });
 
     assert.equal(schemas[0][slug], 'deadref');

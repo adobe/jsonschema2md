@@ -14,12 +14,12 @@
 const assert = require('assert');
 const fs = require('fs-extra');
 const path = require('path');
-const { loadschemas } = require('./testUtils');
+const { assertMarkdown, loadSchemas } = require('./testUtils');
 
-const example = require('./fixtures/example/example.schema.json');
+const example = require('./fixtures/example/api.schema.json');
 const { jsonschema2md } = require('../lib/index');
 
-describe('Testing Main API', () => {
+describe('Testing Public API', () => {
   beforeEach(async () => {
     await fs.remove(path.resolve(__dirname, '..', 'tmp'));
   });
@@ -28,28 +28,99 @@ describe('Testing Main API', () => {
     await fs.remove(path.resolve(__dirname, '..', 'tmp'));
   });
 
-  it('Main API processes readme-1 directory', async () => {
-    const schemas = await loadschemas('readme-1');
-    const res = jsonschema2md(schemas, {
+  it('Public API processes multiple schemas with full path', async () => {
+    const schemasFiles = await loadSchemas('readme-1');
+    const result = jsonschema2md(schemasFiles, {
+      links: { abstract: 'fooabstract.html' },
+      header: true,
+      includeReadme: true,
+    });
+    // console.log('done!', res);
+    assert(result === Object(result));
+    assert.ok(result.readme.content);
+    assertMarkdown(result.readme.markdownAst)
+      .contains('# README')
+      .contains('The schemas linked above')
+      .fuzzy`
+## Top-level Schemas
+
+*   [Abstract](./abstract.md "This is an abstract schema") – ${null}
+*   [Complex References](./complex.md "This is an example schema that uses types defined in other schemas") – ${null}
+*   [Simple](./simple.md "This is a very simple example of a JSON schema") – ${null}
+`;
+    assert.strictEqual(result.markdown.length, 29);
+  });
+
+  it('Public API processes multiple schemas with content', async () => {
+    const schemasFiles = await loadSchemas('readme-1');
+    const schemas = schemasFiles.map(({ fileName, fullPath }) => ({
+      fileName,
+      // eslint-disable-next-line global-require, import/no-dynamic-require
+      content: require(fullPath),
+    }));
+
+    const result = jsonschema2md(schemas, {
       schemaPath: path.resolve(__dirname, 'fixtures/readme-1'),
-      out: 'tmp',
+      outDir: 'tmp',
       schemaOut: 'tmp',
       includeReadme: true,
     });
-    // console.log('done!', res);
-    assert(res === Object(res));
     const readme = await fs.stat(path.resolve(__dirname, '..', 'tmp', 'README.md'));
     assert.ok(readme.isFile());
+    assert.notStrictEqual(readme.size, 0);
+    assert.ok(result.readme.content);
+    assertMarkdown(result.readme.markdownAst)
+      .contains('# README')
+      .contains('The schemas linked above');
+    assert.strictEqual(result.schema.length, 3);
+    assert.strictEqual(result.markdown.length, 28);
   });
 
-  it('Main API processes example schema', async () => {
-    const res = jsonschema2md(example, {
+  it('Public API processes from single schema', async () => {
+    const result = jsonschema2md(example, {
+      includeReadme: true,
       out: 'tmp',
+      meta: {
+        key: 'value',
+      },
+    });
+    // console.log('done!', result);
+    assert(result === Object(result));
+    assert.ok(result.readme.content);
+    assertMarkdown(result.readme.markdownAst)
+      .contains('# README')
+      .matches(/Top-level Schemas/)
+      .contains('https://example.com/schemas/example-api');
+    assert.strictEqual(result.markdown.length, 7);
+    assertMarkdown(result.markdown[0].markdownAst)
+      .contains('# Example API Properties')
+      .contains('## foo')
+      .contains('## bar')
+      .contains('## baz')
+      .contains('properties within properties')
+      .contains('## examples');
+  });
+
+  it('Public API with invalid schema', async () => {
+    try {
+      jsonschema2md('test', {
+        outDir: 'tmp',
+        includeReadme: true,
+      });
+    } catch (e) {
+      assert.strictEqual(e.message, 'Input is not valid. Provide JSON schema either as Object or Array.');
+    }
+  });
+
+  it('Public API with unsupported output directory', async () => {
+    const outDir = path.resolve(__dirname, '..', 'tmp');
+    await fs.ensureDir(outDir);
+    await fs.chmod(outDir, 0o400);
+    jsonschema2md(example, {
+      outDir,
       includeReadme: true,
     });
-    // console.log('done!', res);
-    assert(res === Object(res));
-    const readme = await fs.stat(path.resolve(__dirname, '..', 'tmp', 'README.md'));
-    assert.ok(readme.isFile());
+    const files = await fs.readdir(outDir);
+    assert.strictEqual(files.length, 0);
   });
 });

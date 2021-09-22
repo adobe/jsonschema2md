@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "removeComments": false,
+    "outDir": "types"
+  },
+  "include": ["lib/index.js"],
+  "exclude": ["**/locales/**/*"]
+}
