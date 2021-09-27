@@ -39,7 +39,7 @@
     "yargs": "17.2.0"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "5.0.1",
+    "@semantic-release/changelog": "6.0.0",
     "@semantic-release/git": "10.0.0",
     "@semantic-release/github": "8.0.1",
     "@types/fs-extra": "9.0.13",
