@@ -26,7 +26,7 @@ const example = fs.readJSONSync(path.resolve(__dirname, './fixtures/example/api.
 describe('Testing Public API', () => {
   beforeEach(async () => {
     try {
-      await fs.remove(path.resolve(__dirname, '..', 'tmp'));
+      await fs.rm(path.resolve(__dirname, '..', 'tmp'), { recursive: true });
     } catch {
       console.log('leaving tmp dir dirty');
     }
@@ -34,7 +34,7 @@ describe('Testing Public API', () => {
 
   afterEach(async () => {
     try {
-      await fs.remove(path.resolve(__dirname, '..', 'tmp'));
+      await fs.rm(path.resolve(__dirname, '..', 'tmp'), { recursive: true });
     } catch {
       console.log('leaving tmp dir dirty');
     }

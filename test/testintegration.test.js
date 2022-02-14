@@ -28,7 +28,7 @@ describe('Integration Test', () => {
     oldargs = process.argv;
     oldexit = process.exit;
     try {
-      await fs.remove(path.resolve(__dirname, '..', 'tmp'));
+      await fs.rm(path.resolve(__dirname, '..', 'tmp'), { recursive: true });
     } catch {
       console.log('leaving tmp dir dirty');
     }
@@ -38,7 +38,7 @@ describe('Integration Test', () => {
     process.argv = oldargs;
     process.exit = oldexit;
     try {
-      await fs.remove(path.resolve(__dirname, '..', 'tmp'));
+      await fs.rm(path.resolve(__dirname, '..', 'tmp'), { recursive: true });
     } catch {
       console.log('leaving tmp dir dirty');
     }
