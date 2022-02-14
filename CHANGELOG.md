@@ -1,3 +1,29 @@
+# [7.0.0](https://github.com/adobe/jsonschema2md/compare/v6.1.4...v7.0.0) (2022-02-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-log to v6 ([#363](https://github.com/adobe/jsonschema2md/issues/363)) ([6298ed2](https://github.com/adobe/jsonschema2md/commit/6298ed2808d4797429d907159c762ac79d19627b))
+* **index:** remove reference to single input file ([7324427](https://github.com/adobe/jsonschema2md/commit/732442777d067e6a9091a6af50e21fcfca9fbd47)), closes [#386](https://github.com/adobe/jsonschema2md/issues/386)
+* **symbols:** tweak exports ([d31ab23](https://github.com/adobe/jsonschema2md/commit/d31ab239385cbe51eede6ff794fdfa58d7109717))
+* **tests:** use fileToURLPath for dirname ([352d032](https://github.com/adobe/jsonschema2md/commit/352d032dccbc16e094359ae7e0d6d44e8ffd7863))
+
+
+### Code Refactoring
+
+* use esm ([a628755](https://github.com/adobe/jsonschema2md/commit/a6287553800fbe98396af193ebf0a56ca3cabde0))
+
+
+### Features
+
+* **api:** change shape of input and output data ([797090f](https://github.com/adobe/jsonschema2md/commit/797090fce370296ddb7c3c3fe3605330fcde02ff))
+* **api:** create typescript declaration for api ([92426f9](https://github.com/adobe/jsonschema2md/commit/92426f9038c5b9e04fc6ea33fd34fbea7de6a29b))
+
+
+### BREAKING CHANGES
+
+* `jsonschema2md` now uses ECMAScript Modules (`import`/`export`) instead of CommonJS Modules (`require`/`exports`). This was driven by the desire to stay up to date with dependencies that switched to ESM.
+
 ## [6.1.4](https://github.com/adobe/jsonschema2md/compare/v6.1.3...v6.1.4) (2021-09-20)
 
 
