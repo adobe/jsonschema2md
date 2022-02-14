@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+      "ItemLink": {
+          "properties": {
+              "allowedSuccessors": {
+                  "items": {
+                      "type": "string"
+                  },
+                  "type": "array"
+              },
+              "class": {
+                  "type": "string"
+              }
+          },
+          "type": "object"
+      },
+      "ItemLinkOptions": {
+          "properties": {
+              "allowedLinks": {
+                  "items": {
+                      "$ref": "#/definitions/ItemLink"
+                  },
+                  "type": "array"
+              },
+              "maxIncoming": {
+                  "type": "number"
+              },
+              "maxOutgoing": {
+                  "type": "number"
+              }
+          },
+          "type": "object"
+      }
+  },
+  "properties": {
+      "id": {
+          "type": "string"
+      },
+      "items": {
+          "items": {
+              "anyOf": [
+                  {
+                      "$ref": "#/definitions/ItemLink"
+                  }
+              ]
+          },
+          "type": "array"
+      },
+
+      "version": {
+          "type": "string"
+      }
+  },
+  "type": "object"
+}

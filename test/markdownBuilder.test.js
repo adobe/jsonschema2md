@@ -439,3 +439,19 @@ describe('Testing Markdown Builder: Skip properties', () => {
       .doesNotContain('-   defined in: [Complete JSON Schema]');
   });
 });
+
+describe('Testing Markdown Builder: Self-References', () => {
+  let schemas;
+
+  before(async () => {
+    schemas = await traverseSchemas('selfreference');
+  });
+
+  it('ItemLink property exist', () => {
+    const builder = build({});
+    const results = builder(schemas);
+
+    assertMarkdown(results.complete)
+      .contains('ItemLink');
+  });
+});
