@@ -1,8 +1,3 @@
-export type JsonSchema = import("../types/api").JsonSchema;
-export type SchemaList = import("../types/api").SchemaList;
-export type SchemaContent = import("../types/api").SchemaContent;
-export type SchemaFiles = import("../types/api").SchemaFiles;
-export type GeneratedOutput = import("../types/api").GeneratedOutput;
 /**
  * @typedef {import("../types/api").JsonSchema} JsonSchema
  */
@@ -73,3 +68,8 @@ export function jsonschema2md(schema: JsonSchema | import("../types/api").Schema
 export function main(args: {
     [key: string]: unknown;
 }): Promise<number>;
+export type JsonSchema = import("../types/api").JsonSchema;
+export type SchemaList = import("../types/api").SchemaList;
+export type SchemaContent = import("../types/api").SchemaContent;
+export type SchemaFiles = import("../types/api").SchemaFiles;
+export type GeneratedOutput = import("../types/api").GeneratedOutput;

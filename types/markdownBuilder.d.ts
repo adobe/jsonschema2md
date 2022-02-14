@@ -1,5 +1,4 @@
-export = build;
-declare function build({ header, links, includeProperties, rewritelinks, exampleFormat, skipProperties, }?: {
+export default function build({ header, links, includeProperties, rewritelinks, exampleFormat, skipProperties, }?: {
     header: any;
     links?: {};
     includeProperties?: any[];

@@ -1,12 +1,11 @@
-export = symbols;
 /**
  * @typedef {import("../types/api").UniqueSymbols} UniqueSymbols
  */
+export const filename: unique symbol;
+export const fullpath: unique symbol;
+export default symbols;
+export type UniqueSymbols = import("../types/api").UniqueSymbols;
 /**
  * @type {UniqueSymbols}
  * */
 declare const symbols: UniqueSymbols;
-declare namespace symbols {
-    export { UniqueSymbols };
-}
-type UniqueSymbols = import("../types/api").UniqueSymbols;

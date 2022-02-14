@@ -1,8 +1,8 @@
-export function formatmeta(schema: any): {
-    longcomment: import("unist").Node;
+export default function formatmeta(schema: any): {
+    longcomment: import("mdast").Root;
     shortcomment: any;
     comment: string;
-    longdescription: import("unist").Node;
+    longdescription: import("mdast").Root;
     shortdescription: any;
     description: any;
     abstract: boolean;

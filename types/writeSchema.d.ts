@@ -1,5 +1,3 @@
-export type ExtendedJsonSchema = import("../types/api").ExtendedJsonSchema;
-export type SchemaContent = import("../types/api").SchemaContent;
 /**
  * @typedef {import("../types/api").ExtendedJsonSchema} ExtendedJsonSchema
  */
@@ -13,7 +11,9 @@ export type SchemaContent = import("../types/api").SchemaContent;
  * @param {string} [options.origindir] - (optional) Directory where the files were loaded from
  * @returns {(schemas: ExtendedJsonSchema[]) => SchemaContent[]}
  */
-export function writeSchema({ schemadir, origindir }: {
+export default function writeSchema({ schemadir, origindir }: {
     schemadir?: string;
     origindir?: string;
 }): (schemas: ExtendedJsonSchema[]) => SchemaContent[];
+export type ExtendedJsonSchema = import("../types/api").ExtendedJsonSchema;
+export type SchemaContent = import("../types/api").SchemaContent;

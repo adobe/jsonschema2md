@@ -12,7 +12,7 @@
 
 import { JSONSchema4, JSONSchema6, JSONSchema7 } from "json-schema";
 import { Root } from "mdast";
-import { filename, fullpath } from "../lib/symbols";
+import { filename, fullpath } from "../lib/symbols.js";
 
 export type UniqueSymbols = {
     readonly pointer: unique symbol;
