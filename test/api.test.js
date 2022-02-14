@@ -11,21 +11,22 @@
  */
 /* eslint-env mocha */
 /* eslint-disable no-unused-expressions */
-const assert = require('assert');
-const fs = require('fs-extra');
-const path = require('path');
-const { assertMarkdown, loadSchemas } = require('./testUtils');
+import assert from 'assert';
+import fs from 'fs-extra';
+import path from 'path';
+import { assertMarkdown, loadSchemas } from './testUtils.js';
 
-const example = require('./fixtures/example/api.schema.json');
-const { jsonschema2md } = require('../lib/index');
+import { jsonschema2md } from '../lib/index.js';
+
+const example = fs.readJSONSync(path.resolve(new URL('.', import.meta.url).pathname, './fixtures/example/api.schema.json'));
 
 describe('Testing Public API', () => {
   beforeEach(async () => {
-    await fs.remove(path.resolve(__dirname, '..', 'tmp'));
+    await fs.remove(path.resolve(new URL('.', import.meta.url).pathname, '..', 'tmp'));
   });
 
   afterEach(async () => {
-    await fs.remove(path.resolve(__dirname, '..', 'tmp'));
+    await fs.remove(path.resolve(new URL('.', import.meta.url).pathname, '..', 'tmp'));
   });
 
   it('Public API processes multiple schemas with full path', async () => {
@@ -48,7 +49,7 @@ describe('Testing Public API', () => {
 *   [Complex References](./complex.md "This is an example schema that uses types defined in other schemas") – ${null}
 *   [Simple](./simple.md "This is a very simple example of a JSON schema") – ${null}
 `;
-    assert.strictEqual(result.markdown.length, 29);
+    assert.strictEqual(result.markdown.length, 31);
   });
 
   it('Public API processes multiple schemas with content', async () => {
@@ -56,16 +57,16 @@ describe('Testing Public API', () => {
     const schemas = schemasFiles.map(({ fileName, fullPath }) => ({
       fileName,
       // eslint-disable-next-line global-require, import/no-dynamic-require
-      content: require(fullPath),
+      content: fs.readJSONSync(fullPath),
     }));
 
     const result = jsonschema2md(schemas, {
-      schemaPath: path.resolve(__dirname, 'fixtures/readme-1'),
+      schemaPath: path.resolve(new URL('.', import.meta.url).pathname, 'fixtures/readme-1'),
       outDir: 'tmp',
       schemaOut: 'tmp',
       includeReadme: true,
     });
-    const readme = await fs.stat(path.resolve(__dirname, '..', 'tmp', 'README.md'));
+    const readme = await fs.stat(path.resolve(new URL('.', import.meta.url).pathname, '..', 'tmp', 'README.md'));
     assert.ok(readme.isFile());
     assert.notStrictEqual(readme.size, 0);
     assert.ok(result.readme.content);
@@ -73,7 +74,7 @@ describe('Testing Public API', () => {
       .contains('# README')
       .contains('The schemas linked above');
     assert.strictEqual(result.schema.length, 3);
-    assert.strictEqual(result.markdown.length, 28);
+    assert.strictEqual(result.markdown.length, 31);
   });
 
   it('Public API processes from single schema', async () => {
@@ -113,7 +114,7 @@ describe('Testing Public API', () => {
   });
 
   it('Public API with unsupported output directory', async () => {
-    const outDir = path.resolve(__dirname, '..', 'tmp');
+    const outDir = path.resolve(new URL('.', import.meta.url).pathname, '..', 'tmp');
     await fs.ensureDir(outDir);
     await fs.chmod(outDir, 0o400);
     jsonschema2md(example, {

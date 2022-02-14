@@ -7,6 +7,7 @@
   "bin": {
     "jsonschema2md": "./cli.js"
   },
+  "type": "module",
   "scripts": {
     "semantic-release": "npm run emit-types && npx semantic-release",
     "commit": "git-cz",
@@ -14,9 +15,10 @@
     "lint-fix": "eslint . --fix",
     "start": "node cli.js",
     "examples": "node cli.js  -d examples/schemas/ -o examples/docs/ -x examples/generated-schemas/",
-    "test": " nyc --reporter=text --reporter=lcov --check-coverage --branches 80 --statements 95 --lines 95 mocha && node lib/locales/update.js",
-    "test-ci": "nyc --reporter=text --reporter=lcov --check-coverage --branches 80 --statements 95 --lines 95 mocha --reporter xunit --reporter-options output=./junit/test-results.xml; codecov",
-    "emit-types": "npx -p typescript tsc"
+    "test": " c8 --reporter=text --reporter=lcov --check-coverage --branches 80 --statements 95 --lines 95 mocha && node lib/locales/update.js",
+    "test-ci": "c8 --reporter=text --reporter=lcov --check-coverage --branches 80 --statements 95 --lines 95 mocha --reporter xunit --reporter-options output=./junit/test-results.xml; codecov",
+    "emit-types": "npx -p typescript tsc",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@adobe/helix-log": "6.0.0",
@@ -48,18 +50,18 @@
     "@types/js-yaml": "4.0.5",
     "@types/node": "16.11.24",
     "@types/yargs": "17.0.8",
+    "c8": "7.11.0",
     "codecov": "3.8.3",
     "commitizen": "4.2.4",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.9.0",
     "eslint-plugin-header": "3.1.1",
     "eslint-plugin-import": "2.25.4",
-    "ghooks": "2.0.4",
+    "husky": "7.0.4",
     "i18n-tag-schema": "2.5.0",
     "json-logic-js": "git://github.com/axa-ch/cyclic-schemas-test.git",
     "lint-staged": "12.3.3",
     "mocha": "9.2.0",
-    "nyc": "15.1.0",
     "semantic-release": "19.0.2",
     "typescript": "4.5.5",
     "unist-util-select": "4.0.1"

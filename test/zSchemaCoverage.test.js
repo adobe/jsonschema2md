@@ -9,15 +9,18 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-const assert = require('assert');
-const {
+import assert from 'assert';
+import {
   root, heading, paragraph, text, link, table, tableRow, tableCell, inlineCode,
-} = require('mdast-builder');
-const unified = require('unified');
-const stringify = require('remark-stringify');
-const gfm = require('remark-gfm');
-const fs = require('fs-extra');
-const { report } = require('../lib/keywords');
+} from 'mdast-builder';
+import { unified } from 'unified';
+import remarkStringify from 'remark-stringify';
+import gfm from 'remark-gfm';
+import fs from 'fs-extra';
+import { report } from '../lib/keywords.js';
+
+const stringify = remarkStringify;
+
 /* eslint-env mocha */
 const expected = [
   'examples',

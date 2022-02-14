@@ -19,8 +19,8 @@ module.exports = {
   // eslintrc files in parent directories.
   root: true,
   parserOptions: {
-    sourceType: 'script',
-    ecmaVersion: 10,
+    sourceType: 'module',
+    ecmaVersion: 2020,
   },
   plugins: [
     'header',

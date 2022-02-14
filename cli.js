@@ -11,6 +11,6 @@
  * governing permissions and limitations under the License.
  */
 
-const { main } = require('./lib/index');
+import { main } from './lib/index.js';
 
 main(process.argv);

@@ -11,11 +11,11 @@
  */
 /* eslint-env mocha */
 /* eslint-disable no-unused-expressions */
-const assert = require('assert');
-const { assertMarkdown, traverseSchemas } = require('./testUtils');
+import assert from 'assert';
+import { assertMarkdown, traverseSchemas } from './testUtils.js';
 
-const build = require('../lib/readmeBuilder');
-const { loader } = require('../lib/schemaProxy');
+import build from '../lib/readmeBuilder.js';
+import loader from '../lib/schemaProxy.js';
 
 describe('Testing Readme Builder', () => {
   it('Readme Builder is a function', () => {

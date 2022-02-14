@@ -11,13 +11,17 @@
  */
 /* eslint-env mocha */
 
-const assert = require('assert');
-const path = require('path');
-const {
-  loader, pointer, filename, id, titles, resolve, slug, meta,
-} = require('../lib/schemaProxy');
+import assert from 'assert';
+import fs from 'fs-extra';
+import path from 'path';
+import s from '../lib/symbols.js';
+import loader from '../lib/schemaProxy.js';
 
-const example = require('./fixtures/example/proxy.schema.json');
+const example = fs.readJSONSync(path.resolve(new URL('.', import.meta.url).pathname, './fixtures/example/proxy.schema.json'));
+
+const {
+  pointer, filename, id, titles, resolve, slug, meta,
+} = s;
 
 const referencing = {
   $schema: 'http://json-schema.org/draft-06/schema#',
@@ -130,9 +134,9 @@ describe('Testing Schema Proxy', () => {
   it('Schema proxy loads actual schemas with meta information', () => {
     const myloader = loader();
 
-    const examplefile = path.resolve(__dirname, '..', 'examples', 'schemas', 'definitions.schema.json');
+    const examplefile = path.resolve(new URL('.', import.meta.url).pathname, '..', 'examples', 'schemas', 'definitions.schema.json');
     // eslint-disable-next-line import/no-dynamic-require, global-require
-    const exampleschema = myloader(examplefile, require(examplefile));
+    const exampleschema = myloader(examplefile, fs.readJSONSync(examplefile));
 
     assert.equal(exampleschema[meta].shortdescription, 'This is an example of using a definitions object within a schema');
   });
@@ -150,9 +154,9 @@ describe('Testing Schema Proxy', () => {
     ];
 
     const schemas = files.map((file) => {
-      const fname = path.resolve(__dirname, '..', 'examples', 'schemas', file);
+      const fname = path.resolve(new URL('.', import.meta.url).pathname, '..', 'examples', 'schemas', file);
       // eslint-disable-next-line import/no-dynamic-require, global-require
-      return myloader(fname, require(fname));
+      return myloader(fname, fs.readJSONSync(fname));
     });
 
     assert.equal(schemas[0][slug], 'abstract');
@@ -176,9 +180,9 @@ describe('Testing Schema Proxy', () => {
     ];
 
     const schemas = files.map((file) => {
-      const fname = path.resolve(__dirname, 'fixtures', 'deadref', file);
+      const fname = path.resolve(new URL('.', import.meta.url).pathname, 'fixtures', 'deadref', file);
       // eslint-disable-next-line import/no-dynamic-require, global-require
-      return myloader(fname, require(fname));
+      return myloader(fname, fs.readJSONSync(fname));
     });
 
     assert.equal(schemas[0][slug], 'deadref');
