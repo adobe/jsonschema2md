@@ -14,6 +14,7 @@
 import path from 'path';
 import fs from 'fs-extra';
 import assert from 'assert';
+import { fileURLToPath } from 'url';
 import loader from '../lib/schemaProxy.js';
 import { assertMarkdown } from './testUtils.js';
 import readme from '../lib/readmeBuilder.js';
@@ -21,6 +22,8 @@ import markdown from '../lib/markdownBuilder.js';
 import traverse from '../lib/traverseSchema.js';
 import writeSchema from '../lib/writeSchema.js';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 describe('Integration Test: Cyclic References', () => {
   let one;
   let two;
@@ -34,16 +37,16 @@ describe('Integration Test: Cyclic References', () => {
 
   beforeEach('Read Schemas from disk', async () => {
     console.log('Reading Schemas');
-    one = await fs.readJson(path.resolve(new URL('.', import.meta.url).pathname, 'fixtures', 'cyclic', 'one.schema.json'));
-    two = await fs.readJson(path.resolve(new URL('.', import.meta.url).pathname, 'fixtures', 'cyclic', 'two.schema.json'));
-    three = await fs.readJson(path.resolve(new URL('.', import.meta.url).pathname, 'fixtures', 'cyclic', 'three.schema.json'));
+    one = await fs.readJson(path.resolve(__dirname, 'fixtures', 'cyclic', 'one.schema.json'));
+    two = await fs.readJson(path.resolve(__dirname, 'fixtures', 'cyclic', 'two.schema.json'));
+    three = await fs.readJson(path.resolve(__dirname, 'fixtures', 'cyclic', 'three.schema.json'));
 
     const myloader = loader();
 
     console.log('Loading Schemas');
-    proxiedone = myloader(path.resolve(new URL('.', import.meta.url).pathname, 'fixtures', 'cyclic', 'one.schema.json'), one);
-    proxiedtwo = myloader(path.resolve(new URL('.', import.meta.url).pathname, 'fixtures', 'cyclic', 'two.schema.json'), two);
-    proxiedthree = myloader(path.resolve(new URL('.', import.meta.url).pathname, 'fixtures', 'cyclic', 'three.schema.json'), three);
+    proxiedone = myloader(path.resolve(__dirname, 'fixtures', 'cyclic', 'one.schema.json'), one);
+    proxiedtwo = myloader(path.resolve(__dirname, 'fixtures', 'cyclic', 'two.schema.json'), two);
+    proxiedthree = myloader(path.resolve(__dirname, 'fixtures', 'cyclic', 'three.schema.json'), three);
 
     console.log('Traversing Schemas');
 
@@ -72,9 +75,9 @@ describe('Integration Test: Cyclic References', () => {
   });
 
   it('Schemas with cyclic references get written to disk', () => {
-    const writer = writeSchema({ origindir: path.resolve(new URL('.', import.meta.url).pathname, 'fixtures', 'cyclic'), schemadir: path.resolve(new URL('.', import.meta.url).pathname, 'fixtures', 'cyclic-out') });
+    const writer = writeSchema({ origindir: path.resolve(__dirname, 'fixtures', 'cyclic'), schemadir: path.resolve(__dirname, 'fixtures', 'cyclic-out') });
     writer(allschemas);
-    const schemaone = fs.readJsonSync(path.resolve(new URL('.', import.meta.url).pathname, 'fixtures', 'cyclic-out', 'one.schema.json'));
+    const schemaone = fs.readJsonSync(path.resolve(__dirname, 'fixtures', 'cyclic-out', 'one.schema.json'));
     assert.deepStrictEqual(schemaone, {
       $schema: 'http://json-schema.org/draft-04/schema#',
       $id: 'http://example.com/schemas/one',

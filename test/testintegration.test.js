@@ -13,8 +13,11 @@
 import assert from 'assert';
 import fs from 'fs-extra';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import { main } from '../lib/index.js';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const { AssertionError } = assert;
 
 describe('Integration Test', () => {
@@ -24,13 +27,13 @@ describe('Integration Test', () => {
   beforeEach(async () => {
     oldargs = process.argv;
     oldexit = process.exit;
-    await fs.remove(path.resolve(new URL('.', import.meta.url).pathname, '..', 'tmp'));
+    await fs.remove(path.resolve(__dirname, '..', 'tmp'));
   });
 
   afterEach(async () => {
     process.argv = oldargs;
     process.exit = oldexit;
-    await fs.remove(path.resolve(new URL('.', import.meta.url).pathname, '..', 'tmp'));
+    await fs.remove(path.resolve(__dirname, '..', 'tmp'));
   });
 
   it.skip('CLI needs arguments to run', async (done) => {
@@ -55,7 +58,7 @@ describe('Integration Test', () => {
   ['arrays', 'cyclic'].forEach((dir) => it(`CLI processes ${dir} directory`, async () => {
     const res = await main((`jsonschema2md -d test/fixtures/${dir} -o tmp -x tmp -m input1=test1 -m input2=test2`).split(' '));
     console.log('done!', res);
-    const readme = await fs.stat(path.resolve(new URL('.', import.meta.url).pathname, '..', 'tmp', 'README.md'));
+    const readme = await fs.stat(path.resolve(__dirname, '..', 'tmp', 'README.md'));
     assert.ok(readme.isFile());
     assert.notStrictEqual(readme.size, 0);
   }));
@@ -63,7 +66,7 @@ describe('Integration Test', () => {
   ['json-logic-js/schemas'].forEach((dir) => it(`CLI processes ${dir} directory`, async () => {
     const res = await main((`jsonschema2md -d node_modules/${dir} -o tmp -x tmp -e json`).split(' '));
     console.log('done!', res);
-    const readme = await fs.stat(path.resolve(new URL('.', import.meta.url).pathname, '..', 'tmp', 'README.md'));
+    const readme = await fs.stat(path.resolve(__dirname, '..', 'tmp', 'README.md'));
     assert.ok(readme.isFile());
     assert.notStrictEqual(readme.size, 0);
   }));

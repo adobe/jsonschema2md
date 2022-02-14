@@ -18,9 +18,12 @@ import { select } from 'unist-util-select';
 import path from 'path';
 import gfm from 'remark-gfm';
 import readdirp from 'readdirp';
+import { fileURLToPath } from 'url';
 import loader from '../lib/schemaProxy.js';
 import traverse from '../lib/traverseSchema.js';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 export function assertMarkdown(node) {
   const processor = unified()
     .use(gfm)
@@ -75,7 +78,7 @@ ${inspect(node)}`);
 }
 
 export async function loadSchemas(dir) {
-  const schemaDir = path.resolve(new URL('.', import.meta.url).pathname, 'fixtures', dir);
+  const schemaDir = path.resolve(__dirname, 'fixtures', dir);
   const schemas = await readdirp.promise(schemaDir, { fileFilter: '*.schema.json' });
 
   return schemas.map((schema) => ({

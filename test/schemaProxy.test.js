@@ -14,10 +14,13 @@
 import assert from 'assert';
 import fs from 'fs-extra';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import s from '../lib/symbols.js';
 import loader from '../lib/schemaProxy.js';
 
-const example = fs.readJSONSync(path.resolve(new URL('.', import.meta.url).pathname, './fixtures/example/proxy.schema.json'));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const example = fs.readJSONSync(path.resolve(__dirname, './fixtures/example/proxy.schema.json'));
 
 const {
   pointer, filename, id, titles, resolve, slug, meta,
@@ -134,7 +137,7 @@ describe('Testing Schema Proxy', () => {
   it('Schema proxy loads actual schemas with meta information', () => {
     const myloader = loader();
 
-    const examplefile = path.resolve(new URL('.', import.meta.url).pathname, '..', 'examples', 'schemas', 'definitions.schema.json');
+    const examplefile = path.resolve(__dirname, '..', 'examples', 'schemas', 'definitions.schema.json');
     // eslint-disable-next-line import/no-dynamic-require, global-require
     const exampleschema = myloader(examplefile, fs.readJSONSync(examplefile));
 
@@ -154,7 +157,7 @@ describe('Testing Schema Proxy', () => {
     ];
 
     const schemas = files.map((file) => {
-      const fname = path.resolve(new URL('.', import.meta.url).pathname, '..', 'examples', 'schemas', file);
+      const fname = path.resolve(__dirname, '..', 'examples', 'schemas', file);
       // eslint-disable-next-line import/no-dynamic-require, global-require
       return myloader(fname, fs.readJSONSync(fname));
     });
@@ -180,7 +183,7 @@ describe('Testing Schema Proxy', () => {
     ];
 
     const schemas = files.map((file) => {
-      const fname = path.resolve(new URL('.', import.meta.url).pathname, 'fixtures', 'deadref', file);
+      const fname = path.resolve(__dirname, 'fixtures', 'deadref', file);
       // eslint-disable-next-line import/no-dynamic-require, global-require
       return myloader(fname, fs.readJSONSync(fname));
     });
