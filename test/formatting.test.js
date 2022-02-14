@@ -11,9 +11,9 @@
  */
 /* eslint-env mocha */
 /* eslint-disable no-unused-expressions */
-const assert = require('assert');
-const s = require('../lib/symbols');
-const { gentitle, gendescription } = require('../lib/formattingTools');
+import assert from 'assert';
+import s from '../lib/symbols.js';
+import { gentitle, gendescription } from '../lib/formattingTools.js';
 
 describe('Testing formatting tools: gettitle', () => {
   it('robust for undefined', () => {
@@ -35,12 +35,16 @@ describe('Testing formatting tools: gettitle', () => {
     assert.strictEqual(gentitle([1, 2, 3, 'Hello world schema']), 'Hello world schema');
   });
   it('returns title with type', () => {
-    assert.strictEqual(gentitle(['Hello world schema', undefined], 'string'),
-      'Untitled string in Hello world schema');
+    assert.strictEqual(
+      gentitle(['Hello world schema', undefined], 'string'),
+      'Untitled string in Hello world schema',
+    );
   });
   it('returns title with for undefined type', () => {
-    assert.strictEqual(gentitle(['Hello world schema', undefined]),
-      'Untitled undefined type in Hello world schema');
+    assert.strictEqual(
+      gentitle(['Hello world schema', undefined]),
+      'Untitled undefined type in Hello world schema',
+    );
   });
 });
 

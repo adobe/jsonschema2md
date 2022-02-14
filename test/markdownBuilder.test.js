@@ -11,9 +11,9 @@
  */
 /* eslint-env mocha */
 /* eslint-disable no-unused-expressions */
-const { assertMarkdown, traverseSchemas } = require('./testUtils');
+import { assertMarkdown, traverseSchemas } from './testUtils.js';
 
-const build = require('../lib/markdownBuilder');
+import build from '../lib/markdownBuilder.js';
 
 describe('Testing Markdown Builder: content', () => {
   let results;
@@ -339,13 +339,13 @@ describe('Testing Markdown Builder: stringformats', () => {
     assertMarkdown(results.simpletypes)
       .contains('maximum (exclusive)')
       .contains('minimum (exclusive)')
-      .fuzzy`### string_pattern Constraints
+      .fuzzy`### string\\_pattern Constraints
 
-**pattern**: the string must match the following regular expression: ${null}
+**pattern**: the string must match the following regular expression:${null}
 \`\`\`regexp
 ^ba.$
 `
-      .fuzzy`### string_date Constraints
+      .fuzzy`### string\\_date Constraints
 
 **date time**: the string must be a date time string, according to [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339 "check the specification")
 `;
