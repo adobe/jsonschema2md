@@ -25,11 +25,19 @@ const example = fs.readJSONSync(path.resolve(__dirname, './fixtures/example/api.
 
 describe('Testing Public API', () => {
   beforeEach(async () => {
-    await fs.remove(path.resolve(__dirname, '..', 'tmp'));
+    try {
+      await fs.remove(path.resolve(__dirname, '..', 'tmp'));
+    } catch {
+      console.log('leaving tmp dir dirty');
+    }
   });
 
   afterEach(async () => {
-    await fs.remove(path.resolve(__dirname, '..', 'tmp'));
+    try {
+      await fs.remove(path.resolve(__dirname, '..', 'tmp'));
+    } catch {
+      console.log('leaving tmp dir dirty');
+    }
   });
 
   it('Public API processes multiple schemas with full path', async () => {

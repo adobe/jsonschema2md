@@ -27,13 +27,21 @@ describe('Integration Test', () => {
   beforeEach(async () => {
     oldargs = process.argv;
     oldexit = process.exit;
-    await fs.remove(path.resolve(__dirname, '..', 'tmp'));
+    try {
+      await fs.remove(path.resolve(__dirname, '..', 'tmp'));
+    } catch {
+      console.log('leaving tmp dir dirty');
+    }
   });
 
   afterEach(async () => {
     process.argv = oldargs;
     process.exit = oldexit;
-    await fs.remove(path.resolve(__dirname, '..', 'tmp'));
+    try {
+      await fs.remove(path.resolve(__dirname, '..', 'tmp'));
+    } catch {
+      console.log('leaving tmp dir dirty');
+    }
   });
 
   it.skip('CLI needs arguments to run', async (done) => {
