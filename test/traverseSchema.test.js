@@ -14,11 +14,14 @@
 import assert from 'assert';
 import fs from 'fs-extra';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import loader from '../lib/schemaProxy.js';
 import s from '../lib/symbols.js';
 import traverse from '../lib/traverseSchema.js';
 
-const example = fs.readJSONSync(path.resolve(new URL('.', import.meta.url).pathname, './fixtures/example/traverse.schema.json'));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const example = fs.readJSONSync(path.resolve(__dirname, './fixtures/example/traverse.schema.json'));
 
 const { filename } = s;
 
@@ -32,14 +35,14 @@ describe('Testing Schema Traversal', () => {
   });
 
   it('Cyclic Schema Traversal generates a list', async () => {
-    const one = await fs.readJson(path.resolve(new URL('.', import.meta.url).pathname, 'fixtures', 'cyclic', 'one.schema.json'));
-    const two = await fs.readJson(path.resolve(new URL('.', import.meta.url).pathname, 'fixtures', 'cyclic', 'two.schema.json'));
-    const three = await fs.readJson(path.resolve(new URL('.', import.meta.url).pathname, 'fixtures', 'cyclic', 'three.schema.json'));
+    const one = await fs.readJson(path.resolve(__dirname, 'fixtures', 'cyclic', 'one.schema.json'));
+    const two = await fs.readJson(path.resolve(__dirname, 'fixtures', 'cyclic', 'two.schema.json'));
+    const three = await fs.readJson(path.resolve(__dirname, 'fixtures', 'cyclic', 'three.schema.json'));
 
     const myloader = loader();
-    const proxiedone = myloader(path.resolve(new URL('.', import.meta.url).pathname, 'fixtures', 'cyclic', 'one.schema.json'), one);
-    const proxiedtwo = myloader(path.resolve(new URL('.', import.meta.url).pathname, 'fixtures', 'cyclic', 'two.schema.json'), two);
-    const proxiedthree = myloader(path.resolve(new URL('.', import.meta.url).pathname, 'fixtures', 'cyclic', 'three.schema.json'), three);
+    const proxiedone = myloader(path.resolve(__dirname, 'fixtures', 'cyclic', 'one.schema.json'), one);
+    const proxiedtwo = myloader(path.resolve(__dirname, 'fixtures', 'cyclic', 'two.schema.json'), two);
+    const proxiedthree = myloader(path.resolve(__dirname, 'fixtures', 'cyclic', 'three.schema.json'), three);
 
     const schemas = traverse([proxiedone, proxiedtwo, proxiedthree]);
 
