@@ -26,7 +26,7 @@
     "@types/mdast": "^3.0.4",
     "es2015-i18n-tag": "1.6.1",
     "ferrum": "1.9.4",
-    "fs-extra": "10.0.1",
+    "fs-extra": "10.1.0",
     "github-slugger": "1.4.0",
     "js-yaml": "4.1.0",
     "json-schema": "^0.4.0",
