@@ -61,7 +61,7 @@
     "i18n-tag-schema": "2.5.0",
     "json-logic-js": "git://github.com/axa-ch/cyclic-schemas-test.git",
     "lint-staged": "12.4.1",
-    "mocha": "9.2.2",
+    "mocha": "10.0.0",
     "semantic-release": "19.0.2",
     "typescript": "4.6.4",
     "unist-util-select": "4.0.1"
