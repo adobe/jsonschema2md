@@ -1,3 +1,12 @@
+## [7.1.1](https://github.com/adobe/jsonschema2md/compare/v7.1.0...v7.1.1) (2022-05-19)
+
+
+### Bug Fixes
+
+* **i18n:** align Dutch locale name with standard pattern ([d940cd4](https://github.com/adobe/jsonschema2md/commit/d940cd4114a04f16e3a41db99b095b40e58e4813)), closes [#426](https://github.com/adobe/jsonschema2md/issues/426)
+* **i18n:** dutch locale available as command line option ([e8c9304](https://github.com/adobe/jsonschema2md/commit/e8c93048191394e53d2ab823f2b4489e843fbc40)), closes [#426](https://github.com/adobe/jsonschema2md/issues/426)
+* **i18n:** support Dutch locale as command line option ([0c0fbbd](https://github.com/adobe/jsonschema2md/commit/0c0fbbdf1e668441e330d9f065a43580e3325be1))
+
 # [7.1.0](https://github.com/adobe/jsonschema2md/compare/v7.0.1...v7.1.0) (2022-05-19)
 
 
