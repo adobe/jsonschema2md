@@ -1,3 +1,10 @@
+# [7.1.0](https://github.com/adobe/jsonschema2md/compare/v7.0.1...v7.1.0) (2022-05-19)
+
+
+### Features
+
+* **i18n:** add Dutch translation ([0556392](https://github.com/adobe/jsonschema2md/commit/05563924bb5d63d8ff45315f39642d3e4170d172)), closes [#425](https://github.com/adobe/jsonschema2md/issues/425)
+
 ## [7.0.1](https://github.com/adobe/jsonschema2md/compare/v7.0.0...v7.0.1) (2022-05-19)
 
 
