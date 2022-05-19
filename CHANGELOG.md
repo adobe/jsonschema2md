@@ -1,3 +1,11 @@
+## [7.0.1](https://github.com/adobe/jsonschema2md/compare/v7.0.0...v7.0.1) (2022-05-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fs-extra to v10.1.0 ([#417](https://github.com/adobe/jsonschema2md/issues/417)) ([ba2e2e5](https://github.com/adobe/jsonschema2md/commit/ba2e2e58529c269bad63c11ec8f9500a3a997779))
+* **package:** bump minimum node version to 14 ([f26283e](https://github.com/adobe/jsonschema2md/commit/f26283e682c0e6f3af4f9dff2ecfea5ca158cc3e))
+
 # [7.0.0](https://github.com/adobe/jsonschema2md/compare/v6.1.4...v7.0.0) (2022-02-14)
 
 
