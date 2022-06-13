@@ -2,79 +2,47 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-version: 2
-jobs:
-  build:
+version: 2.1
+executors:
+  node14:
     docker:
-      # specify the version you desire here
-      - image: circleci/node:14
-      
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
-
+      - image: cimg/node:14.19
     working_directory: ~/repo
 
+orbs:
+  codecov: codecov/codecov@3.2.2
+
+commands:
+  setup:
     steps:
       - checkout
-
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-      - run: npm install
-
+            - v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: install latest npm
+          command: npm -g install npm
+      - run:
+          name: Installing Dependencies
+          command: npm ci
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-        
+
+jobs:
+  build:
+    executor: node14
+    steps:
+      - setup
       # run tests!
       - run: npm run test-ci
-
+      - codecov/upload
       - store_test_results:
           path: junit
       - store_artifacts:
-          path: junit 
-
-  publish:
-    docker:
-      # specify the version you desire here
-      - image: circleci/node:14
-      
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
-
-    working_directory: ~/repo
-
-    steps:
-      - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-
-      - run: npm install
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      - run: 
-          name: Publish Release
-          command: npm run semantic-release
+          path: junit
 
 workflows:
   version: 2
