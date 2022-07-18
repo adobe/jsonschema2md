@@ -51,7 +51,7 @@
     "@types/node": "16.11.39",
     "@types/yargs": "17.0.10",
     "c8": "7.11.3",
-    "commitizen": "4.2.4",
+    "commitizen": "4.2.5",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.17.0",
     "eslint-plugin-header": "3.1.1",
