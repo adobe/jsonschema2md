@@ -21,9 +21,6 @@ commands:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
       - run:
-          name: install latest npm
-          command: npm -g install npm
-      - run:
           name: Installing Dependencies
           command: npm ci
       - save_cache:
