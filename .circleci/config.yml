@@ -6,11 +6,11 @@ version: 2.1
 executors:
   node14:
     docker:
-      - image: cimg/node:14.19
+      - image: cimg/node:14.20
     working_directory: ~/repo
 
 orbs:
-  codecov: codecov/codecov@3.2.2
+  codecov: codecov/codecov@3.2.3
 
 commands:
   setup:
@@ -20,9 +20,6 @@ commands:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
-      - run:
-          name: install latest npm
-          command: npm -g install npm
       - run:
           name: Installing Dependencies
           command: npm ci
