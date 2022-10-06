@@ -1,3 +1,10 @@
+## [7.1.2](https://github.com/adobe/jsonschema2md/compare/v7.1.1...v7.1.2) (2022-10-06)
+
+
+### Bug Fixes
+
+* **schemaproxy.js:** reuse previously proxied subschemas to fix max call stack size exceeded error ([1388449](https://github.com/adobe/jsonschema2md/commit/13884491df4c9ecc694f3881e40c1861f7acfdf8)), closes [/github.com/adobe/jsonschema2md/issues/252#issuecomment-806067867](https://github.com//github.com/adobe/jsonschema2md/issues/252/issues/issuecomment-806067867) [#252](https://github.com/adobe/jsonschema2md/issues/252)
+
 ## [7.1.1](https://github.com/adobe/jsonschema2md/compare/v7.1.0...v7.1.1) (2022-05-19)
 
 
