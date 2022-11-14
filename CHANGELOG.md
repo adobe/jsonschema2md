@@ -1,3 +1,10 @@
+## [7.1.3](https://github.com/adobe/jsonschema2md/compare/v7.1.2...v7.1.3) (2022-11-14)
+
+
+### Bug Fixes
+
+* **markdown-builder:** guard against `enum` being not an array ([aa46ac4](https://github.com/adobe/jsonschema2md/commit/aa46ac4b4ed5d2c1641bec41b78ec04e1f83944b)), closes [#458](https://github.com/adobe/jsonschema2md/issues/458)
+
 ## [7.1.2](https://github.com/adobe/jsonschema2md/compare/v7.1.1...v7.1.2) (2022-10-06)
 
 
