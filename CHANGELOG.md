@@ -1,3 +1,10 @@
+## [7.1.4](https://github.com/adobe/jsonschema2md/compare/v7.1.3...v7.1.4) (2022-11-29)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fs-extra to v11 ([291515e](https://github.com/adobe/jsonschema2md/commit/291515edde6791c1502359a30a336671cbcbe608))
+
 ## [7.1.3](https://github.com/adobe/jsonschema2md/compare/v7.1.2...v7.1.3) (2022-11-14)
 
 
