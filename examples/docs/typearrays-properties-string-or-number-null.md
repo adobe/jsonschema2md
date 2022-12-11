@@ -12,4 +12,4 @@ Types can be many things, even nothing at all.
 
 ## string-or-number-null Type
 
-any of the folllowing: `string` or `number` ([Details](typearrays-properties-string-or-number-null.md))
+any of the following: `string` or `number` ([Details](typearrays-properties-string-or-number-null.md))
