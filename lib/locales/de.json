@@ -73,7 +73,7 @@
     "and all following items may follow any schema": "und alle weiteren Bestandteile der Liste müssen keinem bestimmten Schema folgen",
     "and all following items must follow the schema: ": "und alle weiteren Bestandteile der Liste müssen diesem Schema folgen: ",
     "any of": "irgendeines",
-    "any of the folllowing: ": "irgendeines der folgenden Schemas: ",
+    "any of the following: ": "irgendeines der folgenden Schemas: ",
     "can be null": "darf null sein",
     "cannot be null": "darf nicht null sein",
     "check the specification": "Spezifikation ansehen",

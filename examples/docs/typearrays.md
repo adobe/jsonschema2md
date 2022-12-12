@@ -67,7 +67,7 @@ Types can be many things
 
 *   is optional
 
-*   Type: any of the folllowing: `string` or `number` ([Details](typearrays-properties-string-or-number.md))
+*   Type: any of the following: `string` or `number` ([Details](typearrays-properties-string-or-number.md))
 
 *   cannot be null
 
@@ -75,7 +75,7 @@ Types can be many things
 
 ### string-or-number Type
 
-any of the folllowing: `string` or `number` ([Details](typearrays-properties-string-or-number.md))
+any of the following: `string` or `number` ([Details](typearrays-properties-string-or-number.md))
 
 ## string-or-number-null
 
@@ -85,7 +85,7 @@ Types can be many things, even nothing at all.
 
 *   is optional
 
-*   Type: any of the folllowing: `string` or `number` ([Details](typearrays-properties-string-or-number-null.md))
+*   Type: any of the following: `string` or `number` ([Details](typearrays-properties-string-or-number-null.md))
 
 *   can be null
 
@@ -93,4 +93,4 @@ Types can be many things, even nothing at all.
 
 ### string-or-number-null Type
 
-any of the folllowing: `string` or `number` ([Details](typearrays-properties-string-or-number-null.md))
+any of the following: `string` or `number` ([Details](typearrays-properties-string-or-number-null.md))

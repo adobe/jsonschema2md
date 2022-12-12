@@ -253,7 +253,7 @@ describe('Testing Markdown Builder: types', () => {
 
   it('Multiple Typed Schema looks OK', () => {
     assertMarkdown(results.objectorarray)
-      .has('paragraph > text[value="any of the folllowing: "]');
+      .has('paragraph > text[value="any of the following: "]');
   });
 
   it('Undefined Schema looks OKish', () => {

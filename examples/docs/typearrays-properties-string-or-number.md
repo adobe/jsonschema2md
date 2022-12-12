@@ -12,4 +12,4 @@ Types can be many things
 
 ## string-or-number Type
 
-any of the folllowing: `string` or `number` ([Details](typearrays-properties-string-or-number.md))
+any of the following: `string` or `number` ([Details](typearrays-properties-string-or-number.md))
