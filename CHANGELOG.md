@@ -1,3 +1,10 @@
+## [7.1.5](https://github.com/adobe/jsonschema2md/compare/v7.1.4...v7.1.5) (2022-12-12)
+
+
+### Bug Fixes
+
+* fix typo in 'any of the following' text ([d7039b9](https://github.com/adobe/jsonschema2md/commit/d7039b9a7a636262c3c6ef86b34d0924329f49f5))
+
 ## [7.1.4](https://github.com/adobe/jsonschema2md/compare/v7.1.3...v7.1.4) (2022-11-29)
 
 
