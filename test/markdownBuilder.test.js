@@ -172,7 +172,7 @@ describe('Testing Markdown Builder: Skip titles', () => {
 
   before(async () => {
     const schemas = await traverseSchemas('skiptitles');
-    const builder = build({ header: false, skipTitles: true });
+    const builder = build({ header: false, linkTitles: false });
     results = builder(schemas);
   });
 

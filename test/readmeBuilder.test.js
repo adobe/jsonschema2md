@@ -105,7 +105,7 @@ describe('Testing Readme Builder', () => {
 ### Arrays`;
   });
   it('Readme Builder should skip titles in links if flag is set', () => {
-    const builder = build({ readme: true, skipTitles: true });
+    const builder = build({ readme: true, linkTitles: false });
     const schemaloader = loader();
     const schemas = [
       schemaloader('example.schema.json', {
