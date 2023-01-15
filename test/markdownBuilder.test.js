@@ -167,6 +167,23 @@ value: Maximum
   });
 });
 
+describe('Testing Markdown Builder: Skip titles', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await traverseSchemas('skiptitles');
+    const builder = build({ header: false, linkTitles: false });
+    results = builder(schemas);
+  });
+
+  it('Format Schema has JSON examples', () => {
+    console.log(results.complete)
+    assertMarkdown(results.complete)
+      .contains('[Complete JSON Schema](complete-properties-foo.md)')
+      .doesNotContain('[Complete JSON Schema](complete-properties-foo.md "undefined#/properties/foo")');
+  });
+});
+
 describe('Testing Markdown Builder: enums', () => {
   let results;
 

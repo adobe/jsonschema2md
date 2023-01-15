@@ -84,6 +84,7 @@ describe('Testing Readme Builder', () => {
     assertMarkdown(result)
       .contains('# README')
       .matches(/Top-level Schemas/)
+      .contains('[Test Schema](./example.md "Not much")')
       .has('heading > text')
       .equals('heading > text', {
         type: 'text',
@@ -102,5 +103,35 @@ describe('Testing Readme Builder', () => {
 
 
 ### Arrays`;
+  });
+  it('Readme Builder should skip titles in links if flag is set', () => {
+    const builder = build({ readme: true, linkTitles: false });
+    const schemaloader = loader();
+    const schemas = [
+      schemaloader('example.schema.json', {
+        type: 'object',
+        title: 'Test Schema',
+        description: 'Not much',
+        properties: {
+          foo: {
+            const: 1,
+          },
+          obj: {
+            type: 'object',
+            title: 'An Object',
+          },
+          arr: {
+            type: 'array',
+            title: 'An Array',
+          },
+        },
+      }),
+    ];
+
+    const result = builder(schemas);
+    // eslint-disable-next-line no-unused-expressions
+    assertMarkdown(result)
+      .contains('[Test Schema](./example.md)')
+      .doesNotContain('[Test Schema](./example.md "Not much")');
   });
 });
