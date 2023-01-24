@@ -11,20 +11,7 @@
  */
 
 module.exports = {
-  env: {
-    node: true,
-    es6: true,
-  },
-  // this is the root project for all sub modules. stop searching for any
-  // eslintrc files in parent directories.
   root: true,
-  parserOptions: {
-    sourceType: 'module',
-    ecmaVersion: 2020,
-  },
-  plugins: [
-    'header',
-  ],
   extends: '@adobe/helix',
   rules: {
     strict: 0,
@@ -47,5 +34,8 @@ module.exports = {
       argsIgnorePattern: '^_.*$',
       caughtErrorsIgnorePattern: '^_.*$',
     }],
+
+    'import/no-named-as-default-member': 0,
+    'default-param-last': 0,
   },
 };
