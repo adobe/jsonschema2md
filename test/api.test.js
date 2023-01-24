@@ -127,7 +127,7 @@ describe('Testing Public API', () => {
   it('Public API with unsupported output directory', async () => {
     if (process.platform === 'win32') {
       // give up
-      return true;
+      return;
     }
     const outDir = path.resolve(__dirname, '..', 'tmp');
     await fs.ensureDir(outDir);
