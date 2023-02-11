@@ -6,7 +6,7 @@ version: 2.1
 executors:
   node14:
     docker:
-      - image: cimg/node:14.21
+      - image: cimg/node:18.14
     working_directory: ~/repo
 
 orbs:
