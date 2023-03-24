@@ -21,5 +21,10 @@
       "format": "Coolness",
       "value": "Maximum"
     }
-  ]
+  ],
+  "default": 
+    {
+      "format": "Coolness",
+      "value": "Maximum"
+    }
 }
