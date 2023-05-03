@@ -45,10 +45,11 @@ Supported languages are:
 If you want to provide a translation of your own, [please use GitLocalize](https://gitlocalize.com/repo/3622)
 
 ## Display custom attributes in the property description
-`jsonschema2md` displays only the attributes of an property which are defined by the JSON Schema standard. If you want to display additional attributes in the property description you could provide a comma separated list with your custom attributes.
+`jsonschema2md` displays only the attributes of an property which are defined by the JSON Schema standard. If you want to display additional attributes in the property description you could provide these with the `--properties` (or `-p`) parameter.
 
 ```bash
-$ jsonschema2md -d examples/schemas -o examples/docs -p version,test
+# include both the `version` and the `test` attribute
+$ jsonschema2md -d examples/schemas -o examples/docs -p version -p test
 ```
 
 ## Disable header template
