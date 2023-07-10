@@ -23,7 +23,7 @@
   "dependencies": {
     "@adobe/helix-log": "6.0.0",
     "@types/json-schema": "^7.0.8",
-    "@types/mdast": "^3.0.4",
+    "@types/mdast": "^4.0.0",
     "es2015-i18n-tag": "1.6.1",
     "ferrum": "1.9.4",
     "fs-extra": "11.1.1",
@@ -31,13 +31,13 @@
     "js-yaml": "4.1.0",
     "json-schema": "^0.4.0",
     "mdast-builder": "1.1.1",
-    "mdast-util-to-string": "3.2.0",
+    "mdast-util-to-string": "4.0.0",
     "readdirp": "3.6.0",
     "remark-gfm": "^3.0.0",
     "remark-parse": "10.0.2",
     "remark-stringify": "10.0.3",
     "unified": "10.1.2",
-    "unist-util-inspect": "7.0.2",
+    "unist-util-inspect": "8.0.0",
     "yargs": "17.7.2"
   },
   "devDependencies": {
@@ -61,7 +61,7 @@
     "mocha": "10.2.0",
     "semantic-release": "21.0.7",
     "typescript": "5.1.6",
-    "unist-util-select": "4.0.3"
+    "unist-util-select": "5.0.0"
   },
   "engines": {
     "node": ">= 14.0.0"
