@@ -1,17 +1,17 @@
 /**
- * @typedef {import("../types/api").JsonSchema} JsonSchema
+ * @typedef {import("../types/api.js").JsonSchema} JsonSchema
  */
 /**
- * @typedef {import("../types/api").SchemaList} SchemaList
+ * @typedef {import("../types/api.js").SchemaList} SchemaList
  */
 /**
- * @typedef {import("../types/api").SchemaContent} SchemaContent
+ * @typedef {import("../types/api.js").SchemaContent} SchemaContent
  */
 /**
- * @typedef {import("../types/api").SchemaFiles} SchemaFiles
+ * @typedef {import("../types/api.js").SchemaFiles} SchemaFiles
  */
 /**
- * @typedef {import("../types/api").GeneratedOutput} GeneratedOutput
+ * @typedef {import("../types/api.js").GeneratedOutput} GeneratedOutput
  */
 /**
  * Public API for jsonschema2md that can be used to turn JSON Schema files
@@ -42,7 +42,7 @@
  * skip in markdown.
  * @returns {GeneratedOutput} List of raw markdown that were generated from input schema.
  */
-export function jsonschema2md(schema: JsonSchema | import("../types/api").SchemaFiles, options: {
+export function jsonschema2md(schema: JsonSchema | import("../types/api.js").SchemaFiles, options: {
     schemaPath?: string;
     outDir?: string;
     metadata?: {
@@ -68,8 +68,8 @@ export function jsonschema2md(schema: JsonSchema | import("../types/api").Schema
 export function main(args: {
     [key: string]: unknown;
 }): Promise<number>;
-export type JsonSchema = import("../types/api").JsonSchema;
-export type SchemaList = import("../types/api").SchemaList;
-export type SchemaContent = import("../types/api").SchemaContent;
-export type SchemaFiles = import("../types/api").SchemaFiles;
-export type GeneratedOutput = import("../types/api").GeneratedOutput;
+export type JsonSchema = import("../types/api.js").JsonSchema;
+export type SchemaList = import("../types/api.js").SchemaList;
+export type SchemaContent = import("../types/api.js").SchemaContent;
+export type SchemaFiles = import("../types/api.js").SchemaFiles;
+export type GeneratedOutput = import("../types/api.js").GeneratedOutput;

@@ -1,8 +1,8 @@
 export default function formatmeta(schema: any): {
-    longcomment: import("mdast").Root;
+    longcomment: import("remark-stringify/node_modules/@types/mdast").Root;
     shortcomment: any;
     comment: string;
-    longdescription: import("mdast").Root;
+    longdescription: import("remark-stringify/node_modules/@types/mdast").Root;
     shortdescription: any;
     description: any;
     abstract: boolean;

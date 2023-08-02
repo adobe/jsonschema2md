@@ -1,11 +1,11 @@
 /**
- * @typedef {import("../types/api").MarkdownAst} MarkdownAst
+ * @typedef {import("../types/api.js").MarkdownAst} MarkdownAst
  */
 /**
- * @typedef {import("../types/api").MarkdownContent} MarkdownContent
+ * @typedef {import("../types/api.js").MarkdownContent} MarkdownContent
  */
 /**
- * @typedef {import("../types/api").ReadmeContent} ReadmeContent
+ * @typedef {import("../types/api.js").ReadmeContent} ReadmeContent
  */
 /**
  * @typedef {{ [name: string]: MarkdownAst }} MarkdownAstFiles
@@ -48,9 +48,9 @@ export function writereadme({ out, error, info, meta, }: {
         [key: string]: string;
     };
 }): (markdownAst: MarkdownAst) => ReadmeContent;
-export type MarkdownAst = import("../types/api").MarkdownAst;
-export type MarkdownContent = import("../types/api").MarkdownContent;
-export type ReadmeContent = import("../types/api").ReadmeContent;
+export type MarkdownAst = import("../types/api.js").MarkdownAst;
+export type MarkdownContent = import("../types/api.js").MarkdownContent;
+export type ReadmeContent = import("../types/api.js").ReadmeContent;
 export type MarkdownAstFiles = {
     [name: string]: import("mdast").Root;
 };
