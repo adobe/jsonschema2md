@@ -10,7 +10,7 @@ executors:
     working_directory: ~/repo
 
 orbs:
-  codecov: codecov/codecov@3.2.5
+  codecov: codecov/codecov@3.3.0
 
 commands:
   setup:
