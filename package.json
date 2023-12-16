@@ -53,7 +53,7 @@
     "c8": "8.0.1",
     "commitizen": "4.3.0",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "8.55.0",
+    "eslint": "8.56.0",
     "husky": "8.0.3",
     "i18n-tag-schema": "2.5.0",
     "json-logic-js": "axa-ch/cyclic-schemas-test",
