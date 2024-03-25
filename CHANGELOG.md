@@ -1,3 +1,15 @@
+# [8.0.0](https://github.com/adobe/jsonschema2md/compare/v7.1.6...v8.0.0) (2024-03-25)
+
+
+### Build System
+
+* require node 18  ([3b74f4f](https://github.com/adobe/jsonschema2md/commit/3b74f4f31fc16d28c9a4a8f317cdd1beb2242d7e))
+
+
+### BREAKING CHANGES
+
+* requires node 18
+
 ## [7.1.6](https://github.com/adobe/jsonschema2md/compare/v7.1.5...v7.1.6) (2024-03-25)
 
 
