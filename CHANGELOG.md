@@ -1,3 +1,13 @@
+## [7.1.6](https://github.com/adobe/jsonschema2md/compare/v7.1.5...v7.1.6) (2024-03-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-log to v6.0.1 ([b54415a](https://github.com/adobe/jsonschema2md/commit/b54415a0ae4a66a8ec5da9d433403cf46b0cf351))
+* **deps:** update external fixes ([f515169](https://github.com/adobe/jsonschema2md/commit/f5151691a394c139f07ecaf8ec465e71dba49631))
+* **deps:** update external fixes ([e23d8f0](https://github.com/adobe/jsonschema2md/commit/e23d8f01666fedc12442fa2f9bab660c5aa58d8a))
+* **deps:** update external major ([#516](https://github.com/adobe/jsonschema2md/issues/516)) ([d7d72e6](https://github.com/adobe/jsonschema2md/commit/d7d72e61e2b65f0a790b8945d756082bf2fd3bcf))
+
 ## [7.1.5](https://github.com/adobe/jsonschema2md/compare/v7.1.4...v7.1.5) (2022-12-12)
 
 
