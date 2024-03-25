@@ -1,53 +1,55 @@
-name: Semantic Release
-on:
-  push:
-    branches:
-      - 'main'
+name: Build
+on: [push]
+
+env:
+  CI_BUILD_NUM: ${{ github.run_id }}
+  CI_BRANCH: ${{ github.ref_name }}
+  CIRCLE_REPOSITORY_URL: dummy-url
 
 jobs:
   build:
+    name: Test
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v3
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v4
         with:
-          node-version: '14.x'
+          node-version: '18.x'
       - run: npm install
       - run: git config --global user.email "test@project-helix.io" && git config --global user.name "Test Build"
       - run: npm test
-        env:
-          CIRCLE_REPOSITORY_URL: dummy-url
+      - uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   build_win:
+    name: Test (Windows)
     runs-on: windows-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
     steps:
       - run: git config --global core.autocrlf false
       - uses: actions/checkout@v4
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v3
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v4
         with:
-          node-version: '14.x'
+          node-version: '18.x'
       - run: npm install
       - run: git config --global user.email "test@project-helix.io" && git config --global user.name "Test Build"
       - run: npm test
-        env:
-          CIRCLE_REPOSITORY_URL: dummy-url
 
   release:
+    name: Release
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     needs: [build, build_win]
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v3
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v4
         with:
-          node-version: '14.x'
+          node-version: '18.x'
       - run: npm install
       - run: npm run semantic-release
         env:

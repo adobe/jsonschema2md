@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Comment
         id: comment
-        uses: adobe-rnd/github-semantic-release-comment-action@master
+        uses: adobe-rnd/github-semantic-release-comment-action@main
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
