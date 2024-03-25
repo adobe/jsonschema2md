@@ -49,9 +49,9 @@ describe('Testing Readme Builder', () => {
       .fuzzy`
 ## Top-level Schemas
 
-*   [Abstract](./abstract.md "This is an abstract schema") – ${null}
-*   [Complex References](./complex.md "This is an example schema that uses types defined in other schemas") – ${null}
-*   [Simple](./simple.md "This is a very simple example of a JSON schema") – ${null}
+* [Abstract](./abstract.md "This is an abstract schema") – ${null}
+* [Complex References](./complex.md "This is an example schema that uses types defined in other schemas") – ${null}
+* [Simple](./simple.md "This is a very simple example of a JSON schema") – ${null}
 `;
   });
 
@@ -93,7 +93,7 @@ describe('Testing Readme Builder', () => {
 
 ## Top-level Schemas
 
-*   [Test Schema](./example.md "Not much") – ${undefined}
+* [Test Schema](./example.md "Not much") – ${undefined}
 
 ## Other Schemas
 

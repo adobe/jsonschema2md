@@ -53,12 +53,39 @@ describe('Testing Public API', () => {
     assertMarkdown(result.readme.markdownAst)
       .contains('# README')
       .contains('The schemas linked above')
-      .fuzzy`
+      .fuzzy`# README
+
 ## Top-level Schemas
 
-*   [Abstract](./abstract.md "This is an abstract schema") – ${null}
-*   [Complex References](./complex.md "This is an example schema that uses types defined in other schemas") – ${null}
-*   [Simple](./simple.md "This is a very simple example of a JSON schema") – ${null}
+* [Abstract](./abstract.md "This is an abstract schema") – \`https://example.com/schemas/abstract\`
+
+* [Complex References](./complex.md "This is an example schema that uses types defined in other schemas") – \`https://example.com/schemas/complex\`
+
+* [Simple](./simple.md "This is a very simple example of a JSON schema") – \`https://example.com/schemas/simple\`
+
+## Other Schemas
+
+### Objects
+
+* [Untitled object in Abstract](./abstract-defs-first.md) – \`https://example.com/schemas/abstract#/$defs/first\`
+
+* [Untitled object in Abstract](./abstract-defs-second.md) – \`https://example.com/schemas/abstract#/$defs/second\`
+
+* [Untitled object in Complex References](./complex-properties-refobj.md) – \`https://example.com/schemas/complex#/properties/refobj\`
+
+* [Untitled object in Complex References](./complex-properties-refnestedobj.md) – \`https://example.com/schemas/complex#/properties/refnestedobj\`
+
+* [Untitled object in Complex References](./complex-properties-refnestedobj-properties-refobj.md) – \`https://example.com/schemas/complex#/properties/refnestedobj/properties/refobj\`
+
+* [definitionnamed](./complex-definitions-definitionnamed.md) – \`https://example.com/schemas/complex#/definitions/definitionnamed\`
+
+### Arrays
+
+
+
+## Version Note
+
+The schemas linked above follow the JSON Schema Spec version: \`http://json-schema.org/draft-06/schema#\`
 `;
     assert.strictEqual(result.markdown.length, 31);
   });
