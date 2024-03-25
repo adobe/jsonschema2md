@@ -8,6 +8,33 @@
     "jsonschema2md": "./cli.js"
   },
   "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./types/index.d.ts",
+        "default": "./lib/index.js"
+      }
+    },
+    "./lib/*.js": {
+      "import": {
+        "types": "./types/*.d.ts",
+        "default": "./lib/*.js"
+      }
+    },
+    "./lib/*": {
+      "import": {
+        "types": "./types/*.d.ts",
+        "default": "./lib/*.js"
+      }
+    },
+    "./lib/index": {
+      "import": {
+        "types": "./types/index.d.ts",
+        "default": "./lib/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "semantic-release": "npm run emit-types && npx semantic-release",
     "commit": "git-cz",

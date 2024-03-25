@@ -1,8 +1,8 @@
 /**
- * @typedef {import("../types/api").ExtendedJsonSchema} ExtendedJsonSchema
+ * @typedef {import("../types/api.js").ExtendedJsonSchema} ExtendedJsonSchema
  */
 /**
- * @typedef {import("../types/api").SchemaContent} SchemaContent
+ * @typedef {import("../types/api.js").SchemaContent} SchemaContent
  */
 /**
  * Write the JSON Schemas to filesystem or an object
@@ -15,5 +15,5 @@ export default function writeSchema({ schemadir, origindir }: {
     schemadir?: string;
     origindir?: string;
 }): (schemas: ExtendedJsonSchema[]) => SchemaContent[];
-export type ExtendedJsonSchema = import("../types/api").ExtendedJsonSchema;
-export type SchemaContent = import("../types/api").SchemaContent;
+export type ExtendedJsonSchema = import("../types/api.js").ExtendedJsonSchema;
+export type SchemaContent = import("../types/api.js").SchemaContent;
