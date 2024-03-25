@@ -1,6 +1,6 @@
 # JSON Schema Markdown Tools
 
-[![CircleCI](https://circleci.com/gh/adobe/jsonschema2md.svg?style=svg)](https://circleci.com/gh/adobe/jsonschema2md)
+[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/adobe/jsonschema2md/main.yaml)](https://github.com/adobe/jsonschema2md/actions/workflows/main.yaml)
 
 Documenting and validating complex JSON Schemas can be hard. This tool makes it easier by providing a number of scripts that can turn JSON Schema files into readable Markdown documentation that is ready for consumption on GitHub or processed using Jekyll or other static site generators.
 
@@ -110,8 +110,8 @@ This will run our Jasmine test suite as well as lint the JavaScript according to
 
 ### CI
 
-Continuous integration runs on [CircleCI](https://circleci.com/gh/adobe/jsonschema2md). 
-All pull requests automatically trigger a job that runs the [tests](#tests) by executing the [`config.yml`](.circleci/config.yml). 
+Continuous integration runs on Github Actions.
+All pull requests automatically trigger a job that runs the [tests](#tests) by executing the [`main.yml`](.github/workflows/main.yaml). 
 
 ### Code Coverage
 
