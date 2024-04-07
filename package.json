@@ -44,11 +44,11 @@
     "@adobe/eslint-config-helix": "2.0.6",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
-    "@semantic-release/github": "10.0.2",
+    "@semantic-release/github": "10.0.3",
     "@types/fs-extra": "11.0.4",
     "@types/github-slugger": "2.0.0",
     "@types/js-yaml": "4.0.9",
-    "@types/node": "20.12.2",
+    "@types/node": "20.12.5",
     "@types/yargs": "17.0.32",
     "c8": "9.1.0",
     "commitizen": "4.3.0",
@@ -60,7 +60,7 @@
     "lint-staged": "15.2.2",
     "mocha": "10.4.0",
     "semantic-release": "22.0.12",
-    "typescript": "5.4.3",
+    "typescript": "5.4.4",
     "unist-util-select": "5.1.0"
   },
   "engines": {
