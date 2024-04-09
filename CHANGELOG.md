@@ -1,3 +1,10 @@
+## [8.0.2](https://github.com/adobe/jsonschema2md/compare/v8.0.1...v8.0.2) (2024-04-09)
+
+
+### Bug Fixes
+
+* remove helix-log dependency ([#579](https://github.com/adobe/jsonschema2md/issues/579)) ([9fbfdf9](https://github.com/adobe/jsonschema2md/commit/9fbfdf9726c512c4338c47bafef02347f1761372))
+
 ## [8.0.1](https://github.com/adobe/jsonschema2md/compare/v8.0.0...v8.0.1) (2024-03-25)
 
 
