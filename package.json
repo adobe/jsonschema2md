@@ -47,7 +47,7 @@
     "@types/fs-extra": "11.0.4",
     "@types/github-slugger": "2.0.0",
     "@types/js-yaml": "4.0.9",
-    "@types/node": "20.14.8",
+    "@types/node": "20.14.9",
     "@types/yargs": "17.0.32",
     "c8": "10.1.2",
     "commitizen": "4.3.0",
@@ -57,7 +57,7 @@
     "i18n-tag-schema": "2.5.0",
     "json-logic-js": "axa-ch/cyclic-schemas-test",
     "lint-staged": "15.2.7",
-    "mocha": "10.4.0",
+    "mocha": "10.5.2",
     "semantic-release": "24.0.0",
     "typescript": "5.5.2",
     "unist-util-select": "5.1.0"
