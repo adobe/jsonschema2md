@@ -43,7 +43,7 @@
     "@adobe/eslint-config-helix": "2.0.6",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
-    "@semantic-release/github": "10.0.7",
+    "@semantic-release/github": "10.1.0",
     "@types/fs-extra": "11.0.4",
     "@types/github-slugger": "2.0.0",
     "@types/js-yaml": "4.0.9",
