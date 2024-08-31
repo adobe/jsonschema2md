@@ -47,7 +47,7 @@
     "@types/fs-extra": "11.0.4",
     "@types/github-slugger": "2.0.0",
     "@types/js-yaml": "4.0.9",
-    "@types/node": "20.16.1",
+    "@types/node": "20.16.2",
     "@types/yargs": "17.0.33",
     "c8": "10.1.2",
     "commitizen": "4.3.0",
