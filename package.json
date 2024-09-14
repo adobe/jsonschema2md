@@ -53,13 +53,13 @@
     "commitizen": "4.3.0",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.57.0",
-    "husky": "9.1.5",
+    "husky": "9.1.6",
     "i18n-tag-schema": "2.5.0",
     "json-logic-js": "axa-ch/cyclic-schemas-test",
     "lint-staged": "15.2.10",
     "mocha": "10.7.3",
-    "semantic-release": "24.1.0",
-    "typescript": "5.5.4",
+    "semantic-release": "24.1.1",
+    "typescript": "5.6.2",
     "unist-util-select": "5.1.0"
   },
   "engines": {
