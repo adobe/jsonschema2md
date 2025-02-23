@@ -1,6 +1,6 @@
 # JSON Schema Markdown Tools
 
-[![CircleCI](https://circleci.com/gh/adobe/jsonschema2md.svg?style=svg)](https://circleci.com/gh/adobe/jsonschema2md)
+[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/adobe/jsonschema2md/main.yaml)](https://github.com/adobe/jsonschema2md/actions/workflows/main.yaml)
 
 Documenting and validating complex JSON Schemas can be hard. This tool makes it easier by providing a number of scripts that can turn JSON Schema files into readable Markdown documentation that is ready for consumption on GitHub or processed using Jekyll or other static site generators.
 
@@ -13,7 +13,7 @@ These tools have been introduced by Adobe to document Adobe's Experience Data Mo
 ## Requirements
 
 - `npm` version 3.10.8 or up
-- `node` v14 or up
+- `node` v18 or v20 or up
 
 ## Example Output
 
@@ -45,10 +45,11 @@ Supported languages are:
 If you want to provide a translation of your own, [please use GitLocalize](https://gitlocalize.com/repo/3622)
 
 ## Display custom attributes in the property description
-`jsonschema2md` displays only the attributes of an property which are defined by the JSON Schema standard. If you want to display additional attributes in the property description you could provide a comma separated list with your custom attributes.
+`jsonschema2md` displays only the attributes of an property which are defined by the JSON Schema standard. If you want to display additional attributes in the property description you could provide these with the `--properties` (or `-p`) parameter.
 
 ```bash
-$ jsonschema2md -d examples/schemas -o examples/docs -p version,test
+# include both the `version` and the `test` attribute
+$ jsonschema2md -d examples/schemas -o examples/docs -p version -p test
 ```
 
 ## Disable header template
@@ -109,8 +110,8 @@ This will run our Jasmine test suite as well as lint the JavaScript according to
 
 ### CI
 
-Continuous integration runs on [CircleCI](https://circleci.com/gh/adobe/jsonschema2md). 
-All pull requests automatically trigger a job that runs the [tests](#tests) by executing the [`config.yml`](.circleci/config.yml). 
+Continuous integration runs on Github Actions.
+All pull requests automatically trigger a job that runs the [tests](#tests) by executing the [`main.yml`](.github/workflows/main.yaml). 
 
 ### Code Coverage
 

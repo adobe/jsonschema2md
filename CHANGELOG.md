@@ -1,3 +1,39 @@
+## [8.0.2](https://github.com/adobe/jsonschema2md/compare/v8.0.1...v8.0.2) (2024-04-09)
+
+
+### Bug Fixes
+
+* remove helix-log dependency ([#579](https://github.com/adobe/jsonschema2md/issues/579)) ([9fbfdf9](https://github.com/adobe/jsonschema2md/commit/9fbfdf9726c512c4338c47bafef02347f1761372))
+
+## [8.0.1](https://github.com/adobe/jsonschema2md/compare/v8.0.0...v8.0.1) (2024-03-25)
+
+
+### Bug Fixes
+
+* **deps:** update external dependencies ([51be972](https://github.com/adobe/jsonschema2md/commit/51be972b9be85852e9a1ee2f9b7e5b7a86351375))
+
+# [8.0.0](https://github.com/adobe/jsonschema2md/compare/v7.1.6...v8.0.0) (2024-03-25)
+
+
+### Build System
+
+* require node 18  ([3b74f4f](https://github.com/adobe/jsonschema2md/commit/3b74f4f31fc16d28c9a4a8f317cdd1beb2242d7e))
+
+
+### BREAKING CHANGES
+
+* requires node 18
+
+## [7.1.6](https://github.com/adobe/jsonschema2md/compare/v7.1.5...v7.1.6) (2024-03-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @adobe/helix-log to v6.0.1 ([b54415a](https://github.com/adobe/jsonschema2md/commit/b54415a0ae4a66a8ec5da9d433403cf46b0cf351))
+* **deps:** update external fixes ([f515169](https://github.com/adobe/jsonschema2md/commit/f5151691a394c139f07ecaf8ec465e71dba49631))
+* **deps:** update external fixes ([e23d8f0](https://github.com/adobe/jsonschema2md/commit/e23d8f01666fedc12442fa2f9bab660c5aa58d8a))
+* **deps:** update external major ([#516](https://github.com/adobe/jsonschema2md/issues/516)) ([d7d72e6](https://github.com/adobe/jsonschema2md/commit/d7d72e61e2b65f0a790b8945d756082bf2fd3bcf))
+
 ## [7.1.5](https://github.com/adobe/jsonschema2md/compare/v7.1.4...v7.1.5) (2022-12-12)
 
 

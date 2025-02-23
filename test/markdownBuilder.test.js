@@ -58,7 +58,7 @@ merged type ([Not true](not.md))
 
 not
 
-*   [True](not-true.md "check type definition")`;
+* [True](not-true.md "check type definition")`;
   });
 });
 
@@ -323,29 +323,29 @@ describe('Testing Markdown Builder: arrays', () => {
   it('Tuple Schema looks OK', () => {
     assertMarkdown(results.tuple)
       .fuzzy`
-*   is optional
+* is optional
 
-*   Type: an array where each item follows the corresponding schema in the following list:
+* Type: an array where each item follows the corresponding schema in the following list:
 
-    1.  [Positive Integer](tuple-properties-tuple-items-positive-integer.md "check type definition")
+  1. [Positive Integer](tuple-properties-tuple-items-positive-integer.md "check type definition")
 
-    2.  [Negative Integer](tuple-properties-tuple-items-negative-integer.md "check type definition")
+  2. [Negative Integer](tuple-properties-tuple-items-negative-integer.md "check type definition")
 
-    3.  and all following items must follow the schema: [Zero](tuple-properties-tuple-zero.md "check type definition")
+  3. and all following items must follow the schema: [Zero](tuple-properties-tuple-zero.md "check type definition")
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [Arrays](tuple-properties-tuple.md "https://example.com/schemas/arrays#/properties/tuple")
+* defined in: [Arrays](tuple-properties-tuple.md "https://example.com/schemas/arrays#/properties/tuple")
 
 ### tuple Type
 
 an array where each item follows the corresponding schema in the following list:
 
-1.  [Positive Integer](tuple-properties-tuple-items-positive-integer.md "check type definition")
+1. [Positive Integer](tuple-properties-tuple-items-positive-integer.md "check type definition")
 
-2.  [Negative Integer](tuple-properties-tuple-items-negative-integer.md "check type definition")
+2. [Negative Integer](tuple-properties-tuple-items-negative-integer.md "check type definition")
 
-3.  and all following items must follow the schema: [Zero](tuple-properties-tuple-zero.md "check type definition")`;
+3. and all following items must follow the schema: [Zero](tuple-properties-tuple-zero.md "check type definition")`;
   });
 });
 
@@ -402,13 +402,13 @@ Reference this group by using
       .fuzzy`
 \`bar\`
 
-*   is optional
+* is optional
 
-*   Type: \`string\`
+* Type: \`string\`
 
-*   cannot be null
+* cannot be null
 
-*   defined in: [Abstract](abstract-defs-second-properties-bar.md "https://example.com/schemas/abstract#/$defs/second/properties/bar")
+* defined in: [Abstract](abstract-defs-second-properties-bar.md "https://example.com/schemas/abstract#/$defs/second/properties/bar")
 
 #### bar Type
 
@@ -449,7 +449,7 @@ describe('Testing Markdown Builder: Skip properties', () => {
     assertMarkdown(results.complete)
       .contains('### bar Type')
       .contains('| Property          | Type      | Required |')
-      .contains('*   defined in: [Complete JSON Schema]');
+      .contains('* defined in: [Complete JSON Schema]');
   });
 
   it('Skips the expected properties', () => {
