@@ -167,6 +167,29 @@ value: Maximum
   });
 });
 
+describe('Testing Markdown Builder: YAML default', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await traverseSchemas('format');
+    const builder = build({ header: false, exampleFormat: 'yaml' });
+    results = builder(schemas);
+  });
+
+  it('Format Schema has YAML default', () => {
+    assertMarkdown(results.format)
+      .fuzzy`## Properties Default Value
+
+The default value is:
+
+\`\`\`yaml
+format: Coolness
+value: Maximum
+
+\`\`\``;
+  });
+});
+
 describe('Testing Markdown Builder: enums', () => {
   let results;
 
