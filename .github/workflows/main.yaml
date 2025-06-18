@@ -4,7 +4,6 @@ on: [push]
 env:
   CI_BUILD_NUM: ${{ github.run_id }}
   CI_BRANCH: ${{ github.ref_name }}
-  CIRCLE_REPOSITORY_URL: dummy-url
 
 jobs:
   build:
@@ -53,5 +52,5 @@ jobs:
       - run: npm install
       - run: npm run semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.ADOBE_BOT_NPM_TOKEN }}
