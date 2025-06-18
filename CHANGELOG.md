@@ -1,3 +1,16 @@
+## [8.0.3](https://github.com/adobe/jsonschema2md/compare/v8.0.2...v8.0.3) (2025-06-18)
+
+
+### Bug Fixes
+
+* **deps:** update external fixes ([#625](https://github.com/adobe/jsonschema2md/issues/625)) ([2f05d79](https://github.com/adobe/jsonschema2md/commit/2f05d7908e2a014e7e1d5fcf0e598b181fb5361c))
+* **deps:** update external fixes ([#628](https://github.com/adobe/jsonschema2md/issues/628)) ([40d6a3e](https://github.com/adobe/jsonschema2md/commit/40d6a3e364891dbc01aaef646d163cf272b4adc5))
+* **deps:** update external major (major) ([#604](https://github.com/adobe/jsonschema2md/issues/604)) ([8d7af7c](https://github.com/adobe/jsonschema2md/commit/8d7af7cce0f97767e914c2d0849e1f2eb79d8547))
+* release ([d18c15c](https://github.com/adobe/jsonschema2md/commit/d18c15c5a3868a8a6d3b74fd2acc8c80e624536c))
+* release ([9e0a69e](https://github.com/adobe/jsonschema2md/commit/9e0a69e4031857a522d1fc95741b9b015ca13fd6))
+* release ([5f6b431](https://github.com/adobe/jsonschema2md/commit/5f6b431482b44e44661837c2ce33d4e92875906a))
+* release ([1b002a8](https://github.com/adobe/jsonschema2md/commit/1b002a820e2efb0edd0c47377cc54dec06cbea68))
+
 ## [8.0.2](https://github.com/adobe/jsonschema2md/compare/v8.0.1...v8.0.2) (2024-04-09)
 
 
