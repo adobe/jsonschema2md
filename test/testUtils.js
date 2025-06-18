@@ -17,7 +17,7 @@ import { inspect } from 'unist-util-inspect';
 import { select } from 'unist-util-select';
 import path from 'path';
 import gfm from 'remark-gfm';
-import readdirp from 'readdirp';
+import { readdirpPromise } from 'readdirp';
 import { fileURLToPath } from 'url';
 import loader from '../lib/schemaProxy.js';
 import traverse from '../lib/traverseSchema.js';
@@ -79,7 +79,7 @@ ${inspect(node)}`);
 
 export async function loadSchemas(dir) {
   const schemaDir = path.resolve(__dirname, 'fixtures', dir);
-  const schemas = await readdirp.promise(schemaDir, { fileFilter: '*.schema.json' });
+  const schemas = await readdirpPromise(schemaDir, { fileFilter: (f) => f.path.endsWith('.schema.json') });
 
   return schemas.map((schema) => ({
     fileName: schema.basename,

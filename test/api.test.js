@@ -118,8 +118,8 @@ The schemas linked above follow the JSON Schema Spec version: \`http://json-sche
   it('Public API processes from single schema', async () => {
     const result = jsonschema2md(example, {
       includeReadme: true,
-      out: 'tmp',
-      meta: {
+      outDir: 'tmp',
+      metadata: {
         key: 'value',
       },
     });
