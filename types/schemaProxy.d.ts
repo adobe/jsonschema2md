@@ -1,1 +1,1 @@
-export default function loader(): (name: string, schema: any) => any;
+export default function loader(): (/** @type {string} */ name: string, /** @type {any} */ schema: any) => any;

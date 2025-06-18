@@ -52,5 +52,5 @@ export type MarkdownAst = import("../types/api").MarkdownAst;
 export type MarkdownContent = import("../types/api").MarkdownContent;
 export type ReadmeContent = import("../types/api").ReadmeContent;
 export type MarkdownAstFiles = {
-    [name: string]: import("mdast").Root;
+    [name: string]: MarkdownAst;
 };

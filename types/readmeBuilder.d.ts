@@ -1,5 +1,6 @@
 /**
  * Generate the README.md
  * @param {object} opts
+ * @returns {function(Array): import('unist').Parent|null}
  */
-export default function build({ readme }: object): (schemas: any) => import("unist").Parent<import("unist").Node<import("unist").Data>, import("unist").Data>;
+export default function build({ readme }: object): (arg0: any[]) => import("unist").Parent | null;

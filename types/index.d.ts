@@ -42,7 +42,7 @@
  * skip in markdown.
  * @returns {GeneratedOutput} List of raw markdown that were generated from input schema.
  */
-export function jsonschema2md(schema: JsonSchema | import("../types/api").SchemaFiles, options: {
+export function jsonschema2md(schema: JsonSchema | SchemaFiles, options: {
     schemaPath?: string;
     outDir?: string;
     metadata?: {
