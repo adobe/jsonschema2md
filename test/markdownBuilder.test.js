@@ -439,3 +439,32 @@ describe('Testing Markdown Builder: Skip properties', () => {
       .doesNotContain('-   defined in: [Complete JSON Schema]');
   });
 });
+
+describe('Testing Markdown Builder: boolean defaults', () => {
+  let results;
+
+  before(async () => {
+    const schemas = await traverseSchemas('boolean-defaults');
+    const builder = build({ header: false });
+    results = builder(schemas);
+  });
+
+  it('Boolean true default renders correctly', () => {
+    assertMarkdown(results['boolean-defaults'])
+      .contains('enabledByDefault Default Value')
+      .contains('The default value is:')
+      .contains('true');
+  });
+
+  it('Boolean false default renders correctly', () => {
+    assertMarkdown(results['boolean-defaults'])
+      .contains('disabledByDefault Default Value')
+      .contains('The default value is:')
+      .contains('false');
+  });
+
+  it('Boolean with no default does not render default section', () => {
+    assertMarkdown(results['boolean-defaults'])
+      .doesNotContain('noDefault Default Value');
+  });
+});

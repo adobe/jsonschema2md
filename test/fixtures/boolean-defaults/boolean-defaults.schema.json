@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/schemas/boolean-defaults",
+  "title": "Boolean Defaults Test Schema",
+  "description": "Testing boolean default value rendering in markdown generation",
+  "type": "object",
+  "properties": {
+    "enabledByDefault": {
+      "type": "boolean",
+      "default": true,
+      "description": "A boolean property with a default value of true"
+    },
+    "disabledByDefault": {
+      "type": "boolean", 
+      "default": false,
+      "description": "A boolean property with a default value of false"
+    },
+    "noDefault": {
+      "type": "boolean",
+      "description": "A boolean property with no default value"
+    }
+  }
+}
