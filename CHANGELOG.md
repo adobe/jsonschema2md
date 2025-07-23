@@ -1,3 +1,10 @@
+## [8.0.4](https://github.com/adobe/jsonschema2md/compare/v8.0.3...v8.0.4) (2025-07-23)
+
+
+### Bug Fixes
+
+* **markdownBuilder:** boolean defaults didn't render when the default was false ([#656](https://github.com/adobe/jsonschema2md/issues/656)) ([fb87124](https://github.com/adobe/jsonschema2md/commit/fb87124fb384e36678bb09e0c13b857f3b9a4aa9))
+
 ## [8.0.3](https://github.com/adobe/jsonschema2md/compare/v8.0.2...v8.0.3) (2025-06-18)
 
 
