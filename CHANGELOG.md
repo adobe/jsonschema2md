@@ -1,3 +1,10 @@
+## [8.0.6](https://github.com/adobe/jsonschema2md/compare/v8.0.5...v8.0.6) (2025-09-30)
+
+
+### Bug Fixes
+
+* **deps:** update external fixes ([#669](https://github.com/adobe/jsonschema2md/issues/669)) ([0d5265c](https://github.com/adobe/jsonschema2md/commit/0d5265c91ad8f76295f46e6164ede5d34a222128))
+
 ## [8.0.5](https://github.com/adobe/jsonschema2md/compare/v8.0.4...v8.0.5) (2025-08-11)
 
 
