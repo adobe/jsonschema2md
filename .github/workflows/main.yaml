@@ -41,14 +41,16 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     needs: [build, build_win]
+    permissions:
+      id-token: write # needed for npm trusted publishers with OIDC
     steps:
       - uses: actions/checkout@v5
         with:
           persist-credentials: false
-      - name: Use Node.js 20.x
+      - name: Use Node.js 24.x
         uses: actions/setup-node@v5
         with:
-          node-version: '22.x'
+          node-version: '24.x'
       - run: npm install
       - run: npm run semantic-release
         env:

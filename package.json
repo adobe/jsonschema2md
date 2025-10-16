@@ -60,7 +60,7 @@
     "json-logic-js": "axa-ch/cyclic-schemas-test",
     "lint-staged": "16.2.3",
     "mocha": "11.7.2",
-    "semantic-release": "24.2.9",
+    "semantic-release": "25.0.0",
     "typescript": "5.9.2",
     "unist-util-select": "5.1.0"
   },
