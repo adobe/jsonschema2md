@@ -1,3 +1,11 @@
+## [8.0.7](https://github.com/adobe/jsonschema2md/compare/v8.0.6...v8.0.7) (2025-10-17)
+
+
+### Bug Fixes
+
+* add missing GitHub Actions permissions for semantic-release ([#675](https://github.com/adobe/jsonschema2md/issues/675)) ([73f181f](https://github.com/adobe/jsonschema2md/commit/73f181fa9b48c758201ee19e9d0bc6102d10006d))
+* update semantic-release to v25 and node to 24.x for OIDC ([8cf947b](https://github.com/adobe/jsonschema2md/commit/8cf947b4db571192eb5d7ce23d7d118edc7d8708))
+
 ## [8.0.6](https://github.com/adobe/jsonschema2md/compare/v8.0.5...v8.0.6) (2025-09-30)
 
 
