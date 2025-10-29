@@ -28,9 +28,9 @@ describe('Testing Markdown Builder: allOf/anyOf header hierarchy', () => {
     // It should use baseLevel = 2 (property depth) instead of 1
     const allof1Slug = 'schema-properties-tests-configuration-properties-docker-tests-allof-1';
     assertMarkdown(results[allof1Slug])
-      .contains('## 1 Properties')  // Properties heading at level 2 (baseLevel)
-      .contains('### preTestSteps')  // Property detail at level 3 (baseLevel + 1)
-      .contains('#### preTestSteps Type');  // Type section at level 4 (baseLevel + 1 + 1)
+      .contains('## 1 Properties') // Properties heading at level 2 (baseLevel)
+      .contains('### preTestSteps') // Property detail at level 3 (baseLevel + 1)
+      .contains('#### preTestSteps Type'); // Type section at level 4 (baseLevel + 1 + 1)
   });
 
   it('anyOf item schemas should use higher base level for proper hierarchy', () => {
@@ -38,16 +38,16 @@ describe('Testing Markdown Builder: allOf/anyOf header hierarchy', () => {
     // It should also use baseLevel = 2 (property depth) instead of 1
     const anyof1Slug = 'schema-properties-tests-configuration-properties-docker-tests-allof-test-options-anyof-steplist';
     assertMarkdown(results[anyof1Slug])
-      .contains('## 1 Properties')  // Properties heading at level 2 (baseLevel)
-      .contains('### testSteps')  // Property detail at level 3 (baseLevel + 1)
-      .contains('#### testSteps Type');  // Type section at level 4 (baseLevel + 1 + 1)
+      .contains('## 1 Properties') // Properties heading at level 2 (baseLevel)
+      .contains('### testSteps') // Property detail at level 3 (baseLevel + 1)
+      .contains('#### testSteps Type'); // Type section at level 4 (baseLevel + 1 + 1)
   });
 
   it('regular property schemas should still use baseLevel 1', () => {
     // Regular property schemas (not in composition constructs) should still use level 1
     const dockerSlug = 'schema-properties-tests-configuration-properties-docker-tests';
     assertMarkdown(results[dockerSlug])
-      .contains('# Docker Tests Schema')  // Schema header at level 1
-      .contains('## docker Type');  // Type section at level 2 (baseLevel 1 + 1)
+      .contains('# Docker Tests Schema') // Schema header at level 1
+      .contains('## docker Type'); // Type section at level 2 (baseLevel 1 + 1)
   });
 });
