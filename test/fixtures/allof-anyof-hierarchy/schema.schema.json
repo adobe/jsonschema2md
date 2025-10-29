@@ -57,6 +57,35 @@
               }
             }
           ]
+        },
+        "kubernetes": {
+          "title": "Kubernetes Tests",
+          "description": "Run Kubernetes-based tests",
+          "type": "object",
+          "oneOf": [
+            {
+              "title": "helm",
+              "properties": {
+                "helmChart": {
+                  "title": "Helm Chart",
+                  "description": "Helm chart to deploy for testing",
+                  "type": "string"
+                }
+              },
+              "required": ["helmChart"]
+            },
+            {
+              "title": "manifest",
+              "properties": {
+                "manifestFile": {
+                  "title": "Manifest File",
+                  "description": "Kubernetes manifest file to apply",
+                  "type": "string"
+                }
+              },
+              "required": ["manifestFile"]
+            }
+          ]
         }
       }
     }
