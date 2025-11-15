@@ -28,7 +28,7 @@
     "ferrum": "1.9.4",
     "fs-extra": "11.3.2",
     "github-slugger": "2.0.0",
-    "js-yaml": "4.1.0",
+    "js-yaml": "4.1.1",
     "json-schema": "^0.4.0",
     "mdast-builder": "1.1.1",
     "mdast-util-to-string": "4.0.0",
