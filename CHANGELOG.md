@@ -1,3 +1,10 @@
+## [8.0.8](https://github.com/adobe/jsonschema2md/compare/v8.0.7...v8.0.8) (2025-11-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency js-yaml to v4.1.1 [security] ([#686](https://github.com/adobe/jsonschema2md/issues/686)) ([595cb73](https://github.com/adobe/jsonschema2md/commit/595cb730223777ae895356d45a7c24a38ecebad6))
+
 ## [8.0.7](https://github.com/adobe/jsonschema2md/compare/v8.0.6...v8.0.7) (2025-10-17)
 
 
