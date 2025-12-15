@@ -1,3 +1,10 @@
+## [8.0.9](https://github.com/adobe/jsonschema2md/compare/v8.0.8...v8.0.9) (2025-12-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency readdirp to v5 ([9f135d9](https://github.com/adobe/jsonschema2md/commit/9f135d9681896f6718fee41224501a2aa0feeb95))
+
 ## [8.0.8](https://github.com/adobe/jsonschema2md/compare/v8.0.7...v8.0.8) (2025-11-15)
 
 
