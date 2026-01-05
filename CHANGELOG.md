@@ -1,3 +1,10 @@
+## [8.0.10](https://github.com/adobe/jsonschema2md/compare/v8.0.9...v8.0.10) (2026-01-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency fs-extra to v11.3.3 ([#698](https://github.com/adobe/jsonschema2md/issues/698)) ([f569857](https://github.com/adobe/jsonschema2md/commit/f569857b9a01013e8df996f72591d37460691a80))
+
 ## [8.0.9](https://github.com/adobe/jsonschema2md/compare/v8.0.8...v8.0.9) (2025-12-15)
 
 
