@@ -26,7 +26,7 @@
     "@types/unist": "^3.0.3",
     "es2015-i18n-tag": "1.6.1",
     "ferrum": "1.9.4",
-    "fs-extra": "11.3.2",
+    "fs-extra": "11.3.3",
     "github-slugger": "2.0.0",
     "js-yaml": "4.1.1",
     "json-schema": "^0.4.0",
