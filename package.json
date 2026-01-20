@@ -41,7 +41,7 @@
     "yargs": "18.0.0"
   },
   "devDependencies": {
-    "@adobe/eslint-config-helix": "3.0.15",
+    "@adobe/eslint-config-helix": "3.0.16",
     "@eslint/config-helpers": "0.5.0",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
