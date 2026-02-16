@@ -42,10 +42,10 @@
   },
   "devDependencies": {
     "@adobe/eslint-config-helix": "3.0.18",
-    "@eslint/config-helpers": "0.5.1",
+    "@eslint/config-helpers": "0.5.2",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
-    "@semantic-release/github": "12.0.2",
+    "@semantic-release/github": "12.0.3",
     "@types/fs-extra": "11.0.4",
     "@types/github-slugger": "2.0.0",
     "@types/js-yaml": "4.0.9",
@@ -60,7 +60,7 @@
     "json-logic-js": "axa-ch/cyclic-schemas-test",
     "lint-staged": "16.2.7",
     "mocha": "11.7.5",
-    "semantic-release": "25.0.2",
+    "semantic-release": "25.0.3",
     "typescript": "5.9.3",
     "unist-util-select": "5.1.0"
   },
