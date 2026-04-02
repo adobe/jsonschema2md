@@ -140,6 +140,19 @@ The schemas linked above follow the JSON Schema Spec version: \`http://json-sche
       .contains('## examples');
   });
 
+  it('Public API with singleFile generates one markdown per top-level schema', async () => {
+    const result = jsonschema2md(example, {
+      includeReadme: false,
+      singleFile: true,
+    });
+    assert.strictEqual(result.markdown.length, 1);
+    assertMarkdown(result.markdown[0].markdownAst)
+      .contains('## foo')
+      .contains('## bar')
+      .doesNotContain('defined in:')
+      .doesNotContain('Defined by');
+  });
+
   it('Public API with invalid schema', async () => {
     try {
       jsonschema2md('test', {

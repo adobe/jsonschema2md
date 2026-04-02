@@ -440,6 +440,29 @@ describe('Testing Markdown Builder: Skip properties', () => {
   });
 });
 
+describe('Testing Markdown Builder: singleFile', () => {
+  it('Single-file mode omits Defined by column and defined in fact', async () => {
+    const schemas = await traverseSchemas('type');
+    const builder = build({ header: false, singleFile: true });
+    const results = builder(schemas);
+
+    assertMarkdown(results.type)
+      .doesNotContain('Defined by')
+      .doesNotContain('defined in:')
+      .doesNotContain('.md');
+  });
+
+  it('Single-file mode strips file links from type references', async () => {
+    const schemas = await traverseSchemas('type');
+    const builder = build({ header: false, singleFile: true });
+    const results = builder(schemas);
+
+    assertMarkdown(results.button)
+      .contains('Properties')
+      .doesNotContain('button-properties-properties.md');
+  });
+});
+
 describe('Testing Markdown Builder: boolean defaults', () => {
   let results;
 
