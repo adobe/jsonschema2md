@@ -18,7 +18,7 @@ jobs:
       - run: npm install
       - run: git config --global user.email "test@project-helix.io" && git config --global user.name "Test Build"
       - run: npm test
-      - uses: codecov/codecov-action@v5
+      - uses: codecov/codecov-action@v6
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
