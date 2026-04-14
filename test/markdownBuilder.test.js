@@ -511,9 +511,11 @@ describe('Testing Markdown Builder: singleFile', () => {
     const builder = build({ header: false, singleFile: true });
     const results = builder(schemas);
 
-    // Titled types should keep their name text visible
+    // Titled type text ("Properties") should remain visible, but
+    // the .md link target should be stripped
     assertMarkdown(results.button)
-      .contains('Properties');
+      .contains('Properties')
+      .doesNotContain('button-properties-properties.md');
   });
 
   it('Single-file mode omits Details links for untitled object types', async () => {
