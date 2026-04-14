@@ -440,6 +440,110 @@ describe('Testing Markdown Builder: Skip properties', () => {
   });
 });
 
+describe('Testing Markdown Builder: singleFile', () => {
+  it('Single-file mode omits Defined by column and defined in fact', async () => {
+    const schemas = await traverseSchemas('type');
+    const builder = build({ header: false, singleFile: true });
+    const results = builder(schemas);
+
+    assertMarkdown(results.type)
+      .doesNotContain('Defined by')
+      .doesNotContain('defined in:')
+      .doesNotContain('.md');
+  });
+
+  it('Single-file mode strips file links from type references', async () => {
+    const schemas = await traverseSchemas('type');
+    const builder = build({ header: false, singleFile: true });
+    const results = builder(schemas);
+
+    assertMarkdown(results.button)
+      .contains('Properties')
+      .doesNotContain('button-properties-properties.md');
+  });
+
+  it('Single-file mode strips links from tuple item references', async () => {
+    const schemas = await traverseSchemas('arrays');
+    const builder = build({ header: true, singleFile: true });
+    const results = builder(schemas);
+
+    assertMarkdown(results.tuple)
+      .contains('Positive Integer')
+      .contains('Negative Integer')
+      .doesNotContain('tuple-properties-tuple-items-positive-integer.md')
+      .doesNotContain('tuple-properties-tuple-items-negative-integer.md')
+      .doesNotContain('tuple-properties-tuple-zero.md');
+  });
+
+  it('Single-file mode strips links from additionalProperties row', async () => {
+    const schemas = await traverseSchemas('additionalprops');
+    const builder = build({ header: true, singleFile: true });
+    const results = builder(schemas);
+
+    assertMarkdown(results.additionalprops)
+      .doesNotContain('Defined by')
+      .doesNotContain('.md');
+  });
+
+  it('Single-file mode strips links from contains constraints', async () => {
+    const schemas = await traverseSchemas('additionalprops');
+    const builder = build({ header: true, singleFile: true });
+    const results = builder(schemas);
+
+    assertMarkdown(results.arrays)
+      .contains('minimum number of contained items')
+      .contains('maximum number of contained items')
+      .doesNotContain('arrays-contains.md');
+  });
+
+  it('Single-file mode strips links from contentSchema references', async () => {
+    const schemas = await traverseSchemas('content');
+    const builder = build({ header: false, singleFile: true });
+    const results = builder(schemas);
+
+    assertMarkdown(results.jwt)
+      .contains('JSON Web Token')
+      .doesNotContain('jwt-json-web-token.md');
+  });
+
+  it('Single-file mode preserves titled type names but strips their links', async () => {
+    const schemas = await traverseSchemas('type');
+    const builder = build({ header: false, singleFile: true });
+    const results = builder(schemas);
+
+    // Titled type text ("Properties") should remain visible, but
+    // the .md link target should be stripped
+    assertMarkdown(results.button)
+      .contains('Properties')
+      .doesNotContain('button-properties-properties.md');
+  });
+
+  it('Single-file mode omits Details links for untitled object types', async () => {
+    const schemas = await traverseSchemas('readme-1');
+    const builder = build({ header: true, singleFile: true });
+    const results = builder(schemas);
+
+    assertMarkdown(results.complex)
+      .doesNotContain('(Details)')
+      .doesNotContain('Defined by')
+      .doesNotContain('defined in:');
+  });
+
+  it('Single-file mode still renders property tables', async () => {
+    const schemas = await traverseSchemas('readme-1');
+    const builder = build({ header: true, singleFile: true });
+    const results = builder(schemas);
+
+    // Table header should have 4 columns, not 5
+    assertMarkdown(results.abstract)
+      .contains('| Property')
+      .contains('| Type')
+      .contains('| Required')
+      .contains('| Nullable')
+      .doesNotContain('| Defined by');
+  });
+});
+
 describe('Testing Markdown Builder: boolean defaults', () => {
   let results;
 
