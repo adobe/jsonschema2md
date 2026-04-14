@@ -153,6 +153,36 @@ The schemas linked above follow the JSON Schema Spec version: \`http://json-sche
       .doesNotContain('Defined by');
   });
 
+  it('Public API with singleFile filters child schemas from multi-schema input', async () => {
+    const schemasFiles = await loadSchemas('readme-1');
+    const result = jsonschema2md(schemasFiles, {
+      includeReadme: false,
+      singleFile: true,
+    });
+    // readme-1 has 3 top-level schemas (abstract, complex, simple)
+    // without singleFile it produces 31 markdown files for all nested properties
+    assert.strictEqual(result.markdown.length, 3);
+    result.markdown.forEach(({ markdownAst }) => {
+      assertMarkdown(markdownAst)
+        .doesNotContain('Defined by')
+        .doesNotContain('defined in:');
+    });
+  });
+
+  it('Public API with singleFile preserves property content', async () => {
+    const result = jsonschema2md(example, {
+      includeReadme: false,
+      singleFile: true,
+    });
+    // All property sections should still be present in the single file
+    assertMarkdown(result.markdown[0].markdownAst)
+      .contains('## foo')
+      .contains('## bar')
+      .contains('## baz')
+      .contains('## examples')
+      .contains('A simple string.');
+  });
+
   it('Public API with invalid schema', async () => {
     try {
       jsonschema2md('test', {
