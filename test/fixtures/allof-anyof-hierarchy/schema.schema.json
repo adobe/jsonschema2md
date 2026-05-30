@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Example Schema",
+  "type": "object",
+  "properties": {
+    "tests": {
+      "title": "Tests Configuration",
+      "description": "Configure test execution",
+      "type": "object",
+      "properties": {
+        "docker": {
+          "title": "Docker Tests",
+          "description": "Run Docker-based tests",
+          "type": "object",
+          "allOf": [
+            {
+              "title": "test-options",
+              "description": "Test execution options",
+              "anyOf": [
+                {
+                  "title": "script",
+                  "properties": {
+                    "testScript": {
+                      "title": "Test Script",
+                      "description": "Script to execute for testing",
+                      "type": "string"
+                    }
+                  },
+                  "required": ["testScript"]
+                },
+                {
+                  "title": "stepList",
+                  "properties": {
+                    "testSteps": {
+                      "title": "Test Steps",
+                      "description": "List of test steps to execute",
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "required": ["testSteps"]
+                }
+              ]
+            },
+            {
+              "properties": {
+                "preTestSteps": {
+                  "title": "Pre-test Steps",
+                  "description": "Steps to execute before running tests",
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "kubernetes": {
+          "title": "Kubernetes Tests",
+          "description": "Run Kubernetes-based tests",
+          "type": "object",
+          "oneOf": [
+            {
+              "title": "helm",
+              "properties": {
+                "helmChart": {
+                  "title": "Helm Chart",
+                  "description": "Helm chart to deploy for testing",
+                  "type": "string"
+                }
+              },
+              "required": ["helmChart"]
+            },
+            {
+              "title": "manifest",
+              "properties": {
+                "manifestFile": {
+                  "title": "Manifest File",
+                  "description": "Kubernetes manifest file to apply",
+                  "type": "string"
+                }
+              },
+              "required": ["manifestFile"]
+            }
+          ]
+        }
+      }
+    }
+  }
+}
