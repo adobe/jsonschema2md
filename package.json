@@ -26,7 +26,7 @@
     "@types/unist": "^3.0.3",
     "es2015-i18n-tag": "1.6.1",
     "ferrum": "1.9.4",
-    "fs-extra": "11.3.6",
+    "fs-extra": "11.4.0",
     "github-slugger": "2.0.0",
     "js-yaml": "4.3.0",
     "json-schema": "^0.4.0",
@@ -38,11 +38,11 @@
     "remark-stringify": "11.0.0",
     "unified": "11.0.5",
     "unist-util-inspect": "8.1.0",
-    "yargs": "18.0.0"
+    "yargs": "18.1.0"
   },
   "devDependencies": {
     "@adobe/eslint-config-helix": "3.0.29",
-    "@eslint/config-helpers": "0.6.0",
+    "@eslint/config-helpers": "0.7.0",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/git": "10.0.1",
     "@semantic-release/github": "12.0.9",
@@ -58,7 +58,7 @@
     "husky": "9.1.7",
     "i18n-tag-schema": "2.5.0",
     "json-logic-js": "axa-ch/cyclic-schemas-test",
-    "lint-staged": "17.1.0",
+    "lint-staged": "17.2.0",
     "mocha": "11.7.6",
     "semantic-release": "25.0.8",
     "typescript": "6.0.3",
