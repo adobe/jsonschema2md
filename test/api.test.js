@@ -115,6 +115,30 @@ The schemas linked above follow the JSON Schema Spec version: \`http://json-sche
     assert.strictEqual(result.markdown.length, 31);
   });
 
+  /**
+   * When running with no `outDir` and no `schemaOut`, links to JSON Schema
+   * should use `fullPath`, even if it can't be resolved.
+   */
+  it('Public API with non-existent schema path works', async () => {
+    const schemasFiles = await loadSchemas('readme-1');
+    const schemas = schemasFiles.map(({ fileName, fullPath }) => ({
+      fileName: path.join('/my-custom-path-to-schema', fileName),
+      // eslint-disable-next-line global-require, import/no-dynamic-require
+      content: fs.readJSONSync(fullPath),
+    }));
+
+    const result = jsonschema2md(schemas, {
+      // don't output anything
+      header: true,
+    });
+    assert.strictEqual(result.readme, undefined);
+    assert.strictEqual(result.schema.length, 3);
+    assert.strictEqual(result.markdown.length, 32);
+
+    assertMarkdown(result.markdown.find(({ fileName }) => fileName === 'simple.md').markdownAst)
+      .contains('[simple.schema.json](/my-custom-path-to-schema/simple.schema.json "open original schema")');
+  });
+
   it('Public API processes from single schema', async () => {
     const result = jsonschema2md(example, {
       includeReadme: true,
