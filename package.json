@@ -58,7 +58,7 @@
     "husky": "9.1.7",
     "i18n-tag-schema": "2.5.0",
     "json-logic-js": "axa-ch/cyclic-schemas-test",
-    "lint-staged": "17.3.0",
+    "lint-staged": "17.4.1",
     "mocha": "11.8.0",
     "semantic-release": "25.0.9",
     "typescript": "6.0.3",
