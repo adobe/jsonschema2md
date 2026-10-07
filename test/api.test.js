@@ -24,6 +24,32 @@ const __dirname = path.dirname(__filename);
 const example = fs.readJSONSync(path.resolve(__dirname, './fixtures/example/api.schema.json'));
 
 describe('Testing Public API', () => {
+  for (const keyword of ['oneOf', 'anyOf', 'allOf']) {
+    it(`keeps local reference links stable inside ${keyword}`, () => {
+      const result = jsonschema2md({
+        $id: '/',
+        $defs: {
+          sample: { type: 'object', properties: { value: { type: 'string' } } },
+        },
+        properties: {
+          choice: { [keyword]: [{ $ref: '#/$defs/sample' }, { type: 'object' }] },
+        },
+      }, { includeReadme: false });
+      const names = new Set(result.markdown.map(({ fileName }) => fileName));
+      let checked = 0;
+      function checkLinks(node) {
+        if (node.type === 'link' && node.url.endsWith('.md')) {
+          assert.ok(names.has(node.url.replace(/^\.\//, '')), `Missing page: ${node.url}`);
+          checked += 1;
+        }
+        (node.children || []).forEach(checkLinks);
+      }
+      result.markdown.forEach(({ markdownAst }) => checkLinks(markdownAst));
+
+      assert.ok(checked > 0);
+    });
+  }
+
   beforeEach(async () => {
     try {
       await fs.rm(path.resolve(__dirname, '..', 'tmp'), { recursive: true });
