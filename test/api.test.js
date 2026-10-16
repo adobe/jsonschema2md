@@ -24,6 +24,39 @@ const __dirname = path.dirname(__filename);
 const example = fs.readJSONSync(path.resolve(__dirname, './fixtures/example/api.schema.json'));
 
 describe('Testing Public API', () => {
+  [false, true].forEach((reverse) => {
+    it(`links to generated pages for referenced schema IDs (reverse=${reverse})`, () => {
+      const schemas = [{
+        fileName: 'bar.schema.json',
+        content: {
+          $id: 'https://example.org/bar',
+          type: 'object',
+          properties: { moo: { type: 'string' } },
+        },
+      }, {
+        fileName: 'foo.schema.json',
+        content: {
+          $id: 'https://example.org/foo',
+          type: 'object',
+          properties: { bar: { $ref: 'https://example.org/bar' } },
+        },
+      }];
+      const result = jsonschema2md(reverse ? schemas.reverse() : schemas, {
+        includeReadme: true,
+      });
+      const files = new Set(result.markdown.map(({ fileName }) => fileName));
+      const checkLinks = (node) => {
+        if (node.type === 'link' && node.url.endsWith('.md')) {
+          assert.ok(files.has(node.url.replace(/^\.\//, '')), `Missing page: ${node.url}`);
+        }
+        (node.children || []).forEach(checkLinks);
+      };
+      [...result.markdown, result.readme].forEach(({ markdownAst }) => checkLinks(markdownAst));
+      const foo = result.markdown.find(({ fileName }) => fileName === 'foo.md');
+      assert.match(foo.content, /\[Details\]\(bar\.md\)/);
+    });
+  });
+
   beforeEach(async () => {
     try {
       await fs.rm(path.resolve(__dirname, '..', 'tmp'), { recursive: true });
@@ -87,7 +120,7 @@ describe('Testing Public API', () => {
 
 The schemas linked above follow the JSON Schema Spec version: \`http://json-schema.org/draft-06/schema#\`
 `;
-    assert.strictEqual(result.markdown.length, 31);
+    assert.strictEqual(result.markdown.length, 30);
   });
 
   it('Public API processes multiple schemas with content', async () => {
@@ -112,7 +145,7 @@ The schemas linked above follow the JSON Schema Spec version: \`http://json-sche
       .contains('# README')
       .contains('The schemas linked above');
     assert.strictEqual(result.schema.length, 3);
-    assert.strictEqual(result.markdown.length, 31);
+    assert.strictEqual(result.markdown.length, 30);
   });
 
   it('Public API processes from single schema', async () => {
