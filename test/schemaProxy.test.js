@@ -191,4 +191,16 @@ describe('Testing Schema Proxy', () => {
     assert.equal(schemas[0][slug], 'deadref');
     assert.deepEqual(schemas[0].properties.foo, { $ref: 'http://unknown-ref' });
   });
+
+  it('Schema proxy handles a property named $id', () => {
+    const proxied = loader()('id.schema.json', {
+      $id: 'https://example.com/schemas/id',
+      properties: {
+        $id: { type: 'string' },
+      },
+    });
+
+    assert.equal(proxied.properties.$id.type, 'string');
+    assert.equal(proxied.properties[id], 'https://example.com/schemas/id');
+  });
 });
