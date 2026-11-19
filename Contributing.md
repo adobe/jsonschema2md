@@ -55,15 +55,15 @@ Feedback on the pull request will be given in writing, in GitHub.
 
 ## Commit Message Format
 
-This project uses a structured commit changelog format that should be used for every commit. Use npm run commit instead of your usual git commit to generate commit messages using a wizard.
+This project uses [Conventional Commits](https://www.conventionalcommits.org/) (Angular convention) for every commit, so that `semantic-release` can determine the next version from the commit messages. Write your commit messages accordingly, e.g. `fix: handle empty response` or `feat(config): add support for …`.
 
 ```bash
 # either add all changed files
 $ git add -A
 # or selectively add files
 $ git add package.json
-# then commit using the wizard
-$ npm run commit
+# then commit with a conventional commit message
+$ git commit -m "fix: handle empty response"
 ```
 
 # Release Management
