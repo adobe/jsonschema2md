@@ -10,7 +10,6 @@
   "type": "module",
   "scripts": {
     "semantic-release": "npm run emit-types && npx semantic-release",
-    "commit": "git-cz",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
     "start": "node cli.js",
@@ -52,8 +51,6 @@
     "@types/node": "24.19.2",
     "@types/yargs": "17.0.35",
     "c8": "11.0.0",
-    "commitizen": "4.3.2",
-    "cz-conventional-changelog": "3.3.0",
     "eslint": "9.39.5",
     "husky": "9.1.7",
     "i18n-tag-schema": "2.5.0",
@@ -80,9 +77,6 @@
     "*.js": "eslint"
   },
   "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    },
     "ghooks": {
       "pre-commit": "npx lint-staged"
     }
