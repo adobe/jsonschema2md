@@ -162,7 +162,6 @@ describe('Testing Markdown Builder: YAML examples', () => {
 \`\`\`yaml
 format: Coolness
 value: Maximum
-
 \`\`\``;
   });
 });
