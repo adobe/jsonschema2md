@@ -116,6 +116,23 @@ describe('Testing Schema Proxy', () => {
     ]));
   });
 
+  ['no-id.schema.json', path.resolve(__dirname, 'fixtures', 'no-id.schema.json')].forEach((name) => {
+    it(`Schema proxy resolves local references without an ID in ${name}`, () => {
+      const myloader = loader();
+      const createSchema = (type) => ({
+        type: 'object',
+        definitions: { value: { type } },
+        properties: { value: { $ref: '#/definitions/value' } },
+      });
+      const first = myloader(name, createSchema('string'));
+      const second = myloader(`${name}.other`, createSchema('number'));
+
+      assert.strictEqual(first.properties.value.type, 'string');
+      assert.strictEqual(second.properties.value.type, 'number');
+      assert.strictEqual(first.properties.value.type, 'string');
+    });
+  });
+
   it('Schema proxy generates unique names', () => {
     const myloader = loader();
     const proxied1 = myloader('proxy.schema.json', example);

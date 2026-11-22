@@ -140,6 +140,15 @@ The schemas linked above follow the JSON Schema Spec version: \`http://json-sche
       .contains('## examples');
   });
 
+  it('Public API resolves local references without an ID', async () => {
+    const schemas = await loadSchemas('local-references');
+    const result = jsonschema2md(schemas, { includeReadme: true });
+
+    assert.ok(result.readme.content);
+    assert.ok(result.markdown.some(({ content }) => content.includes('## class')));
+    assert.ok(result.markdown.some(({ content }) => content.includes('## allowedSuccessors')));
+  });
+
   it('Public API with singleFile generates one markdown per top-level schema', async () => {
     const result = jsonschema2md(example, {
       includeReadme: false,
